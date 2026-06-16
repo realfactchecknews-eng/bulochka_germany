@@ -33,36 +33,21 @@
     </div>
   </div>
 
-  <!-- Firebase SDK -->
+  <!-- Сначала грузим конфиг, потом Firebase -->
+  <script src="js/firebase-config.js"></script>
+
   <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+    import { initializeApp }                        from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged }
+                                                    from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
-    // ─── ВСТАВЬ СВОЙ FIREBASE CONFIG СЮДА ───
-    const firebaseConfig = {
-      apiKey: "REPLACE_API_KEY",
-      authDomain: "REPLACE_AUTH_DOMAIN",
-      projectId: "REPLACE_PROJECT_ID",
-      storageBucket: "REPLACE_STORAGE_BUCKET",
-      messagingSenderId: "REPLACE_MESSAGING_SENDER_ID",
-      appId: "REPLACE_APP_ID",
-      databaseURL: "REPLACE_DATABASE_URL"
-    };
-    // ─────────────────────────────────────────
-
-    const app = initializeApp(firebaseConfig);
+    const app  = initializeApp(FIREBASE_CONFIG);
     const auth = getAuth(app);
 
-    // Если уже залогинена — сразу на главную
+    // Уже залогинена — сразу на главную
     onAuthStateChanged(auth, user => {
       if (user) window.location.href = 'index.html';
     });
-
-    // Маппинг логинов → email (чтобы Булочка вводила слово, не email)
-    const USERS = {
-      'bulochka': 'bulochka@bulochka-deutsch.de',
-      'matvei':   'matvei@bulochka-deutsch.de',
-    };
 
     window.doLogin = async function() {
       const loginVal = document.getElementById('login-input').value.trim().toLowerCase();
@@ -71,19 +56,30 @@
       const btn      = document.getElementById('login-btn');
 
       errEl.textContent = '';
-      if (!loginVal || !passVal) { errEl.textContent = 'Введи логин и пароль!'; return; }
 
-      const email = USERS[loginVal];
-      if (!email) { errEl.textContent = 'Неизвестный логин 🤔'; return; }
+      if (!loginVal || !passVal) {
+        errEl.textContent = 'Введи логин и пароль!';
+        return;
+      }
+
+      const email = USER_MAP[loginVal];
+      if (!email) {
+        errEl.textContent = `Неизвестный логин «${loginVal}» 🤔`;
+        return;
+      }
 
       btn.textContent = 'Входим...';
       btn.disabled = true;
 
       try {
         await signInWithEmailAndPassword(auth, email, passVal);
+        localStorage.setItem('bulochka-login', loginVal);
         window.location.href = 'index.html';
       } catch (e) {
-        errEl.textContent = 'Неверный пароль 🙈';
+        console.error(e);
+        errEl.textContent = e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential'
+          ? 'Неверный пароль 🙈'
+          : 'Ошибка: ' + e.message;
         btn.textContent = 'Войти ❤️';
         btn.disabled = false;
       }
@@ -96,18 +92,15 @@
   </script>
 
   <script>
-    // Floating hearts
     const fh = document.getElementById('floating-hearts');
-    ['❤️','🩷','💕','💗','💓','🌸'].forEach((ch, i) => {
+    ['❤️','🩷','💕','💗','💓','🌸'].forEach((ch) => {
       const el = document.createElement('div');
       el.className = 'fh';
       el.textContent = ch;
       el.style.cssText = `left:${Math.random()*100}%;bottom:-10%;font-size:${0.9+Math.random()*1.2}rem;animation-delay:${Math.random()*18}s;animation-duration:${18+Math.random()*12}s;`;
       fh.appendChild(el);
     });
-
-    // Enter key
-    document.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Enter') window.doLogin && window.doLogin(); });
   </script>
 </body>
 </html>
