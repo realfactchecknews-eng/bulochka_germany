@@ -819,11 +819,14 @@ tr:nth-child(even) td { background: var(--milk-2); }
 /* ── MAIN BLOCKS (course + writing) ── */
 .main-blocks {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 14px;
   margin-bottom: 28px;
 }
-@media (max-width: 560px) {
+@media (max-width: 760px) {
+  .main-blocks { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
   .main-blocks { grid-template-columns: 1fr; }
 }
 .main-block {
@@ -850,6 +853,11 @@ tr:nth-child(even) td { background: var(--milk-2); }
   border-color: #ffd6e7;
 }
 .main-block-writing:hover { border-color: var(--pink-400); }
+.main-block-grammar {
+  background: linear-gradient(135deg, #f0f7ff, #e8f0ff);
+  border-color: #c5d9f7;
+}
+.main-block-grammar:hover { border-color: #7bb8f5; }
 .mb-icon { font-size: 2.2rem; flex-shrink: 0; }
 .mb-info { flex: 1; }
 .mb-title { font-weight: 800; font-size: 1rem; color: var(--text-dark); margin-bottom: 4px; font-family: 'Nunito', sans-serif; }
