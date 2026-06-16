@@ -62,6 +62,19 @@
     // Экспортируем pushToCloud чтобы lesson.js мог вызвать после завершения урока
     window._pushToCloud = pushToCloud;
 
+    // Автосохранение: тихо пушим в облако без уведомления (дебаунс внутри pushToCloud)
+    window._autoSave = () => {
+      if (typeof pushToCloud === 'function') pushToCloud();
+    };
+
+    // Сохраняем при уходе со страницы (закрытие вкладки / переход)
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') pushToCloud();
+    });
+
+    // Периодическое автосохранение каждые 60 секунд
+    setInterval(() => pushToCloud(), 60000);
+
     function showSync(msg) {
       const bar = document.getElementById('sync-bar');
       document.getElementById('sync-status').textContent = msg;

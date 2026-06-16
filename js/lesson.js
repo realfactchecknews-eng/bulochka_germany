@@ -163,6 +163,7 @@ function checkChoice(exIdx) {
     fb.textContent = `✗ Не совсем. Правильный ответ: ${ex.options[correct]}`;
     fb.className = 'feedback bad';
   }
+  window._autoSave?.();
 }
 
 function checkFill(exIdx) {
@@ -189,6 +190,7 @@ function checkFill(exIdx) {
     fb.textContent = `✗ Почти! Правильный ответ: ${correct}`;
     fb.className = 'feedback bad';
   }
+  window._autoSave?.();
 }
 
 function completeLesson() {
@@ -199,7 +201,6 @@ function completeLesson() {
   const newXP = addXPLocal(xp);
   document.getElementById('modal-xp').textContent = `+${xp} XP · Всего: ${newXP} XP`;
   document.getElementById('complete-modal').classList.add('show');
-  // Синхронизируем прогресс в облако
   if (typeof window._pushToCloud === 'function') {
     window._pushToCloud();
     if (typeof window.showSync === 'function') window.showSync('☁️ Прогресс сохранён!');
