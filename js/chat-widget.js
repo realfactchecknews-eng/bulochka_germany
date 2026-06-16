@@ -1,5 +1,5 @@
 import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-import { initializeApp, getApps } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { initializeApp, getApps, getApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 
 const MODEL = 'openai/gpt-4o-mini';
 
@@ -22,9 +22,10 @@ async function loadKey() {
   if (orKey) return orKey;
   if (window._orKey) { orKey = window._orKey; return orKey; }
   try {
-    const appName = 'chat-widget';
-    const existing = getApps().find(a => a.name === appName);
-    const app = existing || initializeApp(FIREBASE_CONFIG, appName);
+    // Используем уже инициализированный дефолтный app (авторизован через sync.js)
+    const apps = getApps();
+    const app = apps.find(a => a.name === '[DEFAULT]') || apps[0]
+      || initializeApp(FIREBASE_CONFIG, 'chat-key');
     const db = getFirestore(app);
     const snap = await getDoc(doc(db, 'config', 'openrouter'));
     if (snap.exists()) { orKey = snap.data().key; return orKey; }
