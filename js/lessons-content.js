@@ -609,7 +609,7 @@ const LESSONS_CONTENT = {
       { type: 'choice', question: 'Ich ___ eine Frage.', options: ['habe', 'hast', 'hat', 'haben'], answer: 0 },
       { type: 'choice', question: 'Er ___ keine Zeit.', options: ['hat', 'habe', 'hast', 'habt'], answer: 0 },
       { type: 'fill', question: 'Wir ___ Hunger. (haben)', answer: 'haben', placeholder: 'h...' },
-      { type: 'choice', question: 'Hast du ___? (Glück — удача)', options: ['Glück', 'Hunger', 'Zeit', 'все верно'], answer: 3 },
+      { type: 'fill', question: 'Du ___ viel Glück! (haben)', answer: 'hast', placeholder: 'h...' },
       { type: 'fill', question: 'Sie (она) ___ ein Visum für Österreich.', answer: 'hat', placeholder: 'h...' },
     ],
   },
