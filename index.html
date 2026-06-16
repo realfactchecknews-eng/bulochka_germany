@@ -6,12 +6,50 @@
   <title>Булочка учит Deutsch 🥐</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- ❤️ HEART SPLASH -->
+  <div id="heart-splash">
+    <div class="heart-wrap">
+      <div class="heart-petals" id="petals"></div>
+      <svg class="heart-svg" viewBox="0 0 200 190" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffadd1"/>
+            <stop offset="100%" style="stop-color:#e0397f"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <path fill="url(#hg)" filter="url(#glow)"
+          d="M100 170 C100 170 20 120 20 65
+             C20 35 42 15 65 15
+             C80 15 92 23 100 35
+             C108 23 120 15 135 15
+             C158 15 180 35 180 65
+             C180 120 100 170 100 170Z"/>
+      </svg>
+      <div class="heart-text">
+        <span class="line1">for Bulochka</span>
+        <span class="line2">with Love 🥐</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🌸 Floating hearts bg -->
+  <div class="floating-hearts" id="floating-hearts"></div>
+
+  <!-- HEADER -->
   <header class="header">
     <div class="container">
-      <div class="logo">🥐 <span>Булочка</span> учит Deutsch</div>
+      <div class="logo">
+        <span class="logo-heart">🤍</span>
+        <span>Булочка</span> учит Deutsch
+      </div>
       <div class="header-right">
         <div class="xp-badge">⚡ <span id="total-xp">0</span> XP</div>
         <div class="streak-badge">🔥 <span id="streak">0</span> дней</div>
@@ -21,44 +59,96 @@
 
   <main class="main">
     <div class="container">
-      <!-- Hero -->
+
+      <!-- HERO -->
       <section class="hero">
         <div class="hero-text">
-          <h1>Привет, Булочка! 👋</h1>
-          <p>Твой персональный курс немецкого. От A1 до B1 — шаг за шагом.<br>
-          Каждый день немного — и ты уже в Австрии 🇦🇹</p>
+          <h1>Привет, <em>Булочка!</em> 🥐</h1>
+          <p>Твой персональный курс немецкого — от A1 до B1.<br>
+          Каждый день немного — и ты уже в Австрии 🇦🇹✨</p>
         </div>
-        <div class="hero-progress">
-          <div class="level-card">
-            <div class="level-label">Текущий уровень</div>
-            <div class="level-badge">A1</div>
-            <div class="level-goal">Цель: B1 для поступления</div>
+        <div class="hero-cards">
+          <div class="hero-card">
+            <div class="label">Уровень</div>
+            <div class="level-big">A1</div>
+            <div class="goal-text">Цель: B1 🎓</div>
           </div>
-          <div class="overall-progress">
-            <div class="progress-label">Общий прогресс</div>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" id="overall-bar" style="width:0%"></div>
+          <div class="hero-card">
+            <div class="label">Прогресс</div>
+            <div class="prog-bar-wrap">
+              <div class="prog-bar" id="overall-bar"></div>
             </div>
-            <div class="progress-pct" id="overall-pct">0%</div>
+            <div class="prog-pct" id="overall-pct">0%</div>
           </div>
         </div>
       </section>
 
-      <!-- Path -->
+      <!-- MODULES -->
       <section class="path">
-        <h2>Путь обучения</h2>
-        <div class="modules" id="modules-container"></div>
+        <div class="section-title">🌸 Путь обучения</div>
+        <div id="modules-container"></div>
       </section>
+
     </div>
   </main>
 
   <footer class="footer">
     <div class="container">
-      Сделано с ❤️ Матвеем специально для Булочки
+      Сделано с <span>❤️</span> Матвеем специально для Булочки
     </div>
   </footer>
 
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    // ── HEART SPLASH ──
+    function spawnPetals() {
+      const container = document.getElementById('petals');
+      const colors = ['#ffadd1','#ffc8df','#ff80b9','#ffb3d1','#ffd6e7'];
+      for (let i = 0; i < 18; i++) {
+        const p = document.createElement('div');
+        p.className = 'petal';
+        const angle = (i / 18) * 360;
+        const dist = 160 + Math.random() * 80;
+        const tx = Math.cos(angle * Math.PI / 180) * dist + 'px';
+        const ty = Math.sin(angle * Math.PI / 180) * dist + 'px';
+        p.style.cssText = `
+          background:${colors[i % colors.length]};
+          left:calc(50% - 5px);
+          top:calc(50% - 5px);
+          --tx:${tx}; --ty:${ty};
+          --rot:${Math.random()*360}deg;
+          animation-delay:${0.7 + i * 0.03}s;
+          animation-duration:${1 + Math.random() * 0.5}s;
+          width:${6 + Math.random()*8}px;
+          height:${6 + Math.random()*8}px;
+        `;
+        container.appendChild(p);
+      }
+    }
+    spawnPetals();
+    setTimeout(() => {
+      const splash = document.getElementById('heart-splash');
+      splash.classList.add('fade-out');
+      setTimeout(() => splash.remove(), 900);
+    }, 2600);
+
+    // ── FLOATING HEARTS BG ──
+    const fhContainer = document.getElementById('floating-hearts');
+    const fhChars = ['🤍','🩷','💕','🌸','✨'];
+    for (let i = 0; i < 12; i++) {
+      const el = document.createElement('div');
+      el.className = 'fh';
+      el.textContent = fhChars[i % fhChars.length];
+      el.style.cssText = `
+        left:${Math.random()*100}%;
+        bottom:${-10 - Math.random()*20}%;
+        font-size:${0.9 + Math.random()*1.2}rem;
+        animation-delay:${Math.random()*18}s;
+        animation-duration:${18 + Math.random()*14}s;
+      `;
+      fhContainer.appendChild(el);
+    }
+  </script>
 </body>
 </html>
