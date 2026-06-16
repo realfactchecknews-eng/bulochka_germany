@@ -285,19 +285,35 @@
 
   <script type="module">
     import { initAuth, logout } from './js/sync.js';
+    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+
+    const _app = initializeApp(FIREBASE_CONFIG, 'writing');
+    const _db  = getFirestore(_app);
+
     document.getElementById('logout-btn').addEventListener('click', () => {
       if (confirm('Выйти из аккаунта?')) logout();
     });
-    initAuth(() => {
+
+    initAuth(async () => {
       document.getElementById('total-xp').textContent = localStorage.getItem('bulochka-xp') || '0';
       document.getElementById('streak').textContent = localStorage.getItem('bulochka-streak') || '0';
       const name = localStorage.getItem('bulochka-login') || 'Булочка';
       document.getElementById('user-name').textContent = name.charAt(0).toUpperCase() + name.slice(1);
+
+      // Загружаем ключ из Firestore
+      try {
+        const snap = await getDoc(doc(_db, 'config', 'openrouter'));
+        if (snap.exists()) {
+          window._orKey = snap.data().key;
+        }
+      } catch(e) {
+        console.warn('Не удалось загрузить ключ из Firestore:', e);
+      }
     });
   </script>
 
   <script>
-    const OPENROUTER_KEY = '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';
     const MODEL = 'openai/gpt-4o-mini';
     const HISTORY_KEY = 'bulochka-writing-history';
 
@@ -446,6 +462,14 @@
 
       if (!text || text.split(/\s+/).length < 5) {
         bodyEl.textContent = 'Напиши хотя бы несколько предложений на немецком 🙈';
+        resultEl.classList.add('visible');
+        resultEl.querySelector('.ai-result-header').style.display = 'flex';
+        return;
+      }
+
+      const OPENROUTER_KEY = window._orKey;
+      if (!OPENROUTER_KEY) {
+        bodyEl.textContent = '⚠️ Ключ ещё загружается, попробуй через секунду.';
         resultEl.classList.add('visible');
         resultEl.querySelector('.ai-result-header').style.display = 'flex';
         return;
