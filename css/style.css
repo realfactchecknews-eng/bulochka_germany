@@ -111,6 +111,35 @@ body {
   100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot)); }
 }
 
+/* ── ENTRY ANIMATIONS ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.hero       { animation: slideUp 0.7s cubic-bezier(0.34,1.2,0.64,1) 0.1s both; }
+.section-title { animation: fadeIn 0.6s ease 0.3s both; }
+.module     { animation: slideUp 0.6s cubic-bezier(0.34,1.2,0.64,1) both; }
+.module:nth-child(1) { animation-delay: 0.35s; }
+.module:nth-child(2) { animation-delay: 0.45s; }
+.module:nth-child(3) { animation-delay: 0.55s; }
+.module:nth-child(4) { animation-delay: 0.65s; }
+.module:nth-child(5) { animation-delay: 0.75s; }
+.module:nth-child(6) { animation-delay: 0.85s; }
+.module:nth-child(7) { animation-delay: 0.95s; }
+
 /* ── HEADER ── */
 .header {
   background: rgba(255, 248, 250, 0.92);

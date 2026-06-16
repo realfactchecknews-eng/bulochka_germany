@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Булочка учит Deutsch 🥐</title>
+  <title>Булочка учит Deutsch</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
@@ -21,7 +21,7 @@
             <stop offset="100%" style="stop-color:#e0397f"/>
           </linearGradient>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feGaussianBlur stdDeviation="8" result="blur"/>
             <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
           </filter>
         </defs>
@@ -35,19 +35,19 @@
       </svg>
       <div class="heart-text">
         <span class="line1">for Bulochka</span>
-        <span class="line2">with Love 🥐</span>
+        <span class="line2">with Love ❤️</span>
       </div>
     </div>
   </div>
 
-  <!-- 🌸 Floating hearts bg -->
+  <!-- Floating hearts bg -->
   <div class="floating-hearts" id="floating-hearts"></div>
 
   <!-- HEADER -->
   <header class="header">
     <div class="container">
       <div class="logo">
-        <span class="logo-heart">🤍</span>
+        <span class="logo-heart">❤️</span>
         <span>Булочка</span> учит Deutsch
       </div>
       <div class="header-right">
@@ -63,7 +63,7 @@
       <!-- HERO -->
       <section class="hero">
         <div class="hero-text">
-          <h1>Привет, <em>Булочка!</em> 🥐</h1>
+          <h1>Привет, <em>Булочка!</em> ❤️</h1>
           <p>Твой персональный курс немецкого — от A1 до B1.<br>
           Каждый день немного — и ты уже в Австрии 🇦🇹✨</p>
         </div>
@@ -80,67 +80,6 @@
             </div>
             <div class="prog-pct" id="overall-pct">0%</div>
           </div>
-        </div>
-      </section>
-
-      <!-- RESOURCES -->
-      <section class="resources">
-        <div class="section-title">🎬 Любимые ресурсы Булочки</div>
-        <div class="resources-grid">
-
-          <!-- Yehor card -->
-          <div class="resource-card rc-yehor">
-            <div class="rc-avatar">Є</div>
-            <div class="rc-body">
-              <div class="rc-tag">YouTube · Онлайн-платформа · A1–C1</div>
-              <h3>Deutsch mit Yehor</h3>
-              <p>Егор объясняет немецкий понятно и без занудства. На платформе 500+ упражнений с авто-проверкой, AI-тьютор, словарный тренажёр и видеоуроки. Часть курсов бесплатно!</p>
-              <div class="rc-features">
-                <span class="rc-feat">🤖 AI-тьютор</span>
-                <span class="rc-feat">📝 500+ упражнений</span>
-                <span class="rc-feat">🔊 Аудио</span>
-              </div>
-              <div class="rc-links">
-                <a href="https://youtube.com/@deutschmityehor" target="_blank" class="rc-btn rc-btn-yt">▶ YouTube</a>
-                <a href="https://platform.deutsch-mit-yehor.com/" target="_blank" class="rc-btn rc-btn-plat">🎓 Платформа</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Becker card -->
-          <div class="resource-card rc-becker">
-            <div class="rc-avatar">B</div>
-            <div class="rc-body">
-              <div class="rc-tag">YouTube · С нуля до C1</div>
-              <h3>Александр Беккер</h3>
-              <p>Структурный курс немецкого от абсолютного нуля до уровня C1. Хорошо дополняет Егора — другой стиль подачи, много практики и разборов.</p>
-              <div class="rc-features">
-                <span class="rc-feat">🎯 0 → C1</span>
-                <span class="rc-feat">📚 Структурно</span>
-              </div>
-              <div class="rc-links">
-                <a href="https://youtube.com/@becker_21" target="_blank" class="rc-btn rc-btn-yt">▶ YouTube</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Recommended video -->
-          <div class="resource-card rc-video">
-            <div class="rc-avatar rc-av-play">▶</div>
-            <div class="rc-body">
-              <div class="rc-tag">⭐ С этого начни!</div>
-              <h3>Как учить немецкий с нуля?</h3>
-              <p>«План, ресурсы, методика» — видео Егора, с которого стоит начать. Полный разбор системы немецкого языка за одно видео.</p>
-              <div class="rc-features">
-                <span class="rc-feat">🌱 Для новичков</span>
-                <span class="rc-feat">🗺️ План обучения</span>
-              </div>
-              <div class="rc-links">
-                <a href="https://youtu.be/cSVgpQXsu9w" target="_blank" class="rc-btn rc-btn-yt">▶ Смотреть</a>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -165,24 +104,21 @@
     // ── HEART SPLASH ──
     function spawnPetals() {
       const container = document.getElementById('petals');
-      const colors = ['#ffadd1','#ffc8df','#ff80b9','#ffb3d1','#ffd6e7'];
-      for (let i = 0; i < 18; i++) {
+      const colors = ['#ffadd1','#ffc8df','#ff80b9','#ffb3d1','#ffd6e7','#ff99c8'];
+      for (let i = 0; i < 24; i++) {
         const p = document.createElement('div');
         p.className = 'petal';
-        const angle = (i / 18) * 360;
-        const dist = 160 + Math.random() * 80;
+        const angle = (i / 24) * 360;
+        const dist = 160 + Math.random() * 100;
         const tx = Math.cos(angle * Math.PI / 180) * dist + 'px';
         const ty = Math.sin(angle * Math.PI / 180) * dist + 'px';
         p.style.cssText = `
           background:${colors[i % colors.length]};
-          left:calc(50% - 5px);
-          top:calc(50% - 5px);
-          --tx:${tx}; --ty:${ty};
-          --rot:${Math.random()*360}deg;
-          animation-delay:${0.7 + i * 0.03}s;
-          animation-duration:${1 + Math.random() * 0.5}s;
-          width:${6 + Math.random()*8}px;
-          height:${6 + Math.random()*8}px;
+          left:calc(50% - 5px); top:calc(50% - 5px);
+          --tx:${tx}; --ty:${ty}; --rot:${Math.random()*360}deg;
+          animation-delay:${0.6 + i * 0.025}s;
+          animation-duration:${1.2 + Math.random() * 0.6}s;
+          width:${5 + Math.random()*10}px; height:${5 + Math.random()*10}px;
         `;
         container.appendChild(p);
       }
@@ -192,21 +128,21 @@
       const splash = document.getElementById('heart-splash');
       splash.classList.add('fade-out');
       setTimeout(() => splash.remove(), 900);
-    }, 2600);
+    }, 2800);
 
     // ── FLOATING HEARTS BG ──
     const fhContainer = document.getElementById('floating-hearts');
-    const fhChars = ['🤍','🩷','💕','🌸','✨'];
-    for (let i = 0; i < 12; i++) {
+    const fhChars = ['❤️','🩷','💕','💗','💓','🌸','✨','💝','💖','🩷'];
+    for (let i = 0; i < 18; i++) {
       const el = document.createElement('div');
       el.className = 'fh';
       el.textContent = fhChars[i % fhChars.length];
       el.style.cssText = `
         left:${Math.random()*100}%;
         bottom:${-10 - Math.random()*20}%;
-        font-size:${0.9 + Math.random()*1.2}rem;
-        animation-delay:${Math.random()*18}s;
-        animation-duration:${18 + Math.random()*14}s;
+        font-size:${0.8 + Math.random()*1.4}rem;
+        animation-delay:${Math.random()*20}s;
+        animation-duration:${20 + Math.random()*16}s;
       `;
       fhContainer.appendChild(el);
     }
