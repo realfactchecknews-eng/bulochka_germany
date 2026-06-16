@@ -697,6 +697,7 @@ tr:nth-child(even) td { background: var(--milk-2); }
 .fill-input:focus { border-color: var(--pink-300); }
 .fill-input.correct-input { border-color: #4caf7d; background: #eefbf3; }
 .fill-input.wrong-input { border-color: #e57070; background: #fdf0f0; }
+.translate-input { min-height: 60px; resize: vertical; line-height: 1.5; }
 
 .check-btn {
   margin-top: 14px;

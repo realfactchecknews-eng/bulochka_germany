@@ -100,6 +100,17 @@ function renderLesson() {
           <button class="check-btn" id="check-${i}" onclick="checkFill(${i})" disabled>Проверить</button>
           <div class="feedback" id="fb-${i}"></div>
         </div>`;
+    } else if (ex.type === 'translate') {
+      exerciseHtml += `
+        <div class="exercise" id="ex-${i}">
+          <div class="exercise-num">Перевод ${i + 1}</div>
+          <div class="exercise-q">${ex.question}</div>
+          <div class="exercise-hint" style="font-size:0.82rem;color:#b06090;margin-bottom:8px;">${ex.hint || 'Напиши по-немецки'}</div>
+          <textarea class="fill-input translate-input" id="fill-${i}" placeholder="${ex.placeholder || 'Auf Deutsch...'}"
+            oninput="enableFillCheck(${i})" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();checkFill(${i});}" rows="2"></textarea>
+          <button class="check-btn" id="check-${i}" onclick="checkFill(${i})" disabled>Проверить</button>
+          <div class="feedback" id="fb-${i}"></div>
+        </div>`;
     }
   });
 
@@ -179,7 +190,10 @@ function checkFill(exIdx) {
   input.disabled = true;
   document.getElementById(`check-${exIdx}`).disabled = true;
 
-  if (val.toLowerCase() === correct.toLowerCase()) {
+  // Поддержка нескольких правильных ответов через |
+  const correctOptions = correct.split('|').map(s => s.trim().toLowerCase());
+  const isCorrect = correctOptions.some(opt => val.toLowerCase() === opt);
+  if (isCorrect) {
     input.classList.add('correct-input');
     exEl.classList.add('correct');
     fb.textContent = '✓ Правильно!';
@@ -187,7 +201,7 @@ function checkFill(exIdx) {
   } else {
     input.classList.add('wrong-input');
     exEl.classList.add('wrong');
-    fb.textContent = `✗ Почти! Правильный ответ: ${correct}`;
+    fb.textContent = `✗ Почти! Правильный ответ: ${correctOptions[0]}`;
     fb.className = 'feedback bad';
   }
   window._autoSave?.();

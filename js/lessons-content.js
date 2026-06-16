@@ -1023,89 +1023,155 @@ const LESSONS_CONTENT = {
   // ══════════════════════════════════════════════════════════
 
   'trennbare-verben': {
-    title: 'Отделяемые глаголы (Präfix)',
+    title: 'Отделяемые глаголы (Präfix) — Die Gelbe Kap. 7',
     level: 'A1 · Грамматика',
-    intro: 'В немецком многие глаголы состоят из приставки + основы. В предложении приставка "отлетает" в конец — это одна из самых частых ошибок новичков!',
+    intro: 'В немецком многие глаголы состоят из приставки + основы. В предложении приставка «отлетает» в самый конец — это одна из самых частых ошибок у новичков. Но правило простое и красивое!',
     theory: [
       {
-        heading: '✂️ Как работают отделяемые приставки',
+        heading: '✂️ Принцип отделяемых приставок',
         content: `
-          <p>Отделяемые приставки: <b>auf-, an-, aus-, mit-, ab-, ein-, vor-, zu-, nach-, weg-</b></p>
+          <p>Глагол в словаре выглядит цельно: <b>aufstehen</b>. Но в предложении приставка уходит в конец:</p>
           <div class="example-box">
-            <div class="de">aufstehen → Ich stehe um 7 Uhr <b>auf</b>.</div>
+            <div class="de">aufstehen → Ich <b>stehe</b> um 7 Uhr <b>auf</b>.</div>
             <div class="ru">вставать → Я встаю в 7 часов.</div>
           </div>
           <div class="example-box">
-            <div class="de">anrufen → Er ruft seine Mutter <b>an</b>.</div>
+            <div class="de">anrufen → Er <b>ruft</b> seine Mutter <b>an</b>.</div>
             <div class="ru">звонить → Он звонит своей маме.</div>
           </div>
           <div class="example-box">
-            <div class="de">mitkommen → Kommst du <b>mit</b>?</div>
+            <div class="de">mitkommen → <b>Kommst</b> du <b>mit</b>?</div>
             <div class="ru">идти вместе → Ты идёшь с нами?</div>
           </div>
-          <p>В инфинитиве и в словаре глагол пишется целиком: <b>aufstehen</b>, <b>anrufen</b>.</p>
+          <p>Отделяемые приставки: <b>auf‑, an‑, aus‑, mit‑, ab‑, ein‑, vor‑, zu‑, nach‑, weg‑, zurück‑, weiter‑</b></p>
+          <p>НЕ отделяются приставки: <b>be‑, ge‑, er‑, ver‑, zer‑, ent‑, emp‑, miss‑</b></p>
         `
       },
       {
-        heading: '📋 Самые важные отделяемые глаголы',
+        heading: '📋 50 важнейших отделяемых глаголов',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Глагол</th><th>Перевод</th><th>Пример</th></tr>
+            <tr><th>Глагол</th><th>Перевод</th><th>Пример в предложении</th></tr>
             <tr><td><b>auf</b>stehen</td><td>вставать</td><td>Ich stehe um 8 Uhr <b>auf</b>.</td></tr>
             <tr><td><b>an</b>rufen</td><td>звонить</td><td>Ich rufe dich <b>an</b>.</td></tr>
-            <tr><td><b>mit</b>kommen</td><td>идти с кем-то</td><td>Kommst du <b>mit</b>?</td></tr>
+            <tr><td><b>mit</b>kommen</td><td>идти вместе</td><td>Kommst du <b>mit</b>?</td></tr>
             <tr><td><b>ein</b>kaufen</td><td>делать покупки</td><td>Wir kaufen im Supermarkt <b>ein</b>.</td></tr>
             <tr><td><b>ab</b>fahren</td><td>отправляться</td><td>Der Zug fährt um 10 Uhr <b>ab</b>.</td></tr>
             <tr><td><b>aus</b>gehen</td><td>выходить/гулять</td><td>Wir gehen heute Abend <b>aus</b>.</td></tr>
             <tr><td><b>an</b>fangen</td><td>начинать</td><td>Der Kurs fängt um 9 Uhr <b>an</b>.</td></tr>
             <tr><td><b>zu</b>machen</td><td>закрывать</td><td>Mach bitte die Tür <b>zu</b>!</td></tr>
-            <tr><td><b>vor</b>bereiten</td><td>готовиться</td><td>Ich bereite mich auf die Prüfung <b>vor</b>.</td></tr>
+            <tr><td><b>auf</b>machen</td><td>открывать</td><td>Er macht das Fenster <b>auf</b>.</td></tr>
+            <tr><td><b>vor</b>bereiten</td><td>готовить(ся)</td><td>Ich bereite mich auf die Prüfung <b>vor</b>.</td></tr>
+            <tr><td><b>mit</b>nehmen</td><td>брать с собой</td><td>Nimmst du mich <b>mit</b>?</td></tr>
+            <tr><td><b>aus</b>sehen</td><td>выглядеть</td><td>Du siehst toll <b>aus</b>!</td></tr>
+            <tr><td><b>an</b>kommen</td><td>прибывать</td><td>Der Zug kommt um 15 Uhr <b>an</b>.</td></tr>
+            <tr><td><b>ab</b>holen</td><td>забирать/встречать</td><td>Ich hole dich vom Bahnhof <b>ab</b>.</td></tr>
+            <tr><td><b>zurück</b>kommen</td><td>возвращаться</td><td>Wann kommst du <b>zurück</b>?</td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: '⚡ С модальными глаголами — приставка НЕ отделяется',
+        content: `
+          <p>Когда рядом стоит модальный глагол (können, müssen, wollen...), глагол стоит целиком в конце:</p>
+          <div class="example-box">
+            <div class="de">Ich muss um 7 Uhr <b>aufstehen</b>. — Мне нужно встать в 7 часов.</div>
+            <div class="ru">Kannst du mich <b>anrufen</b>? — Ты можешь мне позвонить?</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Wir wollen heute Abend <b>ausgehen</b>. — Мы хотим сегодня вечером пойти гулять.</div>
+            <div class="ru">Sie muss die Tür <b>zumachen</b>. — Она должна закрыть дверь.</div>
+          </div>
+          <p>💡 Правило: в предложении всегда только <b>один глагол на 2-й позиции</b> (спрягается), остальные в конец.</p>
+        `
+      },
+      {
+        heading: '🔄 Порядок слов с отделяемым глаголом',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Позиция 1</th><th>Позиция 2 (глагол)</th><th>Середина</th><th>Конец (приставка)</th></tr>
+            <tr><td>Ich</td><td><b>stehe</b></td><td>um 7 Uhr</td><td><b>auf</b>.</td></tr>
+            <tr><td>Heute</td><td><b>ruft</b></td><td>er mich</td><td><b>an</b>.</td></tr>
+            <tr><td>Wir</td><td><b>kaufen</b></td><td>im Supermarkt</td><td><b>ein</b>.</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">💡 С модальным глаголом: Ich muss um 7 Uhr aufstehen. (приставка не отделяется!)</div>
-            <div class="ru">С модальным глаголом глагол стоит в инфинитиве в конце предложения целиком.</div>
+            <div class="de">❓ Вопрос: Stehst du um 7 Uhr <b>auf</b>? — Ты встаёшь в 7?</div>
+            <div class="ru">❗ Повелительное: Steh bitte <b>auf</b>! — Вставай, пожалуйста!</div>
           </div>
         `
       }
     ],
     exercises: [
       { type: 'choice', question: 'Ich _____ um 7 Uhr _____. (aufstehen)', options: ['stehe … auf', 'aufstehe … –', 'stehe … aufstehen', 'auf … stehe'], answer: 0 },
-      { type: 'fill', question: 'Er _____ seine Mutter _____. (anrufen) — вставь глагол правильно:', answer: 'ruft … an', placeholder: 'ruft...' },
+      { type: 'fill', question: 'Er _____ seine Mutter _____. (anrufen — er-форма)', answer: 'ruft … an', placeholder: 'ruft...' },
       { type: 'choice', question: 'Kommst du _____? (mitkommen)', options: ['mit', 'mitkommen', 'kommt mit', 'gekommen'], answer: 0 },
       { type: 'choice', question: 'Wir _____ im Supermarkt _____. (einkaufen)', options: ['kaufen … ein', 'einkaufen', 'kaufen ein … –', 'ein … kaufen'], answer: 0 },
-      { type: 'fill', question: 'Der Kurs _____ um 9 Uhr _____. (anfangen)', answer: 'fängt … an', placeholder: 'fängt...' },
+      { type: 'fill', question: 'Der Kurs _____ um 9 Uhr _____. (anfangen — er-форма)', answer: 'fängt … an', placeholder: 'fängt...' },
+      { type: 'choice', question: 'Ich muss die Tür _____ . (zumachen — с модальным)', options: ['zumachen', 'zumacht', 'macht zu', 'machen zu'], answer: 0 },
+      { type: 'choice', question: 'Du siehst toll _____! (aussehen)', options: ['aus', 'aus sehen', 'aussiehst', 'sehen aus'], answer: 0 },
+      { type: 'fill', question: 'Wann _____ du _____? (zurückkommen — du-форма)', answer: 'kommst … zurück', placeholder: 'kommst...' },
+      { type: 'translate', question: 'Я встаю каждый день в 6 часов.', hint: 'aufstehen / jeden Tag / um 6 Uhr', answer: 'Ich stehe jeden Tag um 6 Uhr auf.', placeholder: 'Ich stehe...' },
+      { type: 'translate', question: 'Он забирает меня со станции.', hint: 'abholen / vom Bahnhof', answer: 'Er holt mich vom Bahnhof ab.', placeholder: 'Er holt...' },
+      { type: 'choice', question: 'Heute _____ sie ihre Freundin _____. (anrufen)', options: ['ruft … an', 'rufen … an', 'anruft … –', 'an … ruft'], answer: 0 },
+      { type: 'translate', question: 'Ты хочешь пойти со мной?', hint: 'wollen / mitkommen', answer: 'Willst du mitkommen?', placeholder: 'Willst...' },
     ],
   },
 
   genitiv: {
-    title: 'Родительный падеж (Genitiv)',
-    level: 'A2 · Грамматика · Die Gelbe Kap. 8',
-    intro: 'Genitiv — четвёртый падеж немецкого. Он отвечает на вопрос «чей?/чьего?» и показывает принадлежность. В разговорной речи часто заменяется на von + Dativ.',
+    title: 'Родительный падеж (Genitiv) — Die Gelbe Kap. 8',
+    level: 'A2 · Грамматика',
+    intro: 'Genitiv — четвёртый падеж немецкого. Отвечает на вопрос «чей? чьего?» и показывает принадлежность. В разговорной речи часто заменяется на von + Dativ, но в письменном и академическом немецком Genitiv обязателен.',
     theory: [
       {
-        heading: '📐 Формы Genitiv',
+        heading: '📐 Четыре падежа немецкого — система',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Род</th><th>Definit</th><th>Indefinit</th><th>Окончание существительного</th></tr>
-            <tr><td>m (der)</td><td>des Mannes</td><td>eines Mannes</td><td>+s или +es (у коротких слов)</td></tr>
-            <tr><td>f (die)</td><td>der Frau</td><td>einer Frau</td><td>без изменений</td></tr>
-            <tr><td>n (das)</td><td>des Kindes</td><td>eines Kindes</td><td>+s или +es</td></tr>
-            <tr><td>pl (die)</td><td>der Kinder</td><td>—</td><td>без изменений</td></tr>
+            <tr><th>Падеж</th><th>Вопрос</th><th>Роль</th><th>Пример</th></tr>
+            <tr><td>Nominativ</td><td>Wer? Was?</td><td>подлежащее</td><td><b>Der Mann</b> kommt.</td></tr>
+            <tr><td>Akkusativ</td><td>Wen? Was?</td><td>прямое дополнение</td><td>Ich sehe <b>den Mann</b>.</td></tr>
+            <tr><td>Dativ</td><td>Wem?</td><td>косвенное дополнение</td><td>Ich helfe <b>dem Mann</b>.</td></tr>
+            <tr><td><b>Genitiv</b></td><td><b>Wessen?</b></td><td><b>принадлежность</b></td><td>Das Auto <b>des Mannes</b>.</td></tr>
           </table></div>
+        `
+      },
+      {
+        heading: '📋 Артикли в Genitiv',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Род</th><th>Bestimmt (the)</th><th>Unbestimmt (a)</th><th>kein</th><th>Окончание существит.</th></tr>
+            <tr><td><b>m</b> der Mann</td><td>des Mann<b>es</b></td><td>eines Mann<b>es</b></td><td>keines Mannes</td><td>+s / +es</td></tr>
+            <tr><td><b>f</b> die Frau</td><td>der Frau</td><td>einer Frau</td><td>keiner Frau</td><td>без изменений</td></tr>
+            <tr><td><b>n</b> das Kind</td><td>des Kind<b>es</b></td><td>eines Kind<b>es</b></td><td>keines Kindes</td><td>+s / +es</td></tr>
+            <tr><td><b>pl</b> die Kinder</td><td>der Kinder</td><td>—</td><td>keiner Kinder</td><td>без изменений</td></tr>
+          </table></div>
+          <p>💡 Правило +s/+es: короткие слова и слова на -s, -sch, -tz, -z берут <b>+es</b>: des Mann<b>es</b>, des Kind<b>es</b>. Длинные слова берут просто <b>+s</b>: des Vater<b>s</b>, des Student<b>en</b>.</p>
           <div class="example-box">
             <div class="de">Das ist das Auto <b>des Mannes</b>. — Это машина мужчины.</div>
             <div class="ru">Das ist das Haus <b>meiner Schwester</b>. — Это дом моей сестры.</div>
           </div>
           <div class="example-box">
-            <div class="de">Die Bücher <b>der Studentin</b> liegen auf dem Tisch.</div>
-            <div class="ru">Книги студентки лежат на столе.</div>
+            <div class="de">Die Bücher <b>der Studentin</b> liegen auf dem Tisch. — Книги студентки лежат на столе.</div>
+            <div class="ru">Der Name <b>des Professors</b> ist Müller. — Имя профессора — Мюллер.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🏙️ Genitiv с именами собственными — апостроф «s»',
+        content: `
+          <p>Имена собственные образуют Genitiv просто добавляя <b>'s</b> (без апострофа!) или апостроф если имя оканчивается на s/z:</p>
+          <div class="example-box">
+            <div class="de">Das ist <b>Margos</b> Buch. — Это книга Марго.</div>
+            <div class="ru"><b>Wiens</b> Universität ist bekannt. — Венский университет известен.</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Das ist <b>Hans'</b> Auto. (имя на -s → только апостроф)</div>
           </div>
         `
       },
       {
         heading: '📌 Предлоги с Genitiv',
         content: `
-          <p>Эти предлоги всегда требуют Genitiv:</p>
+          <p>Эти предлоги <b>всегда</b> требуют Genitiv. Их нужно знать наизусть!</p>
           <div class="table-wrap"><table>
             <tr><th>Предлог</th><th>Значение</th><th>Пример</th></tr>
             <tr><td><b>wegen</b></td><td>из-за</td><td>wegen des Regens — из-за дождя</td></tr>
@@ -1113,360 +1179,678 @@ const LESSONS_CONTENT = {
             <tr><td><b>trotz</b></td><td>несмотря на</td><td>trotz des Wetters — несмотря на погоду</td></tr>
             <tr><td><b>statt / anstatt</b></td><td>вместо</td><td>statt des Kaffees — вместо кофе</td></tr>
             <tr><td><b>außerhalb</b></td><td>за пределами</td><td>außerhalb der Stadt — за городом</td></tr>
+            <tr><td><b>innerhalb</b></td><td>в пределах</td><td>innerhalb eines Jahres — в течение года</td></tr>
+            <tr><td><b>aufgrund</b></td><td>вследствие</td><td>aufgrund des Fehlers — из-за ошибки</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">💡 В разговорной речи: «Das ist das Auto von meinem Vater» вместо «meines Vaters» — оба варианта правильны!</div>
+            <div class="de">💬 Разговорный вариант: «Das ist das Auto von meinem Vater» вместо «meines Vaters» — оба варианта правильны. Но в письменном немецком и в Австрии в официальных документах пишут Genitiv.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Das ist das Buch _____ Studentin.', options: ['der', 'die', 'das', 'den'], answer: 0 },
-      { type: 'choice', question: 'Das Auto _____ Mannes ist neu.', options: ['des', 'dem', 'den', 'der'], answer: 0 },
-      { type: 'fill', question: 'Wegen _____ Wetters bleibe ich zu Hause. (das Wetter — Genitiv)', answer: 'des', placeholder: 'd...' },
+      { type: 'choice', question: 'Das ist das Buch _____ Studentin. (die Studentin)', options: ['der', 'die', 'das', 'den'], answer: 0 },
+      { type: 'choice', question: 'Das Auto _____ Mannes ist neu. (der Mann)', options: ['des', 'dem', 'den', 'der'], answer: 0 },
+      { type: 'fill', question: 'Wegen _____ Wetters bleibe ich zu Hause. (das Wetter)', answer: 'des', placeholder: 'd...' },
       { type: 'choice', question: 'Während _____ Prüfung darf man nicht sprechen. (die Prüfung)', options: ['der', 'die', 'den', 'dem'], answer: 0 },
       { type: 'choice', question: 'Trotz _____ Regens gehen wir spazieren. (der Regen)', options: ['des', 'dem', 'den', 'der'], answer: 0 },
+      { type: 'fill', question: 'Das ist das Haus _____ Professorin. (die Professorin)', answer: 'der', placeholder: 'd...' },
+      { type: 'choice', question: 'Der Name _____ Kindes ist Lena. (das Kind)', options: ['des', 'der', 'dem', 'den'], answer: 0 },
+      { type: 'choice', question: 'Innerhalb _____ Jahres lerne ich Deutsch. (ein Jahr)', options: ['eines', 'einem', 'einen', 'einer'], answer: 0 },
+      { type: 'translate', question: 'Это книга моей подруги.', hint: 'Das ist das Buch + Genitiv von meine Freundin', answer: 'Das ist das Buch meiner Freundin.', placeholder: 'Das ist...' },
+      { type: 'translate', question: 'Из-за экзамена я не могу прийти.', hint: 'wegen + Genitiv / kommen können', answer: 'Wegen der Prüfung kann ich nicht kommen.', placeholder: 'Wegen...' },
+      { type: 'fill', question: 'Statt _____ Tees trinke ich Kaffee. (der Tee — вместо чая)', answer: 'des', placeholder: 'd...' },
+      { type: 'choice', question: 'Außerhalb _____ Stadt gibt es viele Wälder. (die Stadt)', options: ['der', 'die', 'dem', 'den'], answer: 0 },
     ],
   },
 
   'adjektiv-nach-def': {
-    title: 'Прилагательные после der/die/das',
-    level: 'A2 · Грамматика · Die Gelbe Kap. 11',
-    intro: 'Один из ключевых разделов «Die Gelbe» — окончания прилагательных. После определённого артикля (der/die/das) используется так называемое «слабое склонение».',
+    title: 'Прилагательные после der/die/das — Die Gelbe Kap. 11',
+    level: 'A2 · Грамматика',
+    intro: 'Один из важнейших разделов «Die Gelbe» — склонение прилагательных. После определённого артикля (der/die/das/die) используется «слабое склонение». Здесь очень простое правило: почти всё -en!',
     theory: [
       {
-        heading: '📐 Таблица окончаний — слабое склонение',
+        heading: '📐 Слабое склонение — полная таблица',
         content: `
           <div class="table-wrap"><table>
             <tr><th>Падеж</th><th>der (m)</th><th>die (f)</th><th>das (n)</th><th>die (pl)</th></tr>
-            <tr><td>Nominativ</td><td>der alt<b>e</b> Mann</td><td>die alt<b>e</b> Frau</td><td>das alt<b>e</b> Kind</td><td>die alt<b>en</b> Leute</td></tr>
-            <tr><td>Akkusativ</td><td>den alt<b>en</b> Mann</td><td>die alt<b>e</b> Frau</td><td>das alt<b>e</b> Kind</td><td>die alt<b>en</b> Leute</td></tr>
-            <tr><td>Dativ</td><td>dem alt<b>en</b> Mann</td><td>der alt<b>en</b> Frau</td><td>dem alt<b>en</b> Kind</td><td>den alt<b>en</b> Leuten</td></tr>
-            <tr><td>Genitiv</td><td>des alt<b>en</b> Mannes</td><td>der alt<b>en</b> Frau</td><td>des alt<b>en</b> Kindes</td><td>der alt<b>en</b> Leute</td></tr>
+            <tr><td><b>Nominativ</b></td><td>der alt<b>e</b> Mann</td><td>die alt<b>e</b> Frau</td><td>das alt<b>e</b> Kind</td><td>die alt<b>en</b> Leute</td></tr>
+            <tr><td><b>Akkusativ</b></td><td>den alt<b>en</b> Mann</td><td>die alt<b>e</b> Frau</td><td>das alt<b>e</b> Kind</td><td>die alt<b>en</b> Leute</td></tr>
+            <tr><td><b>Dativ</b></td><td>dem alt<b>en</b> Mann</td><td>der alt<b>en</b> Frau</td><td>dem alt<b>en</b> Kind</td><td>den alt<b>en</b> Leuten</td></tr>
+            <tr><td><b>Genitiv</b></td><td>des alt<b>en</b> Mannes</td><td>der alt<b>en</b> Frau</td><td>des alt<b>en</b> Kindes</td><td>der alt<b>en</b> Leute</td></tr>
           </table></div>
-          <p>💡 <b>Правило:</b> Nominativ ед.ч. — окончание <b>-e</b>. Всё остальное — <b>-en</b>. Просто!</p>
+          <p>✨ <b>Супер-правило:</b> Nom. единственного числа m/f/n → <b>-e</b>. Akk. f и n тоже <b>-e</b>. Всё остальное → <b>-en</b>. Это 90% случаев!</p>
+        `
+      },
+      {
+        heading: '🔴 Только 5 форм с -e (запомни эти!)',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Форма</th><th>Пример</th></tr>
+            <tr><td>Nom. m</td><td>der alt<b>e</b> Mann</td></tr>
+            <tr><td>Nom. f</td><td>die jung<b>e</b> Frau</td></tr>
+            <tr><td>Nom. n</td><td>das klein<b>e</b> Kind</td></tr>
+            <tr><td>Akk. f</td><td>die schön<b>e</b> Stadt</td></tr>
+            <tr><td>Akk. n</td><td>das neu<b>e</b> Auto</td></tr>
+          </table></div>
+          <p>🟢 Всё остальное — <b>-en</b>! Akk. m, все Dativ, все Genitiv, весь Plural.</p>
+        `
+      },
+      {
+        heading: '💬 Примеры из жизни',
+        content: `
           <div class="example-box">
-            <div class="de">Der <b>alte</b> Mann trinkt den <b>schwarzen</b> Kaffee.</div>
-            <div class="ru">Старый мужчина пьёт чёрный кофе.</div>
+            <div class="de">Der <b>alte</b> Professor kommt aus Wien. (Nom. m → -e)</div>
+            <div class="ru">Старый профессор из Вены.</div>
           </div>
           <div class="example-box">
-            <div class="de">Ich kenne die <b>nette</b> Studentin. Ich helfe dem <b>kleinen</b> Kind.</div>
-            <div class="ru">Я знаю милую студентку. Я помогаю маленькому ребёнку.</div>
+            <div class="de">Ich kenne die <b>nette</b> Studentin. (Akk. f → -e)</div>
+            <div class="ru">Ich helfe dem <b>kleinen</b> Kind. (Dat. n → -en)</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Mit dem <b>schnellen</b> Zug bin ich in einer Stunde in Wien. (Dat. m → -en)</div>
+            <div class="ru">На быстром поезде я за час в Вене.</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Die <b>österreichischen</b> Universitäten sind sehr gut. (Nom. pl → -en)</div>
+            <div class="ru">Австрийские университеты очень хорошие.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🏛️ dieser/diese/dieses — то же самое!',
+        content: `
+          <p>После dieser (этот), jeder (каждый), welcher (какой) — те же окончания, что и после der/die/das:</p>
+          <div class="example-box">
+            <div class="de">dies<b>er</b> alt<b>e</b> Mann → Nominativ m (der = dieser, окончание -e)</div>
+            <div class="ru">jed<b>en</b> lang<b>en</b> Tag → Akkusativ m (den = jeden, окончание -en)</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Der _____ Mann spricht Deutsch. (alt)', options: ['alte', 'alten', 'altem', 'alter'], answer: 0 },
-      { type: 'choice', question: 'Ich sehe den _____ Hund. (groß)', options: ['großen', 'große', 'großem', 'großer'], answer: 0 },
-      { type: 'choice', question: 'Die _____ Frau kommt aus Wien. (jung)', options: ['junge', 'jungen', 'jungem', 'junger'], answer: 0 },
-      { type: 'fill', question: 'Ich helfe dem _____ Kind. (klein) — Dativ, das Kind', answer: 'kleinen', placeholder: 'klein...' },
-      { type: 'choice', question: 'Das ist das Buch des _____ Professors. (bekannt)', options: ['bekannten', 'bekannte', 'bekanntем', 'bekannter'], answer: 0 },
+      { type: 'choice', question: 'Der _____ Mann spricht Deutsch. (alt, Nom. m)', options: ['alte', 'alten', 'altem', 'alter'], answer: 0 },
+      { type: 'choice', question: 'Ich sehe den _____ Hund. (groß, Akk. m)', options: ['großen', 'große', 'großem', 'großer'], answer: 0 },
+      { type: 'choice', question: 'Die _____ Frau kommt aus Wien. (jung, Nom. f)', options: ['junge', 'jungen', 'jungem', 'junger'], answer: 0 },
+      { type: 'fill', question: 'Ich helfe dem _____ Kind. (klein, Dat. n)', answer: 'kleinen', placeholder: 'klein...' },
+      { type: 'choice', question: 'Das ist das Buch des _____ Professors. (bekannt, Gen. m)', options: ['bekannten', 'bekannte', 'bekanntem', 'bekannter'], answer: 0 },
+      { type: 'choice', question: 'Mit dem _____ Zug fahre ich nach Wien. (schnell, Dat. m)', options: ['schnellen', 'schnelle', 'schneller', 'schnellem'], answer: 0 },
+      { type: 'fill', question: 'Die _____ Universität ist in Wien. (bekannt, Nom. f)', answer: 'bekannte', placeholder: 'bekannt...' },
+      { type: 'choice', question: 'Ich esse die _____ Suppe. (heiß, Akk. f)', options: ['heiße', 'heißen', 'heißem', 'heißer'], answer: 0 },
+      { type: 'translate', question: 'Старый город очень красивый.', hint: 'die alte Stadt / schön sein', answer: 'Die alte Stadt ist sehr schön.', placeholder: 'Die alte...' },
+      { type: 'translate', question: 'Я знаю этого молодого студента.', hint: 'kennen / den jungen Studenten', answer: 'Ich kenne den jungen Studenten.', placeholder: 'Ich kenne...' },
+      { type: 'fill', question: 'Den _____ Professor kenne ich gut. (neu, Akk. m)', answer: 'neuen', placeholder: 'neu...' },
     ],
   },
 
   'adjektiv-nach-indef': {
-    title: 'Прилагательные после ein/eine',
-    level: 'A2 · Грамматика · Die Gelbe Kap. 12',
-    intro: 'После неопределённого артикля (ein/eine/kein) используется «смешанное склонение». Окончание прилагательного должно «показывать» род там, где артикль не показывает.',
+    title: 'Прилагательные после ein/eine — Die Gelbe Kap. 12',
+    level: 'A2 · Грамматика',
+    intro: 'После неопределённого артикля (ein/eine/kein/mein/dein...) используется «смешанное склонение». Логика проста: прилагательное берёт «сильное» окончание там, где артикль его не показывает.',
     theory: [
       {
-        heading: '📐 Таблица — смешанное склонение',
+        heading: '📐 Смешанное склонение — полная таблица',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Падеж</th><th>ein (m)</th><th>eine (f)</th><th>ein (n)</th></tr>
-            <tr><td>Nominativ</td><td>ein alt<b>er</b> Mann</td><td>eine alt<b>e</b> Frau</td><td>ein alt<b>es</b> Kind</td></tr>
-            <tr><td>Akkusativ</td><td>einen alt<b>en</b> Mann</td><td>eine alt<b>e</b> Frau</td><td>ein alt<b>es</b> Kind</td></tr>
-            <tr><td>Dativ</td><td>einem alt<b>en</b> Mann</td><td>einer alt<b>en</b> Frau</td><td>einem alt<b>en</b> Kind</td></tr>
-            <tr><td>Genitiv</td><td>eines alt<b>en</b> Mannes</td><td>einer alt<b>en</b> Frau</td><td>eines alt<b>en</b> Kindes</td></tr>
+            <tr><th>Падеж</th><th>ein (m)</th><th>eine (f)</th><th>ein (n)</th><th>— (pl)</th></tr>
+            <tr><td><b>Nom.</b></td><td>ein alt<b>er</b> Mann</td><td>eine alt<b>e</b> Frau</td><td>ein alt<b>es</b> Kind</td><td>alt<b>e</b> Leute</td></tr>
+            <tr><td><b>Akk.</b></td><td>einen alt<b>en</b> Mann</td><td>eine alt<b>e</b> Frau</td><td>ein alt<b>es</b> Kind</td><td>alt<b>e</b> Leute</td></tr>
+            <tr><td><b>Dat.</b></td><td>einem alt<b>en</b> Mann</td><td>einer alt<b>en</b> Frau</td><td>einem alt<b>en</b> Kind</td><td>alt<b>en</b> Leuten</td></tr>
+            <tr><td><b>Gen.</b></td><td>eines alt<b>en</b> Mannes</td><td>einer alt<b>en</b> Frau</td><td>eines alt<b>en</b> Kindes</td><td>alt<b>er</b> Leute</td></tr>
           </table></div>
-          <p>💡 <b>Правило:</b> Там где артикль «слабый» (ein, eine, einem...) — прилагательное берёт «сильное» окончание рода (-er, -e, -es). Остальное — <b>-en</b>.</p>
+        `
+      },
+      {
+        heading: '🧠 Логика смешанного склонения',
+        content: `
+          <p>Смотри на то, что <b>показывает артикль</b>:</p>
+          <ul style="margin:10px 0 10px 20px;line-height:2">
+            <li><b>ein</b> (m, Nom.) — НЕ показывает род → прилагательное берёт -<b>er</b> (как der)</li>
+            <li><b>ein</b> (n, Nom./Akk.) — НЕ показывает род → прилагательное берёт -<b>es</b> (как das)</li>
+            <li><b>eine</b>, <b>einen</b>, <b>einem</b>, <b>einer</b> — уже показывают → прилагательное -<b>e/-en</b></li>
+          </ul>
           <div class="example-box">
-            <div class="de">Das ist ein <b>schöner</b> Tag! (m, Nom.) — Это прекрасный день!</div>
-            <div class="ru">Ich habe eine <b>nette</b> Freundin. (f, Nom./Akk.) — У меня есть милая подруга.</div>
+            <div class="de">Das ist ein <b>schöner</b> Tag! (m, Nom.) — ein не показывает m → -er</div>
+            <div class="ru">Das ist ein <b>neues</b> Auto. (n, Nom.) — ein не показывает n → -es</div>
           </div>
           <div class="example-box">
-            <div class="de">Ich wohne in einem <b>kleinen</b> Zimmer. (Dativ) — Я живу в маленькой комнате.</div>
+            <div class="de">Ich wohne in einem <b>kleinen</b> Zimmer. (Dat.) — einem уже показывает → -en</div>
+          </div>
+        `
+      },
+      {
+        heading: '💬 Примеры с mein/dein/kein (те же окончания!)',
+        content: `
+          <div class="example-box">
+            <div class="de">Das ist mein <b>neuer</b> Laptop. (m, Nom.) — mein не показывает m → -er</div>
+            <div class="ru">Ich habe keine <b>gute</b> Idee. (f, Akk.) — keine показывает f → -e</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Mit meinem <b>guten</b> Freund. (m, Dat.) → -en</div>
+            <div class="ru">Ihr <b>schönes</b> Zimmer ist in Wien. (n, Nom.) → -es</div>
           </div>
         `
       }
     ],
     exercises: [
       { type: 'choice', question: 'Das ist ein _____ Tag! (schön, m, Nom.)', options: ['schöner', 'schöne', 'schönen', 'schönem'], answer: 0 },
-      { type: 'choice', question: 'Ich habe eine _____ Katze. (klein, f, Akk.)', options: ['kleine', 'kleiner', 'kleinen', 'kleinem'], answer: 0 },
-      { type: 'fill', question: 'Ich wohne in einem _____ Zimmer. (groß, Dativ)', answer: 'großen', placeholder: 'groß...' },
+      { type: 'choice', question: 'Ich habe eine _____ Idee. (gut, f, Akk.)', options: ['gute', 'guter', 'guten', 'gutem'], answer: 0 },
+      { type: 'fill', question: 'Ich wohne in einem _____ Zimmer. (groß, Dat. n)', answer: 'großen', placeholder: 'groß...' },
       { type: 'choice', question: 'Er kauft ein _____ Auto. (neu, n, Akk.)', options: ['neues', 'neue', 'neuer', 'neuen'], answer: 0 },
-      { type: 'choice', question: 'Sie kommt mit einem _____ Freund. (gut, Dativ, m)', options: ['guten', 'gute', 'guter', 'gutem'], answer: 0 },
+      { type: 'choice', question: 'Sie kommt mit einem _____ Freund. (gut, Dat. m)', options: ['guten', 'gute', 'guter', 'gutem'], answer: 0 },
+      { type: 'fill', question: 'Das ist mein _____ Laptop. (neu, m, Nom.)', answer: 'neuer', placeholder: 'neu...' },
+      { type: 'choice', question: 'Ich kenne keinen _____ Arzt hier. (gut, m, Akk.)', options: ['guten', 'gute', 'guter', 'gutem'], answer: 0 },
+      { type: 'fill', question: 'Ihr _____ Zimmer ist sehr schön. (klein, n, Nom.)', answer: 'kleines', placeholder: 'klein...' },
+      { type: 'translate', question: 'Это прекрасный день!', hint: 'ein schöner Tag / Das ist...', answer: 'Das ist ein schöner Tag!', placeholder: 'Das ist ein...' },
+      { type: 'translate', question: 'У меня нет хорошей идеи.', hint: 'keine gute Idee / haben', answer: 'Ich habe keine gute Idee.', placeholder: 'Ich habe...' },
+      { type: 'choice', question: 'Sie hat eine _____ Wohnung in Wien. (schön, f, Akk.)', options: ['schöne', 'schöner', 'schönen', 'schönem'], answer: 0 },
     ],
   },
 
   komparativ: {
-    title: 'Komparativ и Superlativ',
-    level: 'A2 · Грамматика · Die Gelbe Kap. 9',
-    intro: 'Сравниваем людей, вещи и места! Komparativ — «больше/лучше», Superlativ — «самый большой/лучший». В «Die Gelbe» этому посвящена отдельная глава — очень важная для B1!',
+    title: 'Komparativ und Superlativ — Die Gelbe Kap. 9',
+    level: 'A2 · Грамматика',
+    intro: 'Сравниваем людей, вещи и места! Komparativ — «больше/лучше», Superlativ — «самый большой/лучший». Немецкое сравнение проще, чем ты думаешь — одно правило покрывает 90%.',
     theory: [
       {
-        heading: '📊 Образование Komparativ',
+        heading: '📊 Komparativ = прилагательное + -er',
         content: `
-          <p>Komparativ = прилагательное + <b>-er</b></p>
           <div class="table-wrap"><table>
             <tr><th>Grundform</th><th>Komparativ</th><th>Перевод</th></tr>
-            <tr><td>groß</td><td>größ<b>er</b></td><td>больше</td></tr>
-            <tr><td>klein</td><td>klein<b>er</b></td><td>меньше</td></tr>
             <tr><td>schnell</td><td>schnell<b>er</b></td><td>быстрее</td></tr>
-            <tr><td>alt</td><td>ält<b>er</b></td><td>старше (умлаут!)</td></tr>
-            <tr><td>jung</td><td>jüng<b>er</b></td><td>моложе (умлаут!)</td></tr>
-            <tr><td>warm</td><td>wärm<b>er</b></td><td>теплее (умлаут!)</td></tr>
+            <tr><td>schön</td><td>schön<b>er</b></td><td>красивее</td></tr>
+            <tr><td>interessant</td><td>interessant<b>er</b></td><td>интереснее</td></tr>
+            <tr><td>billig</td><td>billig<b>er</b></td><td>дешевле</td></tr>
+            <tr><td>teuer</td><td>teur<b>er</b></td><td>дороже (выпадает e)</td></tr>
+            <tr><td>dunkel</td><td>dunkl<b>er</b></td><td>темнее (выпадает e)</td></tr>
           </table></div>
-          <p>⚠️ <b>Исключения</b> (нужно выучить наизусть):</p>
+          <p>⚡ Многие односложные берут умлаут:</p>
           <div class="table-wrap"><table>
             <tr><th>Grundform</th><th>Komparativ</th><th>Superlativ</th></tr>
-            <tr><td>gut</td><td>besser</td><td>am besten</td></tr>
-            <tr><td>viel</td><td>mehr</td><td>am meisten</td></tr>
-            <tr><td>gern</td><td>lieber</td><td>am liebsten</td></tr>
+            <tr><td>alt</td><td>ält<b>er</b></td><td>am ält<b>esten</b></td></tr>
+            <tr><td>jung</td><td>jüng<b>er</b></td><td>am jüng<b>sten</b></td></tr>
+            <tr><td>groß</td><td>größ<b>er</b></td><td>am größ<b>ten</b></td></tr>
+            <tr><td>lang</td><td>läng<b>er</b></td><td>am läng<b>sten</b></td></tr>
+            <tr><td>warm</td><td>wärm<b>er</b></td><td>am wärm<b>sten</b></td></tr>
+            <tr><td>kalt</td><td>kält<b>er</b></td><td>am kält<b>esten</b></td></tr>
+            <tr><td>kurz</td><td>kürz<b>er</b></td><td>am kürz<b>esten</b></td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: '⚠️ Исключения — нужно выучить!',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Grundform</th><th>Komparativ</th><th>Superlativ</th><th>Перевод</th></tr>
+            <tr><td><b>gut</b></td><td><b>besser</b></td><td><b>am besten</b></td><td>хорошо → лучше → лучше всего</td></tr>
+            <tr><td><b>viel</b></td><td><b>mehr</b></td><td><b>am meisten</b></td><td>много → больше → больше всего</td></tr>
+            <tr><td><b>gern</b></td><td><b>lieber</b></td><td><b>am liebsten</b></td><td>охотно → охотнее → охотнее всего</td></tr>
+            <tr><td><b>hoch</b></td><td><b>höher</b></td><td><b>am höchsten</b></td><td>высокий → выше → самый высокий</td></tr>
+            <tr><td><b>nah</b></td><td><b>näher</b></td><td><b>am nächsten</b></td><td>близкий → ближе → ближайший</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Wien ist schön. Aber Paris ist <b>schöner</b>. — Вена красива. Но Париж красивее.</div>
-            <div class="ru">Margo ist <b>älter als</b> ihre Schwester. — Марго старше своей сестры.</div>
+            <div class="de">Ich spreche gut Englisch, aber <b>besser</b> Deutsch. — Я хорошо говорю по-английски, но лучше по-немецки.</div>
+            <div class="ru">Ich lerne <b>am liebsten</b> Deutsch. — Охотнее всего я учу немецкий.</div>
           </div>
         `
       },
       {
-        heading: '🏆 Superlativ',
+        heading: '🔗 Сравнение: als / wie',
         content: `
-          <p>Superlativ = am + прилагательное + <b>-sten</b> (предикативно)</p>
-          <p>Или определённый артикль + прилагательное + <b>-sten</b> (атрибутивно)</p>
+          <p><b>als</b> = чем (при Komparativ) · <b>wie</b> = как (при равенстве)</p>
           <div class="example-box">
-            <div class="de">Dieses Buch ist am <b>interessantesten</b>. — Эта книга самая интересная.</div>
-            <div class="ru">Das ist die <b>schönste</b> Stadt der Welt. — Это красивейший город мира.</div>
+            <div class="de">Wien ist kleiner <b>als</b> Moskau. — Вена меньше, чем Москва.</div>
+            <div class="ru">Margo ist genauso klug <b>wie</b> ihre Schwester. — Марго такая же умная, как её сестра.</div>
           </div>
           <div class="example-box">
-            <div class="de">Ich lerne <b>am liebsten</b> Deutsch. — Охотнее всего я учу немецкий.</div>
+            <div class="de">Deutsch ist schwieriger <b>als</b> Englisch, aber schöner! — Немецкий сложнее, чем английский, но красивее!</div>
           </div>
+        `
+      },
+      {
+        heading: '🏆 Superlativ — два способа',
+        content: `
+          <p><b>Предикативный</b> (после sein/werden): am + прилагательное + <b>-(e)sten</b></p>
+          <p><b>Атрибутивный</b> (перед существительным): артикль + прилагательное + <b>-(e)sten</b> + склонение</p>
+          <div class="example-box">
+            <div class="de">Das ist <b>am interessantesten</b>. — Это самое интересное. (предикатив)</div>
+            <div class="ru">Das ist die <b>interessanteste</b> Stadt. — Это самый интересный город. (атрибутив)</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Der <b>höchste</b> Berg Österreichs ist der Großglockner. — Самая высокая гора Австрии — Гросглокнер.</div>
+            <div class="ru">Wien ist die <b>schönste</b> Stadt, die ich kenne. — Вена — красивейший город, который я знаю.</div>
+          </div>
+          <p>💡 Прибавляй <b>-esten</b> (с e) после: -d, -t, -s, -sch, -z, -ß → am interessant<b>esten</b>, am groß<b>ten</b> (→ größten)</p>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Moskau ist groß. Wien ist _____.', options: ['kleiner', 'kleinst', 'am kleinen', 'kleines'], answer: 0 },
+      { type: 'fill', question: 'Wien ist schön, aber Paris ist _____. (schön + -er)', answer: 'schöner', placeholder: 'schön...' },
       { type: 'fill', question: 'Dieses Buch ist _____ als jenes. (gut → Komparativ)', answer: 'besser', placeholder: 'bes...' },
-      { type: 'choice', question: 'Er ist _____ als sein Bruder. (alt)', options: ['älter', 'alter', 'altер', 'am alten'], answer: 0 },
-      { type: 'choice', question: 'Das ist die _____ Stadt. (schön, Superlativ, f)', options: ['schönste', 'schöner', 'am schönsten', 'schönsten'], answer: 0 },
-      { type: 'fill', question: 'Ich lerne _____ Musik. (gern → Superlativ "am liebsten")', answer: 'am liebsten', placeholder: 'am li...' },
+      { type: 'choice', question: 'Er ist _____ als sein Bruder. (alt)', options: ['älter', 'alter', 'am alten', 'ältesten'], answer: 0 },
+      { type: 'choice', question: 'Das ist die _____ Stadt Österreichs. (schön, Superlativ, f)', options: ['schönste', 'schöner', 'am schönsten', 'schönsten'], answer: 0 },
+      { type: 'fill', question: 'Ich lerne _____ Deutsch. (gern → Superlativ)', answer: 'am liebsten', placeholder: 'am li...' },
+      { type: 'choice', question: 'Moskau ist _____ als Wien. (groß)', options: ['größer', 'größt', 'am größten', 'groß'], answer: 0 },
+      { type: 'choice', question: 'Sie spricht Englisch so gut _____ ich.', options: ['wie', 'als', 'dann', 'denn'], answer: 0 },
+      { type: 'fill', question: 'Er ist _____ als seine Schwester. (jung → Komparativ)', answer: 'jünger', placeholder: 'jüng...' },
+      { type: 'translate', question: 'Немецкий сложнее, чем английский.', hint: 'schwieriger als', answer: 'Deutsch ist schwieriger als Englisch.', placeholder: 'Deutsch ist...' },
+      { type: 'choice', question: 'Das ist der _____ Berg Österreichs. (hoch, Superlativ, m)', options: ['höchste', 'höher', 'am höchsten', 'höchsten'], answer: 0 },
+      { type: 'translate', question: 'Этот университет лучший в Австрии.', hint: 'die beste Universität / in Österreich', answer: 'Diese Universität ist die beste in Österreich.', placeholder: 'Diese Universität...' },
     ],
   },
 
   praeteritum: {
-    title: 'Präteritum: sein и haben',
-    level: 'A2 · Грамматика · Die Gelbe Kap. 14',
-    intro: 'Präteritum — книжное/нарративное прошедшее время. В разговоре используют Perfekt, но sein и haben ВСЕГДА используют Präteritum (war, hatte) — это важно!',
+    title: 'Präteritum — Die Gelbe Kap. 14–16',
+    level: 'A2 · Грамматика',
+    intro: 'Präteritum — нарративное прошедшее время немецкого. В разговоре чаще используют Perfekt, но sein, haben и все модальные глаголы в прошлом говорят только в Präteritum. Плюс это единственное время в письменном рассказе.',
     theory: [
       {
-        heading: '📖 war и hatte — самые нужные формы',
+        heading: '📖 Когда Präteritum, а когда Perfekt?',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>sein → war</th><th>haben → hatte</th></tr>
-            <tr><td>ich</td><td>war</td><td>hatte</td></tr>
-            <tr><td>du</td><td>warst</td><td>hattest</td></tr>
-            <tr><td>er/sie/es</td><td>war</td><td>hatte</td></tr>
-            <tr><td>wir</td><td>waren</td><td>hatten</td></tr>
-            <tr><td>ihr</td><td>wart</td><td>hattet</td></tr>
-            <tr><td>sie/Sie</td><td>waren</td><td>hatten</td></tr>
+            <tr><th></th><th>Präteritum</th><th>Perfekt</th></tr>
+            <tr><td><b>Где</b></td><td>письмо, рассказ, книга, СМИ</td><td>разговор, устная речь</td></tr>
+            <tr><td><b>Когда</b></td><td>sein, haben, модальные — всегда!</td><td>большинство глаголов</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Gestern <b>war</b> ich in Wien. — Вчера я была в Вене.</div>
-            <div class="ru">Wir <b>hatten</b> keine Zeit. — У нас не было времени.</div>
+            <div class="de">💬 Разговор: «Ich <b>habe</b> gestern viel gelernt.» — Я вчера много учила. (Perfekt)</div>
+            <div class="ru">📖 Книга: «Sie <b>lernte</b> jeden Tag fleißig.» — Она учила каждый день прилежно. (Präteritum)</div>
           </div>
           <div class="example-box">
-            <div class="de">Das Wetter <b>war</b> schön. Es <b>gab</b> viele Touristen. — Погода была хорошая. Было много туристов.</div>
+            <div class="de">⭐ Всегда Präteritum: «Gestern <b>war</b> ich müde. Ich <b>hatte</b> Kopfschmerzen. Ich <b>konnte</b> nicht schlafen.»</div>
           </div>
         `
       },
       {
-        heading: '⚡ Модальные в Präteritum',
+        heading: '⭐ sein и haben в Präteritum — обязательно!',
         content: `
-          <p>Модальные глаголы тоже часто используют Präteritum:</p>
           <div class="table-wrap"><table>
-            <tr><th>Инфинитив</th><th>Präteritum (ich/er)</th><th>Перевод</th></tr>
-            <tr><td>können</td><td>konnte</td><td>мог/могла</td></tr>
-            <tr><td>müssen</td><td>musste</td><td>должен/должна был(а)</td></tr>
-            <tr><td>wollen</td><td>wollte</td><td>хотел(а)</td></tr>
-            <tr><td>dürfen</td><td>durfte</td><td>имел(а) право</td></tr>
-            <tr><td>sollen</td><td>sollte</td><td>должен/должна (по плану)</td></tr>
+            <tr><th>Лицо</th><th>sein → <b>war</b></th><th>haben → <b>hatte</b></th></tr>
+            <tr><td>ich</td><td><b>war</b></td><td><b>hatte</b></td></tr>
+            <tr><td>du</td><td><b>warst</b></td><td><b>hattest</b></td></tr>
+            <tr><td>er/sie/es</td><td><b>war</b></td><td><b>hatte</b></td></tr>
+            <tr><td>wir</td><td><b>waren</b></td><td><b>hatten</b></td></tr>
+            <tr><td>ihr</td><td><b>wart</b></td><td><b>hattet</b></td></tr>
+            <tr><td>sie/Sie</td><td><b>waren</b></td><td><b>hatten</b></td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Als Kind <b>konnte</b> ich gut schwimmen. — В детстве я умела хорошо плавать.</div>
-            <div class="ru">Ich <b>wollte</b> in Wien studieren. — Я хотела учиться в Вене.</div>
+            <div class="de">Gestern <b>war</b> ich in Wien. Das Wetter <b>war</b> schön. Wir <b>hatten</b> viel Spaß!</div>
+            <div class="ru">Вчера я была в Вене. Погода была прекрасная. У нас было много веселья!</div>
+          </div>
+          <p>Выражение «было» / «существовало»: <b>es gab</b> + Akkusativ</p>
+          <div class="example-box">
+            <div class="de">Es <b>gab</b> viele Touristen. — Было много туристов.</div>
+            <div class="ru">Früher <b>gab es</b> hier einen Park. — Раньше здесь был парк.</div>
+          </div>
+        `
+      },
+      {
+        heading: '⚡ Модальные в Präteritum — тоже обязательно!',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Инфинитив</th><th>Präteritum ich/er</th><th>Перевод</th></tr>
+            <tr><td>können</td><td><b>konnte</b></td><td>мог/могла</td></tr>
+            <tr><td>müssen</td><td><b>musste</b></td><td>должна была</td></tr>
+            <tr><td>wollen</td><td><b>wollte</b></td><td>хотела</td></tr>
+            <tr><td>dürfen</td><td><b>durfte</b></td><td>имела право</td></tr>
+            <tr><td>sollen</td><td><b>sollte</b></td><td>должна (по договорённости)</td></tr>
+            <tr><td>mögen</td><td><b>mochte</b></td><td>нравилось</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Als Kind <b>konnte</b> ich gut schwimmen. — В детстве я умела плавать.</div>
+            <div class="ru">Ich <b>wollte</b> immer in Wien studieren. — Я всегда хотела учиться в Вене.</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Er <b>musste</b> früh aufstehen. — Ему нужно было рано вставать.</div>
+            <div class="ru">Wir <b>durften</b> nicht laut sein. — Нам нельзя было шуметь.</div>
+          </div>
+        `
+      },
+      {
+        heading: '📝 Präteritum сильных глаголов (нарратив)',
+        content: `
+          <p>В рассказах и книгах — все глаголы в Präteritum:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Инфинитив</th><th>Präteritum (ich)</th><th>Перевод</th></tr>
+            <tr><td>gehen</td><td>ging</td><td>шёл/шла</td></tr>
+            <tr><td>kommen</td><td>kam</td><td>пришёл/пришла</td></tr>
+            <tr><td>fahren</td><td>fuhr</td><td>ехал/ехала</td></tr>
+            <tr><td>sehen</td><td>sah</td><td>видел/видела</td></tr>
+            <tr><td>sprechen</td><td>sprach</td><td>говорил/говорила</td></tr>
+            <tr><td>schreiben</td><td>schrieb</td><td>писал/писала</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Sie <b>ging</b> in die Stadt, <b>kaufte</b> Bücher und <b>kam</b> spät nach Hause.</div>
+            <div class="ru">Она пошла в город, купила книги и вернулась домой поздно.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Gestern _____ ich krank. (sein, ich)', options: ['war', 'bin', 'hatte', 'ist'], answer: 0 },
+      { type: 'choice', question: 'Gestern _____ ich sehr müde. (sein, ich)', options: ['war', 'bin', 'hatte', 'ist'], answer: 0 },
       { type: 'fill', question: 'Wir _____ keine Zeit. (haben, wir, Präteritum)', answer: 'hatten', placeholder: 'hatt...' },
       { type: 'choice', question: 'Als Kind _____ sie kein Fahrrad. (haben, sie)', options: ['hatte', 'hat', 'hatten', 'war'], answer: 0 },
-      { type: 'choice', question: 'Das Konzert _____ fantastisch! (sein, es)', options: ['war', 'ist', 'hatte', 'waren'], answer: 0 },
-      { type: 'fill', question: 'Ich _____ nicht schlafen. (können, ich, Präteritum)', answer: 'konnte', placeholder: 'konn...' },
+      { type: 'fill', question: 'Ich _____ nicht schlafen. (können, Präteritum)', answer: 'konnte', placeholder: 'konn...' },
+      { type: 'choice', question: 'Er _____ immer nach Wien kommen. (wollen, Präteritum)', options: ['wollte', 'will', 'wollten', 'wollen'], answer: 0 },
+      { type: 'fill', question: 'Es _____ viele Touristen in Wien. (geben, Präteritum = es gab)', answer: 'gab', placeholder: 'g...' },
+      { type: 'choice', question: 'Wir _____ lange auf den Zug warten. (müssen, Präteritum)', options: ['mussten', 'müssen', 'musste', 'muss'], answer: 0 },
+      { type: 'translate', question: 'Вчера я была в Вене.', hint: 'gestern / war', answer: 'Gestern war ich in Wien.', placeholder: 'Gestern war...' },
+      { type: 'translate', question: 'В детстве мы умели кататься на велосипеде.', hint: 'Als Kinder / können / Rad fahren', answer: 'Als Kinder konnten wir Rad fahren.', placeholder: 'Als Kinder...' },
+      { type: 'fill', question: 'Sie _____ Ärztin werden. (wollen, sie, Präteritum)', answer: 'wollte', placeholder: 'wollt...' },
+      { type: 'choice', question: 'Das Konzert _____ fantastisch! (sein)', options: ['war', 'ist', 'hatte', 'waren'], answer: 0 },
     ],
   },
 
   'reflexive-verbs': {
-    title: 'Возвратные глаголы (sich)',
-    level: 'A2 · Грамматика · Die Gelbe Kap. 18',
-    intro: 'Возвратные глаголы — это глаголы с местоимением sich. В немецком их гораздо больше, чем в русском, и многие НЕ переводятся как возвратные!',
+    title: 'Возвратные глаголы (sich) — Die Gelbe Kap. 18',
+    level: 'A2 · Грамматика',
+    intro: 'Возвратные глаголы используют местоимение sich (себя). В немецком их намного больше, чем в русском — многие глаголы, которые по-русски не возвратные, по-немецки обязательно идут с sich. Это очень важная тема для поступления в вуз!',
     theory: [
       {
-        heading: '🔄 Возвратные местоимения',
+        heading: '🔄 Возвратные местоимения — две таблицы',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>Akkusativ</th><th>Dativ</th></tr>
-            <tr><td>ich</td><td>mich</td><td>mir</td></tr>
-            <tr><td>du</td><td>dich</td><td>dir</td></tr>
-            <tr><td>er/sie/es</td><td>sich</td><td>sich</td></tr>
-            <tr><td>wir</td><td>uns</td><td>uns</td></tr>
-            <tr><td>ihr</td><td>euch</td><td>euch</td></tr>
-            <tr><td>sie/Sie</td><td>sich</td><td>sich</td></tr>
+            <tr><th>Лицо</th><th>Akkusativ (себя)</th><th>Dativ (себе)</th></tr>
+            <tr><td>ich</td><td><b>mich</b></td><td><b>mir</b></td></tr>
+            <tr><td>du</td><td><b>dich</b></td><td><b>dir</b></td></tr>
+            <tr><td>er/sie/es</td><td><b>sich</b></td><td><b>sich</b></td></tr>
+            <tr><td>wir</td><td><b>uns</b></td><td><b>uns</b></td></tr>
+            <tr><td>ihr</td><td><b>euch</b></td><td><b>euch</b></td></tr>
+            <tr><td>sie/Sie</td><td><b>sich</b></td><td><b>sich</b></td></tr>
           </table></div>
+          <p>💡 <b>Akkusativ</b> — когда нет другого объекта: <i>Ich wasche <b>mich</b>.</i></p>
+          <p>💡 <b>Dativ</b> — когда есть другой объект: <i>Ich wasche <b>mir</b> die Hände.</i> (die Hände — Akk.)</p>
           <div class="example-box">
-            <div class="de">Ich wasche <b>mich</b>. — Я моюсь. (Akk.)</div>
-            <div class="ru">Ich wasche <b>mir</b> die Hände. — Я мою руки. (Dat. — когда есть дополнение)</div>
+            <div class="de">Ich ziehe <b>mich</b> an. — Я одеваюсь. (Akk., нет другого объекта)</div>
+            <div class="ru">Ich ziehe <b>mir</b> die Jacke an. — Я надеваю куртку. (Dat., есть Akk. — die Jacke)</div>
           </div>
         `
       },
       {
-        heading: '📋 Важные возвратные глаголы',
+        heading: '📋 40 важнейших возвратных глаголов',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Глагол</th><th>Перевод</th></tr>
-            <tr><td>sich waschen</td><td>мыться</td></tr>
-            <tr><td>sich anziehen</td><td>одеваться</td></tr>
-            <tr><td>sich freuen (über / auf)</td><td>радоваться (чему-то / предвкушать)</td></tr>
-            <tr><td>sich interessieren für</td><td>интересоваться</td></tr>
-            <tr><td>sich erinnern an</td><td>вспоминать</td></tr>
-            <tr><td>sich vorstellen</td><td>представляться / представлять себе</td></tr>
-            <tr><td>sich fühlen</td><td>чувствовать себя</td></tr>
-            <tr><td>sich vorbereiten auf</td><td>готовиться к чему-то</td></tr>
-            <tr><td>sich bewerben um</td><td>подавать заявку на</td></tr>
+            <tr><th>Глагол</th><th>Предлог</th><th>Перевод</th></tr>
+            <tr><td>sich waschen</td><td>—</td><td>мыться</td></tr>
+            <tr><td>sich anziehen</td><td>—</td><td>одеваться</td></tr>
+            <tr><td>sich ausziehen</td><td>—</td><td>раздеваться</td></tr>
+            <tr><td>sich setzen</td><td>—</td><td>садиться</td></tr>
+            <tr><td>sich legen</td><td>—</td><td>ложиться</td></tr>
+            <tr><td>sich fühlen</td><td>—</td><td>чувствовать себя</td></tr>
+            <tr><td>sich freuen</td><td>über + Akk. / auf + Akk.</td><td>радоваться / предвкушать</td></tr>
+            <tr><td>sich interessieren</td><td>für + Akk.</td><td>интересоваться чем-то</td></tr>
+            <tr><td>sich erinnern</td><td>an + Akk.</td><td>вспоминать кого-то/что-то</td></tr>
+            <tr><td>sich vorstellen</td><td>—</td><td>представляться; представлять</td></tr>
+            <tr><td>sich vorbereiten</td><td>auf + Akk.</td><td>готовиться к чему-то</td></tr>
+            <tr><td>sich bewerben</td><td>um + Akk.</td><td>подавать заявку</td></tr>
+            <tr><td>sich konzentrieren</td><td>auf + Akk.</td><td>концентрироваться</td></tr>
+            <tr><td>sich befinden</td><td>—</td><td>находиться</td></tr>
+            <tr><td>sich entscheiden</td><td>für + Akk.</td><td>решаться на что-то</td></tr>
+            <tr><td>sich treffen</td><td>mit + Dat.</td><td>встречаться с кем-то</td></tr>
           </table></div>
+        `
+      },
+      {
+        heading: '💬 Возвратные глаголы в предложении',
+        content: `
+          <p>Местоимение sich стоит сразу после спрягаемого глагола (или после подлежащего при V2):</p>
           <div class="example-box">
-            <div class="de">Ich interessiere <b>mich</b> für Musik. — Я интересуюсь музыкой.</div>
-            <div class="ru">Sie freut <b>sich</b> auf das Studium in Wien. — Она с нетерпением ждёт учёбы в Вене.</div>
+            <div class="de">Ich <b>freue mich</b> auf das Studium in Wien. — Я с нетерпением жду учёбы в Вене.</div>
+            <div class="ru">Sie <b>interessiert sich</b> für deutsche Literatur. — Она интересуется немецкой литературой.</div>
           </div>
+          <div class="example-box">
+            <div class="de">Wir <b>bereiten uns</b> auf die Prüfung vor. — Мы готовимся к экзамену.</div>
+            <div class="ru">Heute <b>treffe ich mich</b> mit meiner Freundin. — Сегодня я встречаюсь с подругой.</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Sie hat <b>sich</b> für die Universität Wien <b>beworben</b>. — Она подала заявку в Венский университет. (Perfekt)</div>
+          </div>
+        `
+      },
+      {
+        heading: '🏫 Полезные фразы для поступления',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Немецкий</th><th>Русский</th></tr>
+            <tr><td>Ich <b>bewerbe mich</b> um einen Studienplatz.</td><td>Я подаю заявку на место в вузе.</td></tr>
+            <tr><td>Ich <b>entscheide mich</b> für Medizin.</td><td>Я выбираю медицину.</td></tr>
+            <tr><td>Ich <b>interessiere mich</b> für die Uni Wien.</td><td>Меня интересует Венский университет.</td></tr>
+            <tr><td>Ich <b>freue mich</b> auf das Studium.</td><td>Я с нетерпением жду учёбы.</td></tr>
+            <tr><td>Ich <b>bereite mich</b> auf die Prüfung vor.</td><td>Я готовлюсь к экзамену.</td></tr>
+          </table></div>
         `
       }
     ],
     exercises: [
       { type: 'choice', question: 'Ich freue _____ auf den Urlaub.', options: ['mich', 'mir', 'sich', 'dich'], answer: 0 },
-      { type: 'fill', question: 'Er interessiert _____ für Sport. (sich, er)', answer: 'sich', placeholder: 'si...' },
+      { type: 'fill', question: 'Er interessiert _____ für Sport.', answer: 'sich', placeholder: 'si...' },
       { type: 'choice', question: 'Wie fühlst du _____?', options: ['dich', 'mich', 'sich', 'uns'], answer: 0 },
       { type: 'choice', question: 'Wir bereiten _____ auf die Prüfung vor.', options: ['uns', 'sich', 'mich', 'euch'], answer: 0 },
-      { type: 'fill', question: 'Sie bewirbt _____ um einen Studienplatz. (sich, sie)', answer: 'sich', placeholder: 'si...' },
+      { type: 'fill', question: 'Sie bewirbt _____ um einen Studienplatz.', answer: 'sich', placeholder: 'si...' },
+      { type: 'choice', question: 'Ich wasche _____ die Hände. (есть другой объект → Dativ)', options: ['mir', 'mich', 'sich', 'dir'], answer: 0 },
+      { type: 'fill', question: 'Sie _____ für Musik. (sich interessieren, sie-форма)', answer: 'interessiert sich', placeholder: 'interessiert...' },
+      { type: 'choice', question: 'Er _____ gut. (sich fühlen, er)', options: ['fühlt sich', 'sich fühlt', 'fühlt mich', 'sich fühlen'], answer: 0 },
+      { type: 'translate', question: 'Я готовлюсь к экзамену.', hint: 'sich vorbereiten auf + Akk.', answer: 'Ich bereite mich auf die Prüfung vor.', placeholder: 'Ich bereite...' },
+      { type: 'translate', question: 'Она подаёт заявку на место в вузе.', hint: 'sich bewerben um', answer: 'Sie bewirbt sich um einen Studienplatz.', placeholder: 'Sie bewirbt...' },
+      { type: 'fill', question: 'Ich _____ für die Universität Wien entschieden. (sich entscheiden, Perfekt)', answer: 'habe mich', placeholder: 'habe...' },
     ],
   },
 
   relativsatz: {
-    title: 'Относительные предложения (Relativsatz)',
-    level: 'B1 · Грамматика · Die Gelbe Kap. 27',
-    intro: 'Relativsatz — предложение, которое уточняет существительное. Начинается с относительного местоимения (der/die/das/deren...) и глагол идёт в конец.',
+    title: 'Относительные предложения (Relativsatz) — Die Gelbe Kap. 27',
+    level: 'B1 · Грамматика',
+    intro: 'Relativsatz — придаточное предложение, уточняющее существительное. «Девушка, которая учит немецкий» = «Das Mädchen, das Deutsch lernt». Это основа сложного синтаксиса — без этого B1 невозможен!',
     theory: [
       {
-        heading: '🔗 Относительные местоимения',
+        heading: '🔗 Относительные местоимения — таблица',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th><th>pl</th></tr>
-            <tr><td>Nominativ</td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
-            <tr><td>Akkusativ</td><td>den</td><td>die</td><td>das</td><td>die</td></tr>
-            <tr><td>Dativ</td><td>dem</td><td>der</td><td>dem</td><td>denen</td></tr>
-            <tr><td>Genitiv</td><td>dessen</td><td>deren</td><td>dessen</td><td>deren</td></tr>
+            <tr><th>Падеж</th><th>m (der)</th><th>f (die)</th><th>n (das)</th><th>pl (die)</th></tr>
+            <tr><td><b>Nominativ</b></td><td><b>der</b></td><td><b>die</b></td><td><b>das</b></td><td><b>die</b></td></tr>
+            <tr><td><b>Akkusativ</b></td><td><b>den</b></td><td><b>die</b></td><td><b>das</b></td><td><b>die</b></td></tr>
+            <tr><td><b>Dativ</b></td><td><b>dem</b></td><td><b>der</b></td><td><b>dem</b></td><td><b>denen</b></td></tr>
+            <tr><td><b>Genitiv</b></td><td><b>dessen</b></td><td><b>deren</b></td><td><b>dessen</b></td><td><b>deren</b></td></tr>
           </table></div>
-          <p>💡 Падеж определяется ролью местоимения <b>внутри</b> относительного предложения!</p>
-          <div class="example-box">
-            <div class="de">Der Mann, <b>der</b> dort steht, heißt Müller. (Nom. — он стоит)</div>
-            <div class="ru">Мужчина, который стоит там, зовётся Мюллер.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Die Frau, <b>die</b> ich kenne, kommt aus Wien. (Akk. — я её знаю)</div>
-            <div class="ru">Женщина, которую я знаю, из Вены.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Das Studium, <b>das</b> mich interessiert, ist Medizin. (Nom.)</div>
-            <div class="ru">Специальность, которая меня интересует — медицина.</div>
-          </div>
+          <p>Выглядит как таблица определённого артикля (der/die/das) — только в Dativ Plural и Genitiv отличаются!</p>
         `
-      }
-    ],
-    exercises: [
-      { type: 'choice', question: 'Der Student, _____ aus Wien kommt, spricht perfekt Deutsch. (Nom., m)', options: ['der', 'die', 'das', 'den'], answer: 0 },
-      { type: 'choice', question: 'Die Universität, _____ ich besuchen möchte, ist sehr bekannt. (Akk., f)', options: ['die', 'der', 'das', 'den'], answer: 0 },
-      { type: 'fill', question: 'Das Buch, _____ ich lese, ist interessant. (Akk., n)', answer: 'das', placeholder: 'd...' },
-      { type: 'choice', question: 'Der Mann, _____ ich helfe, ist krank. (Dativ, m)', options: ['dem', 'der', 'den', 'die'], answer: 0 },
-      { type: 'choice', question: 'Die Studentin, _____ Tasche ich gefunden habe, heißt Margo. (Genitiv, f)', options: ['deren', 'dessen', 'die', 'der'], answer: 0 },
-    ],
-  },
-
-  passiv: {
-    title: 'Пассивный залог (Passiv)',
-    level: 'B1 · Грамматика · Die Gelbe Kap. 19',
-    intro: 'Passiv используется когда важно ЧТО происходит, а не КТО это делает. Широко применяется в официальных текстах, научных статьях и при поступлении в австрийский вуз.',
-    theory: [
+      },
       {
-        heading: '🔄 Образование Passiv',
+        heading: '⚙️ Как построить Relativsatz',
         content: `
-          <p>Passiv = форма глагола <b>werden</b> + <b>Partizip II</b></p>
-          <div class="table-wrap"><table>
-            <tr><th>Время</th><th>Формула</th><th>Пример</th></tr>
-            <tr><td>Präsens</td><td>wird + Partizip II</td><td>Das Buch <b>wird gelesen</b>.</td></tr>
-            <tr><td>Präteritum</td><td>wurde + Partizip II</td><td>Das Buch <b>wurde gelesen</b>.</td></tr>
-            <tr><td>Perfekt</td><td>ist + Partizip II + worden</td><td>Das Buch <b>ist gelesen worden</b>.</td></tr>
-          </table></div>
+          <p>Шаги: 1) определи существительное 2) определи его род 3) определи роль местоимения внутри придаточного 4) поставь глагол в конец</p>
           <div class="example-box">
-            <div class="de">Aktiv: Die Studentin schreibt den Brief. — Студентка пишет письмо.</div>
-            <div class="ru">Passiv: Der Brief <b>wird</b> (von der Studentin) <b>geschrieben</b>. — Письмо пишется (студенткой).</div>
+            <div class="de">Das Mädchen lernt Deutsch. → Das Mädchen, <b>das</b> Deutsch lernt, …</div>
+            <div class="ru">das Mädchen (n) + Nominativ (оно учит) → das</div>
           </div>
           <div class="example-box">
-            <div class="de">Die Unterlagen <b>werden</b> bis 15. März <b>eingereicht</b>. — Документы подаются до 15 марта.</div>
-            <div class="ru">In Deutschland <b>wird</b> viel Kaffee <b>getrunken</b>. — В Германии много пьют кофе.</div>
+            <div class="de">Ich kenne die Studentin. → Die Studentin, <b>die</b> ich kenne, …</div>
+            <div class="ru">die Studentin (f) + Akkusativ (я её знаю) → die</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Ich helfe dem Professor. → Der Professor, <b>dem</b> ich helfe, …</div>
+            <div class="ru">der Professor (m) + Dativ (я ему помогаю) → dem</div>
+          </div>
+          <p>⚠️ Относительное предложение всегда выделяется <b>запятыми</b> с обеих сторон!</p>
+        `
+      },
+      {
+        heading: '📌 Relativsatz с предлогами',
+        content: `
+          <p>Если глагол требует предлог — предлог идёт перед местоимением:</p>
+          <div class="example-box">
+            <div class="de">Das ist die Stadt, <b>in der</b> ich studieren möchte. — Это город, в котором я хочу учиться.</div>
+            <div class="ru">Das ist der Freund, <b>mit dem</b> ich lerne. — Это друг, с которым я учусь.</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Das ist das Thema, <b>für das</b> ich mich interessiere. — Это тема, которой я интересуюсь.</div>
+            <div class="ru">Das ist die Professorin, <b>von der</b> ich viel gelernt habe. — Это профессор, от которой я многому научилась.</div>
           </div>
         `
       },
       {
-        heading: '📌 Passiv с Modalverben',
+        heading: '💬 Genitiv в Relativsatz',
         content: `
-          <p>Модальный + werden + Partizip II:</p>
+          <p>Dessen/deren заменяет «чей»:</p>
           <div class="example-box">
-            <div class="de">Der Antrag <b>muss ausgefüllt werden</b>. — Заявление должно быть заполнено.</div>
-            <div class="ru">Die Prüfung <b>kann verschoben werden</b>. — Экзамен может быть перенесён.</div>
+            <div class="de">Der Student, <b>dessen</b> Aufsatz sehr gut ist, bekommt einen Preis. (m → dessen)</div>
+            <div class="ru">Студент, чья работа очень хорошая, получает приз.</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Die Professorin, <b>deren</b> Kurs ich belege, ist sehr bekannt. (f → deren)</div>
+            <div class="ru">Профессор, курс которой я посещаю, очень известна.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Das Formular _____ ausgefüllt. (Passiv Präsens, ausfüllen)', options: ['wird', 'ist', 'hat', 'war'], answer: 0 },
-      { type: 'fill', question: 'Der Brief _____ gestern _____. (schreiben, Passiv Präteritum)', answer: 'wurde … geschrieben', placeholder: 'wur...' },
+      { type: 'choice', question: 'Der Student, _____ aus Wien kommt, spricht perfekt Deutsch. (m, Nom.)', options: ['der', 'die', 'das', 'den'], answer: 0 },
+      { type: 'choice', question: 'Die Universität, _____ ich besuchen möchte, ist sehr bekannt. (f, Akk.)', options: ['die', 'der', 'das', 'den'], answer: 0 },
+      { type: 'fill', question: 'Das Buch, _____ ich lese, ist interessant. (n, Akk.)', answer: 'das', placeholder: 'd...' },
+      { type: 'choice', question: 'Der Mann, _____ ich helfe, ist krank. (m, Dat.)', options: ['dem', 'der', 'den', 'die'], answer: 0 },
+      { type: 'choice', question: 'Die Studentin, _____ Tasche ich gefunden habe, heißt Margo. (f, Gen.)', options: ['deren', 'dessen', 'die', 'der'], answer: 0 },
+      { type: 'fill', question: 'Das ist die Stadt, in _____ ich studieren möchte. (f, Dat.)', answer: 'der', placeholder: 'd...' },
+      { type: 'choice', question: 'Der Kurs, _____ ich mich interessiere, ist ausgebucht. (für + n)', options: ['für den', 'für das', 'für dem', 'für die'], answer: 0 },
+      { type: 'fill', question: 'Die Professorin, _____ Kurs sehr gut ist, kommt aus Graz. (f, Gen.)', answer: 'deren', placeholder: 'der...' },
+      { type: 'translate', question: 'Это девушка, которую я знаю.', hint: 'das Mädchen, das ich kenne', answer: 'Das ist das Mädchen, das ich kenne.', placeholder: 'Das ist das Mädchen...' },
+      { type: 'translate', question: 'Город, в котором я живу, называется Вена.', hint: 'die Stadt, in der ich wohne / heißen', answer: 'Die Stadt, in der ich wohne, heißt Wien.', placeholder: 'Die Stadt, in der...' },
+      { type: 'choice', question: 'Das sind die Studenten, _____ ich kenne. (pl, Akk.)', options: ['die', 'der', 'denen', 'deren'], answer: 0 },
+      { type: 'fill', question: 'Der Freund, mit _____ ich lerne, heißt Max. (m, Dat.)', answer: 'dem', placeholder: 'd...' },
+    ],
+  },
+
+  passiv: {
+    title: 'Пассивный залог (Passiv) — Die Gelbe Kap. 19',
+    level: 'B1 · Грамматика',
+    intro: 'Passiv — пассивный залог: важно ЧТО происходит, а не КТО делает. «Письмо пишется» вместо «Она пишет письмо». Passiv повсюду в официальных документах, инструкциях и академических текстах. При поступлении в австрийский вуз без него не обойтись!',
+    theory: [
+      {
+        heading: '🔄 Активный → Пассивный залог',
+        content: `
+          <p>Объект активного (Akk.) становится подлежащим пассивного. Деятель идёт с <b>von + Dativ</b>.</p>
+          <div class="table-wrap"><table>
+            <tr><th></th><th>Пример</th><th>Русский</th></tr>
+            <tr><td><b>Aktiv</b></td><td>Die Studentin schreibt den Brief.</td><td>Студентка пишет письмо.</td></tr>
+            <tr><td><b>Passiv</b></td><td>Der Brief <b>wird</b> (von der Studentin) <b>geschrieben</b>.</td><td>Письмо пишется (студенткой).</td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: '📐 Passiv в разных временах',
+        content: `
+          <p>Формула: форма <b>werden</b> + <b>Partizip II</b></p>
+          <div class="table-wrap"><table>
+            <tr><th>Время</th><th>werden</th><th>Пример</th><th>Русский</th></tr>
+            <tr><td><b>Präsens</b></td><td>wird/werden</td><td>Das Buch <b>wird gelesen</b>.</td><td>Книга читается.</td></tr>
+            <tr><td><b>Präteritum</b></td><td>wurde/wurden</td><td>Das Buch <b>wurde gelesen</b>.</td><td>Книга читалась.</td></tr>
+            <tr><td><b>Perfekt</b></td><td>ist + worden</td><td>Das Buch <b>ist gelesen worden</b>.</td><td>Книга была прочитана.</td></tr>
+            <tr><td><b>Futur</b></td><td>wird + werden</td><td>Das Buch <b>wird gelesen werden</b>.</td><td>Книга будет прочитана.</td></tr>
+          </table></div>
+          <p>⚠️ В Perfekt пассива: <b>worden</b> (без ge-), не «geworden»!</p>
+          <div class="example-box">
+            <div class="de">Die Tür <b>wird</b> jeden Abend <b>geschlossen</b>. — Дверь закрывается каждый вечер.</div>
+            <div class="ru">Das Formular <b>wurde</b> gestern <b>ausgefüllt</b>. — Форму заполнили вчера.</div>
+          </div>
+        `
+      },
+      {
+        heading: '⚡ Passiv с модальными глаголами',
+        content: `
+          <p>Модальный + Partizip II + <b>werden</b> (в конце)</p>
+          <div class="table-wrap"><table>
+            <tr><th>Немецкий</th><th>Русский</th></tr>
+            <tr><td>Der Antrag <b>muss ausgefüllt werden</b>.</td><td>Заявление должно быть заполнено.</td></tr>
+            <tr><td>Die Prüfung <b>kann verschoben werden</b>.</td><td>Экзамен может быть перенесён.</td></tr>
+            <tr><td>Die Dokumente <b>müssen eingereicht werden</b>.</td><td>Документы должны быть поданы.</td></tr>
+            <tr><td>Das Formular <b>darf nicht kopiert werden</b>.</td><td>Форму нельзя копировать.</td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: '🏛️ Passiv в официальных текстах — реальные примеры',
+        content: `
+          <div class="example-box">
+            <div class="de">Die Bewerbungsunterlagen <b>werden</b> bis 15. März <b>eingereicht</b>.</div>
+            <div class="ru">Документы подаются до 15 марта. (из информации для поступающих)</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Der Nachweis <b>muss beglaubigt werden</b>. — Справка должна быть заверена.</div>
+            <div class="ru">Das Zeugnis <b>wird anerkannt</b>. — Аттестат признаётся.</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Hier <b>wird</b> Deutsch <b>gesprochen</b>. — Здесь говорят по-немецки.</div>
+            <div class="ru">In Österreich <b>wird</b> gern Kaffee <b>getrunken</b>. — В Австрии любят пить кофе.</div>
+          </div>
+        `
+      }
+    ],
+    exercises: [
+      { type: 'choice', question: 'Das Formular _____ ausgefüllt. (Passiv Präsens)', options: ['wird', 'ist', 'hat', 'war'], answer: 0 },
+      { type: 'fill', question: 'Der Brief _____ gestern geschrieben. (Passiv Präteritum, werden → wurde)', answer: 'wurde', placeholder: 'wu...' },
       { type: 'choice', question: 'Hier _____ Deutsch gesprochen. (Passiv Präsens)', options: ['wird', 'werden', 'wurde', 'ist'], answer: 0 },
       { type: 'choice', question: 'Die Aufgabe muss _____ werden. (machen → Partizip II)', options: ['gemacht', 'machen', 'machte', 'macht'], answer: 0 },
       { type: 'choice', question: 'Das Haus _____ 1900 gebaut worden. (Passiv Perfekt)', options: ['ist', 'wird', 'wurde', 'hat'], answer: 0 },
+      { type: 'fill', question: 'Die Dokumente müssen bis Freitag _____ werden. (einreichen → Partizip II)', answer: 'eingereicht', placeholder: 'einge...' },
+      { type: 'choice', question: 'Das Buch _____ von vielen Studenten gelesen. (Präsens)', options: ['wird', 'werden', 'wurde', 'worden'], answer: 0 },
+      { type: 'fill', question: 'Der Antrag _____ gestern abgeschickt _____ . (Perfekt Passiv → wurde / worden)', answer: 'wurde … worden', placeholder: 'wur...' },
+      { type: 'translate', question: 'Документы должны быть поданы до 1 марта.', hint: 'Die Dokumente müssen … eingereicht werden / bis 1. März', answer: 'Die Dokumente müssen bis 1. März eingereicht werden.', placeholder: 'Die Dokumente...' },
+      { type: 'translate', question: 'Здесь говорят по-немецки.', hint: 'Hier wird Deutsch gesprochen.', answer: 'Hier wird Deutsch gesprochen.', placeholder: 'Hier wird...' },
+      { type: 'choice', question: 'Das Zeugnis kann _____ werden. (anerkennen → Partizip II)', options: ['anerkannt', 'anerkenne', 'anerkennt', 'erkennt'], answer: 0 },
     ],
   },
 
   possessivpron: {
-    title: 'Притяжательные местоимения в падежах',
-    level: 'A2 · Грамматика · Die Gelbe Kap. 17',
-    intro: 'mein, dein, sein, ihr, unser, euer, ihr/Ihr — в немецком они изменяются по падежам как неопределённый артикль ein/eine.',
+    title: 'Притяжательные местоимения — Die Gelbe Kap. 17',
+    level: 'A2 · Грамматика',
+    intro: 'mein, dein, sein, ihr, unser, euer, ihr/Ihr — они склоняются точно как неопределённый артикль ein/eine. Выучи одну таблицу — и все притяжательные местоимения становятся понятны!',
     theory: [
       {
-        heading: '📐 Склонение — на примере mein',
+        heading: '📋 Все притяжательные местоимения',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th><th>pl</th></tr>
-            <tr><td>Nom.</td><td>mein Bruder</td><td>meine Schwester</td><td>mein Kind</td><td>meine Eltern</td></tr>
-            <tr><td>Akk.</td><td>meinen Bruder</td><td>meine Schwester</td><td>mein Kind</td><td>meine Eltern</td></tr>
-            <tr><td>Dat.</td><td>meinem Bruder</td><td>meiner Schwester</td><td>meinem Kind</td><td>meinen Eltern</td></tr>
-            <tr><td>Gen.</td><td>meines Bruders</td><td>meiner Schwester</td><td>meines Kindes</td><td>meiner Eltern</td></tr>
+            <tr><th>Лицо</th><th>Местоимение</th><th>Перевод</th></tr>
+            <tr><td>ich</td><td><b>mein</b></td><td>мой/моя/моё</td></tr>
+            <tr><td>du</td><td><b>dein</b></td><td>твой/твоя/твоё</td></tr>
+            <tr><td>er/es</td><td><b>sein</b></td><td>его</td></tr>
+            <tr><td>sie</td><td><b>ihr</b></td><td>её</td></tr>
+            <tr><td>wir</td><td><b>unser</b></td><td>наш/наша/наше</td></tr>
+            <tr><td>ihr</td><td><b>euer</b></td><td>ваш/ваша/ваше (неформ.)</td></tr>
+            <tr><td>sie/Sie</td><td><b>ihr/Ihr</b></td><td>их / Ваш (формальное)</td></tr>
           </table></div>
-          <p>💡 Все остальные (dein, sein, ihr, unser, euer, ihr) склоняются по той же таблице — просто меняй первые буквы!</p>
+          <p>⚠️ <b>ihr</b> (её) vs <b>Ihr</b> (Ваш формальное) vs <b>ihr</b> (их) — только контекст помогает!</p>
+        `
+      },
+      {
+        heading: '📐 Склонение mein во всех падежах',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Падеж</th><th>m (der)</th><th>f (die)</th><th>n (das)</th><th>pl</th></tr>
+            <tr><td><b>Nom.</b></td><td>mein Bruder</td><td>mein<b>e</b> Schwester</td><td>mein Kind</td><td>mein<b>e</b> Eltern</td></tr>
+            <tr><td><b>Akk.</b></td><td>mein<b>en</b> Bruder</td><td>mein<b>e</b> Schwester</td><td>mein Kind</td><td>mein<b>e</b> Eltern</td></tr>
+            <tr><td><b>Dat.</b></td><td>mein<b>em</b> Bruder</td><td>mein<b>er</b> Schwester</td><td>mein<b>em</b> Kind</td><td>mein<b>en</b> Eltern</td></tr>
+            <tr><td><b>Gen.</b></td><td>mein<b>es</b> Bruders</td><td>mein<b>er</b> Schwester</td><td>mein<b>es</b> Kindes</td><td>mein<b>er</b> Eltern</td></tr>
+          </table></div>
+          <p>💡 Окончания те же, что у <b>ein/eine</b>: Nom. m = Ø, Nom./Akk. n = Ø, всё остальное с окончаниями.</p>
+          <p>Для <b>dein, sein, ihr, unser, euer</b> — те же окончания, только меняй основу!</p>
+        `
+      },
+      {
+        heading: '💬 Примеры во всех падежах',
+        content: `
           <div class="example-box">
-            <div class="de">Ich liebe <b>meinen</b> Hund. (Akk., m) — Я люблю свою собаку.</div>
-            <div class="ru">Sie hilft <b>ihrer</b> Mutter. (Dat., f) — Она помогает своей маме.</div>
+            <div class="de"><b>Mein</b> Vater kommt aus Russland. (Nom. m, Ø-окончание)</div>
+            <div class="ru">Ich liebe <b>meinen</b> Vater. (Akk. m, -en)</div>
+          </div>
+          <div class="example-box">
+            <div class="de">Ich schreibe <b>meiner</b> Mutter einen Brief. (Dat. f, -er)</div>
+            <div class="ru">Das ist das Auto <b>meines</b> Bruders. (Gen. m, -es)</div>
+          </div>
+          <div class="example-box">
+            <div class="de"><b>Unser</b> Kurs beginnt um 9 Uhr. (Nom. m) — Наш курс начинается в 9.</div>
+            <div class="ru">Ich fahre mit <b>unserem</b> Auto. (Dat. n) — Я еду на нашей машине.</div>
+          </div>
+          <div class="example-box">
+            <div class="de">⚠️ euer (ваш): <b>Euer</b> Lehrer (Nom. m), <b>euren</b> Lehrer (Akk. m), <b>eure</b> Lehrerin (Nom./Akk. f)</div>
+            <div class="ru">В euer при добавлении окончаний выпадает е: euer → eur+e → eure, eur+en → euren</div>
           </div>
         `
       }
@@ -1477,6 +1861,12 @@ const LESSONS_CONTENT = {
       { type: 'fill', question: 'Sie schreibt _____ Mutter einen Brief. (ihr, Dat., f)', answer: 'ihrer', placeholder: 'ihr...' },
       { type: 'choice', question: 'Das ist das Haus _____ Eltern. (mein, Gen., pl)', options: ['meiner', 'meinem', 'meinen', 'meine'], answer: 0 },
       { type: 'choice', question: 'Wir besuchen _____ Freunde. (unser, Akk., pl)', options: ['unsere', 'unser', 'unserem', 'unserer'], answer: 0 },
+      { type: 'fill', question: '_____ Kurs beginnt um 10 Uhr. (unser, Nom., m)', answer: 'Unser', placeholder: 'Uns...' },
+      { type: 'choice', question: 'Ich helfe _____ Freundin. (mein, Dat., f)', options: ['meiner', 'meine', 'meinen', 'meinem'], answer: 0 },
+      { type: 'fill', question: 'Das ist _____ Idee! (dein, Nom., f)', answer: 'deine', placeholder: 'dein...' },
+      { type: 'translate', question: 'Наш профессор из Вены.', hint: 'unser Professor / kommen aus', answer: 'Unser Professor kommt aus Wien.', placeholder: 'Unser Professor...' },
+      { type: 'translate', question: 'Она помогает своей сестре.', hint: 'ihrer Schwester helfen', answer: 'Sie hilft ihrer Schwester.', placeholder: 'Sie hilft...' },
+      { type: 'choice', question: 'Er kennt _____ Bruder. (mein, Akk., m)', options: ['meinen', 'mein', 'meine', 'meiner'], answer: 0 },
     ],
   },
 
