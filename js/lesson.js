@@ -199,6 +199,11 @@ function completeLesson() {
   const newXP = addXPLocal(xp);
   document.getElementById('modal-xp').textContent = `+${xp} XP · Всего: ${newXP} XP`;
   document.getElementById('complete-modal').classList.add('show');
+  // Синхронизируем прогресс в облако
+  if (typeof window._pushToCloud === 'function') {
+    window._pushToCloud();
+    if (typeof window.showSync === 'function') window.showSync('☁️ Прогресс сохранён!');
+  }
 }
 
 // Init

@@ -5,19 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Урок — Булочка учит Deutsch</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <div class="floating-hearts" id="floating-hearts"></div>
+
   <header class="header">
     <div class="container">
-      <div class="logo">🥐 <span>Булочка</span> учит Deutsch</div>
+      <div class="logo">
+        <span class="logo-heart">❤️</span>
+        <span id="user-name">Булочка</span> учит Deutsch
+      </div>
       <div class="header-right">
         <div class="xp-badge">⚡ <span id="total-xp">0</span> XP</div>
         <div class="streak-badge">🔥 <span id="streak">0</span> дней</div>
+        <button class="logout-btn" id="logout-btn" title="Выйти">↩</button>
       </div>
     </div>
   </header>
+
+  <div class="sync-bar" id="sync-bar">
+    <span id="sync-status">☁️ Сохранение...</span>
+  </div>
 
   <div id="lesson-root"></div>
 
@@ -32,8 +41,45 @@
     </div>
   </div>
 
+  <script src="js/firebase-config.js"></script>
   <script src="js/data.js"></script>
   <script src="js/lessons-content.js"></script>
   <script src="js/lesson.js"></script>
+
+  <script type="module">
+    import { initAuth, pushToCloud, logout } from './js/sync.js';
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      if (confirm('Выйти из аккаунта?')) logout();
+    });
+
+    // Проверяем авторизацию, потом рендерим урок
+    initAuth(() => {
+      renderHeaderStats();
+      renderLesson();
+    });
+
+    // Экспортируем pushToCloud чтобы lesson.js мог вызвать после завершения урока
+    window._pushToCloud = pushToCloud;
+
+    function showSync(msg) {
+      const bar = document.getElementById('sync-bar');
+      document.getElementById('sync-status').textContent = msg;
+      bar.classList.add('visible');
+      setTimeout(() => bar.classList.remove('visible'), 2500);
+    }
+    window.showSync = showSync;
+  </script>
+
+  <script>
+    const fhC = document.getElementById('floating-hearts');
+    ['❤️','🩷','💕','💗','🌸'].forEach((ch, i) => {
+      const el = document.createElement('div');
+      el.className = 'fh';
+      el.textContent = ch;
+      el.style.cssText = `left:${Math.random()*100}%;bottom:-10%;font-size:${0.9+Math.random()}rem;animation-delay:${Math.random()*20}s;animation-duration:${22+Math.random()*14}s;`;
+      fhC.appendChild(el);
+    });
+  </script>
 </body>
 </html>

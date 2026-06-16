@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вход — Булочка учит Deutsch</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="floating-hearts" id="floating-hearts"></div>
+
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-hearts">❤️</div>
+      <h1 class="login-title">Булочка учит<br><em>Deutsch</em></h1>
+      <p class="login-sub">Войди чтобы прогресс сохранялся на всех устройствах</p>
+
+      <div class="login-form">
+        <div class="field-wrap">
+          <label class="field-label">Логин</label>
+          <input class="field-input" id="login-input" type="text" placeholder="Bulochka" autocomplete="username" />
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Пароль</label>
+          <input class="field-input" id="pass-input" type="password" placeholder="••••••••" autocomplete="current-password" />
+          <button class="eye-btn" id="eye-btn" onclick="togglePass()" type="button">👁</button>
+        </div>
+        <div class="login-error" id="login-error"></div>
+        <button class="login-btn" id="login-btn" onclick="doLogin()">Войти ❤️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+    // ─── ВСТАВЬ СВОЙ FIREBASE CONFIG СЮДА ───
+    const firebaseConfig = {
+      apiKey: "REPLACE_API_KEY",
+      authDomain: "REPLACE_AUTH_DOMAIN",
+      projectId: "REPLACE_PROJECT_ID",
+      storageBucket: "REPLACE_STORAGE_BUCKET",
+      messagingSenderId: "REPLACE_MESSAGING_SENDER_ID",
+      appId: "REPLACE_APP_ID",
+      databaseURL: "REPLACE_DATABASE_URL"
+    };
+    // ─────────────────────────────────────────
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Если уже залогинена — сразу на главную
+    onAuthStateChanged(auth, user => {
+      if (user) window.location.href = 'index.html';
+    });
+
+    // Маппинг логинов → email (чтобы Булочка вводила слово, не email)
+    const USERS = {
+      'bulochka': 'bulochka@bulochka-deutsch.de',
+      'matvei':   'matvei@bulochka-deutsch.de',
+    };
+
+    window.doLogin = async function() {
+      const loginVal = document.getElementById('login-input').value.trim().toLowerCase();
+      const passVal  = document.getElementById('pass-input').value;
+      const errEl    = document.getElementById('login-error');
+      const btn      = document.getElementById('login-btn');
+
+      errEl.textContent = '';
+      if (!loginVal || !passVal) { errEl.textContent = 'Введи логин и пароль!'; return; }
+
+      const email = USERS[loginVal];
+      if (!email) { errEl.textContent = 'Неизвестный логин 🤔'; return; }
+
+      btn.textContent = 'Входим...';
+      btn.disabled = true;
+
+      try {
+        await signInWithEmailAndPassword(auth, email, passVal);
+        window.location.href = 'index.html';
+      } catch (e) {
+        errEl.textContent = 'Неверный пароль 🙈';
+        btn.textContent = 'Войти ❤️';
+        btn.disabled = false;
+      }
+    };
+
+    window.togglePass = function() {
+      const inp = document.getElementById('pass-input');
+      inp.type = inp.type === 'password' ? 'text' : 'password';
+    };
+  </script>
+
+  <script>
+    // Floating hearts
+    const fh = document.getElementById('floating-hearts');
+    ['❤️','🩷','💕','💗','💓','🌸'].forEach((ch, i) => {
+      const el = document.createElement('div');
+      el.className = 'fh';
+      el.textContent = ch;
+      el.style.cssText = `left:${Math.random()*100}%;bottom:-10%;font-size:${0.9+Math.random()*1.2}rem;animation-delay:${Math.random()*18}s;animation-duration:${18+Math.random()*12}s;`;
+      fh.appendChild(el);
+    });
+
+    // Enter key
+    document.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+  </script>
+</body>
+</html>
