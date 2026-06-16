@@ -285,11 +285,13 @@
 
   <script type="module">
     import { initAuth, logout } from './js/sync.js';
-    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
-    const _app = initializeApp(FIREBASE_CONFIG, 'writing');
-    const _db  = getFirestore(_app);
+    const _app  = initializeApp(FIREBASE_CONFIG, 'writing');
+    const _db   = getFirestore(_app);
+    const _auth = getAuth(_app);
 
     document.getElementById('logout-btn').addEventListener('click', () => {
       if (confirm('Выйти из аккаунта?')) logout();
@@ -304,13 +306,51 @@
       // Загружаем ключ из Firestore
       try {
         const snap = await getDoc(doc(_db, 'config', 'openrouter'));
-        if (snap.exists()) {
-          window._orKey = snap.data().key;
+        if (snap.exists()) window._orKey = snap.data().key;
+      } catch(e) {
+        console.warn('Не удалось загрузить ключ:', e);
+      }
+
+      // Загружаем историю из Firestore и мержим с localStorage
+      try {
+        const uid = _auth.currentUser?.uid;
+        if (uid) {
+          const snap = await getDoc(doc(_db, 'writing_history', uid));
+          if (snap.exists()) {
+            const cloudEntries = snap.data().entries || [];
+            const localEntries = JSON.parse(localStorage.getItem('bulochka-writing-history') || '[]');
+            // Мерж: объединяем по ts, убираем дубли, сортируем новые сверху
+            const merged = [...cloudEntries, ...localEntries]
+              .filter((e, i, arr) => arr.findIndex(x => x.ts === e.ts) === i)
+              .sort((a, b) => b.ts - a.ts)
+              .slice(0, 50);
+            localStorage.setItem('bulochka-writing-history', JSON.stringify(merged));
+            renderHistory();
+          }
         }
       } catch(e) {
-        console.warn('Не удалось загрузить ключ из Firestore:', e);
+        console.warn('Не удалось загрузить историю:', e);
       }
     });
+
+    // Сохранить запись в Firestore
+    window._saveHistoryCloud = async function(entry) {
+      try {
+        const uid = _auth.currentUser?.uid;
+        if (!uid) return;
+        const ref = doc(_db, 'writing_history', uid);
+        const snap = await getDoc(ref);
+        if (snap.exists()) {
+          const existing = snap.data().entries || [];
+          const updated = [entry, ...existing].slice(0, 50);
+          await setDoc(ref, { entries: updated });
+        } else {
+          await setDoc(ref, { entries: [entry] });
+        }
+      } catch(e) {
+        console.warn('Не удалось сохранить историю в облако:', e);
+      }
+    };
   </script>
 
   <script>
@@ -362,10 +402,12 @@
     }
     function saveToHistory(entry) {
       const hist = loadHistory();
-      hist.unshift(entry); // новые сверху
-      if (hist.length > 50) hist.pop(); // макс 50 записей
+      hist.unshift(entry);
+      if (hist.length > 50) hist.pop();
       localStorage.setItem(HISTORY_KEY, JSON.stringify(hist));
       renderHistory();
+      // Сохраняем в облако
+      if (typeof window._saveHistoryCloud === 'function') window._saveHistoryCloud(entry);
     }
     function clearHistory() {
       if (!confirm('Очистить всю историю проверок?')) return;
