@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Сброс прогресса</title>
+  <style>
+    body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #fff0f7; }
+    .box { background: #fff; border-radius: 16px; padding: 36px; max-width: 380px; text-align: center; box-shadow: 0 4px 24px rgba(0,0,0,0.1); }
+    h2 { color: #e0397f; margin-top: 0; }
+    p { color: #555; font-size: 0.9rem; line-height: 1.6; }
+    button { background: #e0397f; color: #fff; border: none; padding: 12px 28px; border-radius: 10px; font-size: 1rem; cursor: pointer; margin-top: 12px; }
+    button:disabled { background: #ccc; cursor: not-allowed; }
+    #status { margin-top: 16px; font-size: 0.9rem; color: #333; }
+  </style>
+</head>
+<body>
+<div class="box">
+  <h2>🔄 Сброс прогресса</h2>
+  <p>Это сотрёт весь прогресс залогиненного пользователя:<br>XP, стрик, пройденные уроки.<br><br>Контент сайта останется без изменений.</p>
+  <button id="btn" onclick="doReset()">Сбросить прогресс</button>
+  <div id="status"></div>
+</div>
+
+<script src="js/firebase-config.js"></script>
+<script type="module">
+  import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+  import { getFirestore, doc, setDoc }   from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+
+  const app  = initializeApp(FIREBASE_CONFIG);
+  const auth = getAuth(app);
+  const db   = getFirestore(app);
+
+  window.doReset = async function() {
+    const btn = document.getElementById('btn');
+    const status = document.getElementById('status');
+    const user = auth.currentUser;
+    if (!user) { status.textContent = '⚠️ Не залогинен'; return; }
+
+    btn.disabled = true;
+    status.textContent = '⏳ Сбрасываю...';
+
+    try {
+      await setDoc(doc(db, 'users', user.uid), {
+        xp: 0, streak: 0, lastDay: '', progress: {}, updatedAt: new Date().toISOString()
+      });
+      ['bulochka-xp','bulochka-streak','bulochka-last-day','bulochka-progress'].forEach(k => localStorage.removeItem(k));
+      status.innerHTML = '✅ Готово! Можно закрывать страницу.';
+    } catch (e) {
+      status.textContent = '❌ Ошибка: ' + e.message;
+      btn.disabled = false;
+    }
+  };
+
+  onAuthStateChanged(getAuth(app), user => {
+    if (!user) window.location.href = 'login.html';
+  });
+</script>
+</body>
+</html>
