@@ -564,6 +564,21 @@ body {
   border-top: 1px solid var(--cream);
 }
 .footer span { color: var(--pink-400); }
+.footer-sig {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #e0397f, #ffadd1, #e0397f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.02em;
+}
+.footer-heart {
+  font-size: 1.2rem;
+  animation: heartbeat 1.6s ease-in-out infinite;
+  display: inline-block;
+}
 
 /* ══════════════════════════════════════════
    LESSON PAGE
