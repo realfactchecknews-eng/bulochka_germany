@@ -16,7 +16,16 @@ const SYSTEM_PROMPT = `Ты — Фрау Анна, добрый и терпел�
 Помни: её цель — поступить в австрийский университет. Это важно и ты всегда об этом помнишь.`;
 
 let orKey = null;
-const history = []; // conversation memory for this session
+const CHAT_KEY = 'bulochka-chat-history';
+
+function loadHistory() {
+  try { return JSON.parse(localStorage.getItem(CHAT_KEY) || '[]'); } catch { return []; }
+}
+function saveHistory(hist) {
+  localStorage.setItem(CHAT_KEY, JSON.stringify(hist.slice(-40)));
+}
+
+const history = loadHistory();
 
 async function loadKey() {
   if (orKey) return orKey;
@@ -233,11 +242,12 @@ async function sendMessage(text) {
     const reply = data.choices?.[0]?.message?.content || 'Не смогла ответить, попробуй ещё раз.';
     history.push({ role: 'assistant', content: reply });
 
+    // Ограничиваем историю — макс 40 сообщений
+    if (history.length > 40) history.splice(0, 2);
+    saveHistory(history);
+
     typingEl.remove();
     addMsg(reply, 'bot');
-
-    // Ограничиваем историю — макс 20 сообщений (чтоб не раздувать запрос)
-    if (history.length > 20) history.splice(0, 2);
 
   } catch(e) {
     typingEl.remove();
@@ -259,13 +269,25 @@ function init() {
 
   let opened = false;
 
+  // Восстанавливаем историю сообщений из localStorage
+  const savedMsgs = history;
+  if (savedMsgs.length > 0) {
+    savedMsgs.forEach(m => addMsg(m.content, m.role === 'user' ? 'user' : 'bot'));
+  }
+
   fab.addEventListener('click', () => {
     opened = !opened;
     popup.classList.toggle('open', opened);
-    if (opened && document.getElementById('chat-messages').children.length === 0) {
-      addMsg('Привет, Марго! 👋 Я Фрау Анна, твой преподаватель немецкого. Спрашивай всё что непонятно — грамматику, слова, произношение. Ich helfe dir gerne! 💕', 'bot');
+    if (opened && history.length === 0) {
+      const greeting = 'Привет, Марго! 👋 Я Фрау Анна, твой преподаватель немецкого. Спрашивай всё что непонятно — грамматику, слова, произношение. Ich helfe dir gerne! 💕';
+      history.push({ role: 'assistant', content: greeting });
+      saveHistory(history);
+      addMsg(greeting, 'bot');
     }
-    if (opened) setTimeout(() => input.focus(), 250);
+    if (opened) {
+      document.getElementById('chat-messages').scrollTop = 9999;
+      setTimeout(() => input.focus(), 250);
+    }
   });
 
   closeBtn.addEventListener('click', () => {
