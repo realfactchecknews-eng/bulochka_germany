@@ -813,3 +813,41 @@ tr:nth-child(even) td { background: var(--milk-2); }
   .hero-cards { flex-direction: row; }
   .hero-card { flex: 1; }
 }
+
+/* Writing entry button on main page */
+.writing-entry-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border: 2px solid #ffd6e7;
+  border-radius: 20px;
+  padding: 20px 24px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 18px rgba(224,57,127,0.08);
+  transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+  margin-top: 8px;
+}
+.writing-entry-btn:hover {
+  box-shadow: 0 8px 28px rgba(224,57,127,0.16);
+  transform: translateY(-2px);
+  border-color: var(--pink-400);
+}
+.writing-entry-btn > span:first-child { font-size: 2rem; }
+.writing-entry-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+.writing-entry-sub {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+.writing-entry-arrow {
+  margin-left: auto;
+  font-size: 1.3rem;
+  color: var(--pink-400);
+  font-weight: 700;
+}

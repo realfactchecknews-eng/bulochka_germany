@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Письменные задания — Булочка учит Deutsch</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    .writing-page { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; }
+
+    .writing-hero {
+      text-align: center;
+      padding: 36px 20px 28px;
+    }
+    .writing-hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--pink-600); margin-bottom: 8px; }
+    .writing-hero p { color: var(--text-muted); font-size: 0.95rem; }
+
+    .task-cards { display: flex; flex-direction: column; gap: 28px; }
+
+    .task-card {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1.5px solid var(--cream);
+      box-shadow: 0 4px 18px rgba(224,57,127,0.07);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .task-card:hover { box-shadow: 0 8px 28px rgba(224,57,127,0.13); }
+
+    .task-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 22px 14px;
+      border-bottom: 1px solid var(--cream);
+    }
+    .task-level {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+      background: linear-gradient(135deg, #ffd6e7, #ffadd1);
+      color: var(--pink-600);
+      padding: 3px 10px; border-radius: 20px;
+      white-space: nowrap;
+    }
+    .task-title { font-weight: 700; font-size: 1.05rem; color: var(--text-dark); }
+
+    .task-body { padding: 18px 22px 22px; }
+
+    .task-prompt {
+      background: linear-gradient(135deg, #fff0f7, #fce8f3);
+      border-left: 3px solid var(--pink-400);
+      border-radius: 0 12px 12px 0;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      font-size: 0.93rem;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    .task-hint {
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .task-hint strong { color: var(--pink-500); }
+
+    .writing-area {
+      width: 100%;
+      min-height: 130px;
+      border: 2px solid var(--cream);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+      background: var(--white);
+    }
+    .writing-area:focus {
+      border-color: var(--pink-400);
+      box-shadow: 0 0 0 3px rgba(255,173,209,0.25);
+    }
+    .writing-area::placeholder { color: #d4a0b8; }
+
+    .check-writing-btn {
+      margin-top: 12px;
+      background: linear-gradient(135deg, var(--pink-400), var(--pink-600));
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .check-writing-btn:hover:not(:disabled) { opacity: 0.92; transform: translateY(-1px); }
+    .check-writing-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+
+    .ai-result {
+      margin-top: 18px;
+      border-radius: 16px;
+      overflow: hidden;
+      display: none;
+    }
+    .ai-result.visible { display: block; }
+
+    .ai-result-header {
+      background: linear-gradient(135deg, var(--pink-400), var(--pink-600));
+      color: #fff;
+      padding: 10px 18px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    .ai-result-body {
+      background: #fff8fc;
+      border: 1.5px solid #ffd6e7;
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+      padding: 16px 18px;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+      white-space: pre-wrap;
+    }
+
+    .ai-loading {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--pink-500); font-size: 0.9rem;
+      padding: 14px 18px;
+      background: #fff8fc;
+      border: 1.5px solid #ffd6e7;
+      border-radius: 0 0 16px 16px;
+    }
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid #ffd6e7;
+      border-top-color: var(--pink-500);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .score-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 0.8rem; font-weight: 700;
+      background: linear-gradient(135deg, #ffd6e7, #ffadd1);
+      color: var(--pink-600);
+      padding: 3px 12px; border-radius: 20px;
+      margin-left: auto;
+    }
+
+    .writing-nav {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 28px;
+    }
+    .writing-nav a {
+      color: var(--pink-500); text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    }
+    .writing-nav a:hover { text-decoration: underline; }
+
+    .section-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+      color: var(--text-muted); text-transform: uppercase;
+      margin: 32px 0 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-hearts" id="floating-hearts"></div>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <span class="logo-heart">❤️</span>
+        <span id="user-name">Булочка</span> учит Deutsch
+      </div>
+      <div class="header-right">
+        <div class="xp-badge">⚡ <span id="total-xp">0</span> XP</div>
+        <div class="streak-badge">🔥 <span id="streak">0</span> дней</div>
+        <button class="logout-btn" id="logout-btn" title="Выйти">↩</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="sync-bar" id="sync-bar">
+    <span id="sync-status">☁️ Сохранение...</span>
+  </div>
+
+  <div class="writing-page">
+    <div class="writing-nav">
+      <a href="index.html">← На главную</a>
+    </div>
+
+    <div class="writing-hero">
+      <h1>✍️ Письменные задания</h1>
+      <p>Напиши текст по заданию — ИИ проверит грамматику, словарный запас<br>и даст советы на русском языке 💕</p>
+    </div>
+
+    <div class="task-cards" id="tasks-container">
+      <!-- задания рендерятся через JS -->
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/data.js"></script>
+
+  <script type="module">
+    import { initAuth, logout } from './js/sync.js';
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      if (confirm('Выйти из аккаунта?')) logout();
+    });
+
+    initAuth(() => {
+      const xp = localStorage.getItem('bulochka-xp') || '0';
+      const streak = localStorage.getItem('bulochka-streak') || '0';
+      document.getElementById('total-xp').textContent = xp;
+      document.getElementById('streak').textContent = streak;
+      const name = localStorage.getItem('bulochka-login') || 'Булочка';
+      document.getElementById('user-name').textContent = name.charAt(0).toUpperCase() + name.slice(1);
+      document.getElementById('hero-name') && (document.getElementById('hero-name').textContent = name + '!');
+    });
+  </script>
+
+  <script>
+    const OPENROUTER_KEY = 'REPLACE_WITH_KEY';
+    const MODEL = 'openai/gpt-4o-mini';
+
+    const TASKS = [
+      {
+        id: 'w1',
+        level: 'A1',
+        title: 'Расскажи о себе',
+        prompt: 'Напиши небольшой текст о себе (5–7 предложений).\n\nРасскажи: как тебя зовут, сколько тебе лет, откуда ты, где живёшь, что любишь делать. Используй глаголы heißen, sein, kommen, wohnen, mögen.',
+        hint: 'Образец: Ich heiße Margo. Ich bin 20 Jahre alt. Ich komme aus Russland...',
+        placeholder: 'Ich heiße...',
+        minWords: 20,
+      },
+      {
+        id: 'w2',
+        level: 'A1',
+        title: 'Мой день',
+        prompt: 'Опиши свой обычный день (6–8 предложений).\n\nЧто ты делаешь утром, днём и вечером? Используй слова: aufstehen, frühstücken, lernen, essen, schlafen, и временные выражения: morgens, mittags, abends.',
+        hint: 'Используй порядок: сначала → потом → потом',
+        placeholder: 'Ich stehe um... Uhr auf...',
+        minWords: 25,
+      },
+      {
+        id: 'w3',
+        level: 'A2',
+        title: 'Моя семья',
+        prompt: 'Напиши о своей семье (6–8 предложений).\n\nКто есть в твоей семье? Как их зовут, сколько им лет, чем они занимаются? Используй притяжательные местоимения: mein, meine, sein, ihre.',
+        hint: 'Meine Familie ist... Mein Vater heißt... Er ist... Jahre alt.',
+        placeholder: 'Meine Familie...',
+        minWords: 30,
+      },
+      {
+        id: 'w4',
+        level: 'A2',
+        title: 'Письмо другу',
+        prompt: 'Напиши неформальное письмо подруге (8–10 предложений).\n\nПоприветствуй, расскажи что сейчас делаешь, что произошло на этой неделе, спроси как она. Используй Perfekt для прошедших событий.',
+        hint: 'Начни с: Liebe [имя], wie geht es dir? Ich habe diese Woche...',
+        placeholder: 'Liebe...',
+        minWords: 40,
+      },
+      {
+        id: 'w5',
+        level: 'B1',
+        title: 'Почему я хочу учиться в Австрии',
+        prompt: 'Напиши небольшое сочинение (10–12 предложений): почему ты хочешь учиться в Австрии?\n\nОпиши свои мотивы, что тебя привлекает, какие у тебя планы. Используй Konjunktiv II (würde, könnte, hätte) и союзы: weil, obwohl, deshalb.',
+        hint: 'Ich möchte in Österreich studieren, weil...',
+        placeholder: 'Österreich ist für mich...',
+        minWords: 60,
+      },
+      {
+        id: 'w6',
+        level: 'B1',
+        title: 'Описание картинки / ситуации',
+        prompt: 'Представь: ты в кафе в Вене. Опиши сцену (8–10 предложений).\n\nЧто ты видишь вокруг, что заказываешь, о чём думаешь, какие люди рядом. Используй Präteritum или Perfekt, прилагательные с правильными окончаниями.',
+        hint: 'Ich sitze in einem kleinen Café in Wien. Es ist...',
+        placeholder: 'Das Café ist gemütlich...',
+        minWords: 50,
+      },
+    ];
+
+    function renderTasks() {
+      const container = document.getElementById('tasks-container');
+      const levels = ['A1', 'A2', 'B1'];
+      let html = '';
+
+      levels.forEach(lvl => {
+        const lvlTasks = TASKS.filter(t => t.level === lvl);
+        if (!lvlTasks.length) return;
+        html += `<div class="section-label">${lvl} — ${lvl === 'A1' ? 'Начало' : lvl === 'A2' ? 'Элементарный' : 'Средний'}</div>`;
+        lvlTasks.forEach(task => {
+          html += `
+            <div class="task-card" id="card-${task.id}">
+              <div class="task-header">
+                <span class="task-level">${task.level}</span>
+                <span class="task-title">${task.title}</span>
+              </div>
+              <div class="task-body">
+                <div class="task-prompt">${task.prompt.replace(/\n/g,'<br>')}</div>
+                <div class="task-hint">💡 Подсказка: <strong>${task.hint}</strong></div>
+                <textarea class="writing-area" id="text-${task.id}" placeholder="${task.placeholder}" rows="5"></textarea>
+                <button class="check-writing-btn" id="btn-${task.id}" onclick="checkWriting('${task.id}')">
+                  <span>🤖</span> Проверить с ИИ
+                </button>
+                <div class="ai-result" id="result-${task.id}">
+                  <div class="ai-result-header">
+                    <span>🤖 Разбор от ИИ</span>
+                    <span class="score-badge" id="score-${task.id}"></span>
+                  </div>
+                  <div class="ai-result-body" id="body-${task.id}"></div>
+                </div>
+              </div>
+            </div>`;
+        });
+      });
+
+      container.innerHTML = html;
+    }
+
+    async function checkWriting(taskId) {
+      const task = TASKS.find(t => t.id === taskId);
+      const text = document.getElementById(`text-${taskId}`).value.trim();
+      const btn = document.getElementById(`btn-${taskId}`);
+      const resultEl = document.getElementById(`result-${taskId}`);
+      const bodyEl = document.getElementById(`body-${taskId}`);
+      const scoreEl = document.getElementById(`score-${taskId}`);
+
+      if (!text || text.split(/\s+/).length < 5) {
+        bodyEl.textContent = 'Напиши хотя бы несколько предложений на немецком 🙈';
+        resultEl.classList.add('visible');
+        resultEl.querySelector('.ai-result-header').style.display = 'flex';
+        return;
+      }
+
+      if (OPENROUTER_KEY === 'REPLACE_WITH_KEY') {
+        bodyEl.textContent = '⚠️ API ключ ещё не добавлен. Матвей скоро это исправит 💕';
+        resultEl.classList.add('visible');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Проверяю...';
+
+      // Показываем лоадер
+      resultEl.classList.add('visible');
+      resultEl.querySelector('.ai-result-header').style.display = 'none';
+      bodyEl.innerHTML = `<div class="ai-loading"><div class="spinner"></div> ИИ читает твой текст...</div>`;
+      bodyEl.style.padding = '0';
+
+      const systemPrompt = `Ты — добрый и терпеливый учитель немецкого языка. Твоя студентка — русскоговорящая девушка Марго, которая учит немецкий с нуля, чтобы поступить в университет в Австрии. Уровень задания: ${task.level}.
+
+Проверь её текст и дай развёрнутый разбор на РУССКОМ языке. Структура ответа:
+
+📝 ОЦЕНКА: X/10
+(одна строка с оценкой и коротким общим впечатлением)
+
+✅ ЧТО ХОРОШО:
+(2–4 конкретных похвалы — что правильно, какие конструкции удались)
+
+❌ ОШИБКИ И ИСПРАВЛЕНИЯ:
+(каждую ошибку в формате: "написала: → правильно: — объяснение почему")
+Если ошибок нет — похвали!
+
+💡 СОВЕТЫ:
+(2–3 конкретных совета что улучшить или попробовать в следующий раз)
+
+Тон: тёплый, поддерживающий, не критикуй жёстко. Это не экзамен, а обучение 💕`;
+
+      try {
+        const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${OPENROUTER_KEY}`,
+            'Content-Type': 'application/json',
+            'HTTP-Referer': window.location.origin,
+            'X-Title': 'Bulochka Deutsch',
+          },
+          body: JSON.stringify({
+            model: MODEL,
+            messages: [
+              { role: 'system', content: systemPrompt },
+              { role: 'user', content: `Задание: ${task.title}\n\nТекст Марго:\n${text}` }
+            ],
+            max_tokens: 800,
+            temperature: 0.7,
+          }),
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.error?.message || `HTTP ${res.status}`);
+        }
+
+        const data = await res.json();
+        const reply = data.choices?.[0]?.message?.content || 'Нет ответа от ИИ';
+
+        // Извлечь оценку
+        const scoreMatch = reply.match(/(\d+)\s*\/\s*10/);
+        if (scoreMatch) scoreEl.textContent = `${scoreMatch[1]}/10`;
+
+        bodyEl.style.padding = '';
+        bodyEl.textContent = reply;
+        resultEl.querySelector('.ai-result-header').style.display = 'flex';
+
+      } catch (e) {
+        bodyEl.style.padding = '';
+        bodyEl.textContent = `Ошибка при обращении к ИИ: ${e.message}\n\nПроверь API ключ или попробуй позже.`;
+        resultEl.querySelector('.ai-result-header').style.display = 'flex';
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = '<span>🤖</span> Проверить снова';
+    }
+
+    renderTasks();
+
+    // Floating hearts
+    const fhC = document.getElementById('floating-hearts');
+    ['❤️','🩷','💕','💗','🌸'].forEach((ch) => {
+      const el = document.createElement('div');
+      el.className = 'fh';
+      el.textContent = ch;
+      el.style.cssText = `left:${Math.random()*100}%;bottom:-10%;font-size:${0.9+Math.random()}rem;animation-delay:${Math.random()*20}s;animation-duration:${22+Math.random()*14}s;`;
+      fhC.appendChild(el);
+    });
+  </script>
+</body>
+</html>
