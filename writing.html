@@ -9,12 +9,9 @@
   <style>
     .writing-page { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; }
 
-    .writing-hero {
-      text-align: center;
-      padding: 36px 20px 28px;
-    }
-    .writing-hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--pink-600); margin-bottom: 8px; }
-    .writing-hero p { color: var(--text-muted); font-size: 0.95rem; }
+    .writing-hero { text-align: center; padding: 36px 20px 28px; }
+    .writing-hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--pink-500); margin-bottom: 8px; }
+    .writing-hero p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
 
     .task-cards { display: flex; flex-direction: column; gap: 28px; }
 
@@ -36,7 +33,7 @@
     .task-level {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
       background: linear-gradient(135deg, #ffd6e7, #ffadd1);
-      color: var(--pink-600);
+      color: var(--pink-500);
       padding: 3px 10px; border-radius: 20px;
       white-space: nowrap;
     }
@@ -54,10 +51,7 @@
       color: var(--text-dark);
       line-height: 1.6;
     }
-    .task-hint {
-      font-size: 0.82rem; color: var(--text-muted);
-      margin-bottom: 12px;
-    }
+    .task-hint { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px; }
     .task-hint strong { color: var(--pink-500); }
 
     .writing-area {
@@ -75,15 +69,12 @@
       box-sizing: border-box;
       background: var(--white);
     }
-    .writing-area:focus {
-      border-color: var(--pink-400);
-      box-shadow: 0 0 0 3px rgba(255,173,209,0.25);
-    }
+    .writing-area:focus { border-color: var(--pink-400); box-shadow: 0 0 0 3px rgba(255,173,209,0.25); }
     .writing-area::placeholder { color: #d4a0b8; }
 
     .check-writing-btn {
       margin-top: 12px;
-      background: linear-gradient(135deg, var(--pink-400), var(--pink-600));
+      background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
       color: #fff;
       border: none;
       border-radius: 14px;
@@ -97,23 +88,17 @@
     .check-writing-btn:hover:not(:disabled) { opacity: 0.92; transform: translateY(-1px); }
     .check-writing-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
 
-    .ai-result {
-      margin-top: 18px;
-      border-radius: 16px;
-      overflow: hidden;
-      display: none;
-    }
+    .ai-result { margin-top: 18px; border-radius: 16px; overflow: hidden; display: none; }
     .ai-result.visible { display: block; }
 
     .ai-result-header {
-      background: linear-gradient(135deg, var(--pink-400), var(--pink-600));
+      background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
       color: #fff;
       padding: 10px 18px;
       font-size: 0.85rem;
       font-weight: 700;
       display: flex; align-items: center; gap: 6px;
     }
-
     .ai-result-body {
       background: #fff8fc;
       border: 1.5px solid #ffd6e7;
@@ -125,7 +110,6 @@
       color: var(--text-dark);
       white-space: pre-wrap;
     }
-
     .ai-loading {
       display: flex; align-items: center; gap: 10px;
       color: var(--pink-500); font-size: 0.9rem;
@@ -147,19 +131,14 @@
     .score-badge {
       display: inline-flex; align-items: center; gap: 4px;
       font-size: 0.8rem; font-weight: 700;
-      background: linear-gradient(135deg, #ffd6e7, #ffadd1);
-      color: var(--pink-600);
+      background: rgba(255,255,255,0.25);
+      color: #fff;
       padding: 3px 12px; border-radius: 20px;
       margin-left: auto;
     }
 
-    .writing-nav {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 28px;
-    }
-    .writing-nav a {
-      color: var(--pink-500); text-decoration: none; font-weight: 600; font-size: 0.9rem;
-    }
+    .writing-nav { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .writing-nav a { color: var(--pink-500); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
     .writing-nav a:hover { text-decoration: underline; }
 
     .section-label {
@@ -167,6 +146,97 @@
       color: var(--text-muted); text-transform: uppercase;
       margin: 32px 0 14px;
     }
+
+    /* ── HISTORY ── */
+    .history-section { margin-top: 60px; }
+    .history-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--pink-500);
+      margin-bottom: 6px;
+    }
+    .history-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+
+    .history-empty {
+      text-align: center; color: var(--text-muted);
+      font-size: 0.9rem; padding: 32px;
+      background: var(--white);
+      border: 1.5px dashed var(--cream);
+      border-radius: 16px;
+    }
+
+    .history-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .history-item {
+      background: var(--white);
+      border: 1.5px solid var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(224,57,127,0.05);
+    }
+    .history-item-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 18px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .history-item-header:hover { background: #fff5f9; }
+    .history-item-level {
+      font-size: 0.7rem; font-weight: 700;
+      background: linear-gradient(135deg, #ffd6e7, #ffadd1);
+      color: var(--pink-500);
+      padding: 2px 8px; border-radius: 20px;
+      white-space: nowrap;
+    }
+    .history-item-title { font-weight: 700; font-size: 0.92rem; color: var(--text-dark); flex: 1; }
+    .history-item-date { font-size: 0.78rem; color: var(--text-muted); }
+    .history-item-score {
+      font-size: 0.8rem; font-weight: 700;
+      background: linear-gradient(135deg, #ffd6e7, #ffadd1);
+      color: var(--pink-500);
+      padding: 2px 10px; border-radius: 20px;
+    }
+    .history-item-toggle { color: var(--text-muted); font-size: 0.8rem; margin-left: 4px; transition: transform 0.2s; }
+    .history-item.open .history-item-toggle { transform: rotate(180deg); }
+
+    .history-item-body { display: none; border-top: 1px solid var(--cream); }
+    .history-item.open .history-item-body { display: block; }
+
+    .history-text-block {
+      padding: 12px 18px;
+      background: linear-gradient(135deg, #fff0f7, #fce8f3);
+      border-bottom: 1px solid var(--cream);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+      white-space: pre-wrap;
+    }
+    .history-text-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--pink-500); text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .history-ai-block {
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+      white-space: pre-wrap;
+    }
+
+    .history-clear-btn {
+      margin-top: 16px;
+      background: none;
+      border: 1.5px solid var(--cream);
+      border-radius: 10px;
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .history-clear-btn:hover { border-color: var(--pink-300); color: var(--pink-500); }
   </style>
 </head>
 <body>
@@ -197,11 +267,16 @@
 
     <div class="writing-hero">
       <h1>✍️ Письменные задания</h1>
-      <p>Напиши текст по заданию — ИИ проверит грамматику, словарный запас<br>и даст советы на русском языке 💕</p>
+      <p>Напиши текст по заданию — ИИ проверит грамматику, словарный запас<br>и даст подробные советы на русском языке 💕</p>
     </div>
 
-    <div class="task-cards" id="tasks-container">
-      <!-- задания рендерятся через JS -->
+    <div class="task-cards" id="tasks-container"></div>
+
+    <!-- История проверок -->
+    <div class="history-section">
+      <div class="history-title">📚 История проверок</div>
+      <div class="history-subtitle">Все твои работы сохраняются здесь — можно вернуться и перечитать</div>
+      <div id="history-list"></div>
     </div>
   </div>
 
@@ -210,92 +285,128 @@
 
   <script type="module">
     import { initAuth, logout } from './js/sync.js';
-
     document.getElementById('logout-btn').addEventListener('click', () => {
       if (confirm('Выйти из аккаунта?')) logout();
     });
-
     initAuth(() => {
-      const xp = localStorage.getItem('bulochka-xp') || '0';
-      const streak = localStorage.getItem('bulochka-streak') || '0';
-      document.getElementById('total-xp').textContent = xp;
-      document.getElementById('streak').textContent = streak;
+      document.getElementById('total-xp').textContent = localStorage.getItem('bulochka-xp') || '0';
+      document.getElementById('streak').textContent = localStorage.getItem('bulochka-streak') || '0';
       const name = localStorage.getItem('bulochka-login') || 'Булочка';
       document.getElementById('user-name').textContent = name.charAt(0).toUpperCase() + name.slice(1);
-      document.getElementById('hero-name') && (document.getElementById('hero-name').textContent = name + '!');
     });
   </script>
 
   <script>
     const OPENROUTER_KEY = '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';
     const MODEL = 'openai/gpt-4o-mini';
+    const HISTORY_KEY = 'bulochka-writing-history';
 
     const TASKS = [
       {
-        id: 'w1',
-        level: 'A1',
-        title: 'Расскажи о себе',
+        id: 'w1', level: 'A1', title: 'Расскажи о себе',
         prompt: 'Напиши небольшой текст о себе (5–7 предложений).\n\nРасскажи: как тебя зовут, сколько тебе лет, откуда ты, где живёшь, что любишь делать. Используй глаголы heißen, sein, kommen, wohnen, mögen.',
         hint: 'Образец: Ich heiße Margo. Ich bin 20 Jahre alt. Ich komme aus Russland...',
-        placeholder: 'Ich heiße...',
-        minWords: 20,
+        placeholder: 'Ich heiße...', minWords: 20,
       },
       {
-        id: 'w2',
-        level: 'A1',
-        title: 'Мой день',
+        id: 'w2', level: 'A1', title: 'Мой день',
         prompt: 'Опиши свой обычный день (6–8 предложений).\n\nЧто ты делаешь утром, днём и вечером? Используй слова: aufstehen, frühstücken, lernen, essen, schlafen, и временные выражения: morgens, mittags, abends.',
         hint: 'Используй порядок: сначала → потом → потом',
-        placeholder: 'Ich stehe um... Uhr auf...',
-        minWords: 25,
+        placeholder: 'Ich stehe um... Uhr auf...', minWords: 25,
       },
       {
-        id: 'w3',
-        level: 'A2',
-        title: 'Моя семья',
+        id: 'w3', level: 'A2', title: 'Моя семья',
         prompt: 'Напиши о своей семье (6–8 предложений).\n\nКто есть в твоей семье? Как их зовут, сколько им лет, чем они занимаются? Используй притяжательные местоимения: mein, meine, sein, ihre.',
         hint: 'Meine Familie ist... Mein Vater heißt... Er ist... Jahre alt.',
-        placeholder: 'Meine Familie...',
-        minWords: 30,
+        placeholder: 'Meine Familie...', minWords: 30,
       },
       {
-        id: 'w4',
-        level: 'A2',
-        title: 'Письмо другу',
+        id: 'w4', level: 'A2', title: 'Письмо другу',
         prompt: 'Напиши неформальное письмо подруге (8–10 предложений).\n\nПоприветствуй, расскажи что сейчас делаешь, что произошло на этой неделе, спроси как она. Используй Perfekt для прошедших событий.',
         hint: 'Начни с: Liebe [имя], wie geht es dir? Ich habe diese Woche...',
-        placeholder: 'Liebe...',
-        minWords: 40,
+        placeholder: 'Liebe...', minWords: 40,
       },
       {
-        id: 'w5',
-        level: 'B1',
-        title: 'Почему я хочу учиться в Австрии',
+        id: 'w5', level: 'B1', title: 'Почему я хочу учиться в Австрии',
         prompt: 'Напиши небольшое сочинение (10–12 предложений): почему ты хочешь учиться в Австрии?\n\nОпиши свои мотивы, что тебя привлекает, какие у тебя планы. Используй Konjunktiv II (würde, könnte, hätte) и союзы: weil, obwohl, deshalb.',
         hint: 'Ich möchte in Österreich studieren, weil...',
-        placeholder: 'Österreich ist für mich...',
-        minWords: 60,
+        placeholder: 'Österreich ist für mich...', minWords: 60,
       },
       {
-        id: 'w6',
-        level: 'B1',
-        title: 'Описание картинки / ситуации',
+        id: 'w6', level: 'B1', title: 'Описание картинки / ситуации',
         prompt: 'Представь: ты в кафе в Вене. Опиши сцену (8–10 предложений).\n\nЧто ты видишь вокруг, что заказываешь, о чём думаешь, какие люди рядом. Используй Präteritum или Perfekt, прилагательные с правильными окончаниями.',
         hint: 'Ich sitze in einem kleinen Café in Wien. Es ist...',
-        placeholder: 'Das Café ist gemütlich...',
-        minWords: 50,
+        placeholder: 'Das Café ist gemütlich...', minWords: 50,
       },
     ];
 
+    // ── HISTORY helpers ──────────────────────────────────────
+    function loadHistory() {
+      return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    }
+    function saveToHistory(entry) {
+      const hist = loadHistory();
+      hist.unshift(entry); // новые сверху
+      if (hist.length > 50) hist.pop(); // макс 50 записей
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(hist));
+      renderHistory();
+    }
+    function clearHistory() {
+      if (!confirm('Очистить всю историю проверок?')) return;
+      localStorage.removeItem(HISTORY_KEY);
+      renderHistory();
+    }
+
+    function renderHistory() {
+      const hist = loadHistory();
+      const container = document.getElementById('history-list');
+      if (!hist.length) {
+        container.innerHTML = `<div class="history-empty">Здесь будут твои проверенные работы 💕<br>Напиши первый текст и нажми «Проверить с ИИ»</div>`;
+        return;
+      }
+      const items = hist.map((entry, i) => `
+        <div class="history-item" id="hi-${i}">
+          <div class="history-item-header" onclick="toggleHistory(${i})">
+            <span class="history-item-level">${entry.level}</span>
+            <span class="history-item-title">${entry.title}</span>
+            <span class="history-item-date">${entry.date}</span>
+            ${entry.score ? `<span class="history-item-score">${entry.score}/10</span>` : ''}
+            <span class="history-item-toggle">▼</span>
+          </div>
+          <div class="history-item-body">
+            <div class="history-text-block">
+              <div class="history-text-label">Твой текст</div>
+              ${escHtml(entry.text)}
+            </div>
+            <div class="history-ai-block">${escHtml(entry.reply)}</div>
+          </div>
+        </div>
+      `).join('');
+      container.innerHTML = `
+        <div class="history-list">${items}</div>
+        <button class="history-clear-btn" onclick="clearHistory()">🗑 Очистить историю</button>
+      `;
+    }
+
+    function toggleHistory(i) {
+      document.getElementById(`hi-${i}`).classList.toggle('open');
+    }
+
+    function escHtml(s) {
+      return String(s)
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/\n/g,'<br>');
+    }
+
+    // ── RENDER TASKS ─────────────────────────────────────────
     function renderTasks() {
       const container = document.getElementById('tasks-container');
       const levels = ['A1', 'A2', 'B1'];
       let html = '';
-
       levels.forEach(lvl => {
         const lvlTasks = TASKS.filter(t => t.level === lvl);
         if (!lvlTasks.length) return;
-        html += `<div class="section-label">${lvl} — ${lvl === 'A1' ? 'Начало' : lvl === 'A2' ? 'Элементарный' : 'Средний'}</div>`;
+        html += `<div class="section-label">${lvl} — ${lvl==='A1'?'Начало':lvl==='A2'?'Элементарный':'Средний'}</div>`;
         lvlTasks.forEach(task => {
           html += `
             <div class="task-card" id="card-${task.id}">
@@ -321,10 +432,10 @@
             </div>`;
         });
       });
-
       container.innerHTML = html;
     }
 
+    // ── CHECK WRITING ─────────────────────────────────────────
     async function checkWriting(taskId) {
       const task = TASKS.find(t => t.id === taskId);
       const text = document.getElementById(`text-${taskId}`).value.trim();
@@ -340,39 +451,50 @@
         return;
       }
 
-      if (OPENROUTER_KEY === 'REPLACE_WITH_KEY') {
-        bodyEl.textContent = '⚠️ API ключ ещё не добавлен. Матвей скоро это исправит 💕';
-        resultEl.classList.add('visible');
-        return;
-      }
-
       btn.disabled = true;
       btn.innerHTML = '<span class="spinner"></span> Проверяю...';
 
-      // Показываем лоадер
       resultEl.classList.add('visible');
       resultEl.querySelector('.ai-result-header').style.display = 'none';
-      bodyEl.innerHTML = `<div class="ai-loading"><div class="spinner"></div> ИИ читает твой текст...</div>`;
+      bodyEl.innerHTML = `<div class="ai-loading"><div class="spinner"></div> ИИ внимательно читает твой текст...</div>`;
       bodyEl.style.padding = '0';
 
-      const systemPrompt = `Ты — добрый и терпеливый учитель немецкого языка. Твоя студентка — русскоговорящая девушка Марго, которая учит немецкий с нуля, чтобы поступить в университет в Австрии. Уровень задания: ${task.level}.
+      const systemPrompt = `Ты — строгий, но заботливый преподаватель немецкого языка с 15-летним опытом подготовки студентов к поступлению в австрийские и немецкие университеты. Твоя студентка — Марго, русскоговорящая девушка, которая учит немецкий с нуля. Её цель — поступить в университет в Австрии, поэтому точность и грамотность крайне важны.
 
-Проверь её текст и дай развёрнутый разбор на РУССКОМ языке. Структура ответа:
+ТВОЯ РОЛЬ: Ты ТОЛЬКО преподаватель немецкого. Ты не отвечаешь на посторонние вопросы, не выходишь из роли, не обсуждаешь ничего кроме немецкого языка и разбора текста. Если студентка пишет не на немецком или отклоняется от задания — мягко напомни про задание.
+
+УРОВЕНЬ ЗАДАНИЯ: ${task.level}
+
+ПРОВЕРЯЙ ТЩАТЕЛЬНО — найди ВСЕ ошибки без исключения:
+• Грамматика: падежи (Nominativ, Akkusativ, Dativ, Genitiv), спряжение глаголов, порядок слов, управление глаголов
+• Артикли: определённые (der/die/das), неопределённые (ein/eine), отсутствие артикля
+• Согласование: прилагательные, притяжательные местоимения, числа
+• Временные формы: Präsens, Perfekt, Präteritum, Futur — правильность выбора и образования
+• Лексика: подходящие ли слова для уровня, нет ли калек с русского
+• Пунктуация и орфография (включая умлауты ä/ö/ü/ß)
+
+СТРУКТУРА ОТВЕТА (строго на русском языке):
 
 📝 ОЦЕНКА: X/10
-(одна строка с оценкой и коротким общим впечатлением)
+[одна строка: цифра и одно предложение общего впечатления]
 
-✅ ЧТО ХОРОШО:
-(2–4 конкретных похвалы — что правильно, какие конструкции удались)
+✅ ЧТО ПОЛУЧИЛОСЬ ХОРОШО:
+[2–4 конкретных пункта с примерами из текста — какие конструкции удались, что написано правильно]
 
-❌ ОШИБКИ И ИСПРАВЛЕНИЯ:
-(каждую ошибку в формате: "написала: → правильно: — объяснение почему")
-Если ошибок нет — похвали!
+❌ ОШИБКИ (найди все, не пропускай):
+[каждая ошибка строго в формате:]
+• Написала: «...» → Правильно: «...»
+  Почему: [краткое грамматическое объяснение правила]
 
-💡 СОВЕТЫ:
-(2–3 конкретных совета что улучшить или попробовать в следующий раз)
+Если ошибок нет совсем — это большая редкость, напиши об этом отдельно и похвали!
 
-Тон: тёплый, поддерживающий, не критикуй жёстко. Это не экзамен, а обучение 💕`;
+💡 КАК УЛУЧШИТЬ:
+[2–3 конкретных совета: какие конструкции добавить, что усложнить, какие слова выучить для следующего раза]
+
+🎯 ИТОГ:
+[1–2 предложения мотивации с учётом цели — поступление в австрийский университет]
+
+Тон: профессиональный и тёплый. Не хвали за то, что сделано неправильно. Будь честна в оценке, но поддерживай.`;
 
       try {
         const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -387,10 +509,10 @@
             model: MODEL,
             messages: [
               { role: 'system', content: systemPrompt },
-              { role: 'user', content: `Задание: ${task.title}\n\nТекст Марго:\n${text}` }
+              { role: 'user', content: `Задание: "${task.title}"\n\nТекст Марго:\n${text}` }
             ],
-            max_tokens: 800,
-            temperature: 0.7,
+            max_tokens: 1200,
+            temperature: 0.4,
           }),
         });
 
@@ -402,17 +524,31 @@
         const data = await res.json();
         const reply = data.choices?.[0]?.message?.content || 'Нет ответа от ИИ';
 
-        // Извлечь оценку
-        const scoreMatch = reply.match(/(\d+)\s*\/\s*10/);
-        if (scoreMatch) scoreEl.textContent = `${scoreMatch[1]}/10`;
+        const scoreMatch = reply.match(/ОЦЕНКА:\s*(\d+)\s*\/\s*10/);
+        const score = scoreMatch ? scoreMatch[1] : null;
+        if (score) scoreEl.textContent = `${score}/10`;
 
         bodyEl.style.padding = '';
         bodyEl.textContent = reply;
         resultEl.querySelector('.ai-result-header').style.display = 'flex';
 
+        // Сохраняем в историю
+        const now = new Date();
+        const dateStr = now.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
+        saveToHistory({
+          taskId,
+          level: task.level,
+          title: task.title,
+          text,
+          reply,
+          score,
+          date: dateStr,
+          ts: now.getTime(),
+        });
+
       } catch (e) {
         bodyEl.style.padding = '';
-        bodyEl.textContent = `Ошибка при обращении к ИИ: ${e.message}\n\nПроверь API ключ или попробуй позже.`;
+        bodyEl.textContent = `Ошибка при обращении к ИИ: ${e.message}\n\nПопробуй позже.`;
         resultEl.querySelector('.ai-result-header').style.display = 'flex';
       }
 
@@ -420,11 +556,12 @@
       btn.innerHTML = '<span>🤖</span> Проверить снова';
     }
 
+    // Init
     renderTasks();
+    renderHistory();
 
-    // Floating hearts
     const fhC = document.getElementById('floating-hearts');
-    ['❤️','🩷','💕','💗','🌸'].forEach((ch) => {
+    ['❤️','🩷','💕','💗','🌸'].forEach(ch => {
       const el = document.createElement('div');
       el.className = 'fh';
       el.textContent = ch;
