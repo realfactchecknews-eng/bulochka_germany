@@ -84,20 +84,29 @@
         </div>
       </section>
 
-      <section class="path">
-        <div class="section-title">🌸 Путь обучения</div>
-        <div id="modules-container"></div>
+      <!-- Два основных блока -->
+      <section class="main-blocks">
+        <a href="#course-section" class="main-block" id="block-course" onclick="scrollToCourse(event)">
+          <div class="mb-icon">📖</div>
+          <div class="mb-info">
+            <div class="mb-title">Курс немецкого</div>
+            <div class="mb-sub">A1 → B1 · По учебнику «Die Gelbe»</div>
+          </div>
+          <span class="mb-arrow">↓</span>
+        </a>
+        <a href="writing.html" class="main-block main-block-writing">
+          <div class="mb-icon">✍️</div>
+          <div class="mb-info">
+            <div class="mb-title">Письменные задания</div>
+            <div class="mb-sub">ИИ проверяет каждую ошибку · Персональный урок</div>
+          </div>
+          <span class="mb-arrow">→</span>
+        </a>
       </section>
 
-      <section class="path" style="margin-top:12px;">
-        <a href="writing.html" class="writing-entry-btn">
-          <span>✍️</span>
-          <div>
-            <div class="writing-entry-title">Письменные задания с ИИ</div>
-            <div class="writing-entry-sub">Напиши текст — нейросеть проверит и объяснит ошибки</div>
-          </div>
-          <span class="writing-entry-arrow">→</span>
-        </a>
+      <section class="path" id="course-section">
+        <div class="section-title">🌸 Путь обучения</div>
+        <div id="modules-container"></div>
       </section>
     </div>
   </main>
@@ -137,8 +146,12 @@
       setTimeout(() => bar.classList.remove('visible'), 2500);
     }
 
-    // Экспортируем showSync для использования из lesson.js
     window.showSync = showSync;
+
+    window.scrollToCourse = function(e) {
+      e.preventDefault();
+      document.getElementById('course-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
   </script>
 
   <script>
