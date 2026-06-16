@@ -7,234 +7,222 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
   <style>
-    .writing-page { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; }
+    .writing-page { max-width: 800px; margin: 0 auto; padding: 24px 20px 80px; }
 
-    .writing-hero { text-align: center; padding: 36px 20px 28px; }
-    .writing-hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--pink-500); margin-bottom: 8px; }
-    .writing-hero p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+    .writing-hero { text-align: center; padding: 28px 20px 20px; }
+    .writing-hero h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--pink-500); margin-bottom: 6px; }
+    .writing-hero p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
 
-    .task-cards { display: flex; flex-direction: column; gap: 28px; }
+    .writing-nav { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .writing-nav a { color: var(--pink-500); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .writing-nav a:hover { text-decoration: underline; }
 
+    /* ── TABS ── */
+    .tabs-wrap {
+      display: flex;
+      gap: 6px;
+      background: var(--white);
+      border: 1.5px solid var(--cream);
+      border-radius: 16px;
+      padding: 6px;
+      margin-bottom: 28px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 12px;
+      border: none;
+      border-radius: 12px;
+      background: transparent;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .tab-btn .tab-label { font-size: 1rem; }
+    .tab-btn .tab-sub { font-size: 0.72rem; font-weight: 600; opacity: 0.7; }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
+      color: #fff;
+    }
+    .tab-btn.active .tab-sub { opacity: 0.85; }
+    .tab-btn:not(.active):hover { background: var(--pink-50); color: var(--pink-500); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── TOPIC GROUP ── */
+    .topic-group { margin-bottom: 32px; }
+    .topic-label {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em;
+      color: var(--text-muted); text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .topic-label::after {
+      content: ''; flex: 1;
+      height: 1px; background: var(--cream);
+    }
+
+    /* ── TASK CARD ── */
     .task-card {
       background: var(--white);
-      border-radius: 20px;
+      border-radius: 18px;
       border: 1.5px solid var(--cream);
-      box-shadow: 0 4px 18px rgba(224,57,127,0.07);
+      box-shadow: 0 3px 14px rgba(224,57,127,0.06);
       overflow: hidden;
       transition: box-shadow 0.2s;
+      margin-bottom: 16px;
     }
-    .task-card:hover { box-shadow: 0 8px 28px rgba(224,57,127,0.13); }
+    .task-card:last-child { margin-bottom: 0; }
+    .task-card:hover { box-shadow: 0 7px 24px rgba(224,57,127,0.12); }
 
     .task-header {
-      display: flex; align-items: center; gap: 12px;
-      padding: 18px 22px 14px;
+      display: flex; align-items: center; gap: 10px;
+      padding: 16px 20px 12px;
       border-bottom: 1px solid var(--cream);
+      cursor: pointer;
+      user-select: none;
     }
-    .task-level {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+    .task-header:hover { background: #fffafc; }
+    .task-topic-badge {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em;
       background: linear-gradient(135deg, #ffd6e7, #ffadd1);
       color: var(--pink-500);
-      padding: 3px 10px; border-radius: 20px;
+      padding: 2px 9px; border-radius: 20px;
       white-space: nowrap;
     }
-    .task-title { font-weight: 700; font-size: 1.05rem; color: var(--text-dark); }
+    .task-title { font-weight: 700; font-size: 1rem; color: var(--text-dark); flex: 1; }
+    .task-toggle { color: var(--text-muted); font-size: 0.75rem; transition: transform 0.2s; }
+    .task-card.open .task-toggle { transform: rotate(180deg); }
 
-    .task-body { padding: 18px 22px 22px; }
+    .task-body { display: none; padding: 16px 20px 20px; }
+    .task-card.open .task-body { display: block; }
 
     .task-prompt {
       background: linear-gradient(135deg, #fff0f7, #fce8f3);
       border-left: 3px solid var(--pink-400);
       border-radius: 0 12px 12px 0;
-      padding: 14px 16px;
-      margin-bottom: 16px;
-      font-size: 0.93rem;
+      padding: 12px 15px;
+      margin-bottom: 14px;
+      font-size: 0.92rem;
       color: var(--text-dark);
-      line-height: 1.6;
+      line-height: 1.65;
     }
-    .task-hint { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px; }
+    .task-grammar-note {
+      display: flex; gap: 8px; align-items: flex-start;
+      background: #f0f7ff;
+      border-left: 3px solid #7bb8f5;
+      border-radius: 0 10px 10px 0;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-size: 0.83rem;
+      color: #2d5a8e;
+      line-height: 1.55;
+    }
+    .task-hint { font-size: 0.81rem; color: var(--text-muted); margin-bottom: 12px; }
     .task-hint strong { color: var(--pink-500); }
 
     .writing-area {
-      width: 100%;
-      min-height: 130px;
-      border: 2px solid var(--cream);
-      border-radius: 14px;
-      padding: 14px 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      color: var(--text-dark);
-      resize: vertical;
-      outline: none;
+      width: 100%; min-height: 120px;
+      border: 2px solid var(--cream); border-radius: 13px;
+      padding: 13px 15px;
+      font-family: 'Inter', sans-serif; font-size: 0.94rem;
+      color: var(--text-dark); resize: vertical; outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
-      box-sizing: border-box;
-      background: var(--white);
+      box-sizing: border-box; background: var(--white);
     }
-    .writing-area:focus { border-color: var(--pink-400); box-shadow: 0 0 0 3px rgba(255,173,209,0.25); }
+    .writing-area:focus { border-color: var(--pink-400); box-shadow: 0 0 0 3px rgba(255,173,209,0.22); }
     .writing-area::placeholder { color: #d4a0b8; }
 
     .check-writing-btn {
-      margin-top: 12px;
+      margin-top: 11px;
       background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
-      color: #fff;
-      border: none;
-      border-radius: 14px;
-      padding: 12px 28px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.15s;
-      display: flex; align-items: center; gap: 8px;
+      color: #fff; border: none; border-radius: 13px;
+      padding: 11px 26px; font-size: 0.93rem; font-weight: 700;
+      cursor: pointer; transition: opacity 0.2s, transform 0.15s;
+      display: flex; align-items: center; gap: 7px;
     }
-    .check-writing-btn:hover:not(:disabled) { opacity: 0.92; transform: translateY(-1px); }
+    .check-writing-btn:hover:not(:disabled) { opacity: 0.91; transform: translateY(-1px); }
     .check-writing-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
 
-    .ai-result { margin-top: 18px; border-radius: 16px; overflow: hidden; display: none; }
+    .ai-result { margin-top: 16px; border-radius: 14px; overflow: hidden; display: none; }
     .ai-result.visible { display: block; }
-
     .ai-result-header {
       background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
-      color: #fff;
-      padding: 10px 18px;
-      font-size: 0.85rem;
-      font-weight: 700;
+      color: #fff; padding: 9px 16px; font-size: 0.83rem; font-weight: 700;
       display: flex; align-items: center; gap: 6px;
     }
     .ai-result-body {
-      background: #fff8fc;
-      border: 1.5px solid #ffd6e7;
-      border-top: none;
-      border-radius: 0 0 16px 16px;
-      padding: 16px 18px;
-      font-size: 0.92rem;
-      line-height: 1.7;
-      color: var(--text-dark);
-      white-space: pre-wrap;
+      background: #fff8fc; border: 1.5px solid #ffd6e7; border-top: none;
+      border-radius: 0 0 14px 14px; padding: 15px 17px;
+      font-size: 0.9rem; line-height: 1.72; color: var(--text-dark); white-space: pre-wrap;
     }
     .ai-loading {
       display: flex; align-items: center; gap: 10px;
-      color: var(--pink-500); font-size: 0.9rem;
-      padding: 14px 18px;
-      background: #fff8fc;
-      border: 1.5px solid #ffd6e7;
-      border-radius: 0 0 16px 16px;
+      color: var(--pink-500); font-size: 0.88rem; padding: 13px 17px;
+      background: #fff8fc; border: 1.5px solid #ffd6e7; border-radius: 0 0 14px 14px;
     }
     .spinner {
-      width: 18px; height: 18px;
-      border: 2px solid #ffd6e7;
-      border-top-color: var(--pink-500);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      flex-shrink: 0;
+      width: 17px; height: 17px; border: 2px solid #ffd6e7;
+      border-top-color: var(--pink-500); border-radius: 50%;
+      animation: spin 0.8s linear infinite; flex-shrink: 0;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
     .score-badge {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-size: 0.8rem; font-weight: 700;
-      background: rgba(255,255,255,0.25);
-      color: #fff;
-      padding: 3px 12px; border-radius: 20px;
-      margin-left: auto;
-    }
-
-    .writing-nav { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
-    .writing-nav a { color: var(--pink-500); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-    .writing-nav a:hover { text-decoration: underline; }
-
-    .section-label {
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
-      color: var(--text-muted); text-transform: uppercase;
-      margin: 32px 0 14px;
+      display: inline-flex; align-items: center;
+      font-size: 0.78rem; font-weight: 700;
+      background: rgba(255,255,255,0.25); color: #fff;
+      padding: 2px 11px; border-radius: 20px; margin-left: auto;
     }
 
     /* ── HISTORY ── */
-    .history-section { margin-top: 60px; }
-    .history-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--pink-500);
-      margin-bottom: 6px;
-    }
-    .history-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
-
+    .history-section { margin-top: 56px; }
+    .history-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--pink-500); margin-bottom: 5px; }
+    .history-subtitle { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 18px; }
     .history-empty {
-      text-align: center; color: var(--text-muted);
-      font-size: 0.9rem; padding: 32px;
-      background: var(--white);
-      border: 1.5px dashed var(--cream);
-      border-radius: 16px;
+      text-align: center; color: var(--text-muted); font-size: 0.88rem; padding: 28px;
+      background: var(--white); border: 1.5px dashed var(--cream); border-radius: 14px;
     }
-
-    .history-list { display: flex; flex-direction: column; gap: 16px; }
-
-    .history-item {
-      background: var(--white);
-      border: 1.5px solid var(--cream);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(224,57,127,0.05);
-    }
+    .history-list { display: flex; flex-direction: column; gap: 12px; }
+    .history-item { background: var(--white); border: 1.5px solid var(--cream); border-radius: 14px; overflow: hidden; }
     .history-item-header {
-      display: flex; align-items: center; gap: 10px;
-      padding: 14px 18px;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.15s;
+      display: flex; align-items: center; gap: 9px; padding: 12px 16px;
+      cursor: pointer; user-select: none; transition: background 0.15s;
     }
     .history-item-header:hover { background: #fff5f9; }
     .history-item-level {
-      font-size: 0.7rem; font-weight: 700;
+      font-size: 0.68rem; font-weight: 700;
       background: linear-gradient(135deg, #ffd6e7, #ffadd1);
-      color: var(--pink-500);
-      padding: 2px 8px; border-radius: 20px;
-      white-space: nowrap;
+      color: var(--pink-500); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
     }
-    .history-item-title { font-weight: 700; font-size: 0.92rem; color: var(--text-dark); flex: 1; }
-    .history-item-date { font-size: 0.78rem; color: var(--text-muted); }
+    .history-item-title { font-weight: 700; font-size: 0.9rem; color: var(--text-dark); flex: 1; }
+    .history-item-date { font-size: 0.76rem; color: var(--text-muted); }
     .history-item-score {
-      font-size: 0.8rem; font-weight: 700;
+      font-size: 0.78rem; font-weight: 700;
       background: linear-gradient(135deg, #ffd6e7, #ffadd1);
-      color: var(--pink-500);
-      padding: 2px 10px; border-radius: 20px;
+      color: var(--pink-500); padding: 2px 9px; border-radius: 20px;
     }
-    .history-item-toggle { color: var(--text-muted); font-size: 0.8rem; margin-left: 4px; transition: transform 0.2s; }
+    .history-item-toggle { color: var(--text-muted); font-size: 0.75rem; transition: transform 0.2s; }
     .history-item.open .history-item-toggle { transform: rotate(180deg); }
-
     .history-item-body { display: none; border-top: 1px solid var(--cream); }
     .history-item.open .history-item-body { display: block; }
-
     .history-text-block {
-      padding: 12px 18px;
-      background: linear-gradient(135deg, #fff0f7, #fce8f3);
-      border-bottom: 1px solid var(--cream);
-      font-size: 0.88rem;
-      line-height: 1.6;
-      color: var(--text-dark);
-      white-space: pre-wrap;
+      padding: 11px 16px; background: linear-gradient(135deg, #fff0f7, #fce8f3);
+      border-bottom: 1px solid var(--cream); font-size: 0.86rem; line-height: 1.6;
+      color: var(--text-dark); white-space: pre-wrap;
     }
-    .history-text-label {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
-      color: var(--pink-500); text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .history-ai-block {
-      padding: 14px 18px;
-      font-size: 0.88rem;
-      line-height: 1.7;
-      color: var(--text-dark);
-      white-space: pre-wrap;
-    }
-
+    .history-text-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; color: var(--pink-500); text-transform: uppercase; margin-bottom: 5px; }
+    .history-ai-block { padding: 13px 16px; font-size: 0.86rem; line-height: 1.7; color: var(--text-dark); white-space: pre-wrap; }
     .history-clear-btn {
-      margin-top: 16px;
-      background: none;
-      border: 1.5px solid var(--cream);
-      border-radius: 10px;
-      padding: 8px 16px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.18s;
+      margin-top: 14px; background: none; border: 1.5px solid var(--cream);
+      border-radius: 10px; padding: 7px 15px; font-size: 0.79rem;
+      color: var(--text-muted); cursor: pointer; transition: all 0.18s;
     }
     .history-clear-btn:hover { border-color: var(--pink-300); color: var(--pink-500); }
   </style>
@@ -267,16 +255,51 @@
 
     <div class="writing-hero">
       <h1>✍️ Письменные задания</h1>
-      <p>Напиши текст по заданию — ИИ проверит грамматику, словарный запас<br>и даст подробные советы на русском языке 💕</p>
+      <p>Задания по учебникам — напиши текст, ИИ проверит и объяснит каждую ошибку 💕</p>
     </div>
 
-    <div class="task-cards" id="tasks-container"></div>
+    <!-- Вкладки уровней -->
+    <div class="tabs-wrap">
+      <button class="tab-btn active" onclick="switchTab('a1')">
+        <span class="tab-label">A1</span>
+        <span class="tab-sub">Начало</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('a2')">
+        <span class="tab-label">A2</span>
+        <span class="tab-sub">Элементарный</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('b1')">
+        <span class="tab-label">B1</span>
+        <span class="tab-sub">Средний</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('history')">
+        <span class="tab-label">📚</span>
+        <span class="tab-sub">История</span>
+      </button>
+    </div>
 
-    <!-- История проверок -->
-    <div class="history-section">
-      <div class="history-title">📚 История проверок</div>
-      <div class="history-subtitle">Все твои работы сохраняются здесь — можно вернуться и перечитать</div>
-      <div id="history-list"></div>
+    <!-- A1 -->
+    <div class="tab-panel active" id="panel-a1">
+      <div id="tasks-a1"></div>
+    </div>
+
+    <!-- A2 -->
+    <div class="tab-panel" id="panel-a2">
+      <div id="tasks-a2"></div>
+    </div>
+
+    <!-- B1 -->
+    <div class="tab-panel" id="panel-b1">
+      <div id="tasks-b1"></div>
+    </div>
+
+    <!-- История -->
+    <div class="tab-panel" id="panel-history">
+      <div class="history-section" style="margin-top:0">
+        <div class="history-title">📚 История проверок</div>
+        <div class="history-subtitle">Все проверенные работы — можно перечитать в любой момент</div>
+        <div id="history-list"></div>
+      </div>
     </div>
   </div>
 
@@ -285,7 +308,7 @@
 
   <script type="module">
     import { initAuth, logout } from './js/sync.js';
-    import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+    import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
     import { getAuth } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
@@ -303,53 +326,37 @@
       const name = localStorage.getItem('bulochka-login') || 'Булочка';
       document.getElementById('user-name').textContent = name.charAt(0).toUpperCase() + name.slice(1);
 
-      // Загружаем ключ из Firestore
       try {
         const snap = await getDoc(doc(_db, 'config', 'openrouter'));
         if (snap.exists()) window._orKey = snap.data().key;
-      } catch(e) {
-        console.warn('Не удалось загрузить ключ:', e);
-      }
+      } catch(e) { console.warn('Ключ:', e); }
 
-      // Загружаем историю из Firestore и мержим с localStorage
       try {
         const uid = _auth.currentUser?.uid;
         if (uid) {
           const snap = await getDoc(doc(_db, 'writing_history', uid));
           if (snap.exists()) {
-            const cloudEntries = snap.data().entries || [];
-            const localEntries = JSON.parse(localStorage.getItem('bulochka-writing-history') || '[]');
-            // Мерж: объединяем по ts, убираем дубли, сортируем новые сверху
-            const merged = [...cloudEntries, ...localEntries]
+            const cloud = snap.data().entries || [];
+            const local = JSON.parse(localStorage.getItem('bulochka-writing-history') || '[]');
+            const merged = [...cloud, ...local]
               .filter((e, i, arr) => arr.findIndex(x => x.ts === e.ts) === i)
-              .sort((a, b) => b.ts - a.ts)
-              .slice(0, 50);
+              .sort((a, b) => b.ts - a.ts).slice(0, 50);
             localStorage.setItem('bulochka-writing-history', JSON.stringify(merged));
             renderHistory();
           }
         }
-      } catch(e) {
-        console.warn('Не удалось загрузить историю:', e);
-      }
+      } catch(e) { console.warn('История:', e); }
     });
 
-    // Сохранить запись в Firestore
     window._saveHistoryCloud = async function(entry) {
       try {
         const uid = _auth.currentUser?.uid;
         if (!uid) return;
         const ref = doc(_db, 'writing_history', uid);
         const snap = await getDoc(ref);
-        if (snap.exists()) {
-          const existing = snap.data().entries || [];
-          const updated = [entry, ...existing].slice(0, 50);
-          await setDoc(ref, { entries: updated });
-        } else {
-          await setDoc(ref, { entries: [entry] });
-        }
-      } catch(e) {
-        console.warn('Не удалось сохранить историю в облако:', e);
-      }
+        const existing = snap.exists() ? (snap.data().entries || []) : [];
+        await setDoc(ref, { entries: [entry, ...existing].slice(0, 50) });
+      } catch(e) { console.warn('Сохранение истории:', e); }
     };
   </script>
 
@@ -357,56 +364,243 @@
     const MODEL = 'openai/gpt-4o-mini';
     const HISTORY_KEY = 'bulochka-writing-history';
 
-    const TASKS = [
-      {
-        id: 'w1', level: 'A1', title: 'Расскажи о себе',
-        prompt: 'Напиши небольшой текст о себе (5–7 предложений).\n\nРасскажи: как тебя зовут, сколько тебе лет, откуда ты, где живёшь, что любишь делать. Используй глаголы heißen, sein, kommen, wohnen, mögen.',
-        hint: 'Образец: Ich heiße Margo. Ich bin 20 Jahre alt. Ich komme aus Russland...',
-        placeholder: 'Ich heiße...', minWords: 20,
-      },
-      {
-        id: 'w2', level: 'A1', title: 'Мой день',
-        prompt: 'Опиши свой обычный день (6–8 предложений).\n\nЧто ты делаешь утром, днём и вечером? Используй слова: aufstehen, frühstücken, lernen, essen, schlafen, и временные выражения: morgens, mittags, abends.',
-        hint: 'Используй порядок: сначала → потом → потом',
-        placeholder: 'Ich stehe um... Uhr auf...', minWords: 25,
-      },
-      {
-        id: 'w3', level: 'A2', title: 'Моя семья',
-        prompt: 'Напиши о своей семье (6–8 предложений).\n\nКто есть в твоей семье? Как их зовут, сколько им лет, чем они занимаются? Используй притяжательные местоимения: mein, meine, sein, ihre.',
-        hint: 'Meine Familie ist... Mein Vater heißt... Er ist... Jahre alt.',
-        placeholder: 'Meine Familie...', minWords: 30,
-      },
-      {
-        id: 'w4', level: 'A2', title: 'Письмо другу',
-        prompt: 'Напиши неформальное письмо подруге (8–10 предложений).\n\nПоприветствуй, расскажи что сейчас делаешь, что произошло на этой неделе, спроси как она. Используй Perfekt для прошедших событий.',
-        hint: 'Начни с: Liebe [имя], wie geht es dir? Ich habe diese Woche...',
-        placeholder: 'Liebe...', minWords: 40,
-      },
-      {
-        id: 'w5', level: 'B1', title: 'Почему я хочу учиться в Австрии',
-        prompt: 'Напиши небольшое сочинение (10–12 предложений): почему ты хочешь учиться в Австрии?\n\nОпиши свои мотивы, что тебя привлекает, какие у тебя планы. Используй Konjunktiv II (würde, könnte, hätte) и союзы: weil, obwohl, deshalb.',
-        hint: 'Ich möchte in Österreich studieren, weil...',
-        placeholder: 'Österreich ist für mich...', minWords: 60,
-      },
-      {
-        id: 'w6', level: 'B1', title: 'Описание картинки / ситуации',
-        prompt: 'Представь: ты в кафе в Вене. Опиши сцену (8–10 предложений).\n\nЧто ты видишь вокруг, что заказываешь, о чём думаешь, какие люди рядом. Используй Präteritum или Perfekt, прилагательные с правильными окончаниями.',
-        hint: 'Ich sitze in einem kleinen Café in Wien. Es ist...',
-        placeholder: 'Das Café ist gemütlich...', minWords: 50,
-      },
-    ];
+    // ── ЗАДАНИЯ ПО УЧЕБНИКАМ ───────────────────────────────────────────────
+    // Источники: Dreyer/Schmitt «Die Gelbe» + Grammatik A1 (Hueber)
+    const TASKS = {
+      a1: [
+        {
+          topic: 'Глагол sein · Капитель 1 (Die Gelbe)',
+          tasks: [
+            {
+              id: 'a1-sein', title: 'Кто я? — глагол sein',
+              prompt: 'Напиши 5–6 предложений о себе, используя только глагол sein в разных формах: bin, bist, ist, sind.\n\nРасскажи: как тебя зовут, откуда ты, какая ты по характеру, кем ты являешься (студентка, ученица), какая сейчас погода у тебя.',
+              grammar: '📖 Die Gelbe, гл. 1: sein — ich bin / du bist / er·sie ist / wir sind / ihr seid / sie sind',
+              hint: 'Ich bin Margo. Ich bin aus Russland. Ich bin Studentin...',
+              placeholder: 'Ich bin...',
+            },
+            {
+              id: 'a1-haben', title: 'Что у меня есть — глагол haben',
+              prompt: 'Напиши 5–6 предложений используя глагол haben.\n\nЧто у тебя есть дома? Какие вещи, домашние животные, предметы для учёбы? Используй неопределённый артикль: ein / eine.',
+              grammar: '📖 Die Gelbe, гл. 1: haben — ich habe / du hast / er hat / wir haben. Артикль: ein Hund, eine Katze, ein Buch',
+              hint: 'Ich habe einen Hund. Er hat ein Auto. Wir haben eine Wohnung...',
+              placeholder: 'Ich habe...',
+            },
+          ],
+        },
+        {
+          topic: 'Артикли и падежи · Капитель 2–4 (Die Gelbe)',
+          tasks: [
+            {
+              id: 'a1-artikel', title: 'Моя комната — артикли',
+              prompt: 'Опиши свою комнату (6–7 предложений). Что там есть? Используй определённый (der/die/das) и неопределённый (ein/eine) артикль. Попробуй написать цвет каждого предмета.',
+              grammar: '📖 Die Gelbe, гл. 2–3: der Tisch, die Lampe, das Bett / ein Tisch, eine Lampe, ein Bett',
+              hint: 'In meinem Zimmer ist ein Bett. Das Bett ist groß. Ich habe einen Schreibtisch...',
+              placeholder: 'In meinem Zimmer...',
+            },
+            {
+              id: 'a1-nominativ', title: 'В магазине — Nominativ и Akkusativ',
+              prompt: 'Напиши диалог в магазине (6–8 реплик). Ты покупаешь продукты: хлеб, молоко, яблоки, кофе. Используй конструкцию «Ich möchte + Akkusativ».\n\nНапиши диалог в формате:\nKunde: ...\nVerkäufer: ...',
+              grammar: '📖 Die Gelbe, гл. 4: Akkusativ — ich kaufe einen Apfel (m), eine Flasche (f), ein Brot (n)',
+              hint: 'Kunde: Ich möchte einen Apfel, bitte. Verkäufer: Gerne! Das macht...',
+              placeholder: 'Kunde: Guten Tag!\nVerkäufer: ...',
+            },
+          ],
+        },
+        {
+          topic: 'Глаголы в Präsens · Капитель 5 (Die Gelbe)',
+          tasks: [
+            {
+              id: 'a1-praesens', title: 'Мой обычный день — Präsens',
+              prompt: 'Опиши свой обычный день от утра до вечера (8–10 предложений).\n\nИспользуй глаголы: aufstehen, frühstücken, lernen, arbeiten, essen, trinken, schlafen gehen. Добавь время: um 7 Uhr, morgens, mittags, abends.',
+              grammar: '📖 Die Gelbe, гл. 5: спряжение — ich stehe auf / du stehst auf. Отделяемые приставки: auf-, an-, aus-',
+              hint: 'Ich stehe um 7 Uhr auf. Dann frühstücke ich. Um 9 Uhr lerne ich...',
+              placeholder: 'Ich stehe um ... Uhr auf...',
+            },
+            {
+              id: 'a1-modalverb', title: 'Что я хочу и могу — Modalverben',
+              prompt: 'Напиши 7–8 предложений о своих желаниях и возможностях, используя модальные глаголы: möchten, können, müssen, wollen.\n\nЧто ты хочешь делать? Что ты умеешь? Что должна? Что собираешься?',
+              grammar: '📖 Die Gelbe, гл. 5: ich möchte / ich kann / ich muss / ich will + Infinitiv в конце предложения',
+              hint: 'Ich möchte Deutsch lernen. Ich kann ein bisschen sprechen. Ich muss mehr üben...',
+              placeholder: 'Ich möchte...',
+            },
+          ],
+        },
+      ],
 
-    // ── HISTORY helpers ──────────────────────────────────────
-    function loadHistory() {
-      return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+      a2: [
+        {
+          topic: 'Прошедшее время · Kapitel 6 (Die Gelbe)',
+          tasks: [
+            {
+              id: 'a2-perfekt', title: 'Мои выходные — Perfekt',
+              prompt: 'Расскажи что ты делала на выходных (8–10 предложений). Используй Perfekt.\n\nВозможные глаголы: schlafen, essen, sehen, gehen, kaufen, lernen, anrufen, lesen.',
+              grammar: '📖 Die Gelbe, гл. 6: haben + Partizip II (gekauft, gegessen) / sein + Partizip II (gegangen, gefahren)',
+              hint: 'Am Samstag habe ich lange geschlafen. Dann habe ich gefrühstückt. Nachmittags bin ich in die Stadt gegangen...',
+              placeholder: 'Am Wochenende habe ich...',
+            },
+            {
+              id: 'a2-praeteritum', title: 'Рассказ о детстве — Präteritum',
+              prompt: 'Напиши о своём детстве (6–8 предложений). Используй Präteritum глаголов sein и haben, а также war, hatte, gab es.\n\nГде ты жила? Какой у тебя был любимый предмет в школе? Кто был твоим лучшим другом?',
+              grammar: '📖 Die Gelbe, гл. 6: war (=был), hatte (=имел), es gab (=было/существовало) — только для sein и haben в рассказе',
+              hint: 'Als ich klein war, hatte ich viele Freunde. Mein Lieblingsfach war Kunst...',
+              placeholder: 'Als ich klein war...',
+            },
+          ],
+        },
+        {
+          topic: 'Прилагательные · Kapitel 8–9 (Die Gelbe)',
+          tasks: [
+            {
+              id: 'a2-adjektiv', title: 'Описание человека — прилагательные',
+              prompt: 'Опиши внешность и характер своего лучшего друга или подруги (7–9 предложений).\n\nИспользуй прилагательные с правильными окончаниями: ein großer Mann / eine kleine Frau / ein nettes Kind.',
+              grammar: '📖 Die Gelbe, гл. 8: окончания прилагательных — после ein/eine: ein langer Weg, eine nette Frau, ein kleines Kind',
+              hint: 'Meine beste Freundin heißt ... Sie ist ein nettes Mädchen. Sie hat lange, braune Haare...',
+              placeholder: 'Meine beste Freundin...',
+            },
+            {
+              id: 'a2-komparativ', title: 'Сравнение городов — Komparativ',
+              prompt: 'Сравни Москву и Вену (6–8 предложений). Что больше/меньше/лучше/интереснее?\n\nИспользуй: größer als, kleiner als, interessanter als, so ... wie, mehr ... als.',
+              grammar: '📖 Die Gelbe, гл. 9: Komparativ: groß → größer, gut → besser, viel → mehr. Конструкция: A ist ... als B',
+              hint: 'Moskau ist größer als Wien. Wien ist kleiner, aber sehr schön. Die Musik in Wien ist berühmter als...',
+              placeholder: 'Moskau ist eine große Stadt...',
+            },
+          ],
+        },
+        {
+          topic: 'Предлоги · Kapitel 13–14 (Die Gelbe)',
+          tasks: [
+            {
+              id: 'a2-praep-dativ', title: 'Где всё находится — предлоги с Dativ',
+              prompt: 'Опиши своё любимое место дома или в городе (7–8 предложений).\n\nИспользуй предлоги места с Dativ: in, an, auf, unter, über, vor, hinter, zwischen, neben — отвечают на вопрос ВО/НА ЧЁМ? (wo?)',
+              grammar: '📖 Die Gelbe, гл. 13: Wo? → Dativ: auf dem Tisch, in der Küche, neben dem Fenster',
+              hint: 'Mein Lieblingsplatz ist auf dem Sofa. Es steht neben dem Fenster. Auf dem Tisch liegt...',
+              placeholder: 'Mein Lieblingsplatz...',
+            },
+            {
+              id: 'a2-praep-akkusativ', title: 'Куда я иду — предлоги с Akkusativ',
+              prompt: 'Напиши план на завтра (7–8 предложений) — куда ты пойдёшь и что сделаешь.\n\nИспользуй предлоги направления с Akkusativ: in, an, auf, unter, über, vor — отвечают на вопрос КУДА? (wohin?)',
+              grammar: '📖 Die Gelbe, гл. 14: Wohin? → Akkusativ: Ich gehe in die Stadt, auf den Markt, an den See',
+              hint: 'Morgen gehe ich in die Stadt. Dann fahre ich in den Park. Am Nachmittag gehe ich auf den Markt...',
+              placeholder: 'Morgen gehe ich...',
+            },
+          ],
+        },
+      ],
+
+      b1: [
+        {
+          topic: 'Сложные предложения · Kapitel 27 (Die Gelbe)',
+          tasks: [
+            {
+              id: 'b1-nebensatz', title: 'Мои планы и причины — придаточные предложения',
+              prompt: 'Напиши о своих планах на будущее (8–10 предложений). Почему ты хочешь учиться в Австрии?\n\nИспользуй союзы: weil, dass, obwohl, wenn, damit — глагол в конце придаточного предложения!',
+              grammar: '📖 Die Gelbe, гл. 27: Nebensatz — глагол всегда в КОНЦЕ: Ich lerne Deutsch, weil ich in Österreich studieren möchte.',
+              hint: 'Ich möchte in Wien studieren, weil die Universität sehr gut ist. Obwohl es schwer ist, lerne ich jeden Tag...',
+              placeholder: 'Ich möchte in Österreich studieren, weil...',
+            },
+            {
+              id: 'b1-relativsatz', title: 'Описание с относительными предложениями',
+              prompt: 'Опиши свой идеальный университет в Австрии (8–10 предложений). Используй относительные предложения.\n\nПример: «Das ist die Universität, die ich besuchen möchte.»',
+              grammar: '📖 Die Gelbe, гл. 27: Relativsatz — der/die/das меняется по падежу: die Uni, die... / der Professor, der... / das Fach, das...',
+              hint: 'Die Universität Wien ist eine Uni, die sehr bekannt ist. Das ist das Fach, das mich interessiert...',
+              placeholder: 'Meine Traumuniversität...',
+            },
+          ],
+        },
+        {
+          topic: 'Konjunktiv II · Kapitel 24 (Die Gelbe)',
+          tasks: [
+            {
+              id: 'b1-konjunktiv', title: 'Мечты и условия — Konjunktiv II',
+              prompt: 'Напиши о том, что бы ты делала, если бы уже жила в Австрии (8–10 предложений).\n\nИспользуй Konjunktiv II: würde + Infinitiv, wäre, hätte, könnte, müsste.',
+              grammar: '📖 Die Gelbe, гл. 24: würde machen, wäre (=был бы), hätte (=имел бы), könnte (=мог бы), müsste (=должен был бы)',
+              hint: 'Wenn ich in Wien wäre, würde ich die Oper besuchen. Ich hätte viele österreichische Freunde...',
+              placeholder: 'Wenn ich in Österreich wäre...',
+            },
+          ],
+        },
+        {
+          topic: 'Passiv и официальный стиль · Kapitel 19 (Die Gelbe)',
+          tasks: [
+            {
+              id: 'b1-passiv', title: 'Официальное письмо — Passiv и Konjunktiv I',
+              prompt: 'Напиши официальное письмо-заявление в австрийский университет (10–12 предложений).\n\nПредставься, объясни почему хочешь учиться там, что умеешь, каковы твои цели. Используй пассивный залог и официальный тон.',
+              grammar: '📖 Die Gelbe, гл. 19: Passiv: wird + Partizip II (Die Unterlagen werden gesendet). Вежливость: Ich würde mich freuen, wenn...',
+              hint: 'Sehr geehrte Damen und Herren, hiermit bewerbe ich mich um einen Studienplatz... Ich würde mich sehr freuen, wenn meine Bewerbung berücksichtigt würde.',
+              placeholder: 'Sehr geehrte Damen und Herren,\n\nhiermit bewerbe ich mich...',
+            },
+            {
+              id: 'b1-eroetern', title: 'Эссе: жизнь за рубежом',
+              prompt: 'Напиши небольшое эссе (12–14 предложений): «Vor- und Nachteile des Lebens im Ausland» (Плюсы и минусы жизни за рубежом).\n\nПиши структурированно: вступление, аргументы ЗА, аргументы ПРОТИВ, вывод.',
+              grammar: '📖 B1-уровень: использование einerseits / andererseits, jedoch, trotzdem, deshalb, außerdem, abschließend',
+              hint: 'Das Leben im Ausland hat viele Vorteile. Einerseits lernt man eine neue Sprache... Andererseits vermisst man die Familie...',
+              placeholder: 'Das Leben im Ausland ist ein wichtiges Thema...',
+            },
+          ],
+        },
+      ],
+    };
+
+    // ── RENDER TASKS ─────────────────────────────────────────────────────────
+    function renderTasks() {
+      ['a1', 'a2', 'b1'].forEach(lvl => {
+        const container = document.getElementById(`tasks-${lvl}`);
+        let html = '';
+        TASKS[lvl].forEach(group => {
+          html += `<div class="topic-group"><div class="topic-label">${group.topic}</div>`;
+          group.tasks.forEach(task => {
+            html += `
+              <div class="task-card" id="card-${task.id}">
+                <div class="task-header" onclick="toggleTask('${task.id}')">
+                  <span class="task-topic-badge">${lvl.toUpperCase()}</span>
+                  <span class="task-title">${task.title}</span>
+                  <span class="task-toggle">▼</span>
+                </div>
+                <div class="task-body">
+                  <div class="task-prompt">${task.prompt.replace(/\n/g,'<br>')}</div>
+                  <div class="task-grammar-note">📖 ${task.grammar.replace('📖 ','')}</div>
+                  <div class="task-hint">💡 Начни так: <strong>${task.hint}</strong></div>
+                  <textarea class="writing-area" id="text-${task.id}" placeholder="${task.placeholder}" rows="5"></textarea>
+                  <button class="check-writing-btn" id="btn-${task.id}" onclick="checkWriting('${task.id}','${lvl}')">
+                    <span>🤖</span> Проверить с ИИ
+                  </button>
+                  <div class="ai-result" id="result-${task.id}">
+                    <div class="ai-result-header">
+                      <span>🤖 Разбор от ИИ</span>
+                      <span class="score-badge" id="score-${task.id}"></span>
+                    </div>
+                    <div class="ai-result-body" id="body-${task.id}"></div>
+                  </div>
+                </div>
+              </div>`;
+          });
+          html += `</div>`;
+        });
+        container.innerHTML = html;
+      });
     }
+
+    function toggleTask(taskId) {
+      const card = document.getElementById(`card-${taskId}`);
+      card.classList.toggle('open');
+    }
+
+    // ── TABS ──────────────────────────────────────────────────────────────────
+    function switchTab(name) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`panel-${name}`).classList.add('active');
+      event.currentTarget.classList.add('active');
+      if (name === 'history') renderHistory();
+    }
+
+    // ── HISTORY ──────────────────────────────────────────────────────────────
+    function loadHistory() { return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); }
     function saveToHistory(entry) {
       const hist = loadHistory();
       hist.unshift(entry);
       if (hist.length > 50) hist.pop();
       localStorage.setItem(HISTORY_KEY, JSON.stringify(hist));
-      renderHistory();
-      // Сохраняем в облако
       if (typeof window._saveHistoryCloud === 'function') window._saveHistoryCloud(entry);
     }
     function clearHistory() {
@@ -414,88 +608,50 @@
       localStorage.removeItem(HISTORY_KEY);
       renderHistory();
     }
-
     function renderHistory() {
       const hist = loadHistory();
       const container = document.getElementById('history-list');
       if (!hist.length) {
-        container.innerHTML = `<div class="history-empty">Здесь будут твои проверенные работы 💕<br>Напиши первый текст и нажми «Проверить с ИИ»</div>`;
+        container.innerHTML = `<div class="history-empty">Здесь появятся твои проверенные работы 💕<br>Выбери задание, напиши текст и нажми «Проверить с ИИ»</div>`;
         return;
       }
-      const items = hist.map((entry, i) => `
-        <div class="history-item" id="hi-${i}">
-          <div class="history-item-header" onclick="toggleHistory(${i})">
-            <span class="history-item-level">${entry.level}</span>
-            <span class="history-item-title">${entry.title}</span>
-            <span class="history-item-date">${entry.date}</span>
-            ${entry.score ? `<span class="history-item-score">${entry.score}/10</span>` : ''}
-            <span class="history-item-toggle">▼</span>
-          </div>
-          <div class="history-item-body">
-            <div class="history-text-block">
-              <div class="history-text-label">Твой текст</div>
-              ${escHtml(entry.text)}
-            </div>
-            <div class="history-ai-block">${escHtml(entry.reply)}</div>
-          </div>
-        </div>
-      `).join('');
       container.innerHTML = `
-        <div class="history-list">${items}</div>
-        <button class="history-clear-btn" onclick="clearHistory()">🗑 Очистить историю</button>
-      `;
+        <div class="history-list">
+          ${hist.map((e,i) => `
+            <div class="history-item" id="hi-${i}">
+              <div class="history-item-header" onclick="toggleHistory(${i})">
+                <span class="history-item-level">${e.level||''}</span>
+                <span class="history-item-title">${e.title}</span>
+                <span class="history-item-date">${e.date}</span>
+                ${e.score ? `<span class="history-item-score">${e.score}/10</span>` : ''}
+                <span class="history-item-toggle">▼</span>
+              </div>
+              <div class="history-item-body">
+                <div class="history-text-block"><div class="history-text-label">Твой текст</div>${escHtml(e.text)}</div>
+                <div class="history-ai-block">${escHtml(e.reply)}</div>
+              </div>
+            </div>`).join('')}
+        </div>
+        <button class="history-clear-btn" onclick="clearHistory()">🗑 Очистить историю</button>`;
     }
-
-    function toggleHistory(i) {
-      document.getElementById(`hi-${i}`).classList.toggle('open');
-    }
-
+    function toggleHistory(i) { document.getElementById(`hi-${i}`).classList.toggle('open'); }
     function escHtml(s) {
-      return String(s)
-        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-        .replace(/\n/g,'<br>');
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
     }
 
-    // ── RENDER TASKS ─────────────────────────────────────────
-    function renderTasks() {
-      const container = document.getElementById('tasks-container');
-      const levels = ['A1', 'A2', 'B1'];
-      let html = '';
-      levels.forEach(lvl => {
-        const lvlTasks = TASKS.filter(t => t.level === lvl);
-        if (!lvlTasks.length) return;
-        html += `<div class="section-label">${lvl} — ${lvl==='A1'?'Начало':lvl==='A2'?'Элементарный':'Средний'}</div>`;
-        lvlTasks.forEach(task => {
-          html += `
-            <div class="task-card" id="card-${task.id}">
-              <div class="task-header">
-                <span class="task-level">${task.level}</span>
-                <span class="task-title">${task.title}</span>
-              </div>
-              <div class="task-body">
-                <div class="task-prompt">${task.prompt.replace(/\n/g,'<br>')}</div>
-                <div class="task-hint">💡 Подсказка: <strong>${task.hint}</strong></div>
-                <textarea class="writing-area" id="text-${task.id}" placeholder="${task.placeholder}" rows="5"></textarea>
-                <button class="check-writing-btn" id="btn-${task.id}" onclick="checkWriting('${task.id}')">
-                  <span>🤖</span> Проверить с ИИ
-                </button>
-                <div class="ai-result" id="result-${task.id}">
-                  <div class="ai-result-header">
-                    <span>🤖 Разбор от ИИ</span>
-                    <span class="score-badge" id="score-${task.id}"></span>
-                  </div>
-                  <div class="ai-result-body" id="body-${task.id}"></div>
-                </div>
-              </div>
-            </div>`;
-        });
-      });
-      container.innerHTML = html;
+    // ── CHECK WRITING ────────────────────────────────────────────────────────
+    function findTask(taskId) {
+      for (const lvl of ['a1','a2','b1']) {
+        for (const group of TASKS[lvl]) {
+          const t = group.tasks.find(t => t.id === taskId);
+          if (t) return { ...t, level: lvl.toUpperCase(), grammarNote: group.topic };
+        }
+      }
+      return null;
     }
 
-    // ── CHECK WRITING ─────────────────────────────────────────
-    async function checkWriting(taskId) {
-      const task = TASKS.find(t => t.id === taskId);
+    async function checkWriting(taskId, lvl) {
+      const task = findTask(taskId);
       const text = document.getElementById(`text-${taskId}`).value.trim();
       const btn = document.getElementById(`btn-${taskId}`);
       const resultEl = document.getElementById(`result-${taskId}`);
@@ -508,10 +664,9 @@
         resultEl.querySelector('.ai-result-header').style.display = 'flex';
         return;
       }
-
       const OPENROUTER_KEY = window._orKey;
       if (!OPENROUTER_KEY) {
-        bodyEl.textContent = '⚠️ Ключ ещё загружается, попробуй через секунду.';
+        bodyEl.textContent = '⚠️ Ключ загружается, попробуй через секунду.';
         resultEl.classList.add('visible');
         resultEl.querySelector('.ai-result-header').style.display = 'flex';
         return;
@@ -519,48 +674,45 @@
 
       btn.disabled = true;
       btn.innerHTML = '<span class="spinner"></span> Проверяю...';
-
       resultEl.classList.add('visible');
       resultEl.querySelector('.ai-result-header').style.display = 'none';
       bodyEl.innerHTML = `<div class="ai-loading"><div class="spinner"></div> ИИ внимательно читает твой текст...</div>`;
       bodyEl.style.padding = '0';
 
-      const systemPrompt = `Ты — строгий, но заботливый преподаватель немецкого языка с 15-летним опытом подготовки студентов к поступлению в австрийские и немецкие университеты. Твоя студентка — Марго, русскоговорящая девушка, которая учит немецкий с нуля. Её цель — поступить в университет в Австрии, поэтому точность и грамотность крайне важны.
+      const systemPrompt = `Ты — строгий, но заботливый преподаватель немецкого языка с 15-летним опытом. Твоя студентка — Марго, русскоязычная девушка, цель которой — поступить в университет в Австрии. Она занимается по учебникам Dreyer/Schmitt «Lehr- und Übungsbuch der deutschen Grammatik» (Die Gelbe) и Hueber Grammatik A1.
 
-ТВОЯ РОЛЬ: Ты ТОЛЬКО преподаватель немецкого. Ты не отвечаешь на посторонние вопросы, не выходишь из роли, не обсуждаешь ничего кроме немецкого языка и разбора текста. Если студентка пишет не на немецком или отклоняется от задания — мягко напомни про задание.
+ТЕМА ЗАДАНИЯ: ${task.grammarNote}
+УРОВЕНЬ: ${task.level}
 
-УРОВЕНЬ ЗАДАНИЯ: ${task.level}
+ТВОЯ РОЛЬ: Только преподаватель немецкого. Не выходи из роли ни при каких условиях. Если студентка пишет не на немецком — мягко напомни про задание.
 
-ПРОВЕРЯЙ ТЩАТЕЛЬНО — найди ВСЕ ошибки без исключения:
-• Грамматика: падежи (Nominativ, Akkusativ, Dativ, Genitiv), спряжение глаголов, порядок слов, управление глаголов
-• Артикли: определённые (der/die/das), неопределённые (ein/eine), отсутствие артикля
-• Согласование: прилагательные, притяжательные местоимения, числа
-• Временные формы: Präsens, Perfekt, Präteritum, Futur — правильность выбора и образования
-• Лексика: подходящие ли слова для уровня, нет ли калек с русского
-• Пунктуация и орфография (включая умлауты ä/ö/ü/ß)
+ПРОВЕРЯЙ ВСЁ БЕЗ ИСКЛЮЧЕНИЙ:
+• Грамматика по теме задания (приоритет!)
+• Падежи: Nominativ, Akkusativ, Dativ, Genitiv
+• Спряжение глаголов, временны́е формы
+• Артикли (определённые/неопределённые/нулевой)
+• Окончания прилагательных
+• Порядок слов (особенно в придаточных предложениях!)
+• Разделяемые приставки
+• Пунктуация, орфография, умлауты (ä/ö/ü/ß)
 
-СТРУКТУРА ОТВЕТА (строго на русском языке):
+ФОРМАТ ОТВЕТА (строго на русском):
 
 📝 ОЦЕНКА: X/10
-[одна строка: цифра и одно предложение общего впечатления]
+[одно предложение — общее впечатление]
 
-✅ ЧТО ПОЛУЧИЛОСЬ ХОРОШО:
-[2–4 конкретных пункта с примерами из текста — какие конструкции удались, что написано правильно]
+✅ ЧТО ХОРОШО:
+[2–4 конкретных момента с цитатами из текста]
 
-❌ ОШИБКИ (найди все, не пропускай):
-[каждая ошибка строго в формате:]
+❌ ОШИБКИ (найди ВСЕ, без исключений):
 • Написала: «...» → Правильно: «...»
-  Почему: [краткое грамматическое объяснение правила]
-
-Если ошибок нет совсем — это большая редкость, напиши об этом отдельно и похвали!
+  Почему: [правило из Die Gelbe / объяснение]
 
 💡 КАК УЛУЧШИТЬ:
-[2–3 конкретных совета: какие конструкции добавить, что усложнить, какие слова выучить для следующего раза]
+[2–3 конкретных совета, привязанных к теме задания]
 
 🎯 ИТОГ:
-[1–2 предложения мотивации с учётом цели — поступление в австрийский университет]
-
-Тон: профессиональный и тёплый. Не хвали за то, что сделано неправильно. Будь честна в оценке, но поддерживай.`;
+[мотивация с учётом цели — австрийский университет]`;
 
       try {
         const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -577,18 +729,13 @@
               { role: 'system', content: systemPrompt },
               { role: 'user', content: `Задание: "${task.title}"\n\nТекст Марго:\n${text}` }
             ],
-            max_tokens: 1200,
-            temperature: 0.4,
+            max_tokens: 1200, temperature: 0.4,
           }),
         });
 
-        if (!res.ok) {
-          const err = await res.json();
-          throw new Error(err.error?.message || `HTTP ${res.status}`);
-        }
-
+        if (!res.ok) { const err = await res.json(); throw new Error(err.error?.message || `HTTP ${res.status}`); }
         const data = await res.json();
-        const reply = data.choices?.[0]?.message?.content || 'Нет ответа от ИИ';
+        const reply = data.choices?.[0]?.message?.content || 'Нет ответа';
 
         const scoreMatch = reply.match(/ОЦЕНКА:\s*(\d+)\s*\/\s*10/);
         const score = scoreMatch ? scoreMatch[1] : null;
@@ -598,23 +745,16 @@
         bodyEl.textContent = reply;
         resultEl.querySelector('.ai-result-header').style.display = 'flex';
 
-        // Сохраняем в историю
         const now = new Date();
-        const dateStr = now.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
         saveToHistory({
-          taskId,
-          level: task.level,
-          title: task.title,
-          text,
-          reply,
-          score,
-          date: dateStr,
+          taskId, level: task.level, title: task.title, text, reply, score,
+          date: now.toLocaleDateString('ru-RU', { day:'numeric', month:'long', hour:'2-digit', minute:'2-digit' }),
           ts: now.getTime(),
         });
 
-      } catch (e) {
+      } catch(e) {
         bodyEl.style.padding = '';
-        bodyEl.textContent = `Ошибка при обращении к ИИ: ${e.message}\n\nПопробуй позже.`;
+        bodyEl.textContent = `Ошибка: ${e.message}\n\nПопробуй позже.`;
         resultEl.querySelector('.ai-result-header').style.display = 'flex';
       }
 
@@ -629,8 +769,7 @@
     const fhC = document.getElementById('floating-hearts');
     ['❤️','🩷','💕','💗','🌸'].forEach(ch => {
       const el = document.createElement('div');
-      el.className = 'fh';
-      el.textContent = ch;
+      el.className = 'fh'; el.textContent = ch;
       el.style.cssText = `left:${Math.random()*100}%;bottom:-10%;font-size:${0.9+Math.random()}rem;animation-delay:${Math.random()*20}s;animation-duration:${22+Math.random()*14}s;`;
       fhC.appendChild(el);
     });
