@@ -285,6 +285,17 @@ body {
   margin-bottom: 14px;
 }
 
+.rc-features { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.rc-feat {
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--milk-2);
+  border: 1px solid var(--cream);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
 .rc-links { display: flex; gap: 8px; flex-wrap: wrap; }
 .rc-btn {
   padding: 7px 16px;
