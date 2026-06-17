@@ -948,7 +948,7 @@ ${taskContext ? `ЗАДАНИЕ, КОТОРОЕ ПОЛУЧИЛА СТУДЕНТ�
           method: 'POST',
           headers: { 'Authorization': `Bearer ${key}`, 'Content-Type': 'application/json', 'HTTP-Referer': window.location.origin, 'X-Title': 'Bulochka Deutsch' },
           body: JSON.stringify({
-            model: imageBase64 ? 'openai/gpt-4o' : MODEL,
+            model: imageBase64 ? 'anthropic/claude-3-5-sonnet' : MODEL,
             messages: [
               { role: 'system', content: systemPrompt },
               { role: 'user', content: userContent }
