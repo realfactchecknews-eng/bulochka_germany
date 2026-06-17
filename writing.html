@@ -689,7 +689,7 @@
                 <span class="history-item-toggle">▼</span>
               </div>
               <div class="history-item-body">
-                <div class="history-text-block"><div class="history-text-label">Твой текст</div>${escHtml(e.text)}</div>
+                ${e.image ? `<div class="history-text-block"><div class="history-text-label">Фото работы</div><img src="${e.image}" style="width:100%;border-radius:8px;margin-top:6px"></div>` : e.text ? `<div class="history-text-block"><div class="history-text-label">Твой текст</div>${escHtml(e.text)}</div>` : ''}
                 <div class="history-ai-block">${escHtml(e.reply)}</div>
               </div>
             </div>`).join('')}
@@ -851,6 +851,19 @@
         preview.style.display = 'block';
         document.getElementById(`photobtn-${taskId}`).style.display = 'flex';
         window._photos[taskId] = e.target.result.split(',')[1];
+        // сжатый thumbnail для истории
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const max = 480;
+          const scale = Math.min(1, max / Math.max(img.width, img.height));
+          canvas.width = img.width * scale;
+          canvas.height = img.height * scale;
+          canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+          window._photos_thumb = window._photos_thumb || {};
+          window._photos_thumb[taskId] = canvas.toDataURL('image/jpeg', 0.7);
+        };
+        img.src = e.target.result;
       };
       reader.readAsDataURL(file);
     }
@@ -872,7 +885,8 @@
       resultEl.querySelector('.ai-result-header').style.display = 'none';
       bodyEl.innerHTML = `<div class="ai-loading"><div class="spinner"></div> Фрау Анна читает твою рукопись...</div>`;
       bodyEl.style.padding = '0';
-      await callAI(btn, resultEl, bodyEl, scoreEl, task.title, lvl.toUpperCase(), task.grammar, '', `${task.title}\n\nЗадание: ${task.prompt.replace(/<[^>]+>/g,'')}\nГрамматика: ${task.grammar}`, b64);
+      const thumb = window._photos_thumb?.[taskId] || null;
+      await callAI(btn, resultEl, bodyEl, scoreEl, task.title, lvl.toUpperCase(), task.grammar, '', `${task.title}\n\nЗадание: ${task.prompt.replace(/<[^>]+>/g,'')}\nГрамматика: ${task.grammar}`, b64, thumb);
       btn.innerHTML = '<span>📷</span> Проверить ещё раз';
     }
     window.checkPhoto = checkPhoto;
@@ -894,13 +908,14 @@
       bodyEl.style.padding = '0';
       const title = document.getElementById('gen-task-title').textContent || 'Персональное задание';
       const level = document.getElementById('gen-task-level').textContent || 'A1';
-      await callAI(btn, resultEl, bodyEl, scoreEl, title, level, '', '', generatedTaskText, b64);
+      const thumb = window._photos_thumb?.['gen'] || null;
+      await callAI(btn, resultEl, bodyEl, scoreEl, title, level, '', '', generatedTaskText, b64, thumb);
       btn.innerHTML = '<span>📷</span> Проверить ещё раз';
     }
     window.checkPhotoPersonal = checkPhotoPersonal;
 
     // ── ОБЩАЯ ФУНКЦИЯ ПРОВЕРКИ ────────────────────────────────────────────────
-    async function callAI(btn, resultEl, bodyEl, scoreEl, title, level, grammar, text, taskContext, imageBase64 = null) {
+    async function callAI(btn, resultEl, bodyEl, scoreEl, title, level, grammar, text, taskContext, imageBase64 = null, imageThumb = null) {
       const key = window._orKey;
 
       const systemPrompt = `Ты — строгий, но заботливый преподаватель немецкого языка Фрау Анна. Твоя студентка — Марго, русскоязычная девушка, цель которой — поступить в австрийский университет. Занимается по «Die Gelbe» (Dreyer/Schmitt).
@@ -972,6 +987,7 @@ ${imageBase64 ? `\nЕСЛИ ПРИСЛАНО ФОТО: сначала напиш
         const now = new Date();
         saveToHistory({
           level, title, text, reply, score,
+          image: imageThumb || null,
           date: now.toLocaleDateString('ru-RU', { day:'numeric', month:'long', hour:'2-digit', minute:'2-digit' }),
           ts: now.getTime(),
         });
