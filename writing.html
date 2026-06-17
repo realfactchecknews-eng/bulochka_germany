@@ -419,7 +419,7 @@
             </button>
             <div class="photo-or">— или загрузи фото рукописи —</div>
             <label class="photo-upload-label" for="photo-gen">📷 Выбрать фото / сделать снимок</label>
-            <input type="file" class="photo-input" id="photo-gen" accept="image/*" capture="environment"
+            <input type="file" class="photo-input" id="photo-gen" accept="image/*"
               onchange="previewPhoto('gen', this)">
             <img class="photo-preview" id="preview-gen" style="display:none" alt="превью">
             <button class="photo-check-btn" id="photobtn-gen" style="display:none"
@@ -619,7 +619,7 @@
               </button>
               <div class="photo-or">— или загрузи фото рукописи —</div>
               <label class="photo-upload-label" for="photo-${t.id}">📷 Выбрать фото / сделать снимок</label>
-              <input type="file" class="photo-input" id="photo-${t.id}" accept="image/*" capture="environment"
+              <input type="file" class="photo-input" id="photo-${t.id}" accept="image/*"
                 onchange="previewPhoto('${t.id}', this)">
               <img class="photo-preview" id="preview-${t.id}" style="display:none" alt="превью">
               <button class="photo-check-btn" id="photobtn-${t.id}" style="display:none"
