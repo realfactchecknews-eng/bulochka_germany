@@ -872,7 +872,7 @@
       resultEl.querySelector('.ai-result-header').style.display = 'none';
       bodyEl.innerHTML = `<div class="ai-loading"><div class="spinner"></div> Фрау Анна читает твою рукопись...</div>`;
       bodyEl.style.padding = '0';
-      await callAI(btn, resultEl, bodyEl, scoreEl, task.title, lvl.toUpperCase(), task.grammar, '', null, b64);
+      await callAI(btn, resultEl, bodyEl, scoreEl, task.title, lvl.toUpperCase(), task.grammar, '', `${task.title}\n\nЗадание: ${task.prompt.replace(/<[^>]+>/g,'')}\nГрамматика: ${task.grammar}`, b64);
       btn.innerHTML = '<span>📷</span> Проверить ещё раз';
     }
     window.checkPhoto = checkPhoto;
