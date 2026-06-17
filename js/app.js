@@ -51,8 +51,7 @@ function renderModules() {
 
     const lessonsHtml = mod.lessons.map((lesson, li) => {
       const done = !!progress[lesson.id];
-      const unlocked = prevCompleted || li === 0 || !!progress[mod.lessons[li - 1]?.id];
-      const locked = !unlocked && !done;
+      const locked = false;
       return `
         <a class="lesson-card ${done ? 'completed' : ''} ${locked ? 'locked' : ''}"
            href="${locked ? '#' : 'lesson.html?id=' + lesson.id}"
