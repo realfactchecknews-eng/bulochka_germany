@@ -280,6 +280,32 @@
       color: var(--text-muted); cursor: pointer; transition: all 0.18s;
     }
     .history-clear-btn:hover { border-color: var(--pink-300); color: var(--pink-500); }
+
+    /* ── PHOTO UPLOAD ── */
+    .photo-or { text-align: center; color: var(--text-muted); font-size: 0.8rem; margin: 14px 0 10px; letter-spacing: 0.05em; }
+    .photo-upload-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 13px; cursor: pointer;
+      border: 2px dashed var(--cream); background: var(--white);
+      font-size: 0.88rem; font-weight: 600; color: var(--text-muted);
+      transition: all 0.18s; width: 100%; box-sizing: border-box; justify-content: center;
+    }
+    .photo-upload-label:hover { border-color: var(--pink-300); color: var(--pink-500); background: #fff5f9; }
+    .photo-input { display: none; }
+    .photo-preview {
+      width: 100%; border-radius: 12px; margin-top: 10px;
+      border: 2px solid var(--cream); max-height: 280px; object-fit: contain;
+    }
+    .photo-check-btn {
+      margin-top: 10px;
+      background: linear-gradient(135deg, #7bb8f5, #4a90d9);
+      color: #fff; border: none; border-radius: 13px;
+      padding: 11px 24px; font-size: 0.9rem; font-weight: 700;
+      cursor: pointer; transition: opacity 0.2s, transform 0.15s;
+      display: flex; align-items: center; gap: 7px; width: 100%; justify-content: center;
+    }
+    .photo-check-btn:hover:not(:disabled) { opacity: 0.91; transform: translateY(-1px); }
+    .photo-check-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
   </style>
 </head>
 <body>
@@ -390,6 +416,15 @@
               placeholder="Пиши здесь по-немецки..." rows="6"></textarea>
             <button class="check-writing-btn" id="gen-check-btn" onclick="checkPersonal()">
               <span>🤖</span> Проверить с ИИ
+            </button>
+            <div class="photo-or">— или загрузи фото рукописи —</div>
+            <label class="photo-upload-label" for="photo-gen">📷 Выбрать фото / сделать снимок</label>
+            <input type="file" class="photo-input" id="photo-gen" accept="image/*" capture="environment"
+              onchange="previewPhoto('gen', this)">
+            <img class="photo-preview" id="preview-gen" style="display:none" alt="превью">
+            <button class="photo-check-btn" id="photobtn-gen" style="display:none"
+              onclick="checkPhotoPersonal()">
+              <span>📷</span> Проверить рукопись с ИИ
             </button>
             <div class="ai-result" id="gen-result">
               <div class="ai-result-header">
@@ -581,6 +616,15 @@
               <button class="check-writing-btn" id="btn-${t.id}"
                 onclick="checkWriting('${t.id}','${lvl}')">
                 <span>🤖</span> Проверить с ИИ
+              </button>
+              <div class="photo-or">— или загрузи фото рукописи —</div>
+              <label class="photo-upload-label" for="photo-${t.id}">📷 Выбрать фото / сделать снимок</label>
+              <input type="file" class="photo-input" id="photo-${t.id}" accept="image/*" capture="environment"
+                onchange="previewPhoto('${t.id}', this)">
+              <img class="photo-preview" id="preview-${t.id}" style="display:none" alt="превью">
+              <button class="photo-check-btn" id="photobtn-${t.id}" style="display:none"
+                onclick="checkPhoto('${t.id}','${lvl}')">
+                <span>📷</span> Проверить рукопись с ИИ
               </button>
               <div class="ai-result" id="result-${t.id}">
                 <div class="ai-result-header">
@@ -794,8 +838,69 @@
     }
     window.checkPersonal = checkPersonal;
 
+    // ── ФОТО ─────────────────────────────────────────────────────────────────
+    window._photos = {};
+
+    function previewPhoto(taskId, input) {
+      const file = input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        const preview = document.getElementById(`preview-${taskId}`);
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+        document.getElementById(`photobtn-${taskId}`).style.display = 'flex';
+        window._photos[taskId] = e.target.result.split(',')[1];
+      };
+      reader.readAsDataURL(file);
+    }
+    window.previewPhoto = previewPhoto;
+
+    async function checkPhoto(taskId, lvl) {
+      const task = TASKS[lvl].find(t => t.id === taskId);
+      const b64 = window._photos[taskId];
+      if (!b64) return;
+      const btn = document.getElementById(`photobtn-${taskId}`);
+      const resultEl = document.getElementById(`result-${taskId}`);
+      const bodyEl = document.getElementById(`body-${taskId}`);
+      const scoreEl = document.getElementById(`score-${taskId}`);
+      const key = window._orKey;
+      if (!key) { alert('ИИ загружается...'); return; }
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Читаю рукопись...';
+      resultEl.classList.add('visible');
+      resultEl.querySelector('.ai-result-header').style.display = 'none';
+      bodyEl.innerHTML = `<div class="ai-loading"><div class="spinner"></div> Фрау Анна читает твою рукопись...</div>`;
+      bodyEl.style.padding = '0';
+      await callAI(btn, resultEl, bodyEl, scoreEl, task.title, lvl.toUpperCase(), task.grammar, '', null, b64);
+      btn.innerHTML = '<span>📷</span> Проверить ещё раз';
+    }
+    window.checkPhoto = checkPhoto;
+
+    async function checkPhotoPersonal() {
+      const b64 = window._photos['gen'];
+      if (!b64) return;
+      const btn = document.getElementById('photobtn-gen');
+      const resultEl = document.getElementById('gen-result');
+      const bodyEl = document.getElementById('gen-result-body');
+      const scoreEl = document.getElementById('gen-score');
+      const key = window._orKey;
+      if (!key) { alert('ИИ загружается...'); return; }
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Читаю рукопись...';
+      resultEl.classList.add('visible');
+      resultEl.querySelector('.ai-result-header').style.display = 'none';
+      bodyEl.innerHTML = `<div class="ai-loading"><div class="spinner"></div> Фрау Анна читает твою рукопись...</div>`;
+      bodyEl.style.padding = '0';
+      const title = document.getElementById('gen-task-title').textContent || 'Персональное задание';
+      const level = document.getElementById('gen-task-level').textContent || 'A1';
+      await callAI(btn, resultEl, bodyEl, scoreEl, title, level, '', '', generatedTaskText, b64);
+      btn.innerHTML = '<span>📷</span> Проверить ещё раз';
+    }
+    window.checkPhotoPersonal = checkPhotoPersonal;
+
     // ── ОБЩАЯ ФУНКЦИЯ ПРОВЕРКИ ────────────────────────────────────────────────
-    async function callAI(btn, resultEl, bodyEl, scoreEl, title, level, grammar, text, taskContext) {
+    async function callAI(btn, resultEl, bodyEl, scoreEl, title, level, grammar, text, taskContext, imageBase64 = null) {
       const key = window._orKey;
 
       const systemPrompt = `Ты — строгий, но заботливый преподаватель немецкого языка Фрау Анна. Твоя студентка — Марго, русскоязычная девушка, цель которой — поступить в австрийский университет. Занимается по «Die Gelbe» (Dreyer/Schmitt).
@@ -831,15 +936,22 @@ ${taskContext ? `ЗАДАНИЕ, КОТОРОЕ ПОЛУЧИЛА СТУДЕНТ�
 🎯 ИТОГ:
 [мотивация — австрийский университет ждёт!]`;
 
+      const userContent = imageBase64
+        ? [
+            { type: 'text', text: `Задание: "${title}"\n\nМарго написала от руки — текст на фото. Сначала прочитай рукопись, потом проверь по всем критериям.` },
+            { type: 'image_url', image_url: { url: `data:image/jpeg;base64,${imageBase64}` } }
+          ]
+        : `Задание: "${title}"\n\nТекст Марго:\n${text}`;
+
       try {
         const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
           method: 'POST',
           headers: { 'Authorization': `Bearer ${key}`, 'Content-Type': 'application/json', 'HTTP-Referer': window.location.origin, 'X-Title': 'Bulochka Deutsch' },
           body: JSON.stringify({
-            model: MODEL,
+            model: imageBase64 ? 'openai/gpt-4o' : MODEL,
             messages: [
               { role: 'system', content: systemPrompt },
-              { role: 'user', content: `Задание: "${title}"\n\nТекст Марго:\n${text}` }
+              { role: 'user', content: userContent }
             ],
             max_tokens: 1200, temperature: 0.4,
           }),
