@@ -819,11 +819,11 @@ tr:nth-child(even) td { background: var(--milk-2); }
 /* ── MAIN BLOCKS (course + writing) ── */
 .main-blocks {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   margin-bottom: 28px;
 }
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .main-blocks { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 480px) {
@@ -858,6 +858,16 @@ tr:nth-child(even) td { background: var(--milk-2); }
   border-color: #c5d9f7;
 }
 .main-block-grammar:hover { border-color: #7bb8f5; }
+.main-block-anki {
+  background: linear-gradient(135deg, #fff8f0, #fef0e0);
+  border-color: #fde0b0;
+}
+.main-block-anki:hover { border-color: #f5a623; }
+.main-block-books {
+  background: linear-gradient(135deg, #f0fff4, #e0f7e8);
+  border-color: #b0e8c0;
+}
+.main-block-books:hover { border-color: #27ae60; }
 .mb-icon { font-size: 2.2rem; flex-shrink: 0; }
 .mb-info { flex: 1; }
 .mb-title { font-weight: 800; font-size: 1rem; color: var(--text-dark); margin-bottom: 4px; font-family: 'Nunito', sans-serif; }

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Карточки — Булочка учит Deutsch</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    .anki-page { max-width: 700px; margin: 0 auto; padding: 24px 20px 80px; }
+    .anki-nav a { color: var(--pink-500); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .anki-nav { margin-bottom: 14px; }
+
+    .anki-hero { text-align: center; padding: 0 0 20px; }
+    .anki-hero h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--pink-500); margin-bottom: 6px; }
+    .anki-hero p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* stats bar */
+    .stats-bar {
+      display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .stat-chip {
+      flex: 1; min-width: 80px; background: var(--white); border: 1.5px solid var(--cream);
+      border-radius: 14px; padding: 10px 14px; text-align: center;
+      box-shadow: 0 2px 8px rgba(224,57,127,0.06);
+    }
+    .stat-num { font-family: 'Nunito', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--pink-500); }
+    .stat-label { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; }
+
+    /* deck list */
+    .deck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    @media(max-width:480px){ .deck-grid { grid-template-columns: 1fr; } }
+    .deck-card {
+      background: var(--white); border: 2px solid var(--cream); border-radius: 18px;
+      padding: 18px 16px; cursor: pointer; transition: all 0.18s;
+      box-shadow: 0 3px 12px rgba(224,57,127,0.06);
+    }
+    .deck-card:hover { border-color: var(--pink-300); transform: translateY(-2px); }
+    .deck-icon { font-size: 1.8rem; margin-bottom: 6px; }
+    .deck-level { display: inline-block; font-size: 0.68rem; font-weight: 700; background: linear-gradient(135deg, var(--pink-400),var(--pink-500)); color: #fff; padding: 2px 9px; border-radius: 20px; margin-bottom: 6px; }
+    .deck-name { font-weight: 800; font-size: 0.95rem; color: var(--text-dark); margin-bottom: 3px; }
+    .deck-count { font-size: 0.78rem; color: var(--text-muted); }
+    .deck-due { font-size: 0.75rem; font-weight: 700; color: var(--pink-500); margin-top: 4px; }
+
+    /* study view */
+    .study-view { display: none; }
+    .study-view.active { display: block; }
+
+    .study-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .study-back { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--pink-500); padding: 4px 8px; }
+    .study-deck-name { font-weight: 800; font-size: 1rem; color: var(--text-dark); flex: 1; }
+    .study-progress-text { font-size: 0.8rem; color: var(--text-muted); }
+
+    .progress-track { height: 6px; background: var(--cream); border-radius: 6px; margin-bottom: 20px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--pink-400), var(--pink-500)); border-radius: 6px; transition: width 0.4s; }
+
+    /* CARD */
+    .card-scene { perspective: 1000px; margin-bottom: 20px; }
+    .card-3d {
+      width: 100%; min-height: 220px; position: relative;
+      transform-style: preserve-3d; transition: transform 0.45s cubic-bezier(.4,0,.2,1);
+      cursor: pointer;
+    }
+    .card-3d.flipped { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute; inset: 0; backface-visibility: hidden;
+      border-radius: 22px; padding: 32px 28px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; min-height: 220px;
+      box-shadow: 0 6px 28px rgba(224,57,127,0.12);
+    }
+    .card-front { background: linear-gradient(135deg, #fff0f7, #fce8f3); border: 2px solid #ffd6e7; }
+    .card-back  { background: linear-gradient(135deg, #f0f7ff, #e8f0fe); border: 2px solid #c5d9f7; transform: rotateY(180deg); }
+    .card-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+    .card-word { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text-dark); margin-bottom: 8px; }
+    .card-article { font-size: 1rem; color: var(--pink-500); font-weight: 700; margin-bottom: 4px; }
+    .card-example { font-size: 0.82rem; color: var(--text-muted); font-style: italic; line-height: 1.5; margin-top: 8px; }
+    .card-hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 12px; }
+    .card-translation { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #2d5a8e; margin-bottom: 6px; }
+    .card-plural { font-size: 0.85rem; color: #5a8ebf; margin-bottom: 4px; }
+
+    .tap-hint { text-align: center; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px; }
+
+    /* rating buttons */
+    .rating-btns { display: none; gap: 10px; }
+    .rating-btns.visible { display: flex; }
+    .rating-btn {
+      flex: 1; padding: 13px 8px; border: none; border-radius: 14px;
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.88rem;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .rating-btn:hover { transform: translateY(-2px); }
+    .rating-again { background: #ffe0e0; color: #c0392b; }
+    .rating-hard  { background: #fff0d0; color: #d68910; }
+    .rating-good  { background: #e0f0ff; color: #2980b9; }
+    .rating-easy  { background: #e0ffe0; color: #1e8449; }
+    .rating-btn small { display: block; font-size: 0.65rem; font-weight: 600; opacity: 0.7; margin-top: 2px; }
+
+    /* done screen */
+    .done-screen { display: none; text-align: center; padding: 40px 20px; }
+    .done-screen.visible { display: block; }
+    .done-icon { font-size: 4rem; margin-bottom: 12px; }
+    .done-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--pink-500); margin-bottom: 8px; }
+    .done-sub { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
+    .done-btn {
+      display: inline-block; padding: 12px 28px; border: none; border-radius: 14px;
+      background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
+      color: #fff; font-weight: 700; font-size: 0.95rem; cursor: pointer;
+      margin: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-hearts" id="floating-hearts"></div>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo"><span class="logo-heart">❤️</span><span id="user-name">Булочка</span> учит Deutsch</div>
+      <div class="header-right">
+        <div class="xp-badge">⚡ <span id="total-xp">0</span> XP</div>
+        <div class="streak-badge">🔥 <span id="streak">0</span> дней</div>
+        <button class="logout-btn" id="logout-btn" title="Выйти">↩</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="anki-page">
+    <div class="anki-nav"><a href="index.html">← На главную</a></div>
+
+    <!-- DECK LIST -->
+    <div id="deck-view">
+      <div class="anki-hero">
+        <h1>🃏 Карточки</h1>
+        <p>Учи слова по методу интервальных повторений — как Anki 💕</p>
+      </div>
+      <div class="stats-bar" id="global-stats"></div>
+      <div class="deck-grid" id="deck-grid"></div>
+    </div>
+
+    <!-- STUDY VIEW -->
+    <div class="study-view" id="study-view">
+      <div class="study-header">
+        <button class="study-back" onclick="showDecks()">←</button>
+        <div class="study-deck-name" id="study-deck-name"></div>
+        <div class="study-progress-text" id="study-progress-text"></div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+
+      <div class="card-scene">
+        <div class="card-3d" id="card-3d" onclick="flipCard()">
+          <div class="card-face card-front" id="card-front"></div>
+          <div class="card-face card-back"  id="card-back"></div>
+        </div>
+      </div>
+      <div class="tap-hint" id="tap-hint">👆 Нажми на карточку чтобы увидеть перевод</div>
+      <div class="rating-btns" id="rating-btns">
+        <button class="rating-btn rating-again" onclick="rate(0)">Снова<small>< 1 мин</small></button>
+        <button class="rating-btn rating-hard"  onclick="rate(1)">Трудно<small>1 день</small></button>
+        <button class="rating-btn rating-good"  onclick="rate(2)">Хорошо<small>3 дня</small></button>
+        <button class="rating-btn rating-easy"  onclick="rate(3)">Легко<small>7 дней</small></button>
+      </div>
+
+      <div class="done-screen" id="done-screen">
+        <div class="done-icon">🎉</div>
+        <div class="done-title">Отлично, Булочка!</div>
+        <div class="done-sub" id="done-sub"></div>
+        <button class="done-btn" onclick="showDecks()">← К колодам</button>
+        <button class="done-btn" onclick="restartDeck()">Повторить снова</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/data.js"></script>
+  <script type="module" src="./js/chat-widget.js"></script>
+
+  <script type="module">
+    import { initAuth, logout } from './js/sync.js';
+    document.getElementById('logout-btn').addEventListener('click', () => { if(confirm('Выйти?')) logout(); });
+    initAuth(() => {
+      document.getElementById('total-xp').textContent = localStorage.getItem('bulochka-xp') || '0';
+      document.getElementById('streak').textContent   = localStorage.getItem('bulochka-streak') || '0';
+      const name = localStorage.getItem('bulochka-login') || 'Булочка';
+      document.getElementById('user-name').textContent = name.charAt(0).toUpperCase() + name.slice(1);
+      renderDecks();
+    });
+  </script>
+
+  <script>
+  // ── VOCABULARY DECKS ──────────────────────────────────────────────────────
+  const DECKS = [
+    {
+      id: 'a1-basics', name: 'Приветствия и знакомство', level: 'A1', icon: '👋',
+      cards: [
+        { de: 'Hallo', ru: 'Привет', ex: 'Hallo, wie geht es dir?' },
+        { de: 'Guten Morgen', ru: 'Доброе утро', ex: 'Guten Morgen, Mama!' },
+        { de: 'Guten Tag', ru: 'Добрый день', ex: 'Guten Tag, Frau Müller.' },
+        { de: 'Guten Abend', ru: 'Добрый вечер', ex: 'Guten Abend! Wie war dein Tag?' },
+        { de: 'Tschüss', ru: 'Пока', ex: 'Tschüss, bis morgen!' },
+        { de: 'Auf Wiedersehen', ru: 'До свидания', ex: 'Auf Wiedersehen, Herr Schmidt.' },
+        { de: 'Bitte', ru: 'Пожалуйста', ex: 'Kannst du mir helfen, bitte?' },
+        { de: 'Danke', ru: 'Спасибо', ex: 'Danke schön!' },
+        { de: 'Entschuldigung', ru: 'Извините', ex: 'Entschuldigung, wo ist die Toilette?' },
+        { de: 'Ja / Nein', ru: 'Да / Нет', ex: 'Ja, ich verstehe. Nein, danke.' },
+        { de: 'Wie heißt du?', ru: 'Как тебя зовут?', ex: 'Hallo! Wie heißt du? — Ich heiße Margo.' },
+        { de: 'Woher kommst du?', ru: 'Откуда ты?', ex: 'Woher kommst du? — Aus Russland.' },
+      ]
+    },
+    {
+      id: 'a1-zahlen', name: 'Числа и время', level: 'A1', icon: '🔢',
+      cards: [
+        { de: 'eins', ru: '1', ex: 'Ich habe eine Katze.' },
+        { de: 'zwei', ru: '2', ex: 'Zwei Kaffee, bitte.' },
+        { de: 'drei / vier / fünf', ru: '3 / 4 / 5', ex: 'Drei Äpfel, vier Bananen, fünf Orangen.' },
+        { de: 'zehn / zwanzig / hundert', ru: '10 / 20 / 100', ex: 'Das kostet zwanzig Euro.' },
+        { de: 'Uhr', ru: 'часы / час', ex: 'Wie viel Uhr ist es? — Es ist drei Uhr.' },
+        { de: 'halb', ru: 'половина', ex: 'Es ist halb drei. (= 2:30)' },
+        { de: 'Viertel nach / vor', ru: 'четверть после / до', ex: 'Viertel nach vier. (= 4:15)' },
+        { de: 'Montag / Dienstag', ru: 'Понедельник / Вторник', ex: 'Am Montag gehe ich zur Schule.' },
+        { de: 'Mittwoch / Donnerstag', ru: 'Среда / Четверг', ex: 'Donnerstag ist mein Lieblingstag.' },
+        { de: 'Freitag / Samstag / Sonntag', ru: 'Пятница / Суббота / Воскресенье', ex: 'Am Wochenende schlafe ich lang.' },
+        { de: 'heute / morgen / gestern', ru: 'сегодня / завтра / вчера', ex: 'Heute lerne ich Deutsch.' },
+      ]
+    },
+    {
+      id: 'a1-haus', name: 'Дом и семья', level: 'A1', icon: '🏠',
+      cards: [
+        { de: 'die Wohnung', ru: 'квартира', article: 'die', plural: 'die Wohnungen', ex: 'Ich wohne in einer kleinen Wohnung.' },
+        { de: 'das Zimmer', ru: 'комната', article: 'das', plural: 'die Zimmer', ex: 'Mein Zimmer ist groß.' },
+        { de: 'die Küche', ru: 'кухня', article: 'die', plural: 'die Küchen', ex: 'In der Küche koche ich.' },
+        { de: 'das Badezimmer', ru: 'ванная', article: 'das', plural: 'die Badezimmer', ex: 'Das Badezimmer ist links.' },
+        { de: 'der Tisch', ru: 'стол', article: 'der', plural: 'die Tische', ex: 'Der Tisch ist rund.' },
+        { de: 'das Bett', ru: 'кровать', article: 'das', plural: 'die Betten', ex: 'Ich liege im Bett.' },
+        { de: 'die Mutter', ru: 'мама', article: 'die', plural: 'die Mütter', ex: 'Meine Mutter kocht sehr gut.' },
+        { de: 'der Vater', ru: 'папа', article: 'der', plural: 'die Väter', ex: 'Mein Vater arbeitet viel.' },
+        { de: 'die Schwester', ru: 'сестра', article: 'die', plural: 'die Schwestern', ex: 'Ich habe eine Schwester.' },
+        { de: 'der Bruder', ru: 'брат', article: 'der', plural: 'die Brüder', ex: 'Mein Bruder ist 15 Jahre alt.' },
+        { de: 'die Katze / der Hund', ru: 'кошка / собака', ex: 'Ich habe eine Katze und einen Hund.' },
+      ]
+    },
+    {
+      id: 'a1-verben', name: 'Главные глаголы', level: 'A1', icon: '⚡',
+      cards: [
+        { de: 'sein', ru: 'быть', ex: 'Ich bin Studentin. Du bist nett.' },
+        { de: 'haben', ru: 'иметь', ex: 'Ich habe ein Buch. Er hat eine Katze.' },
+        { de: 'heißen', ru: 'называться, зваться', ex: 'Ich heiße Margo. Wie heißt du?' },
+        { de: 'wohnen', ru: 'жить, проживать', ex: 'Ich wohne in Wien.' },
+        { de: 'lernen', ru: 'учить(ся)', ex: 'Ich lerne Deutsch.' },
+        { de: 'arbeiten', ru: 'работать', ex: 'Mein Vater arbeitet in Berlin.' },
+        { de: 'essen', ru: 'есть, кушать', ex: 'Ich esse gern Pizza.' },
+        { de: 'trinken', ru: 'пить', ex: 'Sie trinkt Kaffee.' },
+        { de: 'schlafen', ru: 'спать', ex: 'Ich schlafe acht Stunden.' },
+        { de: 'gehen', ru: 'идти, ходить', ex: 'Ich gehe in die Schule.' },
+        { de: 'kommen', ru: 'приходить, приезжать', ex: 'Er kommt aus Deutschland.' },
+        { de: 'mögen / möchten', ru: 'любить / хотеть', ex: 'Ich mag Schokolade. Ich möchte Kaffee.' },
+      ]
+    },
+    {
+      id: 'a2-alltag', name: 'Повседневная жизнь', level: 'A2', icon: '☀️',
+      cards: [
+        { de: 'aufstehen', ru: 'вставать', ex: 'Ich stehe um 7 Uhr auf.' },
+        { de: 'frühstücken', ru: 'завтракать', ex: 'Ich frühstücke um halb acht.' },
+        { de: 'einkaufen', ru: 'делать покупки', ex: 'Ich kaufe im Supermarkt ein.' },
+        { de: 'kochen', ru: 'готовить', ex: 'Abends koche ich Abendessen.' },
+        { de: 'anrufen', ru: 'звонить', ex: 'Ich rufe meine Mutter an.' },
+        { de: 'fernsehen', ru: 'смотреть телевизор', ex: 'Wir sehen abends fern.' },
+        { de: 'spazieren gehen', ru: 'гулять', ex: 'Ich gehe im Park spazieren.' },
+        { de: 'Sport treiben', ru: 'заниматься спортом', ex: 'Sie treibt jeden Tag Sport.' },
+        { de: 'der Supermarkt', ru: 'супермаркет', article: 'der', ex: 'Ich gehe in den Supermarkt.' },
+        { de: 'die Apotheke', ru: 'аптека', article: 'die', ex: 'Die Apotheke ist geschlossen.' },
+        { de: 'das Krankenhaus', ru: 'больница', article: 'das', ex: 'Er liegt im Krankenhaus.' },
+        { de: 'die Haltestelle', ru: 'остановка', article: 'die', ex: 'Die Haltestelle ist um die Ecke.' },
+      ]
+    },
+    {
+      id: 'a2-adjektive', name: 'Прилагательные', level: 'A2', icon: '🎨',
+      cards: [
+        { de: 'groß / klein', ru: 'большой / маленький', ex: 'Die Stadt ist groß. Das Kind ist klein.' },
+        { de: 'schön / hässlich', ru: 'красивый / некрасивый', ex: 'Wien ist sehr schön.' },
+        { de: 'alt / jung', ru: 'старый / молодой', ex: 'Meine Oma ist alt. Ich bin jung.' },
+        { de: 'schnell / langsam', ru: 'быстрый / медленный', ex: 'Das Auto ist schnell.' },
+        { de: 'billig / teuer', ru: 'дешёвый / дорогой', ex: 'Das ist zu teuer!' },
+        { de: 'leicht / schwer', ru: 'лёгкий / тяжёлый', ex: 'Deutsch ist nicht so schwer!' },
+        { de: 'fleißig / faul', ru: 'трудолюбивый / ленивый', ex: 'Sie ist sehr fleißig.' },
+        { de: 'freundlich', ru: 'дружелюбный', ex: 'Die Österreicher sind freundlich.' },
+        { de: 'interessant / langweilig', ru: 'интересный / скучный', ex: 'Das Buch ist sehr interessant.' },
+        { de: 'müde', ru: 'усталый', ex: 'Ich bin so müde heute.' },
+        { de: 'glücklich / traurig', ru: 'счастливый / грустный', ex: 'Ich bin sehr glücklich!' },
+      ]
+    },
+    {
+      id: 'a2-reise', name: 'Путешествия и транспорт', level: 'A2', icon: '✈️',
+      cards: [
+        { de: 'der Zug', ru: 'поезд', article: 'der', plural: 'die Züge', ex: 'Ich fahre mit dem Zug nach Wien.' },
+        { de: 'das Flugzeug', ru: 'самолёт', article: 'das', plural: 'die Flugzeuge', ex: 'Das Flugzeug landet um 10 Uhr.' },
+        { de: 'der Bahnhof', ru: 'вокзал', article: 'der', plural: 'die Bahnhöfe', ex: 'Der Bahnhof ist in der Mitte.' },
+        { de: 'das Hotel', ru: 'гостиница', article: 'das', plural: 'die Hotels', ex: 'Ich wohne im Hotel.' },
+        { de: 'die Fahrkarte', ru: 'билет', article: 'die', plural: 'die Fahrkarten', ex: 'Eine Fahrkarte nach Wien, bitte.' },
+        { de: 'abfahren / ankommen', ru: 'отправляться / прибывать', ex: 'Der Zug fährt um 9 ab.' },
+        { de: 'umsteigen', ru: 'делать пересадку', ex: 'In München müssen wir umsteigen.' },
+        { de: 'der Reisepass', ru: 'паспорт', article: 'der', ex: 'Wo ist mein Reisepass?' },
+        { de: 'die Unterkunft', ru: 'жильё, проживание', article: 'die', ex: 'Die Unterkunft kostet 80 Euro.' },
+        { de: 'die Sehenswürdigkeit', ru: 'достопримечательность', article: 'die', ex: 'Wien hat viele Sehenswürdigkeiten.' },
+      ]
+    },
+    {
+      id: 'b1-studium', name: 'Учёба и университет', level: 'B1', icon: '🎓',
+      cards: [
+        { de: 'die Universität', ru: 'университет', article: 'die', ex: 'Ich studiere an der Universität Wien.' },
+        { de: 'das Studium', ru: 'учёба в вузе', article: 'das', ex: 'Das Studium dauert 3 Jahre.' },
+        { de: 'die Bewerbung', ru: 'заявление, заявка', article: 'die', ex: 'Ich schicke meine Bewerbung ab.' },
+        { de: 'die Zulassung', ru: 'зачисление, допуск', article: 'die', ex: 'Ich warte auf die Zulassung.' },
+        { de: 'das Stipendium', ru: 'стипендия', article: 'das', ex: 'Ich bewerbe mich um ein Stipendium.' },
+        { de: 'die Prüfung', ru: 'экзамен', article: 'die', plural: 'die Prüfungen', ex: 'Morgen habe ich eine Prüfung.' },
+        { de: 'das Zeugnis', ru: 'свидетельство, аттестат', article: 'das', ex: 'Ich brauche mein Schulzeugnis.' },
+        { de: 'die Sprachkenntnisse', ru: 'языковые знания', ex: 'Gute Sprachkenntnisse sind wichtig.' },
+        { de: 'der Studienplatz', ru: 'место в вузе', article: 'der', ex: 'Ich möchte einen Studienplatz bekommen.' },
+        { de: 'das Semester', ru: 'семестр', article: 'das', ex: 'Das erste Semester beginnt im Oktober.' },
+        { de: 'die Vorlesung', ru: 'лекция', article: 'die', ex: 'Die Vorlesung beginnt um 9 Uhr.' },
+        { de: 'die Hausarbeit', ru: 'домашнее задание, курсовая', article: 'die', ex: 'Ich schreibe eine Hausarbeit.' },
+      ]
+    },
+  ];
+
+  // ── SPACED REPETITION ─────────────────────────────────────────────────────
+  const SRS_KEY = 'bulochka-anki-srs';
+
+  function getSRS() { return JSON.parse(localStorage.getItem(SRS_KEY) || '{}'); }
+  function saveSRS(data) { localStorage.setItem(SRS_KEY, JSON.stringify(data)); }
+
+  function isDue(cardData) {
+    if (!cardData) return true;
+    return Date.now() >= cardData.nextReview;
+  }
+
+  function calcNext(rating, cardData) {
+    const intervals = [0, 1, 3, 7]; // days
+    const interval = intervals[rating] || 0;
+    return {
+      interval,
+      nextReview: Date.now() + interval * 86400000,
+      reps: (cardData?.reps || 0) + 1,
+      ease: rating,
+    };
+  }
+
+  function getDueCards(deckId) {
+    const deck = DECKS.find(d => d.id === deckId);
+    if (!deck) return [];
+    const srs = getSRS();
+    return deck.cards
+      .map((card, i) => ({ ...card, idx: i, srsData: srs[`${deckId}:${i}`] }))
+      .filter(c => isDue(c.srsData));
+  }
+
+  function getDeckStats(deckId) {
+    const deck = DECKS.find(d => d.id === deckId);
+    if (!deck) return { total: 0, due: 0, learned: 0 };
+    const srs = getSRS();
+    const total = deck.cards.length;
+    const due = getDueCards(deckId).length;
+    const learned = deck.cards.filter((_, i) => {
+      const d = srs[`${deckId}:${i}`];
+      return d && d.reps > 0 && d.ease >= 2;
+    }).length;
+    return { total, due, learned };
+  }
+
+  // ── UI ───────────────────────────────────────────────────────────────────
+  function renderDecks() {
+    const srs = getSRS();
+    // Global stats
+    let totalCards = 0, totalDue = 0, totalLearned = 0;
+    DECKS.forEach(d => {
+      const s = getDeckStats(d.id);
+      totalCards += s.total; totalDue += s.due; totalLearned += s.learned;
+    });
+    document.getElementById('global-stats').innerHTML = `
+      <div class="stat-chip"><div class="stat-num">${totalCards}</div><div class="stat-label">Всего слов</div></div>
+      <div class="stat-chip"><div class="stat-num" style="color:#e67e22">${totalDue}</div><div class="stat-label">На сегодня</div></div>
+      <div class="stat-chip"><div class="stat-num" style="color:#27ae60">${totalLearned}</div><div class="stat-label">Выучено</div></div>
+    `;
+
+    const grid = document.getElementById('deck-grid');
+    grid.innerHTML = DECKS.map(deck => {
+      const s = getDeckStats(deck.id);
+      return `
+        <div class="deck-card" onclick="startDeck('${deck.id}')">
+          <div class="deck-icon">${deck.icon}</div>
+          <div class="deck-level">${deck.level}</div>
+          <div class="deck-name">${deck.name}</div>
+          <div class="deck-count">${s.total} слов · ${s.learned} выучено</div>
+          ${s.due > 0 ? `<div class="deck-due">📌 ${s.due} на повторение</div>` : '<div class="deck-due" style="color:#27ae60">✅ Всё повторено</div>'}
+        </div>`;
+    }).join('');
+  }
+
+  // ── STUDY SESSION ─────────────────────────────────────────────────────────
+  let sessionDeck = null;
+  let sessionCards = [];
+  let sessionIdx = 0;
+  let sessionCorrect = 0;
+  let isFlipped = false;
+
+  function startDeck(deckId) {
+    sessionDeck = DECKS.find(d => d.id === deckId);
+    sessionCards = getDueCards(deckId);
+
+    // If nothing due, show all cards anyway
+    if (sessionCards.length === 0) {
+      sessionCards = sessionDeck.cards.map((c, i) => ({ ...c, idx: i }));
+    }
+
+    // Shuffle
+    sessionCards = sessionCards.sort(() => Math.random() - 0.5);
+    sessionIdx = 0;
+    sessionCorrect = 0;
+
+    document.getElementById('deck-view').style.display = 'none';
+    document.getElementById('study-view').classList.add('active');
+    document.getElementById('study-deck-name').textContent = `${sessionDeck.icon} ${sessionDeck.name}`;
+
+    showCard();
+  }
+  window.startDeck = startDeck;
+
+  function showCard() {
+    const done = document.getElementById('done-screen');
+    const card3d = document.getElementById('card-3d');
+    const ratingBtns = document.getElementById('rating-btns');
+    const tapHint = document.getElementById('tap-hint');
+
+    done.classList.remove('visible');
+    card3d.style.display = '';
+    tapHint.style.display = '';
+
+    if (sessionIdx >= sessionCards.length) {
+      // Done!
+      card3d.style.display = 'none';
+      ratingBtns.classList.remove('visible');
+      tapHint.style.display = 'none';
+      done.classList.add('visible');
+      document.getElementById('done-sub').textContent = `Повторено ${sessionCards.length} слов 🎉`;
+      return;
+    }
+
+    const card = sessionCards[sessionIdx];
+    const pct = Math.round((sessionIdx / sessionCards.length) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('study-progress-text').textContent = `${sessionIdx + 1} / ${sessionCards.length}`;
+
+    // Front
+    document.getElementById('card-front').innerHTML = `
+      <div class="card-tag">Немецкий</div>
+      <div class="card-word">${card.de}</div>
+      ${card.article ? `<div class="card-article">${card.article}</div>` : ''}
+      ${card.ex ? `<div class="card-example">${card.ex}</div>` : ''}
+      <div class="card-hint">👆 нажми чтобы увидеть перевод</div>
+    `;
+
+    // Back
+    document.getElementById('card-back').innerHTML = `
+      <div class="card-tag">Русский</div>
+      <div class="card-translation">${card.ru}</div>
+      ${card.plural ? `<div class="card-plural">мн.ч.: ${card.plural}</div>` : ''}
+      ${card.ex ? `<div class="card-example">${card.ex}</div>` : ''}
+    `;
+
+    // Reset flip
+    isFlipped = false;
+    card3d.classList.remove('flipped');
+    ratingBtns.classList.remove('visible');
+    tapHint.style.display = '';
+  }
+
+  function flipCard() {
+    if (isFlipped) return;
+    isFlipped = true;
+    document.getElementById('card-3d').classList.add('flipped');
+    document.getElementById('rating-btns').classList.add('visible');
+    document.getElementById('tap-hint').style.display = 'none';
+  }
+  window.flipCard = flipCard;
+
+  function rate(rating) {
+    const card = sessionCards[sessionIdx];
+    const srs = getSRS();
+    const key = `${sessionDeck.id}:${card.idx}`;
+    srs[key] = calcNext(rating, srs[key]);
+    saveSRS(srs);
+    if (rating >= 2) sessionCorrect++;
+    // If wrong, add to end of queue
+    if (rating === 0) sessionCards.push(card);
+    sessionIdx++;
+    showCard();
+  }
+  window.rate = rate;
+
+  function showDecks() {
+    document.getElementById('deck-view').style.display = '';
+    document.getElementById('study-view').classList.remove('active');
+    renderDecks();
+  }
+  window.showDecks = showDecks;
+
+  function restartDeck() {
+    startDeck(sessionDeck.id);
+  }
+  window.restartDeck = restartDeck;
+
+  // floating hearts
+  const fhC = document.getElementById('floating-hearts');
+  ['❤️','🩷','💕','🃏','✨'].forEach(ch => {
+    const el = document.createElement('div'); el.className = 'fh'; el.textContent = ch;
+    el.style.cssText = `left:${Math.random()*100}%;bottom:-10%;font-size:${0.9+Math.random()}rem;animation-delay:${Math.random()*20}s;animation-duration:${22+Math.random()*14}s;`;
+    fhC.appendChild(el);
+  });
+  </script>
+</body>
+</html>
