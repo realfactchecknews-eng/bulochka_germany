@@ -159,9 +159,14 @@ const MODULES = [
     icon: '🎬',
     iconBg: '#ffe0b3',
     title: 'Видео-уроки (YouTube)',
-    desc: 'Уроки по видео: Nicos Weg, shadowing, реальная речь',
+    desc: 'Уроки по видео: Nicos Weg и курс @deutschmityehor',
     lessons: [
-      { id: 'nicos-weg-1', title: 'Привет, я Нико! — знакомство', desc: 'Nicos Weg: sein, mein/meine, wer/was, первые фразы', xp: 40, type: 'Видео-урок' },
+      { id: 'nicos-weg-1',   title: 'Привет, я Нико! — знакомство',     desc: 'Nicos Weg: sein, mein/meine, wer/was, первые фразы', xp: 40, type: 'Видео-урок' },
+      { id: 'dmy-pronouns',  title: 'Личные местоимения',               desc: '@deutschmityehor: ich, du, er/sie/es, Sie/du/ihr', xp: 40, type: 'Видео-урок' },
+      { id: 'dmy-verbs',     title: 'Спряжение правильных глаголов',     desc: '@deutschmityehor: machen, lernen, wohnen в Präsens', xp: 45, type: 'Видео-урок' },
+      { id: 'dmy-haben-sein',title: 'Глаголы haben и sein',             desc: '@deutschmityehor: иметь и быть — полное спряжение', xp: 45, type: 'Видео-урок' },
+      { id: 'dmy-modal',     title: 'Модальные глаголы',                 desc: '@deutschmityehor: können, wollen, müssen, dürfen', xp: 50, type: 'Видео-урок' },
+      { id: 'dmy-nouns',     title: 'Существительные и артикли',         desc: '@deutschmityehor: род, der/die/das, множественное', xp: 50, type: 'Видео-урок' },
     ],
   },
 ];

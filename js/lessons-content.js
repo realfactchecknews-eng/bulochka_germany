@@ -1,6 +1,479 @@
 const LESSONS_CONTENT = {
 
   // ══════════════════════════════════════════════════════════
+  // ВИДЕО-УРОК (@deutschmityehor): Личные местоимения в немецком языке
+  // Источник: https://youtu.be/ecb_hApDj9s
+  // ══════════════════════════════════════════════════════════
+  'dmy-pronouns': {
+    title: "Личные местоимения в немецком языке",
+    level: "A1 · Видео-урок",
+    intro: "Личные местоимения, Три лица и два числа, Формальное и неформальное обращение (Sie / du / ihr).",
+    theory: [
+      {
+        heading: "🎬 Видео-урок",
+        content: `
+          <p>Урок по видео <b>«Личные местоимения в немецком языке»</b> (A1, ~8 минут). Канал @deutschmityehor.</p>
+          <p><a href="https://youtu.be/ecb_hApDj9s" target="_blank" rel="noopener" style="color:var(--pink-500);font-weight:600;">▶️ Открыть видео на YouTube</a></p>
+          <div class="example-box"><div class="ru">В этом уроке мы изучили личные местоимения немецкого языка. В отличие от русского языка, в немецком их девять: ich, du, er, sie, es, wir, ihr, Sie, sie. Ключевая особенность — разграничение формального обращения Sie (с заглавной буквы) и неформального du (к одному человеку) и ihr (к группе). Местоимения 3-го лица единственного числа (er, sie, es) зависят от грамматического рода существительного, а не от биологического пола. Знание личных местоимений — обязательная основа для изучения спряжения глаголов.</div></div>
+        `
+      },
+      {
+        heading: "📚 Словарь урока",
+        content: `
+          <p>Ключевые слова. Кликни по немецкому слову, чтобы добавить его в карточки Anki 🃏</p>
+          <div class="table-wrap"><table>
+            <tr><th>Слово</th><th>Перевод</th><th>Пример</th></tr>
+            <tr><td><b>das Pronomen</b></td><td>местоимение</td><td>Das Pronomen ersetzt das Substantiv.<br><span style="color:#b06090">Местоимение заменяет существительное.</span></td></tr>
+            <tr><td><b>das Subjekt</b></td><td>подлежащее</td><td>Ich bin das Subjekt im Satz.<br><span style="color:#b06090">Я — подлежащее в предложении.</span></td></tr>
+            <tr><td><b>der Satz</b></td><td>предложение</td><td>Der Satz ist kurz.<br><span style="color:#b06090">Предложение короткое.</span></td></tr>
+            <tr><td><b>der Tisch</b></td><td>стол</td><td>Ich kaufte einen Tisch. Er ist neu.<br><span style="color:#b06090">Я купил стол. Он новый.</span></td></tr>
+            <tr><td><b>die Person</b></td><td>лицо; человек</td><td>Die erste Person ist ich.<br><span style="color:#b06090">Первое лицо — это «ich».</span></td></tr>
+            <tr><td><b>die Sprache</b></td><td>язык</td><td>Die deutsche Sprache hat neun Personalpronomina.<br><span style="color:#b06090">В немецком языке девять личных местоимений.</span></td></tr>
+            <tr><td><b>die Anrede</b></td><td>обращение</td><td>Die formelle Anrede ist Sie.<br><span style="color:#b06090">Формальное обращение — «Sie».</span></td></tr>
+            <tr><td><b>das Gespräch</b></td><td>разговор, диалог</td><td>Im Gespräch benutzen wir Pronomen.<br><span style="color:#b06090">В разговоре мы используем местоимения.</span></td></tr>
+            <tr><td><b>die Einzahl</b></td><td>единственное число</td><td>Ich ist die Einzahl.<br><span style="color:#b06090">«Ich» — это единственное число.</span></td></tr>
+            <tr><td><b>die Mehrzahl</b></td><td>множественное число</td><td>Wir ist die Mehrzahl.<br><span style="color:#b06090">«Wir» — это множественное число.</span></td></tr>
+            <tr><td><b>der Lehrer</b></td><td>учитель</td><td>Der Lehrer spricht Deutsch. Er ist gut.<br><span style="color:#b06090">Учитель говорит по-немецки. Он хороший.</span></td></tr>
+            <tr><td><b>die Schülerin</b></td><td>ученица</td><td>Die Schülerin lernt Deutsch. Sie ist fleißig.<br><span style="color:#b06090">Ученица учит немецкий. Она прилежная.</span></td></tr>
+            <tr><td><b>das Kind</b></td><td>ребёнок</td><td>Das Kind schläft. Es ist müde.<br><span style="color:#b06090">Ребёнок спит. Оно устало.</span></td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: "🔑 Личные местоимения: таблица",
+        content: `
+          <p>В немецком языке 9 личных местоимений (в русском — 8). 1-е лицо: ich (я), wir (мы). 2-е лицо: du (ты), ihr (вы — неформально к группе), Sie (Вы — формально, пишется с заглавной буквы). 3-е лицо: er (он), sie (она), es (оно) — единственное число; sie (они) — множественное число. Важно: местоимение sie используется трижды — как она, как они и как вежливое Sie (с заглавной).</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>ich — я</li><li>du — ты</li><li>er — он</li><li>sie — она</li><li>es — оно</li><li>wir — мы</li><li>ihr — вы (неформально к группе)</li><li>Sie — Вы (формально)</li><li>sie — они</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Формальное и неформальное обращение: Sie, du, ihr",
+        content: `
+          <p>В немецком языке есть важное различие между формальным и неформальным обращением. du — неформальное обращение к одному человеку (другу, ребёнку, родственнику). ihr — неформальное обращение к группе людей (друзьям, детям). Sie (с заглавной буквы) — вежливое/формальное обращение к одному человеку или к группе. В русском языке есть лишь ты/вы, а в немецком неформальное к группе — ihr, формальное — всегда Sie.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>du lernst Deutsch — ты учишь немецкий (неформально, один человек)</li><li>ihr lernt Deutsch — вы учите немецкий (группа, неформально)</li><li>Sie lernen Deutsch — Вы учите немецкий (формально)</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Местоимение заменяет существительное",
+        content: `
+          <p>Личные местоимения используются, чтобы не повторять существительное в предложении. Выбор местоимения зависит от грамматического рода: der (муж.) — er, die (жен.) — sie, das (ср.) — es. Во множественном числе для всех родов используется sie (они).</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>Der Tisch ist neu. Er ist groß. — Стол новый. Он большой.</li><li>Die Lampe ist schön. Sie leuchtet. — Лампа красивая. Она светит.</li><li>Das Kind schläft. Es ist müde. — Ребёнок спит. Оно устало.</li><li>Die Bücher sind alt. Sie sind interessant. — Книги старые. Они интересные.</li></ul></div></div>
+        `
+      },
+      {
+        heading: "💬 Полезные фразы",
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Фраза</th><th>Перевод</th><th>Произношение</th></tr>
+            <tr><td><b>Ich heiße Anna.</b></td><td>Меня зовут Анна.</td><td style="color:#999">Их хайсэ Анна.</td></tr>
+            <tr><td><b>Du lernst Deutsch.</b></td><td>Ты учишь немецкий.</td><td style="color:#999">Ду лернст Дойч.</td></tr>
+            <tr><td><b>Er spricht sehr gut.</b></td><td>Он говорит очень хорошо.</td><td style="color:#999">Эр шприхт зэр гут.</td></tr>
+            <tr><td><b>Sie ist meine Lehrerin.</b></td><td>Она моя учительница.</td><td style="color:#999">Зи ист майнэ Лерерин.</td></tr>
+            <tr><td><b>Es ist kalt heute.</b></td><td>Сегодня холодно.</td><td style="color:#999">Эс ист калт хойтэ.</td></tr>
+            <tr><td><b>Wir lernen zusammen.</b></td><td>Мы учимся вместе.</td><td style="color:#999">Вир лернэн цузамэн.</td></tr>
+            <tr><td><b>Ihr seid meine Freunde.</b></td><td>Вы мои друзья (неформально).</td><td style="color:#999">Ир зайт майнэ Фройндэ.</td></tr>
+            <tr><td><b>Sie kommen aus Deutschland.</b></td><td>Они приехали из Германии.</td><td style="color:#999">Зи комэн аус Дойчланд.</td></tr>
+            <tr><td><b>Wie heißen Sie, bitte?</b></td><td>Как Вас зовут, пожалуйста?</td><td style="color:#999">Ви хайсэн Зи, битэ?</td></tr>
+            <tr><td><b>Es gibt neun Personalpronomina.</b></td><td>Есть девять личных местоимений.</td><td style="color:#999">Эс гипт нойн Пэрзональпрономина.</td></tr>
+            <tr><td><b>Ich kaufte einen Tisch. Er ist neu.</b></td><td>Я купил стол. Он новый.</td><td style="color:#999">Их кауфтэ айнэн Тиш. Эр ист ной.</td></tr>
+            <tr><td><b>Sie lernen Deutsch sehr fleißig.</b></td><td>Вы учите немецкий очень прилежно.</td><td style="color:#999">Зи лернэн Дойч зэр флайсих.</td></tr>
+          </table></div>
+        `
+      },
+    ],
+    exercises: [
+      { type: "translate", question: "Переведите на немецкий: «Мы учимся вместе»", answer: "Wir lernen zusammen.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "translate", question: "Переведите на немецкий: «Она говорит по-немецки»", answer: "Sie spricht Deutsch.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "translate", question: "Переведите на немецкий: «Вы (формально) учите немецкий»", answer: "Sie lernen Deutsch.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "choice", question: "Какое местоимение используется для формального обращения к незнакомцу?", options: ["du", "ihr", "Sie", "wir"], answer: 2 },
+      { type: "choice", question: "Стол (der Tisch) — мужского рода. Каким местоимением его заменить?", options: ["sie", "es", "er", "wir"], answer: 2 },
+      { type: "choice", question: "Сколько личных местоимений в немецком языке?", options: ["7", "8", "9", "10"], answer: 2 },
+      { type: "fill", question: "___ bin Lehrer. (Я — учитель.)", answer: "Ich", placeholder: "..." },
+      { type: "fill", question: "Das Kind schläft. ___ ist müde. (Ребёнок устал.)", answer: "Es", placeholder: "..." },
+      { type: "fill", question: "Die Lampe leuchtet. ___ ist schön. (Лампа красивая.)", answer: "Sie", placeholder: "..." },
+    ],
+  },
+  // ══════════════════════════════════════════════════════════
+  // ВИДЕО-УРОК (@deutschmityehor): Спряжение правильных глаголов в немецком языке
+  // Источник: https://youtu.be/hz0RXTcU3_w
+  // ══════════════════════════════════════════════════════════
+  'dmy-verbs': {
+    title: "Спряжение правильных глаголов в немецком языке",
+    level: "A1 · Видео-урок",
+    intro: "Инфинитив и основа глагола, Личные окончания правильных глаголов, Особые случаи спряжения (основа на -t/-d и -s/-ss/-ß/-z).",
+    theory: [
+      {
+        heading: "🎬 Видео-урок",
+        content: `
+          <p>Урок по видео <b>«Спряжение правильных глаголов в немецком языке»</b> (A1, ~10 минут). Канал @deutschmityehor.</p>
+          <p><a href="https://youtu.be/hz0RXTcU3_w" target="_blank" rel="noopener" style="color:var(--pink-500);font-weight:600;">▶️ Открыть видео на YouTube</a></p>
+          <div class="example-box"><div class="ru">В этом уроке мы изучили спряжение правильных глаголов немецкого языка в настоящем времени (Präsens). Основное правило: от инфинитива отбрасывается окончание -en, к полученной основе добавляются личные окончания: -e (ich), -st (du), -t (er/sie/es), -en (wir/sie/Sie), -t (ihr). Если основа оканчивается на -t или -d, перед окончаниями -st и -t вставляется гласная -e- (du arbeitest). Если основа оканчивается на -s, -ß или -z, форма du принимает только -t без лишней буквы s (du heißt, du tanzt). Знание этих трёх правил позволяет правильно спрягать подавляющее большинство немецких глаголов.</div></div>
+        `
+      },
+      {
+        heading: "📚 Словарь урока",
+        content: `
+          <p>Ключевые слова. Кликни по немецкому слову, чтобы добавить его в карточки Anki 🃏</p>
+          <div class="table-wrap"><table>
+            <tr><th>Слово</th><th>Перевод</th><th>Пример</th></tr>
+            <tr><td><b>machen</b></td><td>делать</td><td>Ich mache Hausaufgaben.<br><span style="color:#b06090">Я делаю домашнее задание.</span></td></tr>
+            <tr><td><b>spielen</b></td><td>играть</td><td>Du spielst Fußball.<br><span style="color:#b06090">Ты играешь в футбол.</span></td></tr>
+            <tr><td><b>gehen</b></td><td>идти, ходить</td><td>Er geht nach Hause.<br><span style="color:#b06090">Он идёт домой.</span></td></tr>
+            <tr><td><b>tanzen</b></td><td>танцевать</td><td>Sie tanzt sehr gut.<br><span style="color:#b06090">Она танцует очень хорошо.</span></td></tr>
+            <tr><td><b>arbeiten</b></td><td>работать</td><td>Wir arbeiten viel.<br><span style="color:#b06090">Мы много работаем.</span></td></tr>
+            <tr><td><b>reden</b></td><td>говорить, разговаривать</td><td>Ihr redet zu laut.<br><span style="color:#b06090">Вы говорите слишком громко.</span></td></tr>
+            <tr><td><b>wohnen</b></td><td>жить, проживать</td><td>Sie wohnen in Berlin.<br><span style="color:#b06090">Они живут в Берлине.</span></td></tr>
+            <tr><td><b>kaufen</b></td><td>покупать</td><td>Er kauft ein Buch.<br><span style="color:#b06090">Он покупает книгу.</span></td></tr>
+            <tr><td><b>fragen</b></td><td>спрашивать</td><td>Du fragst den Lehrer.<br><span style="color:#b06090">Ты спрашиваешь учителя.</span></td></tr>
+            <tr><td><b>lernen</b></td><td>учить, учиться</td><td>Ich lerne Deutsch.<br><span style="color:#b06090">Я учу немецкий язык.</span></td></tr>
+            <tr><td><b>hören</b></td><td>слушать, слышать</td><td>Wir hören Musik.<br><span style="color:#b06090">Мы слушаем музыку.</span></td></tr>
+            <tr><td><b>sagen</b></td><td>говорить, сказать</td><td>Er sagt die Wahrheit.<br><span style="color:#b06090">Он говорит правду.</span></td></tr>
+            <tr><td><b>heißen</b></td><td>называться, зваться</td><td>Wie heißt du?<br><span style="color:#b06090">Как тебя зовут?</span></td></tr>
+            <tr><td><b>reisen</b></td><td>путешествовать</td><td>Sie reist nach Deutschland.<br><span style="color:#b06090">Она путешествует в Германию.</span></td></tr>
+            <tr><td><b>öffnen</b></td><td>открывать</td><td>Er öffnet das Fenster.<br><span style="color:#b06090">Он открывает окно.</span></td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: "🔑 Инфинитив и основа немецкого глагола",
+        content: `
+          <p>Инфинитив (начальная форма) почти всех немецких глаголов оканчивается на -en (реже -n). Чтобы получить основу (Stamm), нужно отбросить окончание -en. Именно к основе прибавляются личные окончания при спряжении. Пример: machen → основа mach-; spielen → основа spiel-; tanzen → основа tanz-.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>machen → mach- (делать)</li><li>spielen → spiel- (играть)</li><li>lernen → lern- (учить)</li><li>hören → hör- (слышать / слушать)</li><li>tanzen → tanz- (танцевать)</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Личные окончания правильных глаголов (Präsens)",
+        content: `
+          <p>К основе глагола прибавляются следующие окончания в зависимости от местоимения: ich → -e; du → -st; er/sie/es → -t; wir → -en; ihr → -t; sie/Sie → -en. Обратите внимание: для wir, sie (они) и Sie (вежливое «вы») глагол совпадает с инфинитивом.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>ich mache — я делаю</li><li>du machst — ты делаешь</li><li>er/sie/es macht — он/она/оно делает</li><li>wir machen — мы делаем</li><li>ihr macht — вы делаете (неформ.)</li><li>sie/Sie machen — они делают / Вы делаете</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Особые случаи спряжения",
+        content: `
+          <p>Случай 1: Если основа глагола оканчивается на -t или -d (например, arbeiten, reden), перед окончаниями -st и -t добавляется вставная гласная -e- для удобства произношения: du arbeitest, er arbeitet, ihr arbeitet. Случай 2: Если основа оканчивается на -s, -ss, -ß или -z (например, heißen, tanzen), форма du теряет -s в окончании и принимает только -t: du heißt, du tanzt (вместо heißst, tanzst).</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>arbeiten: du arbeitest, er arbeitet, ihr arbeitet</li><li>reden: du redest, er redet, ihr redet</li><li>heißen: du heißt (не heißst!)</li><li>tanzen: du tanzt (не tanzst!)</li><li>reisen: du reist (не reisst!)</li></ul></div></div>
+        `
+      },
+      {
+        heading: "💬 Полезные фразы",
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Фраза</th><th>Перевод</th><th>Произношение</th></tr>
+            <tr><td><b>Ich mache meine Hausaufgaben.</b></td><td>Я делаю домашнее задание.</td><td style="color:#999">Их махэ майнэ хаусауфгабэн.</td></tr>
+            <tr><td><b>Du spielst sehr gut.</b></td><td>Ты играешь очень хорошо.</td><td style="color:#999">Ду шпильст зэр гут.</td></tr>
+            <tr><td><b>Er arbeitet jeden Tag.</b></td><td>Он работает каждый день.</td><td style="color:#999">Эр арбайтэт йэдэн так.</td></tr>
+            <tr><td><b>Wir lernen Deutsch.</b></td><td>Мы учим немецкий язык.</td><td style="color:#999">Вир лэрнэн Дойч.</td></tr>
+            <tr><td><b>Wie heißt du?</b></td><td>Как тебя зовут?</td><td style="color:#999">Ви хайст ду?</td></tr>
+            <tr><td><b>Sie tanzt sehr schön.</b></td><td>Она танцует очень красиво.</td><td style="color:#999">Зи тантст зэр шён.</td></tr>
+            <tr><td><b>Ihr redet zu laut.</b></td><td>Вы говорите слишком громко.</td><td style="color:#999">Ир рэдэт цу лаут.</td></tr>
+            <tr><td><b>Er kauft ein Buch.</b></td><td>Он покупает книгу.</td><td style="color:#999">Эр кауфт айн Бух.</td></tr>
+            <tr><td><b>Sie wohnen in Deutschland.</b></td><td>Они живут в Германии.</td><td style="color:#999">Зи вонэн ин Дойчланд.</td></tr>
+            <tr><td><b>Ich lerne jeden Tag neue Wörter.</b></td><td>Я учу новые слова каждый день.</td><td style="color:#999">Их лэрнэ йэдэн так нойэ Вёртэр.</td></tr>
+            <tr><td><b>Du fragst viele Fragen.</b></td><td>Ты задаёшь много вопросов.</td><td style="color:#999">Ду фрагст филэ Фрагэн.</td></tr>
+            <tr><td><b>Wir hören gern Musik.</b></td><td>Мы любим слушать музыку.</td><td style="color:#999">Вир хёрэн гэрн Музик.</td></tr>
+          </table></div>
+        `
+      },
+    ],
+    exercises: [
+      { type: "translate", question: "Мы учим немецкий язык.", answer: "Wir lernen Deutsch.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "translate", question: "Она танцует очень хорошо.", answer: "Sie tanzt sehr gut.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "translate", question: "Он работает каждый день.", answer: "Er arbeitet jeden Tag.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "choice", question: "Какое окончание получает глагол с местоимением «du»?", options: ["-e", "-st", "-t", "-en"], answer: 1 },
+      { type: "choice", question: "Как правильно сказать «ты танцуешь» (tanzen)?", options: ["du tanzst", "du tanzest", "du tanzt", "du tanze"], answer: 2 },
+      { type: "choice", question: "Что происходит с глаголом «arbeiten» в форме «du»?", options: ["du arbeitest (вставляется -e-)", "du arbeitst (стандартное окончание)", "du arbeitt (удвоение t)", "du arbe (отбрасывается основа)"], answer: 0 },
+      { type: "fill", question: "Ich ___ (machen) meine Hausaufgaben.", answer: "mache", placeholder: "..." },
+      { type: "fill", question: "Er ___ (arbeiten) viel.", answer: "arbeitet", placeholder: "..." },
+      { type: "fill", question: "Wie ___ (heißen) du?", answer: "heißt", placeholder: "..." },
+    ],
+  },
+  // ══════════════════════════════════════════════════════════
+  // ВИДЕО-УРОК (@deutschmityehor): Глаголы HABEN (иметь) и SEIN (быть)
+  // Источник: https://youtu.be/KfgalSd_IFM
+  // ══════════════════════════════════════════════════════════
+  'dmy-haben-sein': {
+    title: "Глаголы HABEN (иметь) и SEIN (быть)",
+    level: "A1 · Видео-урок",
+    intro: "Спряжение глагола sein (быть), Спряжение глагола haben (иметь), Неправильные глаголы.",
+    theory: [
+      {
+        heading: "🎬 Видео-урок",
+        content: `
+          <p>Урок по видео <b>«Глаголы HABEN (иметь) и SEIN (быть)»</b> (A1, ~10 минут). Канал @deutschmityehor.</p>
+          <p><a href="https://youtu.be/KfgalSd_IFM" target="_blank" rel="noopener" style="color:var(--pink-500);font-weight:600;">▶️ Открыть видео на YouTube</a></p>
+          <div class="example-box"><div class="ru">В этом уроке мы изучили два важнейших глагола немецкого языка — sein (быть) и haben (иметь). Оба глагола являются неправильными, и их формы необходимо выучить наизусть, так как они не следуют стандартным правилам спряжения. Глагол sein используется для описания состояния, профессии, национальности и происхождения, а haben — для обозначения принадлежности. Помимо самостоятельного употребления, оба глагола выполняют роль вспомогательных (Hilfsverben) и необходимы для образования сложных времён, таких как Perfekt. Знание sein и haben — это фундамент немецкой грамматики, без которого невозможно строить грамотные предложения.</div></div>
+        `
+      },
+      {
+        heading: "📚 Словарь урока",
+        content: `
+          <p>Ключевые слова. Кликни по немецкому слову, чтобы добавить его в карточки Anki 🃏</p>
+          <div class="table-wrap"><table>
+            <tr><th>Слово</th><th>Перевод</th><th>Пример</th></tr>
+            <tr><td><b>der Student</b></td><td>студент</td><td>Ich bin ein Student.<br><span style="color:#b06090">Я студент.</span></td></tr>
+            <tr><td><b>die Studentin</b></td><td>студентка</td><td>Sie ist eine Studentin.<br><span style="color:#b06090">Она студентка.</span></td></tr>
+            <tr><td><b>der Computer</b></td><td>компьютер</td><td>Ich habe einen Computer.<br><span style="color:#b06090">У меня есть компьютер.</span></td></tr>
+            <tr><td><b>das Buch</b></td><td>книга</td><td>Er hat ein Buch.<br><span style="color:#b06090">У него есть книга.</span></td></tr>
+            <tr><td><b>die Sprache</b></td><td>язык</td><td>Deutsch ist eine schöne Sprache.<br><span style="color:#b06090">Немецкий — красивый язык.</span></td></tr>
+            <tr><td><b>der Lehrer</b></td><td>учитель</td><td>Er ist ein Lehrer.<br><span style="color:#b06090">Он учитель.</span></td></tr>
+            <tr><td><b>die Lehrerin</b></td><td>учительница</td><td>Sie ist eine Lehrerin.<br><span style="color:#b06090">Она учительница.</span></td></tr>
+            <tr><td><b>das Haus</b></td><td>дом</td><td>Wir haben ein Haus.<br><span style="color:#b06090">У нас есть дом.</span></td></tr>
+            <tr><td><b>der Freund</b></td><td>друг</td><td>Ich habe einen Freund.<br><span style="color:#b06090">У меня есть друг.</span></td></tr>
+            <tr><td><b>die Arbeit</b></td><td>работа</td><td>Er hat Arbeit.<br><span style="color:#b06090">У него есть работа.</span></td></tr>
+            <tr><td><b>das Auto</b></td><td>автомобиль</td><td>Sie hat ein Auto.<br><span style="color:#b06090">У неё есть машина.</span></td></tr>
+            <tr><td><b>der Bruder</b></td><td>брат</td><td>Ich habe einen Bruder.<br><span style="color:#b06090">У меня есть брат.</span></td></tr>
+            <tr><td><b>die Schwester</b></td><td>сестра</td><td>Er hat eine Schwester.<br><span style="color:#b06090">У него есть сестра.</span></td></tr>
+            <tr><td><b>das Geld</b></td><td>деньги</td><td>Wir haben kein Geld.<br><span style="color:#b06090">У нас нет денег.</span></td></tr>
+            <tr><td><b>die Zeit</b></td><td>время</td><td>Haben Sie Zeit?<br><span style="color:#b06090">У вас есть время?</span></td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: "🔑 Спряжение глагола SEIN (быть)",
+        content: `
+          <p>Глагол sein (быть) — один из самых неправильных глаголов в немецком языке. Его формы нужно просто запомнить, так как в них нет логики стандартного спряжения. Глагол sein используется для описания состояния, профессии, национальности, а также как вспомогательный глагол.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>ich bin — я есть (я являюсь)</li><li>du bist — ты есть</li><li>er/sie/es ist — он/она/оно есть</li><li>wir sind — мы есть</li><li>ihr seid — вы есть (неформальное множественное)</li><li>sie/Sie sind — они/Вы есть</li><li>Ich bin Student. — Я студент.</li><li>Du bist müde. — Ты устал(а).</li><li>Wir sind Freunde. — Мы друзья.</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Спряжение глагола HABEN (иметь)",
+        content: `
+          <p>Глагол haben (иметь) также является неправильным. Он используется для обозначения принадлежности (у меня есть...) и как вспомогательный глагол для образования прошедшего времени Perfekt. Обратите внимание: в формах du hast и er hat выпадает буква 'b'.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>ich habe — я имею</li><li>du hast — ты имеешь</li><li>er/sie/es hat — он/она/оно имеет</li><li>wir haben — мы имеем</li><li>ihr habt — вы имеете</li><li>sie/Sie haben — они/Вы имеют</li><li>Ich habe einen Computer. — У меня есть компьютер.</li><li>Er hat Hunger. — Он голоден (букв. у него есть голод).</li><li>Habt ihr Zeit? — У вас (мн.) есть время?</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Sein и haben как вспомогательные глаголы",
+        content: `
+          <p>Помимо самостоятельного значения, глаголы sein и haben выполняют роль вспомогательных (Hilfsverben). Они используются для образования сложных временных форм, например Perfekt (прошедшее время). Это делает их знание особенно важным — без них невозможно строить сложные предложения на немецком языке.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>Ich habe gegessen. — Я поел (Perfekt с haben).</li><li>Er ist gegangen. — Он ушёл (Perfekt с sein).</li><li>Wir sind gefahren. — Мы поехали (Perfekt с sein).</li><li>Sie hat gearbeitet. — Она работала (Perfekt с haben).</li></ul></div></div>
+        `
+      },
+      {
+        heading: "💬 Полезные фразы",
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Фраза</th><th>Перевод</th><th>Произношение</th></tr>
+            <tr><td><b>Ich bin Student.</b></td><td>Я студент.</td><td style="color:#999">Их бин Штудент.</td></tr>
+            <tr><td><b>Ich habe einen Computer.</b></td><td>У меня есть компьютер.</td><td style="color:#999">Их хабэ айнэн Компьютер.</td></tr>
+            <tr><td><b>Wie alt bist du?</b></td><td>Сколько тебе лет?</td><td style="color:#999">Ви альт бист ду?</td></tr>
+            <tr><td><b>Ich bin müde.</b></td><td>Я устал(а).</td><td style="color:#999">Их бин мюдэ.</td></tr>
+            <tr><td><b>Haben Sie Zeit?</b></td><td>У вас есть время?</td><td style="color:#999">Хабэн Зи Цайт?</td></tr>
+            <tr><td><b>Er hat Hunger.</b></td><td>Он голоден.</td><td style="color:#999">Эр хат Хунгер.</td></tr>
+            <tr><td><b>Wir sind Freunde.</b></td><td>Мы друзья.</td><td style="color:#999">Вир зинд Фройндэ.</td></tr>
+            <tr><td><b>Sie hat keine Zeit.</b></td><td>У неё нет времени.</td><td style="color:#999">Зи хат кайнэ Цайт.</td></tr>
+            <tr><td><b>Bist du müde?</b></td><td>Ты устал(а)?</td><td style="color:#999">Бист ду мюдэ?</td></tr>
+            <tr><td><b>Wir haben kein Geld.</b></td><td>У нас нет денег.</td><td style="color:#999">Вир хабэн кайн Гельд.</td></tr>
+            <tr><td><b>Ich bin aus Deutschland.</b></td><td>Я из Германии.</td><td style="color:#999">Их бин аус Дойчланд.</td></tr>
+            <tr><td><b>Hast du Geschwister?</b></td><td>У тебя есть братья или сёстры?</td><td style="color:#999">Хаст ду Гешвистер?</td></tr>
+          </table></div>
+        `
+      },
+    ],
+    exercises: [
+      { type: "translate", question: "Переведите на немецкий: Я студент.", answer: "Ich bin Student.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "translate", question: "Переведите на немецкий: У меня есть брат.", answer: "Ich habe einen Bruder.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "translate", question: "Переведите на немецкий: У нас нет времени.", answer: "Wir haben keine Zeit.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "choice", question: "Выберите правильную форму глагола sein: 'Er ___ müde.'", options: ["bin", "bist", "ist", "sind"], answer: 2 },
+      { type: "choice", question: "Выберите правильную форму глагола haben: 'Wir ___ einen Hund.'", options: ["habe", "hast", "hat", "haben"], answer: 3 },
+      { type: "choice", question: "Выберите правильный перевод фразы: 'Du bist intelligent.'", options: ["Я умный.", "Ты умный.", "Он умный.", "Вы умные."], answer: 1 },
+      { type: "fill", question: "Вставьте нужную форму глагола sein: 'Ich ___ aus Russland.'", answer: "bin", placeholder: "..." },
+      { type: "fill", question: "Вставьте нужную форму глагола haben: 'Sie (она) ___ ein Auto.'", answer: "hat", placeholder: "..." },
+      { type: "fill", question: "Вставьте нужную форму глагола haben: 'Ihr ___ keine Zeit.'", answer: "habt", placeholder: "..." },
+    ],
+  },
+  // ══════════════════════════════════════════════════════════
+  // ВИДЕО-УРОК (@deutschmityehor): Модальные глаголы в немецком языке
+  // Источник: https://youtu.be/4Tld1KNsf_E
+  // ══════════════════════════════════════════════════════════
+  'dmy-modal': {
+    title: "Модальные глаголы в немецком языке",
+    level: "A1 · Видео-урок",
+    intro: "Модальные глаголы: müssen, wollen, können, dürfen, sollen, möchten, Спряжение модальных глаголов в настоящем времени, Отличие können от dürfen.",
+    theory: [
+      {
+        heading: "🎬 Видео-урок",
+        content: `
+          <p>Урок по видео <b>«Модальные глаголы в немецком языке»</b> (A1, ~15 минут). Канал @deutschmityehor.</p>
+          <p><a href="https://youtu.be/4Tld1KNsf_E" target="_blank" rel="noopener" style="color:var(--pink-500);font-weight:600;">▶️ Открыть видео на YouTube</a></p>
+          <div class="example-box"><div class="ru">В этом уроке мы изучили шесть модальных глаголов немецкого языка: müssen, wollen, können, dürfen, sollen и möchten. Главная особенность модальных глаголов — они ставятся на второе место в предложении и спрягаются, тогда как основной глагол уходит в конец в форме инфинитива. Важно различать können (физическая возможность/умение) и dürfen (разрешение), а также müssen (внутренняя необходимость) и sollen (обязанность по чьим-то словам). При спряжении формы 1-го и 3-го лица единственного числа совпадают и часто имеют изменённый корневой гласный (können → ich kann, müssen → ich muss). Знание и правильное употребление модальных глаголов — ключ к выражению желаний, возможностей и обязанностей в немецком языке.</div></div>
+        `
+      },
+      {
+        heading: "📚 Словарь урока",
+        content: `
+          <p>Ключевые слова. Кликни по немецкому слову, чтобы добавить его в карточки Anki 🃏</p>
+          <div class="table-wrap"><table>
+            <tr><th>Слово</th><th>Перевод</th><th>Пример</th></tr>
+            <tr><td><b>die Möglichkeit</b></td><td>возможность</td><td>Ich habe die Möglichkeit, ins Kino zu gehen.<br><span style="color:#b06090">У меня есть возможность пойти в кино.</span></td></tr>
+            <tr><td><b>die Erlaubnis</b></td><td>разрешение</td><td>Ich brauche eine Erlaubnis.<br><span style="color:#b06090">Мне нужно разрешение.</span></td></tr>
+            <tr><td><b>die Pflicht</b></td><td>обязанность, долг</td><td>Das ist meine Pflicht.<br><span style="color:#b06090">Это моя обязанность.</span></td></tr>
+            <tr><td><b>der Wunsch</b></td><td>желание, пожелание</td><td>Ich habe einen großen Wunsch.<br><span style="color:#b06090">У меня есть большое желание.</span></td></tr>
+            <tr><td><b>die Fähigkeit</b></td><td>способность, умение</td><td>Das ist eine wichtige Fähigkeit.<br><span style="color:#b06090">Это важная способность.</span></td></tr>
+            <tr><td><b>das Verbot</b></td><td>запрет</td><td>Hier gilt ein Parkverbot.<br><span style="color:#b06090">Здесь действует запрет на парковку.</span></td></tr>
+            <tr><td><b>die Tablette</b></td><td>таблетка</td><td>Du musst die Tabletten nehmen.<br><span style="color:#b06090">Ты должен принимать таблетки.</span></td></tr>
+            <tr><td><b>der Arzt</b></td><td>врач (мужской род)</td><td>Der Arzt sagt, wir müssen Tabletten nehmen.<br><span style="color:#b06090">Врач говорит, что нам нужно принимать таблетки.</span></td></tr>
+            <tr><td><b>das Zimmer</b></td><td>комната</td><td>Ich muss mein Zimmer aufräumen.<br><span style="color:#b06090">Мне нужно убрать свою комнату.</span></td></tr>
+            <tr><td><b>der Parkplatz</b></td><td>парковочное место</td><td>Wir können keinen Parkplatz finden.<br><span style="color:#b06090">Мы не можем найти парковочное место.</span></td></tr>
+            <tr><td><b>das Bier</b></td><td>пиво</td><td>Du darfst kein Bier mehr trinken.<br><span style="color:#b06090">Тебе больше нельзя пить пиво.</span></td></tr>
+            <tr><td><b>die Gitarre</b></td><td>гитара</td><td>Ich kann Gitarre spielen.<br><span style="color:#b06090">Я умею играть на гитаре.</span></td></tr>
+            <tr><td><b>das Telefon</b></td><td>телефон</td><td>Ich möchte ein neues Telefon.<br><span style="color:#b06090">Я хочу новый телефон.</span></td></tr>
+            <tr><td><b>der Abend</b></td><td>вечер</td><td>Möchtest du heute Abend ausgehen?<br><span style="color:#b06090">Ты хочешь выйти сегодня вечером?</span></td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: "🔑 Шесть модальных глаголов немецкого языка",
+        content: `
+          <p>В немецком языке существует шесть модальных глаголов: müssen (быть должным/обязанным), wollen (хотеть), können (мочь/уметь), dürfen (иметь разрешение), sollen (должен по чьим-то словам), mögen/möchten (хотеть — вежливая форма). Модальный глагол стоит на втором месте в предложении и спрягается, а основной смысловой глагол уходит в конец предложения в форме инфинитива.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>Ich muss heute arbeiten. — Я должен сегодня работать.</li><li>Er kann Gitarre spielen. — Он умеет играть на гитаре.</li><li>Sie möchte einen Kaffee. — Она хочет кофе.</li><li>Wir dürfen hier nicht parken. — Нам нельзя здесь парковаться.</li><li>Du sollst die Tabletten nehmen. — Ты должен принять таблетки (врач сказал).</li><li>Ich will nach Spanien fahren. — Я хочу поехать в Испанию.</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Спряжение модальных глаголов в настоящем времени (Präsens)",
+        content: `
+          <p>Модальные глаголы имеют нестандартное спряжение: формы единственного числа (ich, er/sie/es) часто совпадают и имеют изменённый корневой гласный по сравнению с инфинитивом. Множественное число (wir, ihr, sie/Sie) спрягается как обычные глаголы. Особенность: у форм 1-го и 3-го лица единственного числа нет окончания!</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>ich muss / du musst / er muss / wir müssen / ihr müsst / sie müssen</li><li>ich kann / du kannst / er kann / wir können / ihr könnt / sie können</li><li>ich will / du willst / er will / wir wollen / ihr wollt / sie wollen</li><li>ich darf / du darfst / er darf / wir dürfen / ihr dürft / sie dürfen</li><li>ich soll / du sollst / er soll / wir sollen / ihr sollt / sie sollen</li><li>ich möchte / du möchtest / er möchte / wir möchten / ihr möchtet / sie möchten</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Различие между können и dürfen, müssen и sollen",
+        content: `
+          <p>können выражает физическую возможность или умение (я физически могу это сделать), а dürfen — наличие разрешения (мне позволено это сделать). müssen выражает внутреннюю необходимость или обязанность («я должен, потому что так нужно»), а sollen — обязанность по чьим-то словам («меня попросили/мне велели»). Важно не путать эти глаголы, так как они меняют смысл высказывания.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>Ich kann hier parken. — Я физически могу здесь припарковаться (есть место).</li><li>Ich darf hier nicht parken. — Мне нельзя здесь парковаться (висит знак запрета).</li><li>Ich muss die Tabletten nehmen. — Мне нужно принять таблетки (я сам понимаю).</li><li>Ich soll die Tabletten nehmen. — Мне велели принять таблетки (врач сказал).</li></ul></div></div>
+        `
+      },
+      {
+        heading: "💬 Полезные фразы",
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Фраза</th><th>Перевод</th><th>Произношение</th></tr>
+            <tr><td><b>Ich muss heute arbeiten.</b></td><td>Я должен сегодня работать.</td><td style="color:#999">Их мус хойтэ арбайтэн.</td></tr>
+            <tr><td><b>Kannst du Gitarre spielen?</b></td><td>Ты умеешь играть на гитаре?</td><td style="color:#999">Канст ду Гитарэ шпилэн?</td></tr>
+            <tr><td><b>Ich möchte einen Kaffee, bitte.</b></td><td>Я бы хотел кофе, пожалуйста.</td><td style="color:#999">Их мёхтэ айнэн Кафэ, битэ.</td></tr>
+            <tr><td><b>Hier darf man nicht rauchen.</b></td><td>Здесь нельзя курить.</td><td style="color:#999">Хир дарф ман нихт раухэн.</td></tr>
+            <tr><td><b>Du sollst die Tabletten nehmen.</b></td><td>Ты должен принять таблетки (тебе велели).</td><td style="color:#999">Ду золст ди Таблэтэн нэмэн.</td></tr>
+            <tr><td><b>Wir können heute nicht kommen.</b></td><td>Мы не можем прийти сегодня.</td><td style="color:#999">Вир кёнэн хойтэ нихт комэн.</td></tr>
+            <tr><td><b>Ich will nach Spanien fahren.</b></td><td>Я хочу поехать в Испанию.</td><td style="color:#999">Их вил нах Шпаниэн фарэн.</td></tr>
+            <tr><td><b>Darf ich das Fenster öffnen?</b></td><td>Можно мне открыть окно?</td><td style="color:#999">Дарф их дас Фэнстэр эфнэн?</td></tr>
+            <tr><td><b>Er muss sein Zimmer aufräumen.</b></td><td>Ему нужно убраться в своей комнате.</td><td style="color:#999">Эр мус зайн Циммэр ауфройм эн.</td></tr>
+            <tr><td><b>Ich kann nicht schlafen.</b></td><td>Я не могу спать.</td><td style="color:#999">Их кан нихт шлафэн.</td></tr>
+            <tr><td><b>Möchten Sie etwas trinken?</b></td><td>Вы хотите что-нибудь выпить?</td><td style="color:#999">Мёхтэн Зи этвас тринкэн?</td></tr>
+            <tr><td><b>Du darfst kein Bier trinken.</b></td><td>Тебе нельзя пить пиво.</td><td style="color:#999">Ду дарфст кайн Бир тринкэн.</td></tr>
+          </table></div>
+        `
+      },
+    ],
+    exercises: [
+      { type: "translate", question: "Я умею говорить по-китайски.", answer: "Ich kann Chinesisch sprechen.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "translate", question: "Нам нельзя здесь парковаться.", answer: "Wir dürfen hier nicht parken.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "translate", question: "Она хочет новый телефон.", answer: "Sie möchte ein neues Telefon.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "choice", question: "Какой глагол использовать, если врач велел вам принять таблетки?", options: ["a) Ich kann Tabletten nehmen.", "b) Ich soll Tabletten nehmen.", "c) Ich möchte Tabletten nehmen.", "d) Ich darf Tabletten nehmen."], answer: 1 },
+      { type: "choice", question: "Выберите правильную форму глагола können для местоимения 'er':", options: ["a) er können", "b) er kannen", "c) er kann", "d) er könnst"], answer: 2 },
+      { type: "choice", question: "Какое предложение означает 'Мне физически нет места, чтобы припарковаться (мест нет)'?", options: ["a) Ich darf hier nicht parken.", "b) Ich soll hier nicht parken.", "c) Ich kann hier nicht parken.", "d) Ich will hier nicht parken."], answer: 2 },
+      { type: "fill", question: "Ich ___ heute ins Kino gehen. (хочу — вежливо)", answer: "möchte", placeholder: "..." },
+      { type: "fill", question: "Du ___ die Hausaufgaben machen. (должен по словам учителя)", answer: "sollst", placeholder: "..." },
+      { type: "fill", question: "Wir ___ hier nicht rauchen. (нам не разрешено)", answer: "dürfen", placeholder: "..." },
+    ],
+  },
+  // ══════════════════════════════════════════════════════════
+  // ВИДЕО-УРОК (@deutschmityehor): Существительные в немецком языке: род, артикль и множественное число
+  // Источник: https://youtu.be/Zh3G_2XXzEg
+  // ══════════════════════════════════════════════════════════
+  'dmy-nouns': {
+    title: "Существительные в немецком языке: род, артикль и множественное число",
+    level: "A1 · Видео-урок",
+    intro: "Род существительных (мужской, женский, средний), Артикли der / die / das, Образование множественного числа.",
+    theory: [
+      {
+        heading: "🎬 Видео-урок",
+        content: `
+          <p>Урок по видео <b>«Существительные в немецком языке: род, артикль и множественное число»</b> (A1, ~10 минут). Канал @deutschmityehor.</p>
+          <p><a href="https://youtu.be/Zh3G_2XXzEg" target="_blank" rel="noopener" style="color:var(--pink-500);font-weight:600;">▶️ Открыть видео на YouTube</a></p>
+          <div class="example-box"><div class="ru">В этом уроке мы изучили основы существительных в немецком языке. Главное правило: все существительные в немецком пишутся с большой буквы. Каждое существительное имеет один из трёх родов — мужской (der), женский (die) или средний (das), и род необходимо запоминать вместе со словом. Во множественном числе все существительные используют артикль die, а окончания при этом могут быть разными: -e, -er, -(e)n или другие. Артикль является важнейшим признаком рода существительного, поэтому немцы всегда учат новые слова вместе с артиклем.</div></div>
+        `
+      },
+      {
+        heading: "📚 Словарь урока",
+        content: `
+          <p>Ключевые слова. Кликни по немецкому слову, чтобы добавить его в карточки Anki 🃏</p>
+          <div class="table-wrap"><table>
+            <tr><th>Слово</th><th>Перевод</th><th>Пример</th></tr>
+            <tr><td><b>der Mann</b></td><td>мужчина</td><td>Der Mann ist groß.<br><span style="color:#b06090">Мужчина высокий.</span></td></tr>
+            <tr><td><b>die Frau</b></td><td>женщина</td><td>Die Frau liest ein Buch.<br><span style="color:#b06090">Женщина читает книгу.</span></td></tr>
+            <tr><td><b>das Kind</b></td><td>ребёнок</td><td>Das Kind spielt.<br><span style="color:#b06090">Ребёнок играет.</span></td></tr>
+            <tr><td><b>der Apfel</b></td><td>яблоко</td><td>Der Apfel ist rot.<br><span style="color:#b06090">Яблоко красное.</span></td></tr>
+            <tr><td><b>das Buch</b></td><td>книга</td><td>Ich lese das Buch.<br><span style="color:#b06090">Я читаю книгу.</span></td></tr>
+            <tr><td><b>die Bücher</b></td><td>книги (мн.ч.)</td><td>Die Bücher sind teuer.<br><span style="color:#b06090">Книги дорогие.</span></td></tr>
+            <tr><td><b>der Freund</b></td><td>друг</td><td>Der Freund kommt heute.<br><span style="color:#b06090">Друг приходит сегодня.</span></td></tr>
+            <tr><td><b>die Freunde</b></td><td>друзья (мн.ч.)</td><td>Meine Freunde sind nett.<br><span style="color:#b06090">Мои друзья милые.</span></td></tr>
+            <tr><td><b>das Haus</b></td><td>дом</td><td>Das Haus ist groß.<br><span style="color:#b06090">Дом большой.</span></td></tr>
+            <tr><td><b>die Häuser</b></td><td>дома (мн.ч.)</td><td>Die Häuser sind alt.<br><span style="color:#b06090">Дома старые.</span></td></tr>
+            <tr><td><b>die Mutter</b></td><td>мать</td><td>Meine Mutter kocht gut.<br><span style="color:#b06090">Моя мать хорошо готовит.</span></td></tr>
+            <tr><td><b>der Vater</b></td><td>отец</td><td>Mein Vater arbeitet viel.<br><span style="color:#b06090">Мой отец много работает.</span></td></tr>
+            <tr><td><b>die Straße</b></td><td>улица</td><td>Die Straße ist lang.<br><span style="color:#b06090">Улица длинная.</span></td></tr>
+            <tr><td><b>der Tisch</b></td><td>стол</td><td>Der Tisch ist braun.<br><span style="color:#b06090">Стол коричневый.</span></td></tr>
+            <tr><td><b>das Mädchen</b></td><td>девочка</td><td>Das Mädchen singt schön.<br><span style="color:#b06090">Девочка красиво поёт.</span></td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: "🔑 Три рода существительных и артикли",
+        content: `
+          <p>В немецком языке все существительные имеют один из трёх родов: мужской (der), женский (die) или средний (das). Род нужно заучивать вместе со словом, так как он часто не совпадает с русским. Например: das Mädchen (девочка) — средний род, хотя по смыслу женский.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>der Mann — мужчина (мужской род)</li><li>die Frau — женщина (женский род)</li><li>das Kind — ребёнок (средний род)</li><li>das Mädchen — девочка (средний род!)</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Заглавная буква для существительных",
+        content: `
+          <p>Важнейшее правило немецкого: все существительные пишутся с большой буквы, независимо от их позиции в предложении. Это отличает немецкий от русского и английского языков.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>Ich lese ein Buch. — Я читаю книгу. (Buch — с большой буквы)</li><li>Der Tisch ist groß. — Стол большой. (Tisch — с большой буквы)</li><li>Meine Mutter ist nett. — Моя мать добрая. (Mutter — с большой буквы)</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Образование множественного числа",
+        content: `
+          <p>В немецком языке нет единого универсального правила для образования множественного числа (как -s в английском). Существительные мужского и среднего рода часто получают окончания -e или -er, иногда с умлаутом. Существительные женского рода обычно оканчиваются на -(e)n. Во множественном числе всегда используется артикль die.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>der Freund → die Freunde — друг → друзья</li><li>das Buch → die Bücher — книга → книги</li><li>die Mutter → die Mütter — мать → матери</li><li>das Haus → die Häuser — дом → дома</li></ul></div></div>
+        `
+      },
+      {
+        heading: "💬 Полезные фразы",
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Фраза</th><th>Перевод</th><th>Произношение</th></tr>
+            <tr><td><b>Das ist ein Mann.</b></td><td>Это мужчина.</td><td style="color:#999">Дас ист айн Манн.</td></tr>
+            <tr><td><b>Das ist eine Frau.</b></td><td>Это женщина.</td><td style="color:#999">Дас ист айнэ Фрау.</td></tr>
+            <tr><td><b>Das ist ein Kind.</b></td><td>Это ребёнок.</td><td style="color:#999">Дас ист айн Кинд.</td></tr>
+            <tr><td><b>Wie heißt das auf Deutsch?</b></td><td>Как это называется по-немецки?</td><td style="color:#999">Ви хайст дас ауф Дойч?</td></tr>
+            <tr><td><b>Das Buch ist interessant.</b></td><td>Книга интересная.</td><td style="color:#999">Дас Бух ист интэрэсант.</td></tr>
+            <tr><td><b>Der Mann kauft ein Haus.</b></td><td>Мужчина покупает дом.</td><td style="color:#999">Дэр Манн кауфт айн Хаус.</td></tr>
+            <tr><td><b>Die Kinder spielen draußen.</b></td><td>Дети играют на улице.</td><td style="color:#999">Ди Киндэр шпилэн драусэн.</td></tr>
+            <tr><td><b>Ich habe einen Freund.</b></td><td>У меня есть друг.</td><td style="color:#999">Их хабэ айнэн Фройнд.</td></tr>
+            <tr><td><b>Mein Vater liest die Zeitung.</b></td><td>Мой отец читает газету.</td><td style="color:#999">Майн Фатэр лист ди Цайтунг.</td></tr>
+            <tr><td><b>Die Straße ist sehr lang.</b></td><td>Улица очень длинная.</td><td style="color:#999">Ди Штрасэ ист зэр ланг.</td></tr>
+            <tr><td><b>Das Mädchen singt ein Lied.</b></td><td>Девочка поёт песню.</td><td style="color:#999">Дас Мэдхэн зингт айн Лид.</td></tr>
+            <tr><td><b>Die Bücher liegen auf dem Tisch.</b></td><td>Книги лежат на столе.</td><td style="color:#999">Ди Бюхэр лигэн ауф дэм Тиш.</td></tr>
+          </table></div>
+        `
+      },
+    ],
+    exercises: [
+      { type: "translate", question: "Переведите на немецкий: Мужчина читает книгу.", answer: "Der Mann liest ein Buch.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "translate", question: "Переведите на немецкий: Дети играют на улице.", answer: "Die Kinder spielen draußen.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "choice", question: "Какой артикль у слова 'Mädchen' (девочка)?", options: ["a) der", "b) die", "c) das", "d) keine"], answer: 2 },
+      { type: "choice", question: "Как правильно написать множественное число от 'das Buch'?", options: ["a) die Buchs", "b) die Bücher", "c) die Buche", "d) die Büchs"], answer: 1 },
+      { type: "fill", question: "___ Frau liest ein Buch. (Вставьте правильный артикль)", answer: "Die", placeholder: "..." },
+      { type: "fill", question: "Das sind meine ___. (друзья — Freunde)", answer: "Freunde", placeholder: "..." },
+      { type: "translate", question: "Переведите на немецкий: Яблоко красное.", answer: "Der Apfel ist rot.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "choice", question: "Какое правило написания существительных в немецком языке?", options: ["a) Все существительные пишутся с маленькой буквы", "b) Только собственные имена с большой буквы", "c) Все существительные пишутся с большой буквы", "d) Существительные пишутся как в английском"], answer: 2 },
+    ],
+  },
+
+
+  // ══════════════════════════════════════════════════════════
   // ВИДЕО-УРОК (YouTube): Знакомство и первые фразы: Привет, я Нико!
   // Источник: https://youtu.be/cSVgpQXsu9w
   // ══════════════════════════════════════════════════════════
