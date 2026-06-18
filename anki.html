@@ -188,6 +188,8 @@
       document.getElementById('streak').textContent   = localStorage.getItem('bulochka-streak') || '0';
       const name = localStorage.getItem('bulochka-login') || 'Булочка';
       document.getElementById('user-name').textContent = name.charAt(0).toUpperCase() + name.slice(1);
+      // Инициализируем DECKS с пользовательской колодой и Goethe
+      window.updateDecksWithCustom?.();
       renderDecks();
     });
   </script>
@@ -640,7 +642,6 @@
       DECKS.push(...ALL_GOETHE_DECKS);
     }
   }
-  updateDecksWithCustom();
 
   // ── CUSTOM WORDS ──────────────────────────────────────────────────────────
   const CUSTOM_WORDS_KEY = 'bulochka-custom-words';
@@ -841,6 +842,7 @@
     document.getElementById('tap-hint').style.display = 'none';
   }
   window.flipCard = flipCard;
+  window.updateDecksWithCustom = updateDecksWithCustom;
 
   function rate(rating) {
     const card = sessionCards[sessionIdx];
