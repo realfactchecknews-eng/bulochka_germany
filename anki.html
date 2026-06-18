@@ -627,8 +627,56 @@
         { de: 'zumindest', ru: 'по крайней мере', ex: 'Zumindest war es interessant.' },
       ]
     },
-    ...(typeof ALL_GOETHE_DECKS !== 'undefined' ? ALL_GOETHE_DECKS : []),
   ];
+
+  // Добавляем кастомную колоду и Goethe в конец
+  function updateDecksWithCustom() {
+    DECKS.unshift(getCustomDeck());
+    if (typeof ALL_GOETHE_DECKS !== 'undefined') {
+      DECKS.push(...ALL_GOETHE_DECKS);
+    }
+  }
+  updateDecksWithCustom();
+
+  // ── CUSTOM WORDS ──────────────────────────────────────────────────────────
+  const CUSTOM_WORDS_KEY = 'bulochka-custom-words';
+
+  function getCustomWords() {
+    return JSON.parse(localStorage.getItem(CUSTOM_WORDS_KEY) || '[]');
+  }
+
+  function saveCustomWords(words) {
+    localStorage.setItem(CUSTOM_WORDS_KEY, JSON.stringify(words));
+    // Синхронизируем с Firestore если есть UID
+    const uid = localStorage.getItem('bulochka_uid');
+    if (uid && typeof window.saveToFirestore === 'function') {
+      window.saveToFirestore(uid, 'custom_words', words).catch(e => console.warn('Firestore sync failed:', e));
+    }
+  }
+
+  function addCustomWord(de, ru, ex = '') {
+    const words = getCustomWords();
+    if (!words.some(w => w.de === de)) {
+      words.push({ de, ru, ex });
+      saveCustomWords(words);
+    }
+  }
+
+  function removeCustomWord(de) {
+    const words = getCustomWords().filter(w => w.de !== de);
+    saveCustomWords(words);
+  }
+
+  function getCustomDeck() {
+    const customWords = getCustomWords();
+    return {
+      id: 'meine-woerter',
+      name: '🌟 Мои слова',
+      level: 'Mixed',
+      icon: '✨',
+      cards: customWords,
+    };
+  }
 
   // ── SPACED REPETITION ─────────────────────────────────────────────────────
   const SRS_KEY = 'bulochka-anki-srs';
@@ -815,6 +863,19 @@
     startDeck(sessionDeck.id);
   }
   window.restartDeck = restartDeck;
+
+  // ── GLOBAL API ────────────────────────────────────────────────────────────
+  // Доступна на всех страницах: window.addWordToAnki(de, ru, ex)
+  window.addWordToAnki = function(de, ru, ex = '') {
+    addCustomWord(de, ru, ex);
+    // Переопределяем колоду чтобы обновить список
+    const idx = DECKS.findIndex(d => d.id === 'meine-woerter');
+    if (idx >= 0) {
+      DECKS[idx] = getCustomDeck();
+    }
+    // Уведомляем пользователя
+    alert(`✅ "${de}" добавлено в "Мои слова"`);
+  };
 
   // floating hearts
   const fhC = document.getElementById('floating-hearts');

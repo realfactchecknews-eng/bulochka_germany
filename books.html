@@ -98,9 +98,16 @@
     }
     .tooltip.visible { display: block; }
     .tooltip-word { font-weight: 800; font-size: 1rem; color: var(--text-dark); margin-bottom: 4px; }
-    .tooltip-trans { font-size: 0.88rem; color: var(--pink-500); font-weight: 600; }
+    .tooltip-trans { font-size: 0.88rem; color: var(--pink-500); font-weight: 600; margin-bottom: 8px; }
     .tooltip-loading { font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
     .tooltip-close { position: absolute; top: 8px; right: 10px; background: none; border: none; font-size: 0.85rem; color: var(--text-muted); cursor: pointer; }
+    .tooltip-add-btn {
+      display: block; width: 100%; padding: 8px; background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
+      color: white; border: none; border-radius: 8px; font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; transition: all 0.15s; margin-top: 8px;
+    }
+    .tooltip-add-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(224,57,127,0.3); }
+    .tooltip-add-btn:active { transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -155,6 +162,7 @@
     <button class="tooltip-close" onclick="closeTooltip()">✕</button>
     <div class="tooltip-word" id="tt-word"></div>
     <div class="tooltip-trans" id="tt-trans"></div>
+    <button class="tooltip-add-btn" id="tt-add-btn" style="display:none;" onclick="addCurrentWordToAnki()">➕ В Anki</button>
   </div>
 
   <script src="js/firebase-config.js"></script>
@@ -292,6 +300,7 @@
       const tooltip = document.getElementById('tooltip');
       const ttWord  = document.getElementById('tt-word');
       const ttTrans = document.getElementById('tt-trans');
+      const ttAddBtn = document.getElementById('tt-add-btn');
 
       // Position near clicked word
       const rect = el.getBoundingClientRect();
@@ -299,11 +308,17 @@
       tooltip.style.top  = (rect.bottom + window.scrollY + 8) + 'px';
       ttWord.textContent  = word;
       ttTrans.innerHTML   = '<span class="tooltip-loading"><span class="spinner" style="width:13px;height:13px;border-width:2px"></span> Перевожу...</span>';
+      ttAddBtn.style.display = 'none';
       tooltip.classList.add('visible');
+
+      // Сохраняем текущее слово для кнопки добавления
+      window._currentWord = word;
 
       const lower = word.toLowerCase();
       if (transCache[lower]) {
         ttTrans.textContent = transCache[lower];
+        window._currentTrans = transCache[lower];
+        ttAddBtn.style.display = 'block';
         markLookedUp(lower);
         return;
       }
@@ -325,9 +340,12 @@
         const trans = data.choices?.[0]?.message?.content?.trim() || '—';
         transCache[lower] = trans;
         ttTrans.textContent = trans;
+        window._currentTrans = trans;
+        ttAddBtn.style.display = trans !== '—' ? 'block' : 'none';
         markLookedUp(lower);
       } catch(e) {
         ttTrans.textContent = 'Ошибка перевода';
+        ttAddBtn.style.display = 'none';
       }
     }
 
@@ -339,6 +357,28 @@
 
     function closeTooltip() { document.getElementById('tooltip').classList.remove('visible'); }
     window.closeTooltip = closeTooltip;
+
+    function addCurrentWordToAnki() {
+      const de = window._currentWord;
+      const ru = window._currentTrans;
+      if (!de || !ru) return;
+
+      // Проверяем есть ли функция из anki.html
+      if (typeof window.addWordToAnki === 'function') {
+        window.addWordToAnki(de, ru, '');
+      } else {
+        // Fallback: добавляем напрямую в localStorage
+        const words = JSON.parse(localStorage.getItem('bulochka-custom-words') || '[]');
+        if (!words.some(w => w.de === de)) {
+          words.push({ de, ru, ex: '' });
+          localStorage.setItem('bulochka-custom-words', JSON.stringify(words));
+        }
+        alert(`✅ "${de}" добавлено в "Мои слова"`);
+      }
+      closeTooltip();
+    }
+    window.addCurrentWordToAnki = addCurrentWordToAnki;
+
     document.addEventListener('click', () => closeTooltip());
 
     // floating hearts

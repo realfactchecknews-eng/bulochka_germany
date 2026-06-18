@@ -1015,6 +1015,25 @@ ${imageBase64 ? `\nЕСЛИ ПРИСЛАНО ФОТО: сначала напиш
       el.style.cssText = `left:${Math.random()*100}%;bottom:-10%;font-size:${0.9+Math.random()}rem;animation-delay:${Math.random()*20}s;animation-duration:${22+Math.random()*14}s;`;
       fhC.appendChild(el);
     });
+
+    // ── ADD WORD TO ANKI ──────────────────────────────────────────────────
+    window.showAddWordForm = function() {
+      const de = prompt('Немецкое слово:');
+      if (!de) return;
+      const ru = prompt('Перевод на русский:');
+      if (!ru) return;
+
+      if (typeof window.addWordToAnki === 'function') {
+        window.addWordToAnki(de, ru, '');
+      } else {
+        const words = JSON.parse(localStorage.getItem('bulochka-custom-words') || '[]');
+        if (!words.some(w => w.de === de)) {
+          words.push({ de, ru, ex: '' });
+          localStorage.setItem('bulochka-custom-words', JSON.stringify(words));
+        }
+        alert(`✅ "${de}" добавлено в "Мои слова"`);
+      }
+    };
   </script>
 </body>
 </html>
