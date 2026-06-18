@@ -153,4 +153,15 @@ const MODULES = [
       { id: 'b1-vocab',title: 'Лексика: учёба и поступление в Австрии', desc: 'Bewerbung, Prüfung, Studium, Aufnahmetest — всё для вуза', xp: 70, type: 'Лексика' },
     ],
   },
+  {
+    id: 'video-lessons',
+    level: 'A1',
+    icon: '🎬',
+    iconBg: '#ffe0b3',
+    title: 'Видео-уроки (YouTube)',
+    desc: 'Уроки по видео: Nicos Weg, shadowing, реальная речь',
+    lessons: [
+      { id: 'nicos-weg-1', title: 'Привет, я Нико! — знакомство', desc: 'Nicos Weg: sein, mein/meine, wer/was, первые фразы', xp: 40, type: 'Видео-урок' },
+    ],
+  },
 ];

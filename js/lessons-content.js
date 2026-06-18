@@ -1,6 +1,99 @@
 const LESSONS_CONTENT = {
 
   // ══════════════════════════════════════════════════════════
+  // ВИДЕО-УРОК (YouTube): Знакомство и первые фразы: Привет, я Нико!
+  // Источник: https://youtu.be/cSVgpQXsu9w
+  // ══════════════════════════════════════════════════════════
+  'nicos-weg-1': {
+    title: "Знакомство и первые фразы: Привет, я Нико!",
+    level: "A1 · Видео-урок",
+    intro: "По мотивам сериала «Nicos Weg» (Deutsche Welle). Знакомство, глагол sein, mein/meine, wer/was.",
+    theory: [
+      {
+        heading: "🎬 Видео-урок",
+        content: `
+          <p>Этот урок сделан по видео <b>«Знакомство и первые фразы: Привет, я Нико!»</b> (уровень A1, 34м 36с).</p>
+          <p><a href="https://youtu.be/cSVgpQXsu9w" target="_blank" rel="noopener" style="color:var(--pink-500);font-weight:600;">▶️ Открыть видео на YouTube</a></p>
+          <div class="example-box"><div class="ru">Видео представляет собой русскоязычное руководство по эффективному изучению немецкого языка с нуля. Автор разбирает проверенные методики: просмотр сериала «Nicos Weg» от Deutsche Welle, технику shadowing (теневое повторение вслед за носителем), использование Anki для запоминания слов и чтение на немецком. В качестве практического примера shadowing демонстрируются первые сцены сериала «Nicos Weg» — герои знакомятся и описывают проблему: у Нико пропала сумка с телефоном и паспортом. Ключевые грамматические темы урока: спряжение глагола sein в настоящем времени, притяжательные местоимения mein/meine и вопросительные слова wer/was.</div></div>
+        `
+      },
+      {
+        heading: "📚 Словарь урока",
+        content: `
+          <p>Ключевые слова. Кликни по немецкому слову, чтобы добавить его в карточки Anki 🃏</p>
+          <div class="table-wrap"><table>
+            <tr><th>Слово</th><th>Перевод</th><th>Пример</th></tr>
+            <tr><td><b>das Problem</b></td><td>проблема</td><td>Ich habe ein Problem.<br><span style="color:#b06090">У меня есть проблема.</span></td></tr>
+            <tr><td><b>die Tasche</b></td><td>сумка</td><td>Meine Tasche ist weg.<br><span style="color:#b06090">Моя сумка пропала.</span></td></tr>
+            <tr><td><b>das Handy</b></td><td>мобильный телефон</td><td>Mein Handy ist weg.<br><span style="color:#b06090">Мой телефон пропал.</span></td></tr>
+            <tr><td><b>der Pass</b></td><td>паспорт</td><td>Mein Pass ist weg.<br><span style="color:#b06090">Мой паспорт пропал.</span></td></tr>
+            <tr><td><b>der Name</b></td><td>имя</td><td>Mein Name ist Nico.<br><span style="color:#b06090">Моё имя — Нико.</span></td></tr>
+            <tr><td><b>hallo</b></td><td>привет</td><td>Hallo, ich bin Nico.<br><span style="color:#b06090">Привет, я Нико.</span></td></tr>
+            <tr><td><b>hier</b></td><td>здесь, тут</td><td>Was machst du hier?<br><span style="color:#b06090">Что ты здесь делаешь?</span></td></tr>
+            <tr><td><b>auch</b></td><td>тоже, также</td><td>Mein Pass ist auch weg.<br><span style="color:#b06090">Мой паспорт тоже пропал.</span></td></tr>
+            <tr><td><b>weg</b></td><td>пропал, исчез</td><td>Meine Tasche ist weg.<br><span style="color:#b06090">Моя сумка пропала.</span></td></tr>
+            <tr><td><b>wer</b></td><td>кто</td><td>Wer ist denn das?<br><span style="color:#b06090">Кто же это?</span></td></tr>
+            <tr><td><b>was</b></td><td>что</td><td>Was machst du hier?<br><span style="color:#b06090">Что ты здесь делаешь?</span></td></tr>
+            <tr><td><b>machen</b></td><td>делать</td><td>Was machst du?<br><span style="color:#b06090">Что ты делаешь?</span></td></tr>
+            <tr><td><b>haben</b></td><td>иметь, у меня есть</td><td>Ich habe ein Problem.<br><span style="color:#b06090">У меня есть проблема.</span></td></tr>
+            <tr><td><b>sein</b></td><td>быть (глагол)</td><td>Ich bin Nico. Du bist Sebastian.<br><span style="color:#b06090">Я Нико. Ты Себастьян.</span></td></tr>
+            <tr><td><b>denn</b></td><td>же, ведь (усилительная частица)</td><td>Wer ist denn das?<br><span style="color:#b06090">Кто же это?</span></td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: "🔑 Глагол sein (быть) в настоящем времени",
+        content: `
+          <p>Глагол sein — один из самых важных в немецком. Он изменяется по лицам: ich bin (я), du bist (ты), er/sie/es ist (он/она/оно). Используется для знакомства, описания людей и предметов.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>Ich bin Nico. — Я Нико.</li><li>Du bist Sebastian. — Ты Себастьян.</li><li>Das ist Nico. — Это Нико.</li><li>Meine Tasche ist weg. — Моя сумка пропала.</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Притяжательные местоимения mein / meine",
+        content: `
+          <p>Mein — «мой» — используется с существительными мужского (der) и среднего (das) рода. Meine — «моя» — с существительными женского рода (die). Запомни: артикль рода определяет форму местоимения.</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>Mein Pass ist weg. — Мой паспорт пропал. (der Pass → mein)</li><li>Mein Handy ist weg. — Мой телефон пропал. (das Handy → mein)</li><li>Meine Tasche ist weg. — Моя сумка пропала. (die Tasche → meine)</li></ul></div></div>
+        `
+      },
+      {
+        heading: "🔑 Вопросительные слова wer и was",
+        content: `
+          <p>Wer — «кто» — задаётся о людях. Was — «что» — о предметах или действиях. В вопросе глагол стоит сразу после вопросительного слова (второе место).</p>
+          <div class="example-box"><div class="de"><ul style="margin:0;padding-left:18px;"><li>Wer ist das? — Кто это?</li><li>Wer ist denn das? — Кто же это? (denn усиливает эмоцию)</li><li>Was machst du hier? — Что ты здесь делаешь?</li></ul></div></div>
+        `
+      },
+      {
+        heading: "💬 Полезные фразы",
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Фраза</th><th>Перевод</th><th>Произношение</th></tr>
+            <tr><td><b>Hallo, ich bin Nico.</b></td><td>Привет, я Нико.</td><td style="color:#999">Халло, их бин Нико.</td></tr>
+            <tr><td><b>Wer ist denn das?</b></td><td>Кто же это?</td><td style="color:#999">Вэр ист дэн дас?</td></tr>
+            <tr><td><b>Das ist Nico.</b></td><td>Это Нико.</td><td style="color:#999">Дас ист Нико.</td></tr>
+            <tr><td><b>Hallo, Nico.</b></td><td>Привет, Нико.</td><td style="color:#999">Халло, Нико.</td></tr>
+            <tr><td><b>Ich bin Sebastian.</b></td><td>Я Себастьян.</td><td style="color:#999">Их бин Зебастьян.</td></tr>
+            <tr><td><b>Was machst du hier?</b></td><td>Что ты здесь делаешь?</td><td style="color:#999">Вас махст ду хир?</td></tr>
+            <tr><td><b>Ich habe ein Problem.</b></td><td>У меня есть проблема.</td><td style="color:#999">Их хабэ айн Проблем.</td></tr>
+            <tr><td><b>Meine Tasche ist weg.</b></td><td>Моя сумка пропала.</td><td style="color:#999">Майнэ Ташэ ист вэк.</td></tr>
+            <tr><td><b>Mein Handy ist weg.</b></td><td>Мой телефон пропал.</td><td style="color:#999">Майн Хэнди ист вэк.</td></tr>
+            <tr><td><b>Mein Pass ist auch weg.</b></td><td>Мой паспорт тоже пропал.</td><td style="color:#999">Майн Пасс ист аух вэк.</td></tr>
+          </table></div>
+        `
+      },
+    ],
+    exercises: [
+      { type: "translate", question: "Привет, я Себастьян.", answer: "Hallo, ich bin Sebastian.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "translate", question: "У меня есть проблема.", answer: "Ich habe ein Problem.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "choice", question: "Как сказать «Кто это?» по-немецки?", options: ["Was ist das?", "Wer ist das?", "Wo ist das?", "Wie ist das?"], answer: 1 },
+      { type: "choice", question: "Выберите правильную форму: ___ Tasche ist weg. (моя сумка, die Tasche)", options: ["Mein", "Meine", "Meinen", "Meiner"], answer: 1 },
+      { type: "fill", question: "Ich ___ ein Problem.", answer: "habe", placeholder: "..." },
+      { type: "fill", question: "Was machst du ___? (здесь)", answer: "hier", placeholder: "..." },
+      { type: "translate", question: "Мой паспорт тоже пропал.", answer: "Mein Pass ist auch weg.", hint: "Напиши по-немецки", placeholder: "Auf Deutsch..." },
+      { type: "choice", question: "Как будет «мой паспорт»? (der Pass)", options: ["meine Pass", "mein Pass", "meinen Pass", "meiner Pass"], answer: 1 },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
   // A1 — МОДУЛЬ 1: ОСНОВЫ
   // ══════════════════════════════════════════════════════════
 
