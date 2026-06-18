@@ -188,6 +188,8 @@
       document.getElementById('streak').textContent   = localStorage.getItem('bulochka-streak') || '0';
       const name = localStorage.getItem('bulochka-login') || 'Булочка';
       document.getElementById('user-name').textContent = name.charAt(0).toUpperCase() + name.slice(1);
+      // Облако могло принести старый формат прогресса — домигрируем на ключи-слова
+      window.migrateSRSv2?.();
       // Перерисовываем после загрузки облачных данных (свои слова + SRS могли обновиться)
       window.rebuildDecks?.();
       renderDecks();
@@ -635,15 +637,73 @@
     },
   ];
 
-  // Итоговый список колод: своя колода + базовые + Goethe.
+  // ── КРУПНЫЕ ТЕМАТИЧЕСКИЕ КОЛОДЫ ─────────────────────────────────────────────
+  // Исходные мелкие колоды (BASE_DECKS + ALL_GOETHE_DECKS) остаются «сырьём»,
+  // а пользователю показываются 12 больших тем, собранных из них на лету.
+  // Группы перечислены по приоритету: словарные (алфавитные) колоды идут
+  // последними и подбирают слова, не попавшие в тематические.
+  const THEME_GROUPS = [
+    { id: 't-a1-basics', icon: '📒', level: 'A1',    name: '📒 A1: Первые слова',
+      src: ['a1-gruss','a1-zahlen','a1-haus','a1-verben'] },
+    { id: 't-home', icon: '🏠', level: 'A2–B1',      name: '🏠 Дом, жильё и быт',
+      src: ['a2-wohnen','a2-alltag','goethe-wohnen','goethe-wohnungssuche','goethe-stadtleben'] },
+    { id: 't-health', icon: '❤️', level: 'A2–B1',    name: '❤️ Здоровье и тело',
+      src: ['a2-gesundheit','goethe-koerper','goethe-gesundheit'] },
+    { id: 't-food', icon: '🍽️', level: 'A2–B1',     name: '🍽️ Еда, покупки и деньги',
+      src: ['a2-restaurant','goethe-essen','goethe-einkaufen','goethe-wirtschaft'] },
+    { id: 't-people', icon: '👨‍👩‍👧', level: 'A2–B1', name: '👨‍👩‍👧 Люди, семья и чувства',
+      src: ['a2-gefuehle','goethe-gefuehle','goethe-familie'] },
+    { id: 't-travel', icon: '✈️', level: 'A2–B1',    name: '✈️ Путешествия, транспорт, Австрия',
+      src: ['a2-reise','b1-oesterreich','goethe-freizeit','goethe-verkehr','goethe-reise-verkehr'] },
+    { id: 't-study-work', icon: '🎓', level: 'B1',   name: '🎓 Учёба, работа и профессии',
+      src: ['b1-studium','b1-beruf','goethe-bildung','goethe-studium','goethe-arbeit','goethe-berufe'] },
+    { id: 't-society', icon: '🌍', level: 'B1',      name: '🌍 Общество, природа и медиа',
+      src: ['goethe-gesellschaft','goethe-politik','goethe-natur','goethe-umwelt','goethe-medien','goethe-kommunikation','goethe-kultur-freizeit'] },
+    { id: 't-verbs', icon: '📝', level: 'B1',        name: '📝 Глаголы B1',
+      src: ['goethe-verbs-ae','goethe-verbs-fz','goethe-verbs-extra','goethe-verbs-ak','goethe-verbs-lz','goethe-verbs-praep','b1-grammatik'] },
+    { id: 't-adj', icon: '✨', level: 'A2–B1',       name: '✨ Прилагательные и наречия',
+      src: ['a2-adjektive','goethe-adj-al','goethe-adj-mz','goethe-adj-extra','goethe-adj-b1'] },
+    { id: 't-grammar', icon: '🔗', level: 'B1',      name: '🔗 Связки, частицы и выражения',
+      src: ['goethe-particles','goethe-konnektoren','goethe-konjunktionen','goethe-redewendungen','goethe-extra-words','goethe-zeit'] },
+    { id: 't-dict', icon: '📖', level: 'B1',         name: '📖 Словарь B1 (существительные А–Я)',
+      src: ['goethe-nouns-a','goethe-nouns-bd','goethe-nouns-ef','goethe-nouns-gk','goethe-nouns-ln','goethe-nouns-or','goethe-nouns-sz',
+            'goethe-pdf-ab','goethe-pdf-cg','goethe-pdf-hl','goethe-pdf-nr','goethe-pdf-st','goethe-pdf-uz',
+            'goethe-b1-az','goethe-b1-nz'] },
+  ];
+
+  // Все исходные («сырые») колоды — источник карточек и база для миграции прогресса
+  function allSourceDecks() {
+    return [...BASE_DECKS, ...(typeof ALL_GOETHE_DECKS !== 'undefined' ? ALL_GOETHE_DECKS : [])];
+  }
+
+  // Собирает крупные тематические колоды из исходных, дедуп по слову (глобально)
+  function buildMergedDecks() {
+    const byId = {};
+    allSourceDecks().forEach(d => { byId[d.id] = d; });
+    const seen = new Set();
+    const result = [];
+    THEME_GROUPS.forEach(g => {
+      const cards = [];
+      g.src.forEach(sid => {
+        const d = byId[sid];
+        if (!d) return;
+        d.cards.forEach(c => {
+          const k = cardKey(c);
+          if (!k || seen.has(k)) return;
+          seen.add(k);
+          cards.push(c);
+        });
+      });
+      if (cards.length) result.push({ id: g.id, name: g.name, level: g.level, icon: g.icon, cards });
+    });
+    return result;
+  }
+
+  // Итоговый список колод: своя колода + крупные тематические.
   // Пересобирается заново каждый раз (идемпотентно, без дублей).
   let DECKS = [];
   function rebuildDecks() {
-    DECKS = [
-      getCustomDeck(),
-      ...BASE_DECKS,
-      ...(typeof ALL_GOETHE_DECKS !== 'undefined' ? ALL_GOETHE_DECKS : []),
-    ];
+    DECKS = [ getCustomDeck(), ...buildMergedDecks() ];
   }
   // rebuildDecks() вызывается в конце скрипта, когда все const/функции объявлены
 
@@ -693,6 +753,28 @@
   function getSRS() { return JSON.parse(localStorage.getItem(SRS_KEY) || '{}'); }
   function saveSRS(data) { localStorage.setItem(SRS_KEY, JSON.stringify(data)); }
 
+  // Миграция прогресса со старого формата ключа (id_колоды:номер) на ключ-слово.
+  // Идемпотентна: после неё ключей вида ":число" не остаётся. Вызывается на загрузке
+  // и после подтягивания из облака (облако может принести старые ключи).
+  function migrateSRSv2() {
+    const srs = getSRS();
+    const oldKeys = Object.keys(srs).filter(k => /:\d+$/.test(k));
+    if (!oldKeys.length) return;
+    // Карта старый_ключ → слово из исходных колод + текущих кастомных слов
+    const map = {};
+    allSourceDecks().forEach(d => d.cards.forEach((c, i) => { map[`${d.id}:${i}`] = cardKey(c); }));
+    getCustomWords().forEach((c, i) => { map[`meine-woerter:${i}`] = cardKey(c); });
+    oldKeys.forEach(ok => {
+      const word = map[ok];
+      if (word) {
+        // при коллизии оставляем запись с более поздним nextReview
+        if (!srs[word] || (srs[ok].nextReview || 0) > (srs[word].nextReview || 0)) srs[word] = srs[ok];
+      }
+      delete srs[ok];
+    });
+    saveSRS(srs);
+  }
+
   function isDue(cardData) {
     if (!cardData) return true;
     return Date.now() >= cardData.nextReview;
@@ -709,12 +791,16 @@
     };
   }
 
+  // Прогресс привязан к самому немецкому слову (а не к позиции в колоде),
+  // чтобы выученное не сбивалось при пересортировке/объединении колод.
+  function cardKey(card) { return card && card.de ? String(card.de).trim() : ''; }
+
   function getDueCards(deckId) {
     const deck = DECKS.find(d => d.id === deckId);
     if (!deck) return [];
     const srs = getSRS();
     return deck.cards
-      .map((card, i) => ({ ...card, idx: i, srsData: srs[`${deckId}:${i}`] }))
+      .map((card, i) => ({ ...card, idx: i, srsData: srs[cardKey(card)] }))
       .filter(c => isDue(c.srsData));
   }
 
@@ -724,8 +810,8 @@
     const srs = getSRS();
     const total = deck.cards.length;
     const due = getDueCards(deckId).length;
-    const learned = deck.cards.filter((_, i) => {
-      const d = srs[`${deckId}:${i}`];
+    const learned = deck.cards.filter(card => {
+      const d = srs[cardKey(card)];
       return d && d.reps > 0 && d.ease >= 2;
     }).length;
     return { total, due, learned };
@@ -850,7 +936,7 @@
   function rate(rating) {
     const card = sessionCards[sessionIdx];
     const srs = getSRS();
-    const key = `${sessionDeck.id}:${card.idx}`;
+    const key = cardKey(card);
     srs[key] = calcNext(rating, srs[key]);
     saveSRS(srs);
     if (rating >= 2) sessionCorrect++;
@@ -883,9 +969,12 @@
     alert(`✅ "${de}" добавлено в "Мои слова"`);
   };
 
-  // Рисуем колоды сразу (не дожидаясь авторизации) — потом перерисуем после облака
+  // Мигрируем старый прогресс на ключи-слова, затем рисуем колоды сразу
+  // (не дожидаясь авторизации) — потом перерисуем после облака
+  migrateSRSv2();
   rebuildDecks();
   renderDecks();
+  window.migrateSRSv2 = migrateSRSv2;
 
   // floating hearts
   const fhC = document.getElementById('floating-hearts');
