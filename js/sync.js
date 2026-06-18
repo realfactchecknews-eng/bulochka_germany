@@ -22,6 +22,7 @@ export function initAuth(onReady) {
       return;
     }
     currentUid = user.uid;
+    localStorage.setItem('bulochka_uid', user.uid);
 
     // Подтягиваем данные из облака → сливаем с локальными
     await pullFromCloud();

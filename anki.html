@@ -188,15 +188,15 @@
       document.getElementById('streak').textContent   = localStorage.getItem('bulochka-streak') || '0';
       const name = localStorage.getItem('bulochka-login') || 'Булочка';
       document.getElementById('user-name').textContent = name.charAt(0).toUpperCase() + name.slice(1);
-      // Инициализируем DECKS с пользовательской колодой и Goethe
-      window.updateDecksWithCustom?.();
+      // Перерисовываем после загрузки облачных данных (свои слова + SRS могли обновиться)
+      window.rebuildDecks?.();
       renderDecks();
     });
   </script>
 
   <script>
   // ── VOCABULARY DECKS ──────────────────────────────────────────────────────
-  const DECKS = [
+  const BASE_DECKS = [
     {
       id: 'a2-wohnen', name: 'Жильё и квартира', level: 'A2', icon: '🏠',
       cards: [
@@ -635,13 +635,17 @@
     },
   ];
 
-  // Добавляем кастомную колоду и Goethe в конец
-  function updateDecksWithCustom() {
-    DECKS.unshift(getCustomDeck());
-    if (typeof ALL_GOETHE_DECKS !== 'undefined') {
-      DECKS.push(...ALL_GOETHE_DECKS);
-    }
+  // Итоговый список колод: своя колода + базовые + Goethe.
+  // Пересобирается заново каждый раз (идемпотентно, без дублей).
+  let DECKS = [];
+  function rebuildDecks() {
+    DECKS = [
+      getCustomDeck(),
+      ...BASE_DECKS,
+      ...(typeof ALL_GOETHE_DECKS !== 'undefined' ? ALL_GOETHE_DECKS : []),
+    ];
   }
+  // rebuildDecks() вызывается в конце скрипта, когда все const/функции объявлены
 
   // ── CUSTOM WORDS ──────────────────────────────────────────────────────────
   const CUSTOM_WORDS_KEY = 'bulochka-custom-words';
@@ -842,7 +846,6 @@
     document.getElementById('tap-hint').style.display = 'none';
   }
   window.flipCard = flipCard;
-  window.updateDecksWithCustom = updateDecksWithCustom;
 
   function rate(rating) {
     const card = sessionCards[sessionIdx];
@@ -869,19 +872,20 @@
     startDeck(sessionDeck.id);
   }
   window.restartDeck = restartDeck;
+  window.rebuildDecks = rebuildDecks;
 
   // ── GLOBAL API ────────────────────────────────────────────────────────────
   // Доступна на всех страницах: window.addWordToAnki(de, ru, ex)
   window.addWordToAnki = function(de, ru, ex = '') {
     addCustomWord(de, ru, ex);
-    // Переопределяем колоду чтобы обновить список
-    const idx = DECKS.findIndex(d => d.id === 'meine-woerter');
-    if (idx >= 0) {
-      DECKS[idx] = getCustomDeck();
-    }
-    // Уведомляем пользователя
+    rebuildDecks();
+    if (document.getElementById('deck-grid')) renderDecks();
     alert(`✅ "${de}" добавлено в "Мои слова"`);
   };
+
+  // Рисуем колоды сразу (не дожидаясь авторизации) — потом перерисуем после облака
+  rebuildDecks();
+  renderDecks();
 
   // floating hearts
   const fhC = document.getElementById('floating-hearts');
