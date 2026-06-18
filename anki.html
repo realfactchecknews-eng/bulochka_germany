@@ -177,9 +177,13 @@
   <script type="module" src="./js/chat-widget.js"></script>
 
   <script type="module">
-    import { initAuth, logout } from './js/sync.js';
+    import { initAuth, logout, loadAllDataFromFirestore } from './js/sync.js';
     document.getElementById('logout-btn').addEventListener('click', () => { if(confirm('Выйти?')) logout(); });
-    initAuth(() => {
+    initAuth(async () => {
+      const uid = localStorage.getItem('bulochka_uid');
+      // Загружаем все данные (SRS, пользовательские слова и т.д.) из облака
+      if (uid) await loadAllDataFromFirestore(uid);
+
       document.getElementById('total-xp').textContent = localStorage.getItem('bulochka-xp') || '0';
       document.getElementById('streak').textContent   = localStorage.getItem('bulochka-streak') || '0';
       const name = localStorage.getItem('bulochka-login') || 'Булочка';

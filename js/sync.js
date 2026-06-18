@@ -63,6 +63,9 @@ export function pushToCloud() {
   syncTimeout = setTimeout(async () => {
     try {
       const progress = JSON.parse(localStorage.getItem('bulochka-progress') || '{}');
+      const srs = JSON.parse(localStorage.getItem('bulochka-anki-srs') || '{}');
+      const customWords = JSON.parse(localStorage.getItem('bulochka-custom-words') || '[]');
+
       await setDoc(doc(db, 'users', currentUid), {
         xp:       parseInt(localStorage.getItem('bulochka-xp')      || '0'),
         streak:   parseInt(localStorage.getItem('bulochka-streak')   || '0'),
@@ -70,6 +73,10 @@ export function pushToCloud() {
         progress,
         updatedAt: new Date().toISOString(),
       }, { merge: true });
+
+      // Синхронизируем SRS и пользовательские слова в отдельных документах
+      await setDoc(doc(db, 'users', currentUid, 'data', 'srs'), { data: srs, updatedAt: new Date().toISOString() }, { merge: true });
+      await setDoc(doc(db, 'users', currentUid, 'data', 'custom_words'), { data: customWords, updatedAt: new Date().toISOString() }, { merge: true });
     } catch (e) {
       console.warn('pushToCloud error:', e);
     }
@@ -97,6 +104,45 @@ function listenCloud() {
 }
 
 // ─── ВЫХОД ──────────────────────────────────────────────
+// ─── ПОЛЬЗОВАТЕЛЬСКИЕ СЛОВА И ДРУГИЕ ДАННЫЕ ──────────────────────
+export async function saveToFirestore(uid, collection, data) {
+  try {
+    await setDoc(doc(db, 'users', uid, 'data', collection), { data, updatedAt: new Date().toISOString() }, { merge: true });
+  } catch (e) {
+    console.warn(`saveToFirestore(${collection}) error:`, e);
+  }
+}
+
+export async function loadFromFirestore(uid, collection) {
+  try {
+    const snap = await getDoc(doc(db, 'users', uid, 'data', collection));
+    return snap.exists() ? snap.data().data : null;
+  } catch (e) {
+    console.warn(`loadFromFirestore(${collection}) error:`, e);
+    return null;
+  }
+}
+
+// Загружаем все данные из облака при загрузке (override локальных если облачные новее)
+export async function loadAllDataFromFirestore(uid) {
+  try {
+    // Загружаем SRS
+    const cloudSRS = await loadFromFirestore(uid, 'srs');
+    if (cloudSRS) localStorage.setItem('bulochka-anki-srs', JSON.stringify(cloudSRS));
+
+    // Загружаем пользовательские слова
+    const cloudWords = await loadFromFirestore(uid, 'custom_words');
+    if (cloudWords) localStorage.setItem('bulochka-custom-words', JSON.stringify(cloudWords));
+  } catch (e) {
+    console.warn('loadAllDataFromFirestore error:', e);
+  }
+}
+
+// Экспортируем для использования в других скриптах
+window.saveToFirestore = saveToFirestore;
+window.loadFromFirestore = loadFromFirestore;
+window.loadAllDataFromFirestore = loadAllDataFromFirestore;
+
 export async function logout() {
   await signOut(auth);
   localStorage.clear();
