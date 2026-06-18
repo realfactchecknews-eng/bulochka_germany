@@ -173,6 +173,7 @@
 
   <script src="js/firebase-config.js"></script>
   <script src="js/data.js"></script>
+  <script src="js/goethe-data.js"></script>
   <script type="module" src="./js/chat-widget.js"></script>
 
   <script type="module">
@@ -626,6 +627,7 @@
         { de: 'zumindest', ru: 'по крайней мере', ex: 'Zumindest war es interessant.' },
       ]
     },
+    ...(typeof ALL_GOETHE_DECKS !== 'undefined' ? ALL_GOETHE_DECKS : []),
   ];
 
   // ── SPACED REPETITION ─────────────────────────────────────────────────────
