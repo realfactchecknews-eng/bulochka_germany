@@ -46,20 +46,33 @@
   <script src="js/data.js"></script>
   <script src="js/lessons-content.js"></script>
   <script src="js/lesson.js"></script>
+  <script src="js/word-lookup.js"></script>
 
   <script type="module" src="./js/chat-widget.js"></script>
 
   <script type="module">
-    import { initAuth, pushToCloud, logout } from './js/sync.js';
+    import { initAuth, pushToCloud, logout, db } from './js/sync.js';
+    import { getDoc, doc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
     document.getElementById('logout-btn').addEventListener('click', () => {
       if (confirm('Выйти из аккаунта?')) logout();
     });
 
     // Проверяем авторизацию, потом рендерим урок
-    initAuth(() => {
+    initAuth(async () => {
       renderHeaderStats();
       renderLesson();
+
+      // Подгружаем ключ OpenRouter для перевода слов
+      try {
+        const snap = await getDoc(doc(db, 'config', 'openrouter'));
+        if (snap.exists()) window._orKey = snap.data().key;
+      } catch(e) {}
+
+      // Делаем немецкие слова в теории кликабельными (перевод + добавление в Anki)
+      document.querySelectorAll('#lesson-root .theory-block').forEach(b => {
+        window.WordLookup?.attach(b);
+      });
     });
 
     // Экспортируем pushToCloud чтобы lesson.js мог вызвать после завершения урока
