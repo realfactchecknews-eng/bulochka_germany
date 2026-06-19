@@ -1405,34 +1405,122 @@ const LESSONS_CONTENT = {
   },
 
   'prepositions-place': {
-    title: 'Предлоги места',
+    title: 'Предлоги места и направления',
     level: 'A2 · Урок 20',
-    intro: 'Предлоги места — где находится предмет. Важно: одни требуют Dativ, другие — Akkusativ. Есть хитрый способ запомнить!',
+    intro: 'Wechselpräpositionen — «двойные» предлоги. Один и тот же предлог требует то Dativ, то Akkusativ — всё зависит от вопроса Wo? (где?) или Wohin? (куда?). Разберём это до автоматизма + парные глаголы legen/liegen.',
     theory: [
       {
-        heading: '📍 Предлоги + Dativ (где? — статика)',
+        heading: '📍 9 «двойных» предлогов (Wechselpräpositionen)',
         content: `
+          <p>Есть девять предлогов, которые могут управлять <b>и Dativ, и Akkusativ</b>. Их стоит выучить как считалку:</p>
           <div class="table-wrap"><table>
-            <tr><th>Предлог</th><th>Значение</th><th>Пример</th></tr>
-            <tr><td><b>in + Dat.</b></td><td>в (внутри)</td><td>Das Buch ist <b>in der</b> Tasche.</td></tr>
-            <tr><td><b>an + Dat.</b></td><td>у, при, на (вертик.)</td><td>Das Bild hängt <b>an der</b> Wand.</td></tr>
-            <tr><td><b>auf + Dat.</b></td><td>на (горизонт.)</td><td>Das Buch liegt <b>auf dem</b> Tisch.</td></tr>
-            <tr><td><b>unter + Dat.</b></td><td>под</td><td>Die Katze ist <b>unter dem</b> Tisch.</td></tr>
-            <tr><td><b>über + Dat.</b></td><td>над</td><td>Die Lampe hängt <b>über dem</b> Tisch.</td></tr>
-            <tr><td><b>neben + Dat.</b></td><td>рядом с</td><td>Er sitzt <b>neben der</b> Frau.</td></tr>
+            <tr><th>Предлог</th><th>Значение</th><th>Пример (Wo? / Dativ)</th></tr>
+            <tr><td><b>in</b></td><td>в (внутри)</td><td>Das Kind ist <b>in der</b> Schule.</td></tr>
+            <tr><td><b>an</b></td><td>на (вертик.), у, при</td><td>Das Bild hängt <b>an der</b> Wand.</td></tr>
+            <tr><td><b>auf</b></td><td>на (горизонт.)</td><td>Das Buch liegt <b>auf dem</b> Tisch.</td></tr>
+            <tr><td><b>über</b></td><td>над</td><td>Die Lampe hängt <b>über dem</b> Tisch.</td></tr>
+            <tr><td><b>unter</b></td><td>под</td><td>Die Katze schläft <b>unter dem</b> Bett.</td></tr>
+            <tr><td><b>vor</b></td><td>перед</td><td>Das Auto steht <b>vor dem</b> Haus.</td></tr>
+            <tr><td><b>hinter</b></td><td>за, позади</td><td>Der Garten ist <b>hinter dem</b> Haus.</td></tr>
+            <tr><td><b>neben</b></td><td>рядом с</td><td>Die Lampe steht <b>neben dem</b> Sofa.</td></tr>
+            <tr><td><b>zwischen</b></td><td>между</td><td>Der Tisch steht <b>zwischen den</b> Stühlen.</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">💡 Правило Егора: «Wo?» (где?) → Dativ. «Wohin?» (куда?) → Akkusativ.</div>
-            <div class="ru">Das Buch liegt auf <b>dem</b> Tisch (где?) / Ich lege das Buch auf <b>den</b> Tisch (куда?)</div>
+            <div class="de">💡 Эти девять предлогов — единственные, у которых падеж «плавает». Все остальные предлоги места (например, <b>bei, gegenüber</b>) всегда с Dativ, а <b>durch, um</b> — всегда с Akkusativ.</div>
+            <div class="ru">Поэтому именно эти 9 нужно довести до автоматизма.</div>
           </div>
+        `
+      },
+      {
+        heading: '⚖️ Главное правило: Wo? → Dativ, Wohin? → Akkusativ',
+        content: `
+          <p>Падеж после такого предлога зависит <b>не от предлога</b>, а от смысла:</p>
+          <ul>
+            <li><b>Wo?</b> (где?) — предмет <u>находится</u>, не двигается → <b>Dativ</b></li>
+            <li><b>Wohin?</b> (куда?) — есть <u>движение в сторону</u> цели → <b>Akkusativ</b></li>
+          </ul>
+          <p>Сравни одну и ту же фразу:</p>
+          <div class="example-box">
+            <div class="de">Das Buch liegt auf <b>dem</b> Tisch. (Wo? — Dativ)<br>Ich lege das Buch auf <b>den</b> Tisch. (Wohin? — Akkusativ)</div>
+            <div class="ru">Книга лежит на столе. / Я кладу книгу на стол.</div>
+          </div>
+          <p>Формы артиклей, которые надо знать наизусть:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Род</th><th>Dativ (Wo?)</th><th>Akkusativ (Wohin?)</th></tr>
+            <tr><td>der (m)</td><td><b>dem</b> / einem</td><td><b>den</b> / einen</td></tr>
+            <tr><td>das (n)</td><td><b>dem</b> / einem</td><td><b>das</b> / ein</td></tr>
+            <tr><td>die (f)</td><td><b>der</b> / einer</td><td><b>die</b> / eine</td></tr>
+            <tr><td>die (Pl)</td><td><b>den</b> (+n!)</td><td><b>die</b></td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Внимание на Plural Dativ: zwischen <b>den Stühlen</b> (+n у существительного!).</div>
+            <div class="ru">В Dativ Plural существительное получает окончание -n (если его ещё нет).</div>
+          </div>
+        `
+      },
+      {
+        heading: '🔄 Парные глаголы: legen/liegen, stellen/stehen, setzen/sitzen',
+        content: `
+          <p>Это любимая ловушка немецкого. У каждого «положения» есть два глагола: один — <b>действие/движение</b> (Akkusativ), другой — <b>состояние/положение</b> (Dativ).</p>
+          <div class="table-wrap"><table>
+            <tr><th>Действие (Wohin? + Akk)</th><th>Состояние (Wo? + Dativ)</th></tr>
+            <tr><td><b>legen</b> — класть (горизонт.)</td><td><b>liegen</b> — лежать</td></tr>
+            <tr><td><b>stellen</b> — ставить (вертик.)</td><td><b>stehen</b> — стоять</td></tr>
+            <tr><td><b>setzen</b> — сажать</td><td><b>sitzen</b> — сидеть</td></tr>
+            <tr><td><b>hängen</b> (слаб.) — вешать</td><td><b>hängen</b> (сильн.) — висеть</td></tr>
+            <tr><td><b>stecken</b> — засовывать</td><td><b>stecken</b> — торчать/быть внутри</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Ich <b>stelle</b> die Vase auf <b>den</b> Tisch. (куда? — Akk)<br>Die Vase <b>steht</b> auf <b>dem</b> Tisch. (где? — Dativ)</div>
+            <div class="ru">Я ставлю вазу на стол. / Ваза стоит на столе.</div>
+          </div>
+          <p>Подсказка: глаголы движения (legen, stellen, setzen) переходные — у них есть прямой объект (что? — Akkusativ). Глаголы состояния (liegen, stehen, sitzen) описывают, где предмет уже находится.</p>
+        `
+      },
+      {
+        heading: '🔗 Слияния предлога с артиклем (im, am, ans, ins…)',
+        content: `
+          <p>В речи предлог часто сливается с артиклем. Их важно узнавать:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Полная форма</th><th>Слияние</th><th>Падеж</th></tr>
+            <tr><td>in dem</td><td><b>im</b></td><td>Dativ (Wo?)</td></tr>
+            <tr><td>in das</td><td><b>ins</b></td><td>Akkusativ (Wohin?)</td></tr>
+            <tr><td>an dem</td><td><b>am</b></td><td>Dativ</td></tr>
+            <tr><td>an das</td><td><b>ans</b></td><td>Akkusativ</td></tr>
+            <tr><td>auf das</td><td><b>aufs</b></td><td>Akkusativ</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Ich gehe <b>ins</b> Kino. (Wohin? — Akk)  ·  Ich bin <b>im</b> Kino. (Wo? — Dativ)</div>
+            <div class="ru">Я иду в кино. / Я в кино.</div>
+          </div>
+          <p>⚠️ Частая ошибка: путать «иду куда-то» (ins, Akkusativ) и «нахожусь где-то» (im, Dativ). Всегда задавай себе вопрос Wo? или Wohin?</p>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Das Buch liegt auf ___ Tisch. (где? Dativ, der Tisch)', options: ['dem', 'den', 'der', 'die'], answer: 0 },
-      { type: 'choice', question: 'Die Katze ist unter ___ Stuhl. (где? Dativ, der Stuhl)', options: ['dem', 'den', 'der', 'die'], answer: 0 },
-      { type: 'choice', question: '«Wo?» (где?) требует падеж:', options: ['Dativ', 'Akkusativ', 'Nominativ', 'Genitiv'], answer: 0 },
-      { type: 'fill', question: 'Das Bild hängt an ___ Wand. (Dativ, die Wand)', answer: 'der', placeholder: 'd...' },
+      { type: 'choice', question: 'Вопрос <b>Wo?</b> (где?) требует падеж:', options: ['Dativ', 'Akkusativ', 'Nominativ', 'Genitiv'], answer: 0 },
+      { type: 'choice', question: 'Вопрос <b>Wohin?</b> (куда?) требует падеж:', options: ['Akkusativ', 'Dativ', 'Genitiv', 'Nominativ'], answer: 0 },
+      { type: 'choice', question: 'Das Buch liegt auf ___ Tisch. (Wo? · der Tisch)', options: ['dem', 'den', 'der', 'das'], answer: 0 },
+      { type: 'choice', question: 'Ich lege das Buch auf ___ Tisch. (Wohin? · der Tisch)', options: ['den', 'dem', 'der', 'das'], answer: 0 },
+      { type: 'choice', question: 'Die Vase steht auf ___ Tisch, aber ich stelle die zweite Vase auf ___ Regal. (Wo? / Wohin?)', options: ['dem … das', 'den … dem', 'dem … dem', 'der … das'], answer: 0 },
+      { type: 'fill', question: 'Das Bild hängt an ___ Wand. (Wo? · die Wand)', answer: 'der', placeholder: 'd...' },
+      { type: 'fill', question: 'Ich hänge das Bild an ___ Wand. (Wohin? · die Wand)', answer: 'die', placeholder: 'd...' },
+      { type: 'fill', question: 'Слияние: Ich gehe ___ Kino. (in + das)', answer: 'ins', placeholder: '...' },
+      { type: 'choice', question: 'Die Katze ___ auf dem Sofa. (она там находится)', options: ['liegt', 'legt', 'stellt', 'setzt'], answer: 0 },
+      { type: 'choice', question: 'Ich ___ die Tasse auf den Tisch. (я ставлю)', options: ['stelle', 'stehe', 'liege', 'sitze'], answer: 0 },
+      { type: 'translate', question: 'Кошка сидит под столом.', answer: 'Die Katze sitzt unter dem Tisch.', hint: 'sitzen + Wo? → Dativ, der Tisch', placeholder: 'Die Katze...' },
+      { type: 'translate', question: 'Я кладу телефон на стол.', answer: 'Ich lege das Handy auf den Tisch.|Ich lege mein Handy auf den Tisch.', hint: 'legen + Wohin? → Akkusativ', placeholder: 'Ich lege...' },
+      { type: 'listen', answer: 'Die Lampe hängt über dem Tisch.', hint: '6 слов · über + Dativ' },
+      { type: 'reading',
+        text: 'Das ist mein Zimmer. In der Mitte steht ein Bett. Neben dem Bett steht ein kleiner Tisch, und auf dem Tisch liegt mein Handy. An der Wand hängt ein großes Bild. Unter dem Bett schläft meine Katze. Vor dem Fenster steht ein Stuhl.',
+        translation: 'Это моя комната. Посередине стоит кровать. Рядом с кроватью стоит маленький стол, а на столе лежит мой телефон. На стене висит большая картина. Под кроватью спит моя кошка. Перед окном стоит стул.',
+        questions: [
+          { q: 'Wo liegt das Handy?', options: ['Auf dem Tisch', 'Unter dem Bett', 'An der Wand'], answer: 0 },
+          { q: 'Wo schläft die Katze?', options: ['Vor dem Fenster', 'Unter dem Bett', 'Auf dem Stuhl'], answer: 1 },
+          { q: 'Was hängt an der Wand? (одно слово)', answer: 'ein Bild|Bild|das Bild|ein großes Bild' }
+        ]
+      },
+      { type: 'write', question: 'Beschreibe dein Zimmer: Wo stehen und liegen die Sachen? Schreib 4–6 Sätze mit Wechselpräpositionen.', hint: 'Используй in, auf, an, neben, unter, vor + Dativ (Wo?). Глаголы: stehen, liegen, hängen.', placeholder: 'In meinem Zimmer...', sample: 'In meinem Zimmer steht ein Bett. Neben dem Bett steht ein Tisch. Auf dem Tisch liegen meine Bücher. An der Wand hängt ein Bild. Unter dem Fenster steht ein Stuhl.' }
     ],
   },
 
