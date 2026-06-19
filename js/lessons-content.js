@@ -1310,78 +1310,220 @@ const LESSONS_CONTENT = {
   // ══════════════════════════════════════════════════════════
 
   praesens: {
-    title: 'Präsens: правильные глаголы',
-    level: 'A1 · Урок 11',
-    intro: 'Настоящее время (Präsens) — основа разговорного языка. У правильных глаголов чёткая схема спряжения.',
+    title: 'Präsens: спряжение правильных (слабых) глаголов',
+    level: 'A1 · Урок 12',
+    intro: 'Präsens — настоящее время. У правильных глаголов берём основу (инфинитив без -en) и добавляем личное окончание. Разберём окончания и важные исключения (-t/-d, -s/-ß/-z).',
     theory: [
       {
-        heading: '📋 Схема спряжения: глагол lernen (учить)',
+        heading: '🔧 Окончания спряжения',
         content: `
-          <p>Берём основу (инфинитив без <b>-en</b>) и добавляем окончания:</p>
+          <p>Основа = инфинитив без <b>-en</b>: machen → mach-. К ней добавляем окончание по лицу:</p>
           <div class="table-wrap"><table>
-            <tr><th>Местоимение</th><th>Окончание</th><th>lernen</th><th>wohnen (жить)</th><th>machen (делать)</th></tr>
-            <tr><td>ich</td><td><b>-e</b></td><td>ich lern<b>e</b></td><td>ich wohn<b>e</b></td><td>ich mach<b>e</b></td></tr>
-            <tr><td>du</td><td><b>-st</b></td><td>du lern<b>st</b></td><td>du wohn<b>st</b></td><td>du mach<b>st</b></td></tr>
-            <tr><td>er/sie/es</td><td><b>-t</b></td><td>er lern<b>t</b></td><td>er wohn<b>t</b></td><td>er mach<b>t</b></td></tr>
-            <tr><td>wir</td><td><b>-en</b></td><td>wir lern<b>en</b></td><td>wir wohn<b>en</b></td><td>wir mach<b>en</b></td></tr>
-            <tr><td>ihr</td><td><b>-t</b></td><td>ihr lern<b>t</b></td><td>ihr wohn<b>t</b></td><td>ihr mach<b>t</b></td></tr>
-            <tr><td>sie/Sie</td><td><b>-en</b></td><td>sie lern<b>en</b></td><td>sie wohn<b>en</b></td><td>sie mach<b>en</b></td></tr>
+            <tr><th>Лицо</th><th>Окончание</th><th>machen (делать)</th></tr>
+            <tr><td>ich</td><td><b>-e</b></td><td>ich mach<b>e</b></td></tr>
+            <tr><td>du</td><td><b>-st</b></td><td>du mach<b>st</b></td></tr>
+            <tr><td>er/sie/es</td><td><b>-t</b></td><td>er mach<b>t</b></td></tr>
+            <tr><td>wir</td><td><b>-en</b></td><td>wir mach<b>en</b></td></tr>
+            <tr><td>ihr</td><td><b>-t</b></td><td>ihr mach<b>t</b></td></tr>
+            <tr><td>sie/Sie</td><td><b>-en</b></td><td>sie mach<b>en</b></td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich lerne Deutsch. Du wohnst in Moskau. Sie macht Hausaufgaben.</div>
-            <div class="ru">Я учу немецкий. Ты живёшь в Москве. Она делает домашнее задание.</div>
+            <div class="de">Так же: lernen, wohnen, spielen, kaufen, fragen, sagen, brauchen.</div>
+            <div class="ru">wir и sie/Sie всегда совпадают с инфинитивом (-en).</div>
+          </div>
+        `
+      },
+      {
+        heading: '➕ Исключение 1: основа на -t / -d / -n',
+        content: `
+          <p>Если основа заканчивается на <b>-t, -d</b> (или -m/-n после согласной), между основой и окончанием -st/-t вставляется <b>-e-</b> (иначе не выговорить):</p>
+          <div class="table-wrap"><table>
+            <tr><th>Лицо</th><th>arbeiten</th><th>finden</th></tr>
+            <tr><td>du</td><td>du arbeit<b>e</b>st</td><td>du find<b>e</b>st</td></tr>
+            <tr><td>er/sie/es</td><td>er arbeit<b>e</b>t</td><td>er find<b>e</b>t</td></tr>
+            <tr><td>ihr</td><td>ihr arbeit<b>e</b>t</td><td>ihr find<b>e</b>t</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Так же: warten (du wartest), baden, reden, öffnen, regnen (es regnet).</div>
+            <div class="ru">Вставляем -e- только в формах du, er, ihr.</div>
+          </div>
+        `
+      },
+      {
+        heading: '➕ Исключение 2: основа на -s / -ß / -z / -x',
+        content: `
+          <p>Если основа заканчивается на шипящий/свистящий <b>-s, -ß, -z, -x</b>, то в форме <b>du</b> окончание -st теряет «s» → просто <b>-t</b>:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Инфинитив</th><th>du</th></tr>
+            <tr><td>heißen</td><td>du heiß<b>t</b> (не «heißst»)</td></tr>
+            <tr><td>reisen</td><td>du reis<b>t</b></td></tr>
+            <tr><td>tanzen</td><td>du tanz<b>t</b></td></tr>
+            <tr><td>sitzen</td><td>du sitz<b>t</b></td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Wie heißt du? — Ich heiße Anna.</div>
+            <div class="ru">Только форма du! er/sie остаётся с -t как обычно.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich ___ Deutsch. (lernen)', options: ['lerne', 'lernst', 'lernt', 'lernen'], answer: 0 },
-      { type: 'choice', question: 'Du ___ in Berlin. (wohnen)', options: ['wohnst', 'wohne', 'wohnt', 'wohnen'], answer: 0 },
-      { type: 'fill', question: 'Er ___ viel. (machen)', answer: 'macht', placeholder: 'mach...' },
-      { type: 'choice', question: 'Wir ___ Deutsch. (lernen)', options: ['lernen', 'lerne', 'lernst', 'lernt'], answer: 0 },
-      { type: 'fill', question: 'Sie (она) ___ in Wien. (wohnen)', answer: 'wohnt', placeholder: 'wohn...' },
+      { type: 'fill', question: 'ich ___ (machen)', answer: 'mache', placeholder: 'mach...' },
+      { type: 'fill', question: 'du ___ (spielen)', answer: 'spielst', placeholder: 'spiel...' },
+      { type: 'fill', question: 'er ___ (wohnen)', answer: 'wohnt', placeholder: 'wohn...' },
+      { type: 'fill', question: 'wir ___ (lernen)', answer: 'lernen', placeholder: 'lern...' },
+      { type: 'fill', question: 'Исключение -t: du ___ (arbeiten)', answer: 'arbeitest', placeholder: 'arbeit...' },
+      { type: 'fill', question: 'Исключение -t: er ___ (warten)', answer: 'wartet', placeholder: 'wart...' },
+      { type: 'fill', question: 'Исключение -ß: du ___ (heißen)', answer: 'heißt|heisst', placeholder: 'heiß...' },
+      { type: 'fill', question: 'Исключение -z: du ___ (tanzen)', answer: 'tanzt', placeholder: 'tanz...' },
+      { type: 'translate', question: 'Я живу в Москве.', answer: 'Ich wohne in Moskau.', hint: 'wohnen → ich wohne', placeholder: 'Ich wohne...' },
+      { type: 'translate', question: 'Как тебя зовут?', answer: 'Wie heißt du?', hint: 'heißen → du heißt', placeholder: 'Wie...' },
+      { type: 'translate', question: 'Он много работает.', answer: 'Er arbeitet viel.', hint: 'arbeiten → er arbeitet (+e)', placeholder: 'Er arbeitet...' },
+      { type: 'listen', answer: 'Wir lernen Deutsch und spielen Fußball.', hint: 'два глагола: wir -en' },
+      { type: 'write', question: 'Schreib 3 Sätze über deinen Tag mit regelmäßigen Verben (wohnen, lernen, arbeiten, spielen, machen).', hint: 'Спрягай: ich -e, du -st, er -t. Не забудь -e- у arbeiten/warten.', placeholder: 'Ich...', sample: 'Ich wohne in Wien. Ich lerne Deutsch. Am Abend spiele ich Gitarre.' }
     ],
   },
 
   'irregular-verbs': {
-    title: 'Сильные глаголы (с чередованием)',
-    level: 'A1 · Урок 12',
-    intro: 'Часть глаголов меняет корневую гласную в формах du и er/sie/es. Это нужно запомнить — но таких глаголов не так много!',
+    title: 'Сильные глаголы (чередование e→i/ie, a→ä)',
+    level: 'A1 · Урок 13',
+    intro: 'У некоторых глаголов в Präsens меняется корневая гласная — но ТОЛЬКО в формах du и er/sie/es. Это нужно знать, потому что такие глаголы очень частые: sprechen, fahren, sehen, nehmen.',
     theory: [
       {
-        heading: '⚡ Глаголы с чередованием e → i / ie',
+        heading: '🔁 e → i (короткое i)',
         content: `
+          <p>Гласная <b>e</b> в корне меняется на <b>i</b> в формах du и er/sie/es:</p>
           <div class="table-wrap"><table>
-            <tr><th></th><th>lesen (читать)</th><th>sprechen (говорить)</th><th>essen (есть)</th><th>sehen (видеть)</th></tr>
-            <tr><td>ich</td><td>lese</td><td>spreche</td><td>esse</td><td>sehe</td></tr>
-            <tr><td>du</td><td><b>liest</b></td><td><b>sprichst</b></td><td><b>isst</b></td><td><b>siehst</b></td></tr>
-            <tr><td>er/sie/es</td><td><b>liest</b></td><td><b>spricht</b></td><td><b>isst</b></td><td><b>sieht</b></td></tr>
-            <tr><td>wir</td><td>lesen</td><td>sprechen</td><td>essen</td><td>sehen</td></tr>
+            <tr><th></th><th>sprechen</th><th>geben</th><th>essen</th><th>helfen</th></tr>
+            <tr><td>ich</td><td>spreche</td><td>gebe</td><td>esse</td><td>helfe</td></tr>
+            <tr><td>du</td><td>spr<b>i</b>chst</td><td>g<b>i</b>bst</td><td><b>i</b>sst</td><td>h<b>i</b>lfst</td></tr>
+            <tr><td>er/sie/es</td><td>spr<b>i</b>cht</td><td>g<b>i</b>bt</td><td><b>i</b>sst</td><td>h<b>i</b>lft</td></tr>
+            <tr><td>wir/sie</td><td>sprechen</td><td>geben</td><td>essen</td><td>helfen</td></tr>
           </table></div>
+          <div class="example-box">
+            <div class="de">Особо: nehmen → du n<b>imm</b>st, er n<b>imm</b>t (двойное m!).</div>
+            <div class="ru">В ich, wir, ihr, sie — гласная НЕ меняется.</div>
+          </div>
         `
       },
       {
-        heading: '⚡ Глаголы с чередованием a → ä',
+        heading: '🔁 e → ie (длинное i)',
         content: `
           <div class="table-wrap"><table>
-            <tr><th></th><th>fahren (ехать)</th><th>schlafen (спать)</th><th>tragen (носить)</th></tr>
-            <tr><td>ich</td><td>fahre</td><td>schlafe</td><td>trage</td></tr>
-            <tr><td>du</td><td><b>fährst</b></td><td><b>schläfst</b></td><td><b>trägst</b></td></tr>
-            <tr><td>er/sie/es</td><td><b>fährt</b></td><td><b>schläft</b></td><td><b>trägt</b></td></tr>
-            <tr><td>wir</td><td>fahren</td><td>schlafen</td><td>tragen</td></tr>
+            <tr><th></th><th>sehen</th><th>lesen</th></tr>
+            <tr><td>ich</td><td>sehe</td><td>lese</td></tr>
+            <tr><td>du</td><td>s<b>ie</b>hst</td><td>l<b>ie</b>st</td></tr>
+            <tr><td>er/sie/es</td><td>s<b>ie</b>ht</td><td>l<b>ie</b>st</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Sie spricht sehr gut Deutsch! Er fährt nach Wien. Du isst zu viel Schokolade.</div>
-            <div class="ru">Она очень хорошо говорит по-немецки! Он едет в Вену. Ты ешь слишком много шоколада.</div>
+            <div class="de">Er s<b>ie</b>ht fern. Sie l<b>ie</b>st ein Buch.</div>
+            <div class="ru">lesen: основа на -s, поэтому du liest (а не «liesst»).</div>
+          </div>
+        `
+      },
+      {
+        heading: '🔁 a → ä',
+        content: `
+          <p>Корневое <b>a</b> получает умлаут <b>ä</b> в du и er/sie/es:</p>
+          <div class="table-wrap"><table>
+            <tr><th></th><th>fahren</th><th>schlafen</th><th>tragen</th></tr>
+            <tr><td>ich</td><td>fahre</td><td>schlafe</td><td>trage</td></tr>
+            <tr><td>du</td><td>f<b>ä</b>hrst</td><td>schl<b>ä</b>fst</td><td>tr<b>ä</b>gst</td></tr>
+            <tr><td>er/sie/es</td><td>f<b>ä</b>hrt</td><td>schl<b>ä</b>ft</td><td>tr<b>ä</b>gt</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Так же: laufen → du l<b>äu</b>fst, fallen → du f<b>ä</b>llst, tragen, waschen, gefallen.</div>
+            <div class="ru">Запомни главное правило: меняется только du и er/sie/es.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Sie ___ sehr gut Deutsch. (sprechen)', options: ['spricht', 'sprechen', 'sprechst', 'sprecht'], answer: 0 },
-      { type: 'choice', question: 'Er ___ nach Wien. (fahren)', options: ['fährt', 'fahrt', 'fahre', 'fährst'], answer: 0 },
-      { type: 'fill', question: 'Du ___ ein Buch. (lesen)', answer: 'liest', placeholder: 'l...' },
-      { type: 'choice', question: 'Was ___ du? (essen)', options: ['isst', 'esst', 'esse', 'essen'], answer: 0 },
+      { type: 'fill', question: 'e→i: du ___ (sprechen)', answer: 'sprichst', placeholder: 'spr...' },
+      { type: 'fill', question: 'e→i: er ___ (geben)', answer: 'gibt', placeholder: 'g...' },
+      { type: 'fill', question: 'e→i особый: du ___ (nehmen)', answer: 'nimmst', placeholder: 'n...' },
+      { type: 'fill', question: 'e→ie: er ___ fern (sehen)', answer: 'sieht', placeholder: 's...' },
+      { type: 'fill', question: 'e→ie: du ___ ein Buch (lesen)', answer: 'liest', placeholder: 'l...' },
+      { type: 'fill', question: 'a→ä: du ___ nach Wien (fahren)', answer: 'fährst', placeholder: 'f...' },
+      { type: 'fill', question: 'a→ä: er ___ lange (schlafen)', answer: 'schläft', placeholder: 'schl...' },
+      { type: 'fill', question: 'НЕ меняется (ich): ich ___ Deutsch (sprechen)', answer: 'spreche', placeholder: 'spr...' },
+      { type: 'translate', question: 'Он говорит по-немецки.', answer: 'Er spricht Deutsch.', hint: 'sprechen → er spricht (e→i)', placeholder: 'Er...' },
+      { type: 'translate', question: 'Ты едешь в Вену?', answer: 'Fährst du nach Wien?', hint: 'fahren → du fährst (a→ä)', placeholder: 'Fährst...' },
+      { type: 'translate', question: 'Она читает книгу.', answer: 'Sie liest ein Buch.', hint: 'lesen → sie liest (e→ie)', placeholder: 'Sie liest...' },
+      { type: 'listen', answer: 'Er nimmt den Bus und fährt nach Hause.', hint: 'nehmen + fahren' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Vokalwechsel-Verben über er/sie oder du (sprechen, fahren, lesen, essen, sehen).', hint: 'Помни: меняется только du и er/sie/es. Ich spreche, но er spricht.', placeholder: 'Er...', sample: 'Er spricht gut Deutsch. Sie fährt jeden Tag zur Arbeit. Du liest viele Bücher.' }
+    ],
+  },
+
+  mischverben: {
+    title: 'Смешанные глаголы (Mischverben)',
+    level: 'B1 · Урок 14',
+    intro: 'Смешанные глаголы — это «гибрид»: в прошедшем времени они берут окончания слабых глаголов (-te / ge…-t), НО при этом меняют корневую гласную, как сильные. Их немного, но они очень частые: denken, bringen, wissen, kennen.',
+    theory: [
+      {
+        heading: '🔀 Что такое смешанный глагол',
+        content: `
+          <p>Сравним три типа в Präteritum (прош.) и Partizip II (для Perfekt):</p>
+          <div class="table-wrap"><table>
+            <tr><th>Тип</th><th>Инфинитив</th><th>Präteritum</th><th>Partizip II</th></tr>
+            <tr><td>слабый</td><td>machen</td><td>machte</td><td>gemacht</td></tr>
+            <tr><td>сильный</td><td>sprechen</td><td>sprach</td><td>gesprochen</td></tr>
+            <tr><td><b>смешанный</b></td><td>denken</td><td>d<b>a</b>chte</td><td>ged<b>a</b>cht</td></tr>
+          </table></div>
+          <p>Видишь? У denken окончание слабое (-te, ge…-t), но гласная меняется (e→a). Это и есть смесь.</p>
+        `
+      },
+      {
+        heading: '📋 Список (выучить наизусть)',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Инфинитив</th><th>Präteritum</th><th>Partizip II</th><th>Перевод</th></tr>
+            <tr><td>denken</td><td>dachte</td><td>gedacht</td><td>думать</td></tr>
+            <tr><td>bringen</td><td>brachte</td><td>gebracht</td><td>приносить</td></tr>
+            <tr><td>kennen</td><td>kannte</td><td>gekannt</td><td>знать (быть знакомым)</td></tr>
+            <tr><td>nennen</td><td>nannte</td><td>genannt</td><td>называть</td></tr>
+            <tr><td>rennen</td><td>rannte</td><td>gerannt</td><td>бежать</td></tr>
+            <tr><td>wissen</td><td>wusste</td><td>gewusst</td><td>знать (факт)</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Ich <b>dachte</b> an dich. Sie hat mir Kaffee <b>gebracht</b>. Ich habe das nicht <b>gewusst</b>.</div>
+            <div class="ru">Большинство меняют гласную на «a» в Präteritum/Partizip.</div>
+          </div>
+        `
+      },
+      {
+        heading: '⚠️ wissen в настоящем времени — особый',
+        content: `
+          <p>Глагол <b>wissen</b> (знать факт) спрягается необычно уже в Präsens — как модальный:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Лицо</th><th>wissen</th></tr>
+            <tr><td>ich</td><td>w<b>ei</b>ß</td></tr>
+            <tr><td>du</td><td>w<b>ei</b>ßt</td></tr>
+            <tr><td>er/sie/es</td><td>w<b>ei</b>ß</td></tr>
+            <tr><td>wir/sie/Sie</td><td>wissen</td></tr>
+            <tr><td>ihr</td><td>wisst</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">kennen = быть знакомым (с человеком/местом): Ich kenne ihn.<br>wissen = знать факт/информацию: Ich weiß, wo er wohnt.</div>
+            <div class="ru">Частая ошибка — путать kennen и wissen. «Знаю человека» = kennen, «знаю что…» = wissen.</div>
+          </div>
+        `
+      }
+    ],
+    exercises: [
+      { type: 'fill', question: 'Präteritum: Ich ___ an dich. (denken)', answer: 'dachte', placeholder: 'd...' },
+      { type: 'fill', question: 'Präteritum: Sie ___ mir Kaffee. (bringen)', answer: 'brachte', placeholder: 'br...' },
+      { type: 'fill', question: 'Partizip II: Ich habe das nicht ___. (wissen)', answer: 'gewusst', placeholder: 'ge...' },
+      { type: 'fill', question: 'Partizip II: Wir haben ihn lange ___. (kennen)', answer: 'gekannt', placeholder: 'ge...' },
+      { type: 'fill', question: 'Präsens особый: Ich ___ die Antwort. (wissen)', answer: 'weiß|weiss', placeholder: 'w...' },
+      { type: 'fill', question: 'Präsens: du ___ das nicht. (wissen)', answer: 'weißt|weisst', placeholder: 'w...' },
+      { type: 'fill', question: 'kennen или wissen? Ich ___ diesen Mann. (быть знакомым)', answer: 'kenne', placeholder: 'k...' },
+      { type: 'fill', question: 'kennen или wissen? Ich ___, wo er wohnt. (факт)', answer: 'weiß|weiss', placeholder: 'w...' },
+      { type: 'translate', question: 'Я думал о тебе.', answer: 'Ich dachte an dich.', hint: 'denken → dachte (Präteritum)', placeholder: 'Ich...' },
+      { type: 'translate', question: 'Я не знал этого.', answer: 'Ich wusste das nicht.|Ich habe das nicht gewusst.', hint: 'wissen → wusste / gewusst', placeholder: 'Ich...' },
+      { type: 'translate', question: 'Я знаю этого человека.', answer: 'Ich kenne diesen Mann.|Ich kenne den Mann.', hint: 'знаком с человеком → kennen', placeholder: 'Ich kenne...' },
+      { type: 'listen', answer: 'Ich weiß die Antwort nicht.', hint: 'wissen в Präsens: ich weiß' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Mischverben (denken, bringen, kennen, wissen) — im Präsens oder in der Vergangenheit.', hint: 'Präteritum: dachte, brachte, kannte, wusste. Präsens wissen: ich weiß.', placeholder: 'Ich...', sample: 'Ich kenne ihn gut. Gestern dachte ich an dich. Ich weiß nicht, wo das Buch ist.' }
     ],
   },
 

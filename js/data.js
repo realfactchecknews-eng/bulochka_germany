@@ -52,6 +52,7 @@ const MODULES = [
     lessons: [
       { id: 'praesens',         title: 'Präsens: правильные глаголы',      desc: 'machen, lernen, wohnen — стандартное спряжение', xp: 50, type: 'Грамматика' },
       { id: 'irregular-verbs',  title: 'Сильные глаголы (e→i, a→ä)',       desc: 'sprechen, fahren, lesen — с чередованием гласных', xp: 55, type: 'Грамматика' },
+      { id: 'mischverben',      title: 'Смешанные глаголы (Mischverben)',  desc: 'denken→dachte, wissen, kennen — слабые окончания + смена гласной', xp: 60, type: 'Грамматика' },
       { id: 'modal-verbs',      title: 'Модальные: können, wollen, müssen', desc: 'Могу, хочу, должна — глагол в конец!', xp: 60, type: 'Грамматика' },
       { id: 'trennbare-verben', title: 'Отделяемые глаголы (Präfix)',       desc: 'aufstehen, anrufen, mitkommen — приставка в конец', xp: 55, type: 'Грамматика' },
     ],
