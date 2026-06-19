@@ -30,6 +30,9 @@
         </div>
         <div class="login-error" id="login-error"></div>
         <button class="login-btn" id="login-btn" onclick="doLogin()">Войти ❤️</button>
+        <p class="login-toggle" id="login-toggle" style="text-align:center;margin-top:14px;font-size:0.85rem;color:var(--text-muted);">
+          Нет аккаунта? <a href="#" id="toggle-mode" onclick="toggleMode(event)" style="color:var(--pink-500);font-weight:600;">Создать</a>
+        </p>
       </div>
     </div>
   </div>
@@ -39,7 +42,7 @@
 
   <script type="module">
     import { initializeApp }                        from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged }
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged }
                                                     from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
     const app  = initializeApp(FIREBASE_CONFIG);
@@ -49,6 +52,28 @@
     onAuthStateChanged(auth, user => {
       if (user) window.location.href = 'index.html';
     });
+
+    let registerMode = false;
+
+    // email выводится из логина: известные — через USER_MAP, новые — login@домен
+    function emailFor(login) {
+      return USER_MAP[login] || `${login}@bulochka-deutsch.de`;
+    }
+
+    window.toggleMode = function(e) {
+      if (e) e.preventDefault();
+      registerMode = !registerMode;
+      const btn = document.getElementById('login-btn');
+      const toggle = document.getElementById('login-toggle');
+      document.getElementById('login-error').textContent = '';
+      if (registerMode) {
+        btn.textContent = 'Создать аккаунт';
+        toggle.innerHTML = 'Уже есть аккаунт? <a href="#" onclick="toggleMode(event)" style="color:var(--pink-500);font-weight:600;">Войти</a>';
+      } else {
+        btn.textContent = 'Войти ❤️';
+        toggle.innerHTML = 'Нет аккаунта? <a href="#" onclick="toggleMode(event)" style="color:var(--pink-500);font-weight:600;">Создать</a>';
+      }
+    };
 
     window.doLogin = async function() {
       const loginVal = document.getElementById('login-input').value.trim().toLowerCase();
@@ -62,26 +87,38 @@
         errEl.textContent = 'Введи логин и пароль!';
         return;
       }
-
-      const email = USER_MAP[loginVal];
-      if (!email) {
-        errEl.textContent = `Неизвестный логин «${loginVal}» 🤔`;
+      if (!/^[a-z0-9_]+$/.test(loginVal)) {
+        errEl.textContent = 'Логин: только латиница, цифры и _ 🙏';
+        return;
+      }
+      if (registerMode && passVal.length < 6) {
+        errEl.textContent = 'Пароль минимум 6 символов 🙈';
         return;
       }
 
-      btn.textContent = 'Входим...';
+      const email = emailFor(loginVal);
+      btn.textContent = registerMode ? 'Создаём...' : 'Входим...';
       btn.disabled = true;
 
       try {
-        await signInWithEmailAndPassword(auth, email, passVal);
+        if (registerMode) {
+          await createUserWithEmailAndPassword(auth, email, passVal);
+        } else {
+          await signInWithEmailAndPassword(auth, email, passVal);
+        }
         localStorage.setItem('bulochka-login', loginVal);
         window.location.href = 'index.html';
       } catch (e) {
         console.error(e);
-        errEl.textContent = e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential'
-          ? 'Неверный пароль 🙈'
-          : 'Ошибка: ' + e.message;
-        btn.textContent = 'Войти ❤️';
+        const map = {
+          'auth/wrong-password':       'Неверный пароль 🙈',
+          'auth/invalid-credential':   'Неверный логин или пароль 🙈',
+          'auth/user-not-found':       'Такого аккаунта нет — создай новый 🙂',
+          'auth/email-already-in-use': 'Такой логин уже занят 🤔',
+          'auth/weak-password':        'Пароль слишком простой (мин. 6) 🙈',
+        };
+        errEl.textContent = map[e.code] || ('Ошибка: ' + e.message);
+        btn.textContent = registerMode ? 'Создать аккаунт' : 'Войти ❤️';
         btn.disabled = false;
       }
     };

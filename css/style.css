@@ -910,3 +910,11 @@ tr:nth-child(even) td { background: var(--milk-2); }
   color: var(--pink-400);
   font-weight: 700;
 }
+
+/* ── ТЕМА GENERIC (не-Марго): простой дизайн без сердечек ─────────────────── */
+.theme-generic #heart-splash,
+.theme-generic .floating-hearts,
+.theme-generic .fh,
+.theme-generic .logo-heart,
+.theme-generic .footer-heart,
+.theme-generic .login-hearts { display: none !important; }
