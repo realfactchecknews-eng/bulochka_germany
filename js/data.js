@@ -39,6 +39,7 @@ const MODULES = [
       { id: 'articles-indef',title: 'Неопределённый артикль ein, eine',   desc: 'ein/eine + склонение + отрицание kein/keine', xp: 45, type: 'Грамматика' },
       { id: 'plural',        title: 'Множественное число',                 desc: '5 основных типов образования', xp: 55, type: 'Грамматика' },
       { id: 'n-deklination', title: 'N-Deklination (слабые сущ.)',         desc: 'der Student → den Studenten — -(e)n во всех падежах', xp: 55, type: 'Грамматика' },
+      { id: 'artikel-gebrauch', title: 'Употребление артикля',            desc: 'Когда der, когда ein, когда без артикля', xp: 50, type: 'Грамматика' },
     ],
   },
   {

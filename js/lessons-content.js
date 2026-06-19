@@ -739,39 +739,87 @@ const LESSONS_CONTENT = {
   },
 
   'personal-pronouns': {
-    title: 'Личные местоимения',
+    title: 'Личные местоимения (Nominativ / Akkusativ / Dativ)',
     level: 'A1 · Урок 4',
-    intro: 'Без местоимений нет ни одного предложения. И главная ловушка немецкого — три значения у «sie»!',
+    intro: 'ich, du, er… — это только Nominativ. Но местоимения тоже склоняются: «меня» = mich, «мне» = mir. Разберём все три падежа — без этого нельзя строить нормальные фразы.',
     theory: [
       {
-        heading: '👤 Все личные местоимения',
+        heading: '👤 Nominativ — кто? (подлежащее)',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Немецкий</th><th>Русский</th><th>Важно!</th></tr>
-            <tr><td><b>ich</b></td><td>я</td><td>⚠️ всегда маленькими! (не Ich)</td></tr>
-            <tr><td><b>du</b></td><td>ты</td><td>неформально, близкие люди</td></tr>
-            <tr><td><b>er</b></td><td>он</td><td>мужской род</td></tr>
-            <tr><td><b>sie</b></td><td>она</td><td>женский род (маленькая с)</td></tr>
-            <tr><td><b>es</b></td><td>оно</td><td>средний род (das-слова)</td></tr>
-            <tr><td><b>wir</b></td><td>мы</td><td></td></tr>
-            <tr><td><b>ihr</b></td><td>вы</td><td>неформально, группа</td></tr>
-            <tr><td><b>sie</b></td><td>они</td><td>маленькая с</td></tr>
-            <tr><td><b>Sie</b></td><td>Вы</td><td>⚠️ ВСЕГДА с большой! Вежливо.</td></tr>
+            <tr><th>Лицо</th><th>Ед. число</th><th>Мн. число</th></tr>
+            <tr><td>1-е</td><td><b>ich</b> (я)</td><td><b>wir</b> (мы)</td></tr>
+            <tr><td>2-е</td><td><b>du</b> (ты)</td><td><b>ihr</b> (вы, неформ.)</td></tr>
+            <tr><td>3-е</td><td><b>er</b> / <b>sie</b> / <b>es</b> (он/она/оно)</td><td><b>sie</b> (они)</td></tr>
+            <tr><td>вежл.</td><td colspan="2"><b>Sie</b> (Вы — всегда с большой буквы)</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">🎯 Ловушка: «sie» с маленькой = она ИЛИ они. «Sie» с большой = Вы (вежливо). Помогает контекст и глагол!</div>
-            <div class="ru">sie kommt = она приходит · sie kommen = они приходят · Sie kommen = Вы приходите</div>
+            <div class="de">er/sie/es зависит от РОДА слова: der Tisch → <b>er</b>, die Lampe → <b>sie</b>, das Buch → <b>es</b>.</div>
+            <div class="ru">«Он/она» в немецком — не про пол, а про род существительного.</div>
           </div>
+        `
+      },
+      {
+        heading: '🎯 Akkusativ — кого? (прямой объект)',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Nominativ</th><th>Akkusativ</th><th></th><th>Nominativ</th><th>Akkusativ</th></tr>
+            <tr><td>ich</td><td><b>mich</b></td><td></td><td>wir</td><td><b>uns</b></td></tr>
+            <tr><td>du</td><td><b>dich</b></td><td></td><td>ihr</td><td><b>euch</b></td></tr>
+            <tr><td>er</td><td><b>ihn</b></td><td></td><td>sie (они)</td><td><b>sie</b></td></tr>
+            <tr><td>sie</td><td><b>sie</b></td><td></td><td>Sie</td><td><b>Sie</b></td></tr>
+            <tr><td>es</td><td><b>es</b></td><td></td><td></td><td></td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Ich sehe <b>dich</b>. Er liebt <b>mich</b>. Wir kennen <b>ihn</b>.</div>
+            <div class="ru">Меняются заметно только ich→mich, du→dich, er→ihn. Остальные часто совпадают.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🎁 Dativ — кому? (косвенный объект)',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Nominativ</th><th>Dativ</th><th></th><th>Nominativ</th><th>Dativ</th></tr>
+            <tr><td>ich</td><td><b>mir</b></td><td></td><td>wir</td><td><b>uns</b></td></tr>
+            <tr><td>du</td><td><b>dir</b></td><td></td><td>ihr</td><td><b>euch</b></td></tr>
+            <tr><td>er</td><td><b>ihm</b></td><td></td><td>sie (они)</td><td><b>ihnen</b></td></tr>
+            <tr><td>sie</td><td><b>ihr</b></td><td></td><td>Sie</td><td><b>Ihnen</b></td></tr>
+            <tr><td>es</td><td><b>ihm</b></td><td></td><td></td><td></td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Gib <b>mir</b> das Buch. Ich helfe <b>dir</b>. Das gehört <b>ihm</b>.</div>
+            <div class="ru">Dativ нужен после helfen, danken, gehören, geben (кому), gefallen.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🧭 Как выбрать падеж',
+        content: `
+          <p>Падеж местоимения зависит от глагола/предлога:</p>
+          <ul>
+            <li><b>Akkusativ:</b> прямой объект (sehen, lieben, kennen, haben): Ich sehe <b>ihn</b>.</li>
+            <li><b>Dativ:</b> кому/чему (helfen, danken, geben, gehören): Ich danke <b>ihr</b>.</li>
+            <li><b>После предлога</b> — падеж задаёт предлог: für <b>mich</b> (Akk), mit <b>mir</b> (Dat).</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Как по-немецки «мы»?', options: ['wir', 'ihr', 'sie', 'wer'], answer: 0 },
-      { type: 'choice', question: '<b>Sie</b> с большой буквы означает:', options: ['Вы (вежливо)', 'она', 'они', 'ты'], answer: 0 },
-      { type: 'fill', question: 'Как по-немецки «я» (маленькими)?', answer: 'ich', placeholder: 'i...' },
-      { type: 'choice', question: 'Неформальное «вы» для группы друзей — это:', options: ['ihr', 'Sie', 'du', 'wir'], answer: 0 },
-      { type: 'choice', question: '«es» используется для слов с родом:', options: ['средний (das)', 'мужской (der)', 'женский (die)', 'все роды'], answer: 0 },
-      { type: 'choice', question: '«sie kommen» — это значит:', options: ['они приходят', 'она приходит', 'вы приходите', 'я прихожу'], answer: 0 },
+      { type: 'fill', question: 'Замени на местоимение: der Tisch → ___ (он, Nominativ)', answer: 'er', placeholder: '...' },
+      { type: 'fill', question: 'Замени: das Buch → ___ (Nominativ)', answer: 'es', placeholder: '...' },
+      { type: 'fill', question: 'Akkusativ: Er sieht ___. (меня)', answer: 'mich', placeholder: 'm...' },
+      { type: 'fill', question: 'Akkusativ: Ich kenne ___. (его)', answer: 'ihn', placeholder: 'i...' },
+      { type: 'fill', question: 'Akkusativ: Wir lieben ___. (тебя)', answer: 'dich', placeholder: 'd...' },
+      { type: 'fill', question: 'Dativ: Gib ___ das Buch! (мне)', answer: 'mir', placeholder: 'm...' },
+      { type: 'fill', question: 'Dativ: Ich helfe ___. (ей)', answer: 'ihr', placeholder: 'i...' },
+      { type: 'fill', question: 'Dativ: Das gehört ___. (им)', answer: 'ihnen', placeholder: 'i...' },
+      { type: 'fill', question: 'После предлога: Das ist für ___. (для тебя, für + Akk)', answer: 'dich', placeholder: 'd...' },
+      { type: 'translate', question: 'Я тебя люблю.', answer: 'Ich liebe dich.', hint: 'lieben → Akkusativ', placeholder: 'Ich liebe...' },
+      { type: 'translate', question: 'Он мне помогает.', answer: 'Er hilft mir.', hint: 'helfen → Dativ', placeholder: 'Er hilft...' },
+      { type: 'translate', question: 'Дай мне книгу.', answer: 'Gib mir das Buch.', hint: 'geben + кому (Dativ) + что (Akk)', placeholder: 'Gib...' },
+      { type: 'listen', answer: 'Ich danke dir und helfe ihm.', hint: 'два Dativ: dir, ihm' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Personalpronomen im Akkusativ und Dativ (z.B. Ich sehe ihn. Ich helfe ihr.).', hint: 'Akkusativ: mich/dich/ihn/sie. Dativ: mir/dir/ihm/ihr.', placeholder: 'Ich...', sample: 'Ich kenne ihn gut. Sie hilft mir oft. Wir danken euch.' }
     ],
   },
 
@@ -1150,6 +1198,77 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Мальчик играет с собакой.', answer: 'Der Junge spielt mit dem Hund.', hint: 'Nom der Junge (тут без -n), mit + Dativ', placeholder: 'Der Junge...' },
       { type: 'listen', answer: 'Ich frage den Polizisten.', hint: 'Akkusativ, слабое существительное' },
       { type: 'write', question: 'Schreib 3 Sätze mit schwachen Nomen (der Student, der Junge, der Mensch, der Kollege) im Akkusativ oder Dativ.', hint: 'Не забудь окончание -(e)n! Ich sehe den Studenten. Ich helfe dem Kollegen.', placeholder: 'Ich...', sample: 'Ich kenne den Studenten. Ich helfe dem Kollegen. Ich sehe den Jungen im Park.' }
+    ],
+  },
+
+  'artikel-gebrauch': {
+    title: 'Употребление артикля (der / ein / без артикля)',
+    level: 'A2 · Урок 11',
+    intro: 'Когда нужен определённый артикль, когда неопределённый, а когда вообще никакой? Это одна из самых частых ошибок русскоязычных — ведь в русском артиклей нет. Разберём правила по полочкам.',
+    theory: [
+      {
+        heading: '✅ Определённый артикль (der/die/das) — «тот самый»',
+        content: `
+          <p>Ставим, когда предмет <b>известен, уникален или уже упоминался</b>:</p>
+          <ul>
+            <li>Предмет уже знаком из контекста: <i>Da ist ein Hund. <b>Der</b> Hund ist groß.</i></li>
+            <li>Уникальные объекты: <i><b>die</b> Sonne, <b>der</b> Mond, <b>die</b> Erde</i></li>
+            <li>С превосходной степенью и порядковыми: <i><b>der</b> beste Tag, <b>die</b> erste Stunde</i></li>
+            <li>Реки, горы, моря: <i><b>die</b> Donau, <b>die</b> Alpen, <b>das</b> Mittelmeer</i></li>
+          </ul>
+          <div class="example-box">
+            <div class="de">Ich gehe in <b>die</b> Schule, die neben meinem Haus ist. (конкретная школа)</div>
+            <div class="ru">Определённый = собеседник понимает, о чём именно речь.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🆕 Неопределённый артикль (ein/eine) — «какой-то один»',
+        content: `
+          <p>Ставим, когда предмет <b>новый, упоминается впервые или «один из многих»</b>:</p>
+          <ul>
+            <li>Первое упоминание: <i>Ich habe <b>ein</b> Auto.</i></li>
+            <li>«Один из класса предметов»: <i>Ein Hund ist ein Tier.</i> (любая собака — животное)</li>
+            <li>После es gibt: <i>Es gibt hier <b>einen</b> Park.</i></li>
+          </ul>
+          <div class="example-box">
+            <div class="de">Ich brauche <b>einen</b> Stift. (какой-нибудь) ↔ Wo ist <b>der</b> Stift? (тот самый)</div>
+            <div class="ru">Неопределённый = вводим предмет в разговор впервые.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🚫 Без артикля (Nullartikel)',
+        content: `
+          <p>Артикль НЕ ставится в нескольких важных случаях:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Случай</th><th>Пример</th></tr>
+            <tr><td>Множественное «вообще» (нет ein в Pl)</td><td>Ich kaufe <b>Äpfel</b>. Ich habe <b>Freunde</b>.</td></tr>
+            <tr><td>Профессия/национальность после sein/werden</td><td>Ich bin <b>Studentin</b>. Er wird <b>Arzt</b>.</td></tr>
+            <tr><td>Языки и большинство стран/городов</td><td>Ich lerne <b>Deutsch</b>. Ich wohne in <b>Wien</b>.</td></tr>
+            <tr><td>Вещества/абстрактное в общем смысле</td><td>Ich trinke <b>Wasser</b>. Sie hat <b>Geduld</b>.</td></tr>
+            <tr><td>Устойчивые выражения</td><td>zu <b>Hause</b>, nach <b>Hause</b>, mit <b>Freude</b>, zu <b>Fuß</b></td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">⚠️ Страны среднего рода без артикля (Deutschland), НО есть исключения с артиклем: <b>die</b> Schweiz, <b>die</b> Türkei, <b>die</b> USA (Pl), <b>der</b> Iran.</div>
+            <div class="ru">Их нужно запомнить — с ними артикль обязателен: in <b>der</b> Schweiz.</div>
+          </div>
+        `
+      }
+    ],
+    exercises: [
+      { type: 'fill', question: 'Профессия после sein — какой артикль? Ich bin ___ Lehrerin. (если артикля нет — поставь -)', answer: '-|—|нет', placeholder: '-' },
+      { type: 'fill', question: 'Язык без артикля: Ich lerne ___ Deutsch. (артикль или -?)', answer: '-|—|нет', placeholder: '-' },
+      { type: 'fill', question: 'Уникальный объект: ___ Sonne scheint. (die/der/das)', answer: 'die', placeholder: 'd...' },
+      { type: 'fill', question: 'Первое упоминание: Ich habe ___ Idee. (eine/die, die Idee)', answer: 'eine', placeholder: 'ein...' },
+      { type: 'fill', question: 'Повторное упоминание: ... und ___ Idee ist super! (та самая)', answer: 'die', placeholder: 'd...' },
+      { type: 'fill', question: 'Страна-исключение: Ich wohne in ___ Schweiz. (die Schweiz, Dativ)', answer: 'der', placeholder: 'd...' },
+      { type: 'fill', question: 'Множественное «вообще»: Ich kaufe ___ Äpfel. (артикль есть?)', answer: '-|—|нет', placeholder: '-' },
+      { type: 'translate', question: 'Я студентка.', answer: 'Ich bin Studentin.', hint: 'профессия после sein → без артикля', placeholder: 'Ich bin...' },
+      { type: 'translate', question: 'Солнце светит.', answer: 'Die Sonne scheint.', hint: 'уникальный объект → определённый артикль', placeholder: 'Die Sonne...' },
+      { type: 'translate', question: 'У меня есть машина.', answer: 'Ich habe ein Auto.', hint: 'первое упоминание → неопределённый', placeholder: 'Ich habe...' },
+      { type: 'listen', answer: 'Ich lerne Deutsch und wohne in Wien.', hint: 'язык и город — без артикля' },
+      { type: 'write', question: 'Schreib 3 Sätze über dich: dein Beruf/Studium, deine Stadt, deine Sprachen. Achte auf den Artikel (oft KEIN Artikel!).', hint: 'Ich bin … (Beruf, без артикля). Ich wohne in … (город). Ich lerne … (язык).', placeholder: 'Ich bin...', sample: 'Ich bin Studentin. Ich wohne in Moskau. Ich lerne Deutsch und Englisch.' }
     ],
   },
 
@@ -2620,75 +2739,73 @@ const LESSONS_CONTENT = {
     ],
   },
 
-  possessivpron: {
-    title: 'Притяжательные местоимения — Die Gelbe Kap. 17',
-    level: 'A2 · Грамматика',
-    intro: 'mein, dein, sein, ihr, unser, euer, ihr/Ihr — они склоняются точно как неопределённый артикль ein/eine. Выучи одну таблицу — и все притяжательные местоимения становятся понятны!',
+  'possessivpron': {
+    title: 'Притяжательные местоимения (mein, dein, sein…)',
+    level: 'B1 · Урок 17',
+    intro: 'mein, dein, sein, ihr — «мой, твой, его, её». Они показывают принадлежность и склоняются так же, как ein/kein. Разберём все формы и склонение по падежам.',
     theory: [
       {
-        heading: '📋 Все притяжательные местоимения',
+        heading: '👪 Базовые формы — чьё?',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>Местоимение</th><th>Перевод</th></tr>
-            <tr><td>ich</td><td><b>mein</b></td><td>мой/моя/моё</td></tr>
-            <tr><td>du</td><td><b>dein</b></td><td>твой/твоя/твоё</td></tr>
-            <tr><td>er/es</td><td><b>sein</b></td><td>его</td></tr>
-            <tr><td>sie</td><td><b>ihr</b></td><td>её</td></tr>
-            <tr><td>wir</td><td><b>unser</b></td><td>наш/наша/наше</td></tr>
-            <tr><td>ihr</td><td><b>euer</b></td><td>ваш/ваша/ваше (неформ.)</td></tr>
-            <tr><td>sie/Sie</td><td><b>ihr/Ihr</b></td><td>их / Ваш (формальное)</td></tr>
+            <tr><th>Лицо</th><th>Притяж.</th><th>Перевод</th></tr>
+            <tr><td>ich</td><td><b>mein</b></td><td>мой</td></tr>
+            <tr><td>du</td><td><b>dein</b></td><td>твой</td></tr>
+            <tr><td>er / es</td><td><b>sein</b></td><td>его</td></tr>
+            <tr><td>sie (она)</td><td><b>ihr</b></td><td>её</td></tr>
+            <tr><td>wir</td><td><b>unser</b></td><td>наш</td></tr>
+            <tr><td>ihr</td><td><b>euer</b></td><td>ваш</td></tr>
+            <tr><td>sie (они)</td><td><b>ihr</b></td><td>их</td></tr>
+            <tr><td>Sie (вежл.)</td><td><b>Ihr</b></td><td>Ваш</td></tr>
           </table></div>
-          <p>⚠️ <b>ihr</b> (её) vs <b>Ihr</b> (Ваш формальное) vs <b>ihr</b> (их) — только контекст помогает!</p>
+          <div class="example-box">
+            <div class="de">⚠️ Не путай: <b>ihr</b> = «её» И «их» И «вы» (по контексту). <b>sein</b> = «его».</div>
+            <div class="ru">sein/ihr зависят от того, КТО владелец (он → sein, она → ihr).</div>
+          </div>
         `
       },
       {
-        heading: '📐 Склонение mein во всех падежах',
+        heading: '🔗 Окончание зависит от того, ЧЕМ владеют',
         content: `
+          <p>Притяжательное согласуется по роду/падежу с <b>предметом</b>, а не с владельцем. Окончания — как у <b>ein/kein</b>:</p>
           <div class="table-wrap"><table>
-            <tr><th>Падеж</th><th>m (der)</th><th>f (die)</th><th>n (das)</th><th>pl</th></tr>
-            <tr><td><b>Nom.</b></td><td>mein Bruder</td><td>mein<b>e</b> Schwester</td><td>mein Kind</td><td>mein<b>e</b> Eltern</td></tr>
-            <tr><td><b>Akk.</b></td><td>mein<b>en</b> Bruder</td><td>mein<b>e</b> Schwester</td><td>mein Kind</td><td>mein<b>e</b> Eltern</td></tr>
-            <tr><td><b>Dat.</b></td><td>mein<b>em</b> Bruder</td><td>mein<b>er</b> Schwester</td><td>mein<b>em</b> Kind</td><td>mein<b>en</b> Eltern</td></tr>
-            <tr><td><b>Gen.</b></td><td>mein<b>es</b> Bruders</td><td>mein<b>er</b> Schwester</td><td>mein<b>es</b> Kindes</td><td>mein<b>er</b> Eltern</td></tr>
+            <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+            <tr><td>Nominativ</td><td>mein</td><td>mein<b>e</b></td><td>mein</td><td>mein<b>e</b></td></tr>
+            <tr><td>Akkusativ</td><td>mein<b>en</b></td><td>mein<b>e</b></td><td>mein</td><td>mein<b>e</b></td></tr>
+            <tr><td>Dativ</td><td>mein<b>em</b></td><td>mein<b>er</b></td><td>mein<b>em</b></td><td>mein<b>en</b></td></tr>
           </table></div>
-          <p>💡 Окончания те же, что у <b>ein/eine</b>: Nom. m = Ø, Nom./Akk. n = Ø, всё остальное с окончаниями.</p>
-          <p>Для <b>dein, sein, ihr, unser, euer</b> — те же окончания, только меняй основу!</p>
+          <div class="example-box">
+            <div class="de">Das ist <b>mein</b> Bruder (Nom, m). Ich sehe <b>meinen</b> Bruder (Akk, m). Ich helfe <b>meiner</b> Schwester (Dat, f).</div>
+            <div class="ru">Один корень mein- + окончание по роду и падежу предмета.</div>
+          </div>
         `
       },
       {
-        heading: '💬 Примеры во всех падежах',
+        heading: '⚠️ Тонкость: unser / euer',
         content: `
+          <p>У <b>unser</b> и <b>euer</b> те же окончания, но <b>euer</b> теряет «e» перед окончанием:</p>
           <div class="example-box">
-            <div class="de"><b>Mein</b> Vater kommt aus Russland. (Nom. m, Ø-окончание)</div>
-            <div class="ru">Ich liebe <b>meinen</b> Vater. (Akk. m, -en)</div>
+            <div class="de">euer + e → <b>eure</b> (eure Mutter), euer + en → <b>euren</b> (euren Hund). unser → unsere, unseren.</div>
+            <div class="ru">«euer Auto», но «eure Wohnung» (не «euere»).</div>
           </div>
-          <div class="example-box">
-            <div class="de">Ich schreibe <b>meiner</b> Mutter einen Brief. (Dat. f, -er)</div>
-            <div class="ru">Das ist das Auto <b>meines</b> Bruders. (Gen. m, -es)</div>
-          </div>
-          <div class="example-box">
-            <div class="de"><b>Unser</b> Kurs beginnt um 9 Uhr. (Nom. m) — Наш курс начинается в 9.</div>
-            <div class="ru">Ich fahre mit <b>unserem</b> Auto. (Dat. n) — Я еду на нашей машине.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">⚠️ euer (ваш): <b>Euer</b> Lehrer (Nom. m), <b>euren</b> Lehrer (Akk. m), <b>eure</b> Lehrerin (Nom./Akk. f)</div>
-            <div class="ru">В euer при добавлении окончаний выпадает е: euer → eur+e → eure, eur+en → euren</div>
-          </div>
+          <p>Совет: выучи на примере одного слова (mein), а дальше просто меняй корень: dein-, sein-, ihr-, unser-, euer-, Ihr-.</p>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich liebe _____ Hund. (mein, Akk., m)', options: ['meinen', 'mein', 'meiner', 'meinem'], answer: 0 },
-      { type: 'choice', question: 'Er fährt mit _____ Auto. (sein, Dat., n)', options: ['seinem', 'sein', 'seiner', 'seinen'], answer: 0 },
-      { type: 'fill', question: 'Sie schreibt _____ Mutter einen Brief. (ihr, Dat., f)', answer: 'ihrer', placeholder: 'ihr...' },
-      { type: 'choice', question: 'Das ist das Haus _____ Eltern. (mein, Gen., pl)', options: ['meiner', 'meinem', 'meinen', 'meine'], answer: 0 },
-      { type: 'choice', question: 'Wir besuchen _____ Freunde. (unser, Akk., pl)', options: ['unsere', 'unser', 'unserem', 'unserer'], answer: 0 },
-      { type: 'fill', question: '_____ Kurs beginnt um 10 Uhr. (unser, Nom., m)', answer: 'Unser', placeholder: 'Uns...' },
-      { type: 'choice', question: 'Ich helfe _____ Freundin. (mein, Dat., f)', options: ['meiner', 'meine', 'meinen', 'meinem'], answer: 0 },
-      { type: 'fill', question: 'Das ist _____ Idee! (dein, Nom., f)', answer: 'deine', placeholder: 'dein...' },
-      { type: 'translate', question: 'Наш профессор из Вены.', hint: 'unser Professor / kommen aus', answer: 'Unser Professor kommt aus Wien.', placeholder: 'Unser Professor...' },
-      { type: 'translate', question: 'Она помогает своей сестре.', hint: 'ihrer Schwester helfen', answer: 'Sie hilft ihrer Schwester.', placeholder: 'Sie hilft...' },
-      { type: 'choice', question: 'Er kennt _____ Bruder. (mein, Akk., m)', options: ['meinen', 'mein', 'meine', 'meiner'], answer: 0 },
+      { type: 'fill', question: 'Nominativ m: Das ist ___ Bruder. (мой)', answer: 'mein', placeholder: 'mein...' },
+      { type: 'fill', question: 'Nominativ f: Das ist ___ Schwester. (моя)', answer: 'meine', placeholder: 'mein...' },
+      { type: 'fill', question: 'Akkusativ m: Ich sehe ___ Bruder. (моего)', answer: 'meinen', placeholder: 'mein...' },
+      { type: 'fill', question: 'Dativ f: Ich helfe ___ Schwester. (моей)', answer: 'meiner', placeholder: 'mein...' },
+      { type: 'fill', question: '«её»: Anna und ___ Hund. (её собака, Nom m)', answer: 'ihr', placeholder: '...' },
+      { type: 'fill', question: '«его»: Max und ___ Auto. (его машина, Nom n)', answer: 'sein', placeholder: 's...' },
+      { type: 'fill', question: 'euer + окончание: Wo ist ___ Wohnung? (ваша, Nom f)', answer: 'eure', placeholder: 'eu...' },
+      { type: 'fill', question: 'Akkusativ: Ich mag ___ Idee. (твою, die Idee)', answer: 'deine', placeholder: 'dein...' },
+      { type: 'translate', question: 'Это мой брат.', answer: 'Das ist mein Bruder.', hint: 'Nom m → mein (без окончания)', placeholder: 'Das ist...' },
+      { type: 'translate', question: 'Я люблю свою сестру.', answer: 'Ich liebe meine Schwester.', hint: 'Akk f → meine', placeholder: 'Ich liebe...' },
+      { type: 'translate', question: 'Я играю с её собакой.', answer: 'Ich spiele mit ihrem Hund.', hint: 'mit + Dativ, ihr + Dativ m → ihrem', placeholder: 'Ich spiele...' },
+      { type: 'listen', answer: 'Das ist mein Bruder und seine Frau.', hint: 'mein + sein' },
+      { type: 'write', question: 'Schreib 3 Sätze über deine Familie mit Possessivartikeln (mein/meine…).', hint: 'Nom: mein Bruder, meine Mutter. Akk: meinen Vater. Dativ: meiner Oma.', placeholder: 'Mein...', sample: 'Mein Bruder heißt Max. Ich liebe meine Eltern. Ich helfe meiner Schwester oft.' }
     ],
   },
 
