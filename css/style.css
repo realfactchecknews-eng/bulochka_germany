@@ -918,3 +918,22 @@ tr:nth-child(even) td { background: var(--milk-2); }
 .theme-generic .logo-heart,
 .theme-generic .footer-heart,
 .theme-generic .login-hearts { display: none !important; }
+
+/* ── Новые типы упражнений (чтение / письмо / аудио) ──────────────────────── */
+.speak-btn {
+  background: var(--pink-50, #fff0f7); border: 1.5px solid var(--cream, #ffe3ef);
+  border-radius: 50%; width: 30px; height: 30px; cursor: pointer;
+  font-size: 0.95rem; line-height: 1; vertical-align: middle; transition: all .15s;
+}
+.speak-btn:hover { border-color: var(--pink-300, #ffadd1); transform: scale(1.08); }
+.reading-ex .reading-text {
+  background: #fff8fc; border: 1.5px solid var(--cream, #ffe3ef);
+  border-radius: 12px; padding: 14px 16px; margin-bottom: 12px;
+  font-size: 0.98rem; line-height: 1.7; color: var(--text-dark, #3a2230);
+}
+.reading-trans { font-size: 0.86rem; color: var(--text-muted, #9a7388); margin: 0 0 12px; line-height: 1.6; }
+.read-q { margin: 10px 0 4px; padding-top: 10px; border-top: 1px dashed var(--cream, #ffe3ef); }
+.link-btn {
+  background: none; border: none; color: var(--pink-500, #e0397f);
+  font-size: 0.82rem; font-weight: 600; cursor: pointer; padding: 0 0 10px; text-decoration: underline;
+}

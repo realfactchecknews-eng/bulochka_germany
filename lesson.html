@@ -64,9 +64,10 @@
       renderHeaderStats();
       renderLesson();
 
-      // Подгружаем ключ OpenRouter для перевода слов
+      // Подгружаем ключ OpenRouter (гость — отдельный config/openrouter_guest)
       try {
-        const snap = await getDoc(doc(db, 'config', 'openrouter'));
+        const isGuest = window.IS_PERSONAL_THEME === false;
+        const snap = await getDoc(doc(db, 'config', isGuest ? 'openrouter_guest' : 'openrouter'));
         if (snap.exists()) window._orKey = snap.data().key;
       } catch(e) {}
 
