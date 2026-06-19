@@ -472,7 +472,9 @@
       document.getElementById('user-name').textContent = name.charAt(0).toUpperCase() + name.slice(1);
 
       try {
-        const snap = await getDoc(doc(_db, 'config', 'openrouter'));
+        // Гость берёт отдельный ключ (config/openrouter_guest), Марго — свой
+        const isGuest = window.IS_PERSONAL_THEME === false;
+        const snap = await getDoc(doc(_db, 'config', isGuest ? 'openrouter_guest' : 'openrouter'));
         if (snap.exists()) window._orKey = snap.data().key;
       } catch(e) { console.warn('Ключ:', e); }
 
@@ -589,13 +591,14 @@
     // ── РЕНДЕР ВКЛАДОК И ЗАДАНИЙ ─────────────────────────────────────────────
     function renderLevel(lvl) {
       const tasks = TASKS[lvl];
+      const dp = window.depersonalize || (t => t); // подмена имён для гостей
       const stabsEl = document.getElementById(`stabs-${lvl}`);
       const viewsEl = document.getElementById(`taskviews-${lvl}`);
 
       stabsEl.innerHTML = tasks.map((t, i) => `
         <button class="task-stab ${i===0?'active':''}"
           id="stab-${t.id}" onclick="switchTask('${lvl}','${t.id}')">
-          <span class="stab-num">${i+1}</span>${t.title}
+          <span class="stab-num">${i+1}</span>${dp(t.title)}
         </button>`).join('');
 
       viewsEl.innerHTML = tasks.map((t, i) => `
@@ -606,12 +609,12 @@
                 <span class="tcf-level-badge">${lvl.toUpperCase()}</span>
                 <span class="tcf-topic-badge">${t.topic}</span>
               </div>
-              <div class="tcf-title">${t.title}</div>
+              <div class="tcf-title">${dp(t.title)}</div>
             </div>
             <div class="tcf-body">
-              <div class="task-prompt">${t.prompt.replace(/\n/g,'<br>')}</div>
+              <div class="task-prompt">${dp(t.prompt).replace(/\n/g,'<br>')}</div>
               <div class="task-grammar-note">📖 ${t.grammar}</div>
-              <div class="task-hint">💡 Начни так: <strong>${t.hint.replace(/\n/g,' ')}</strong></div>
+              <div class="task-hint">💡 Начни так: <strong>${dp(t.hint).replace(/\n/g,' ')}</strong></div>
               <textarea class="writing-area" id="text-${t.id}"
                 placeholder="${t.placeholder}" rows="6"></textarea>
               <button class="check-writing-btn" id="btn-${t.id}"
@@ -918,10 +921,16 @@
     // ── ОБЩАЯ ФУНКЦИЯ ПРОВЕРКИ ────────────────────────────────────────────────
     async function callAI(btn, resultEl, bodyEl, scoreEl, title, level, grammar, text, taskContext, imageBase64 = null, imageThumb = null) {
       const key = window._orKey;
+      const isGuest = window.IS_PERSONAL_THEME === false;
 
-      const systemPrompt = `Ты — строгий, но заботливый преподаватель немецкого языка Фрау Анна. Твоя студентка — Марго, русскоязычная девушка, цель которой — поступить в австрийский университет. Занимается по «Die Gelbe» (Dreyer/Schmitt).
+      const persona = isGuest
+        ? `Ты — строгий, но заботливый преподаватель немецкого языка. Твой ученик — русскоязычный, учит немецкий по уровням A1–B1. Обращайся нейтрально, без личных имён.`
+        : `Ты — строгий, но заботливый преподаватель немецкого языка Фрау Анна. Твоя студентка — Марго, русскоязычная девушка, цель которой — поступить в австрийский университет. Занимается по «Die Gelbe» (Dreyer/Schmitt).`;
+      const closing = isGuest ? `[короткая мотивация продолжать]` : `[мотивация — австрийский университет ждёт!]`;
 
-${taskContext ? `ЗАДАНИЕ, КОТОРОЕ ПОЛУЧИЛА СТУДЕНТКА:\n${taskContext}\n` : `ТЕМА: ${grammar || title}`}
+      const systemPrompt = `${persona}
+
+${taskContext ? `ЗАДАНИЕ, КОТОРОЕ ПОЛУЧИЛ УЧЕНИК:\n${taskContext}\n` : `ТЕМА: ${grammar || title}`}
 УРОВЕНЬ: ${level}
 ${imageBase64 ? `\nЕСЛИ ПРИСЛАНО ФОТО: сначала напиши раздел «📸 ПРОЧИТАННЫЙ ТЕКСТ:» и дословно воспроизведи весь текст с картинки. Только после этого делай разбор.\n` : ''}
 ПРОВЕРЯЙ ВСЁ БЕЗ ИСКЛЮЧЕНИЙ:
@@ -950,7 +959,7 @@ ${imageBase64 ? `\nЕСЛИ ПРИСЛАНО ФОТО: сначала напиш
 [2–3 конкретных совета]
 
 🎯 ИТОГ:
-[мотивация — австрийский университет ждёт!]`;
+${closing}`;
 
       const userContent = imageBase64
         ? [

@@ -897,6 +897,7 @@
     }
 
     const card = sessionCards[sessionIdx];
+    const dp = window.depersonalize || (t => t); // подмена имён для гостей
     const pct = Math.round((sessionIdx / sessionCards.length) * 100);
     document.getElementById('progress-fill').style.width = pct + '%';
     document.getElementById('study-progress-text').textContent = `${sessionIdx + 1} / ${sessionCards.length}`;
@@ -904,18 +905,18 @@
     // Front
     document.getElementById('card-front').innerHTML = `
       <div class="card-tag">Немецкий</div>
-      <div class="card-word">${card.de}</div>
+      <div class="card-word">${dp(card.de)}</div>
       ${card.article ? `<div class="card-article">${card.article}</div>` : ''}
-      ${card.ex ? `<div class="card-example">${card.ex}</div>` : ''}
+      ${card.ex ? `<div class="card-example">${dp(card.ex)}</div>` : ''}
       <div class="card-hint">👆 нажми чтобы увидеть перевод</div>
     `;
 
     // Back
     document.getElementById('card-back').innerHTML = `
       <div class="card-tag">Русский</div>
-      <div class="card-translation">${card.ru}</div>
+      <div class="card-translation">${dp(card.ru)}</div>
       ${card.plural ? `<div class="card-plural">мн.ч.: ${card.plural}</div>` : ''}
-      ${card.ex ? `<div class="card-example">${card.ex}</div>` : ''}
+      ${card.ex ? `<div class="card-example">${dp(card.ex)}</div>` : ''}
     `;
 
     // Reset flip

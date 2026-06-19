@@ -18,10 +18,22 @@
   document.documentElement.classList.add(isPersonal ? 'theme-personal' : 'theme-generic');
   window.IS_PERSONAL_THEME = isPersonal;
 
-  if (isPersonal) return; // тема Марго — ничего не меняем
+  const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+
+  // Нейтральное имя для гостей: их логин (если буквенный) иначе «Anna»
+  const rawLogin = localStorage.getItem('bulochka-login') || '';
+  const neutralName = /^[a-zA-Zа-яёА-ЯЁ]+$/.test(rawLogin) ? cap(rawLogin) : 'Anna';
+
+  // Подмена персональных имён в отображаемом тексте.
+  // personal → identity (Маргошины данные видит как есть);
+  // generic  → заменяет Марго/Булочка на нейтральное имя.
+  window.depersonalize = isPersonal
+    ? (t => t)
+    : (t => t == null ? t : String(t).replace(/Марго|Margo|Булочк[а-яёА-ЯЁ]*|Bulochka/g, neutralName));
+
+  if (isPersonal) return; // тема Марго — больше ничего не меняем
 
   const SITE = 'Deutsch lernen';
-  const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
 
   function apply() {
     // <title>: "… — Булочка учит Deutsch" → "… — Deutsch lernen"

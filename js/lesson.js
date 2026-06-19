@@ -67,11 +67,14 @@ function renderLesson() {
     return;
   }
 
+  // Подмена персональных имён для гостей (Марго видит как есть)
+  const dp = window.depersonalize || (t => t);
+
   // Theory HTML
   const theoryHtml = content.theory.map(t => `
     <div class="theory-block">
-      <h2>${t.heading}</h2>
-      ${t.content}
+      <h2>${dp(t.heading)}</h2>
+      ${dp(t.content)}
     </div>
   `).join('');
 
@@ -80,12 +83,12 @@ function renderLesson() {
   content.exercises.forEach((ex, i) => {
     if (ex.type === 'choice') {
       const optionsHtml = ex.options.map((opt, j) =>
-        `<button class="option-btn" data-ex="${i}" data-idx="${j}" onclick="selectOption(${i},${j})">${opt}</button>`
+        `<button class="option-btn" data-ex="${i}" data-idx="${j}" onclick="selectOption(${i},${j})">${dp(opt)}</button>`
       ).join('');
       exerciseHtml += `
         <div class="exercise" id="ex-${i}">
           <div class="exercise-num">Вопрос ${i + 1}</div>
-          <div class="exercise-q">${ex.question}</div>
+          <div class="exercise-q">${dp(ex.question)}</div>
           <div class="options">${optionsHtml}</div>
           <button class="check-btn" id="check-${i}" onclick="checkChoice(${i})" disabled>Проверить</button>
           <div class="feedback" id="fb-${i}"></div>
@@ -94,7 +97,7 @@ function renderLesson() {
       exerciseHtml += `
         <div class="exercise" id="ex-${i}">
           <div class="exercise-num">Вопрос ${i + 1}</div>
-          <div class="exercise-q">${ex.question}</div>
+          <div class="exercise-q">${dp(ex.question)}</div>
           <input class="fill-input" id="fill-${i}" placeholder="${ex.placeholder || ''}"
             oninput="enableFillCheck(${i})" onkeydown="if(event.key==='Enter') checkFill(${i})" />
           <button class="check-btn" id="check-${i}" onclick="checkFill(${i})" disabled>Проверить</button>
@@ -104,8 +107,8 @@ function renderLesson() {
       exerciseHtml += `
         <div class="exercise" id="ex-${i}">
           <div class="exercise-num">Перевод ${i + 1}</div>
-          <div class="exercise-q">${ex.question}</div>
-          <div class="exercise-hint" style="font-size:0.82rem;color:#b06090;margin-bottom:8px;">${ex.hint || 'Напиши по-немецки'}</div>
+          <div class="exercise-q">${dp(ex.question)}</div>
+          <div class="exercise-hint" style="font-size:0.82rem;color:#b06090;margin-bottom:8px;">${dp(ex.hint || 'Напиши по-немецки')}</div>
           <textarea class="fill-input translate-input" id="fill-${i}" placeholder="${ex.placeholder || 'Auf Deutsch...'}"
             oninput="enableFillCheck(${i})" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();checkFill(${i});}" rows="2"></textarea>
           <button class="check-btn" id="check-${i}" onclick="checkFill(${i})" disabled>Проверить</button>

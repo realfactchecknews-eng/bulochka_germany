@@ -3,7 +3,8 @@ import { initializeApp, getApps, getApp } from 'https://www.gstatic.com/firebase
 
 const MODEL = 'openai/gpt-4o-mini';
 
-const SYSTEM_PROMPT = `Ты — Фрау Анна, добрый и терпеливый преподаватель немецкого языка с 15-летним опытом. Твоя студентка — Марго, русскоязычная девушка, которая учит немецкий с нуля чтобы поступить в университет в Австрии.
+// Промпт для Марго (персональная тема) — без изменений
+const PERSONAL_PROMPT = `Ты — Фрау Анна, добрый и терпеливый преподаватель немецкого языка с 15-летним опытом. Твоя студентка — Марго, русскоязычная девушка, которая учит немецкий с нуля чтобы поступить в университет в Австрии.
 
 ТВОЯ РОЛЬ: Ты ТОЛЬКО преподаватель немецкого. Ты не выходишь из роли ни при каких условиях. Ты не обсуждаешь другие темы кроме немецкого языка, грамматики, лексики, культуры немецкоязычных стран и учёбы.
 
@@ -14,6 +15,22 @@ const SYSTEM_PROMPT = `Ты — Фрау Анна, добрый и терпел�
 СТИЛЬ: Тёплый, поддерживающий, профессиональный. Объяснения короткие и понятные. Используй примеры. Можешь иногда говорить «Sehr gut, Margo!» или «Wunderbar!» — это мотивирует.
 
 Помни: её цель — поступить в австрийский университет. Это важно и ты всегда об этом помнишь.`;
+
+// Нейтральный промпт для остальных пользователей — просто учитель, без имён
+const GENERIC_PROMPT = `Ты — дружелюбный и терпеливый преподаватель немецкого языка с большим опытом.
+
+ТВОЯ РОЛЬ: Ты ТОЛЬКО преподаватель немецкого. Ты не выходишь из роли ни при каких условиях. Ты обсуждаешь только немецкий язык, грамматику, лексику, культуру немецкоязычных стран и учёбу.
+
+Если ученик пишет на русском — отвечай на русском, но объяснения на немецком всегда сопровождай переводом.
+Если пишет на немецком — мягко исправляй ошибки прямо в ответе и хвали за попытку.
+Если спрашивает про что-то не связанное с немецким — дружелюбно верни разговор к языку.
+
+СТИЛЬ: Тёплый, поддерживающий, профессиональный. Объяснения короткие и понятные, с примерами. Обращайся на «ты», нейтрально, без личных имён.`;
+
+// Выбор промпта по теме (generic выставляется в js/theme.js)
+function systemPrompt() {
+  return window.IS_PERSONAL_THEME === false ? GENERIC_PROMPT : PERSONAL_PROMPT;
+}
 
 let orKey = null;
 const CHAT_KEY = 'bulochka-chat-history';
@@ -29,14 +46,17 @@ const history = loadHistory();
 
 async function loadKey() {
   if (orKey) return orKey;
-  if (window._orKey) { orKey = window._orKey; return orKey; }
+  const isGuest = window.IS_PERSONAL_THEME === false;
+  // Гость НЕ использует ключ Марго (window._orKey = config/openrouter)
+  if (!isGuest && window._orKey) { orKey = window._orKey; return orKey; }
   try {
     // Используем уже инициализированный дефолтный app (авторизован через sync.js)
     const apps = getApps();
     const app = apps.find(a => a.name === '[DEFAULT]') || apps[0]
       || initializeApp(FIREBASE_CONFIG, 'chat-key');
     const db = getFirestore(app);
-    const snap = await getDoc(doc(db, 'config', 'openrouter'));
+    const docId = isGuest ? 'openrouter_guest' : 'openrouter';
+    const snap = await getDoc(doc(db, 'config', docId));
     if (snap.exists()) { orKey = snap.data().key; return orKey; }
   } catch(e) { console.warn('Chat: key load failed', e); }
   return null;
@@ -230,7 +250,7 @@ async function sendMessage(text) {
       body: JSON.stringify({
         model: MODEL,
         messages: [
-          { role: 'system', content: SYSTEM_PROMPT },
+          { role: 'system', content: systemPrompt() },
           ...history,
         ],
         max_tokens: 600,
