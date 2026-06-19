@@ -932,105 +932,224 @@ const LESSONS_CONTENT = {
   // ══════════════════════════════════════════════════════════
 
   'articles-def': {
-    title: 'Определённый артикль: der, die, das',
+    title: 'Определённый артикль и склонение существительного',
     level: 'A1 · Урок 8',
-    intro: 'Артикли — это «the» в немецком, только их три. Это одна из главных тем A1. Егор посвятил этому целый урок в серии «Грамматика 2.0»!',
+    intro: 'der / die / das — это не просто «the». Артикль показывает род, число И падеж существительного. Разберём все три рода, как угадывать род, и полную таблицу склонения по 4 падежам.',
     theory: [
       {
-        heading: '⚧ Три рода = три артикля',
+        heading: '🟦 Три рода и множественное число',
         content: `
+          <p>У каждого существительного есть род. Его надо учить <b>вместе со словом</b>:</p>
           <div class="table-wrap"><table>
-            <tr><th>Род</th><th>Артикль</th><th>Вопрос</th><th>Примеры</th></tr>
-            <tr><td>Мужской</td><td><b>der</b></td><td>Wer? Was?</td><td>der Mann, der Tag, der Zug</td></tr>
-            <tr><td>Женский</td><td><b>die</b></td><td>Wer? Was?</td><td>die Frau, die Stadt, die Uhr</td></tr>
-            <tr><td>Средний</td><td><b>das</b></td><td>Wer? Was?</td><td>das Kind, das Haus, das Buch</td></tr>
-            <tr><td>Мн. число (все)</td><td><b>die</b></td><td>Wer? Was?</td><td>die Männer, die Frauen, die Kinder</td></tr>
+            <tr><th>Род</th><th>Артикль</th><th>Пример</th></tr>
+            <tr><td>мужской (m)</td><td><b>der</b></td><td>der Tisch (стол), der Mann</td></tr>
+            <tr><td>женский (f)</td><td><b>die</b></td><td>die Lampe (лампа), die Frau</td></tr>
+            <tr><td>средний (n)</td><td><b>das</b></td><td>das Buch (книга), das Kind</td></tr>
+            <tr><td>множ. (Pl)</td><td><b>die</b></td><td>die Tische, die Bücher</td></tr>
+          </table></div>
+          <p>Во множественном числе у всех родов артикль <b>die</b>.</p>
+        `
+      },
+      {
+        heading: '🔍 Как угадать род (подсказки по окончанию)',
+        content: `
+          <p>Род не всегда логичен (das Mädchen — «девочка» среднего рода!), но окончания часто подсказывают:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Обычно der (m)</th><th>Обычно die (f)</th><th>Обычно das (n)</th></tr>
+            <tr><td>-er, -ling, -or, -ismus</td><td>-ung, -heit, -keit, -schaft, -ei, -tion, -e</td><td>-chen, -lein, -um, -ment</td></tr>
+            <tr><td>der Lehrer, der Motor</td><td>die Zeitung, die Freiheit, die Lampe</td><td>das Mädchen, das Zentrum</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">💡 Главное правило Егора: учи слово ВСЕГДА вместе с артиклем. Не «Haus», а «das Haus». Не «Frau», а «die Frau». Иначе потом придётся учить заново!</div>
-            <div class="ru">der Mann · die Frau · das Kind → запомни как единое слово</div>
+            <div class="de">💡 -chen и -lein всегда das и делают слово уменьшительным: der Hund → das Hündchen (собачка).</div>
+            <div class="ru">Дни, месяцы, времена года — мужского рода: der Montag, der Mai, der Sommer.</div>
           </div>
         `
       },
       {
-        heading: '🔍 Подсказки по роду (не правила, но помогают!)',
+        heading: '📊 Полная таблица склонения (определённый артикль)',
         content: `
-          <p><b>🔵 Чаще мужской (der):</b></p>
+          <p>Падеж меняет артикль. Вот вся система — её стоит выучить наизусть:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+            <tr><td><b>Nominativ</b> (кто? что?)</td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
+            <tr><td><b>Akkusativ</b> (кого? что?)</td><td><b>den</b></td><td>die</td><td>das</td><td>die</td></tr>
+            <tr><td><b>Dativ</b> (кому? чему?)</td><td><b>dem</b></td><td><b>der</b></td><td><b>dem</b></td><td><b>den</b> +n</td></tr>
+            <tr><td><b>Genitiv</b> (чей?)</td><td><b>des</b> +(e)s</td><td><b>der</b></td><td><b>des</b> +(e)s</td><td>der</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Главное наблюдение: в Akkusativ меняется <b>только мужской</b> род (der → den). Женский, средний и множественное в Nom = Akk.</div>
+            <div class="ru">Поэтому многие фразы в Akkusativ выглядят как в Nominativ — кроме мужского рода.</div>
+          </div>
+        `
+      },
+      {
+        heading: '⚙️ Особенности падежей',
+        content: `
           <ul>
-            <li>Мужчины и профессии м.р.: <b>der</b> Arzt, <b>der</b> Lehrer, <b>der</b> Student</li>
-            <li>Дни, месяцы, времена года: <b>der</b> Montag, <b>der</b> Januar, <b>der</b> Sommer</li>
-            <li>Окончания: <b>-er, -ling, -ig, -ismus</b></li>
+            <li><b>Dativ Plural:</b> к существительному добавляется -n → mit <b>den Kindern</b>, mit <b>den Freunden</b>.</li>
+            <li><b>Genitiv m/n:</b> существительное получает -(e)s → das Auto <b>des Mannes</b>, der Titel <b>des Buches</b>.</li>
+            <li><b>Где какой падеж:</b> Nominativ — подлежащее; Akkusativ — прямой объект (sehen, haben, kaufen); Dativ — кому/чему (geben, helfen, danken); Genitiv — принадлежность.</li>
           </ul>
-          <p><b>🔴 Чаще женский (die):</b></p>
-          <ul>
-            <li>Женщины и профессии ж.р.: <b>die</b> Ärztin, <b>die</b> Lehrerin, <b>die</b> Studentin</li>
-            <li>Окончания: <b>-ung, -heit, -keit, -schaft, -ion, -ität</b></li>
-            <li>Большинство слов на <b>-e</b>: <b>die</b> Straße, <b>die</b> Reise, <b>die</b> Sprache</li>
-          </ul>
-          <p><b>🟢 Чаще средний (das):</b></p>
-          <ul>
-            <li>Уменьшительные на <b>-chen, -lein</b>: <b>das</b> Mädchen, <b>das</b> Büchlein</li>
-            <li>Инфинитивы-существительные: <b>das</b> Lernen, <b>das</b> Essen</li>
-            <li>Страны (большинство): <b>das</b> Land Österreich (но сама Österreich — без артикля)</li>
-          </ul>
+          <div class="example-box">
+            <div class="de">Der Mann (Nom) gibt dem Kind (Dat) den Ball (Akk). — Das ist das Auto des Mannes (Gen).</div>
+            <div class="ru">Мужчина даёт ребёнку мяч. — Это машина (этого) мужчины.</div>
+          </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Какой артикль у слова «Mann» (мужчина)?', options: ['der', 'die', 'das', 'den'], answer: 0 },
-      { type: 'choice', question: '«___ Kind» (ребёнок)?', options: ['das', 'der', 'die', 'dem'], answer: 0 },
-      { type: 'fill', question: 'Вставь артикль: «___ Frau»', answer: 'die', placeholder: 'd...' },
-      { type: 'choice', question: '«Wohnung» (квартира) — окончание -ung, значит:', options: ['die Wohnung', 'der Wohnung', 'das Wohnung', 'den Wohnung'], answer: 0 },
-      { type: 'choice', question: 'Во множественном числе все существительные используют:', options: ['die', 'der', 'das', 'den'], answer: 0 },
-      { type: 'choice', question: '«Mädchen» (девочка) — окончание -chen, значит:', options: ['das Mädchen', 'die Mädchen', 'der Mädchen', 'ein Mädchen'], answer: 0 },
+      { type: 'fill', question: 'Род: ___ Zeitung (-ung → ?). Впиши артикль Nominativ.', answer: 'die', placeholder: 'd...' },
+      { type: 'fill', question: 'Род: ___ Mädchen (-chen → ?). Впиши артикль.', answer: 'das', placeholder: 'd...' },
+      { type: 'fill', question: 'Nominativ → Akkusativ: Ich sehe ___ Mann. (der Mann)', answer: 'den', placeholder: 'd...' },
+      { type: 'fill', question: 'Akkusativ: Ich kaufe ___ Lampe. (die Lampe — меняется?)', answer: 'die', placeholder: 'd...' },
+      { type: 'fill', question: 'Akkusativ: Ich lese ___ Buch. (das Buch)', answer: 'das', placeholder: 'd...' },
+      { type: 'fill', question: 'Dativ: Ich helfe ___ Frau. (die Frau)', answer: 'der', placeholder: 'd...' },
+      { type: 'fill', question: 'Dativ: Ich gebe ___ Kind den Ball. (das Kind)', answer: 'dem', placeholder: 'd...' },
+      { type: 'fill', question: 'Dativ Plural: Ich spiele mit ___ Kindern. (die Kinder)', answer: 'den', placeholder: 'd...' },
+      { type: 'fill', question: 'Genitiv: Das ist das Auto ___ Mannes. (der Mann)', answer: 'des', placeholder: 'd...' },
+      { type: 'translate', question: 'Мужчина читает книгу.', answer: 'Der Mann liest das Buch.', hint: 'Der Mann (Nom) + lesen + das Buch (Akk)', placeholder: 'Der Mann...' },
+      { type: 'translate', question: 'Я вижу собаку. (der Hund)', answer: 'Ich sehe den Hund.', hint: 'sehen → Akkusativ, мужской der→den', placeholder: 'Ich sehe...' },
+      { type: 'translate', question: 'Я помогаю женщине. (die Frau)', answer: 'Ich helfe der Frau.', hint: 'helfen → Dativ', placeholder: 'Ich helfe...' },
+      { type: 'listen', answer: 'Ich gebe dem Kind den Ball.', hint: 'Dativ + Akkusativ' },
+      { type: 'write', question: 'Schreib 3 Sätze: wer macht was? Nutze Nominativ + Akkusativ (z.B. Der Mann kauft einen Apfel).', hint: 'Подлежащее в Nominativ, прямой объект в Akkusativ. Глаголы: sehen, kaufen, lesen, haben.', placeholder: 'Die Frau...', sample: 'Die Frau liest das Buch. Der Mann kauft den Apfel. Das Kind sieht den Hund.' }
     ],
   },
 
   'articles-indef': {
-    title: 'Неопределённый артикль: ein, eine',
+    title: 'Неопределённый артикль ein/eine и отрицание kein',
     level: 'A1 · Урок 9',
-    intro: 'Неопределённый артикль — это «a/an» в немецком. Три рода — три формы. Плюс отрицание kein/keine!',
+    intro: 'ein / eine — «один, какой-то» (когда говорим о предмете впервые). Разберём склонение ein по падежам и отрицание kein/keine. Сравним: когда der, а когда ein.',
     theory: [
       {
-        heading: '📋 Формы неопределённого артикля',
+        heading: '🆕 ein / eine / ein — когда?',
         content: `
+          <p>Неопределённый артикль используют, когда предмет <b>новый, неизвестный, упоминается впервые</b> или «один из многих»:</p>
           <div class="table-wrap"><table>
-            <tr><th>Род</th><th>Артикль</th><th>Пример</th></tr>
-            <tr><td>Мужской (der)</td><td><b>ein</b></td><td>ein Mann, ein Tag, ein Zug</td></tr>
-            <tr><td>Женский (die)</td><td><b>eine</b></td><td>eine Frau, eine Stadt, eine Uhr</td></tr>
-            <tr><td>Средний (das)</td><td><b>ein</b></td><td>ein Kind, ein Haus, ein Buch</td></tr>
-            <tr><td>Мн. число</td><td><b>—</b></td><td>Männer, Frauen, Kinder (без артикля!)</td></tr>
+            <tr><th>Род</th><th>Артикль (Nom)</th><th>Пример</th></tr>
+            <tr><td>m</td><td><b>ein</b></td><td>Das ist ein Tisch.</td></tr>
+            <tr><td>f</td><td><b>eine</b></td><td>Das ist eine Lampe.</td></tr>
+            <tr><td>n</td><td><b>ein</b></td><td>Das ist ein Buch.</td></tr>
+            <tr><td>Pl</td><td>— (нет!)</td><td>Das sind Bücher.</td></tr>
+          </table></div>
+          <p>⚠️ Во множественном числе неопределённого артикля <b>нет</b> — просто существительное: <i>Ich habe Freunde.</i></p>
+          <div class="example-box">
+            <div class="de">ein vs der: Da ist <b>ein</b> Hund. <b>Der</b> Hund ist groß. (сначала «какая-то» собака → потом уже «та самая»)</div>
+            <div class="ru">Первое упоминание — ein, повторное — der.</div>
+          </div>
+        `
+      },
+      {
+        heading: '📊 Склонение ein по падежам',
+        content: `
+          <p>ein меняется почти как der, но без окончания в Nom m/n:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th></tr>
+            <tr><td>Nominativ</td><td>ein</td><td>eine</td><td>ein</td></tr>
+            <tr><td>Akkusativ</td><td><b>einen</b></td><td>eine</td><td>ein</td></tr>
+            <tr><td>Dativ</td><td><b>einem</b></td><td><b>einer</b></td><td><b>einem</b></td></tr>
+            <tr><td>Genitiv</td><td><b>eines</b> +(e)s</td><td><b>einer</b></td><td><b>eines</b> +(e)s</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Das ist ein Mann. Das ist eine Frau. Das ist ein Kind.</div>
-            <div class="ru">Это мужчина. Это женщина. Это ребёнок.</div>
+            <div class="de">Ich habe <b>einen</b> Bruder (Akk, m). Ich gebe <b>einem</b> Freund das Buch (Dat, m).</div>
+            <div class="ru">Как и у der: в Akkusativ меняется только мужской род (ein → einen).</div>
           </div>
         `
       },
       {
         heading: '🚫 Отрицание: kein / keine',
         content: `
-          <p>Чтобы сказать «не/никакой» — используй <b>kein</b> (для der/das) или <b>keine</b> (для die и мн.ч.)</p>
+          <p>Чтобы сказать «нет / никакой» про существительное, используют <b>kein</b>. Он склоняется <b>точно как ein</b>, но имеет множественное число (keine):</p>
           <div class="table-wrap"><table>
-            <tr><th>Утверждение</th><th>Отрицание</th></tr>
-            <tr><td>Das ist <b>ein</b> Mann.</td><td>Das ist <b>kein</b> Mann.</td></tr>
-            <tr><td>Das ist <b>eine</b> Frau.</td><td>Das ist <b>keine</b> Frau.</td></tr>
-            <tr><td>Das ist <b>ein</b> Kind.</td><td>Das ist <b>kein</b> Kind.</td></tr>
-            <tr><td>Das sind Männer.</td><td>Das sind <b>keine</b> Männer.</td></tr>
+            <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+            <tr><td>Nom</td><td>kein</td><td>keine</td><td>kein</td><td>keine</td></tr>
+            <tr><td>Akk</td><td>keinen</td><td>keine</td><td>kein</td><td>keine</td></tr>
+            <tr><td>Dat</td><td>keinem</td><td>keiner</td><td>keinem</td><td>keinen</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich habe keine Zeit. Das ist kein Problem!</div>
-            <div class="ru">У меня нет времени. Это не проблема!</div>
+            <div class="de">Ich habe <b>einen</b> Hund. → Ich habe <b>keinen</b> Hund. · Das ist <b>kein</b> Problem.</div>
+            <div class="ru">kein отрицает существительное. (Глагол отрицают через nicht — это другая тема.)</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Das ist ___ Frau. (eine/ein)', options: ['eine', 'ein', 'kein', 'eine/ein'], answer: 0 },
-      { type: 'choice', question: 'Das ist ___ Mann. (eine/ein)', options: ['ein', 'eine', 'einer', 'einem'], answer: 0 },
-      { type: 'fill', question: 'Das ist ___ Kind. (средний род)', answer: 'ein', placeholder: 'e...' },
-      { type: 'choice', question: 'Ich habe ___ Zeit. (у меня нет времени, die Zeit)', options: ['keine', 'kein', 'nicht', 'nein'], answer: 0 },
-      { type: 'choice', question: 'Das ist ___ Problem! (нет проблем, das Problem)', options: ['kein', 'keine', 'nicht ein', 'nein'], answer: 0 },
+      { type: 'fill', question: 'Nominativ: Das ist ___ Lampe. (die Lampe)', answer: 'eine', placeholder: 'ein...' },
+      { type: 'fill', question: 'Nominativ: Das ist ___ Buch. (das Buch)', answer: 'ein', placeholder: 'ein...' },
+      { type: 'fill', question: 'Akkusativ: Ich habe ___ Bruder. (der Bruder)', answer: 'einen', placeholder: 'ein...' },
+      { type: 'fill', question: 'Akkusativ: Ich kaufe ___ Tasche. (die Tasche)', answer: 'eine', placeholder: 'ein...' },
+      { type: 'fill', question: 'Dativ: Ich gebe ___ Freund das Buch. (der Freund)', answer: 'einem', placeholder: 'ein...' },
+      { type: 'fill', question: 'Множественное: Ich habe ___ Freunde. (артикль есть?)', answer: '-|—|нет|kein', placeholder: '- если нет' },
+      { type: 'fill', question: 'Отрицание: Ich habe ___ Auto. (kein, das Auto, Akk)', answer: 'kein', placeholder: 'kein...' },
+      { type: 'fill', question: 'Отрицание: Ich habe ___ Bruder. (kein, der Bruder, Akk)', answer: 'keinen', placeholder: 'kein...' },
+      { type: 'translate', question: 'У меня есть собака. (der Hund)', answer: 'Ich habe einen Hund.', hint: 'haben → Akkusativ, ein→einen', placeholder: 'Ich habe...' },
+      { type: 'translate', question: 'Это не проблема. (das Problem)', answer: 'Das ist kein Problem.', hint: 'kein + das Problem', placeholder: 'Das ist...' },
+      { type: 'translate', question: 'У меня нет времени. (die Zeit)', answer: 'Ich habe keine Zeit.', hint: 'kein + die Zeit (Akk)', placeholder: 'Ich habe...' },
+      { type: 'listen', answer: 'Ich habe einen Bruder und eine Schwester.', hint: 'два Akkusativ: m и f' },
+      { type: 'write', question: 'Schreib 3 Sätze: was hast du / was hast du nicht? Nutze ein-/kein- im Akkusativ.', hint: 'Ich habe einen/eine/ein … / Ich habe keinen/keine/kein …', placeholder: 'Ich habe...', sample: 'Ich habe einen Hund. Ich habe eine Schwester. Ich habe kein Auto.' }
+    ],
+  },
+
+  'n-deklination': {
+    title: 'N-Deklination (слабые существительные)',
+    level: 'A2 · Урок 10',
+    intro: 'Есть группа мужских существительных, которые во всех падежах кроме Nominativ Singular получают окончание -(e)n. Это N-Deklination. Их немного, но они частые: der Student, der Junge, der Mensch, der Herr.',
+    theory: [
+      {
+        heading: '🧩 Что такое N-Deklination',
+        content: `
+          <p>Обычное существительное в Akkusativ и Dativ не меняется (der Tisch → den Tisch → dem Tisch — само слово одно). Но <b>слабые мужские существительные</b> добавляют <b>-(e)n</b> во всех падежах, кроме именительного единственного:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Падеж</th><th>der Student</th><th>der Junge</th></tr>
+            <tr><td>Nominativ</td><td>der Student</td><td>der Junge</td></tr>
+            <tr><td>Akkusativ</td><td>den Student<b>en</b></td><td>den Junge<b>n</b></td></tr>
+            <tr><td>Dativ</td><td>dem Student<b>en</b></td><td>dem Junge<b>n</b></td></tr>
+            <tr><td>Genitiv</td><td>des Student<b>en</b></td><td>des Junge<b>n</b></td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Ich kenne <b>den Studenten</b>. Ich helfe <b>dem Studenten</b>. (а не «den Student»!)</div>
+            <div class="ru">Эта -en — самая частая ошибка, потому что на слух кажется лишней.</div>
+          </div>
+        `
+      },
+      {
+        heading: '👥 Кто входит в эту группу',
+        content: `
+          <p>Это <b>только мужской род (der)</b>, в основном «живые» существительные:</p>
+          <ul>
+            <li><b>На -e</b> (люди/животные): der Junge, der Kollege, der Kunde, der Neffe, der Löwe, der Affe</li>
+            <li><b>Профессии/национальности</b> (часто иностранные): der Student, der Polizist, der Tourist, der Pilot, der Praktikant, der Franzose</li>
+            <li><b>Особые слова:</b> der Mensch, der Nachbar, der Herr, der Name, der Held, der Bauer</li>
+          </ul>
+          <div class="example-box">
+            <div class="de">der Herr — особый: в Singular -n (den Herrn), во Plural -en (die Herren). der Name — в Genitiv -ns: des Namens.</div>
+            <div class="ru">Эти два запомни отдельно.</div>
+          </div>
+        `
+      },
+      {
+        heading: '✅ Как не ошибиться',
+        content: `
+          <p>Алгоритм: видишь мужское «живое» существительное (человек, профессия, национальность, животное) → проверь, не слабое ли оно. Если да — во всех падежах кроме Nom Sg добавляй -(e)n.</p>
+          <div class="example-box">
+            <div class="de">Der Tourist (Nom) fotografiert. → Ich sehe den Tourist<b>en</b> (Akk). → Ich gebe dem Tourist<b>en</b> (Dat) eine Karte.</div>
+            <div class="ru">Сравни с обычным: der Tisch → den Tisch (без -en).</div>
+          </div>
+        `
+      }
+    ],
+    exercises: [
+      { type: 'fill', question: 'Akkusativ: Ich kenne den ___. (der Student)', answer: 'Studenten', placeholder: 'Student...' },
+      { type: 'fill', question: 'Dativ: Ich helfe dem ___. (der Junge)', answer: 'Jungen', placeholder: 'Junge...' },
+      { type: 'fill', question: 'Akkusativ: Ich sehe den ___. (der Tourist)', answer: 'Touristen', placeholder: 'Tourist...' },
+      { type: 'fill', question: 'Dativ: Ich danke dem ___. (der Nachbar)', answer: 'Nachbarn', placeholder: 'Nachbar...' },
+      { type: 'fill', question: 'Особое слово: Ich sehe den ___. (der Herr, Singular)', answer: 'Herrn', placeholder: 'Herr...' },
+      { type: 'fill', question: 'Genitiv: Wie ist die Schreibweise des ___? (der Name)', answer: 'Namens', placeholder: 'Name...' },
+      { type: 'fill', question: 'Сравни (НЕ слабое): Ich sehe den ___. (der Tisch)', answer: 'Tisch', placeholder: 'Tisch...' },
+      { type: 'translate', question: 'Я знаю этого студента.', answer: 'Ich kenne den Studenten.', hint: 'kennen → Akkusativ, слабое +en', placeholder: 'Ich kenne...' },
+      { type: 'translate', question: 'Я помогаю соседу.', answer: 'Ich helfe dem Nachbarn.', hint: 'helfen → Dativ, der Nachbar → Nachbarn', placeholder: 'Ich helfe...' },
+      { type: 'translate', question: 'Мальчик играет с собакой.', answer: 'Der Junge spielt mit dem Hund.', hint: 'Nom der Junge (тут без -n), mit + Dativ', placeholder: 'Der Junge...' },
+      { type: 'listen', answer: 'Ich frage den Polizisten.', hint: 'Akkusativ, слабое существительное' },
+      { type: 'write', question: 'Schreib 3 Sätze mit schwachen Nomen (der Student, der Junge, der Mensch, der Kollege) im Akkusativ oder Dativ.', hint: 'Не забудь окончание -(e)n! Ich sehe den Studenten. Ich helfe dem Kollegen.', placeholder: 'Ich...', sample: 'Ich kenne den Studenten. Ich helfe dem Kollegen. Ich sehe den Jungen im Park.' }
     ],
   },
 

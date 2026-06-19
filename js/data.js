@@ -35,9 +35,10 @@ const MODULES = [
     title: 'Артикли и существительные — Die Gelbe Kap. 2–3',
     desc: 'der/die/das, ein/eine, kein/keine, множественное число',
     lessons: [
-      { id: 'articles-def',  title: 'Определённый артикль der, die, das', desc: 'Три рода + подсказки по определению', xp: 50, type: 'Грамматика' },
-      { id: 'articles-indef',title: 'Неопределённый артикль ein, eine',   desc: 'ein/eine + отрицание kein/keine', xp: 45, type: 'Грамматика' },
+      { id: 'articles-def',  title: 'Определённый артикль der, die, das', desc: 'Три рода + полное склонение по 4 падежам', xp: 50, type: 'Грамматика' },
+      { id: 'articles-indef',title: 'Неопределённый артикль ein, eine',   desc: 'ein/eine + склонение + отрицание kein/keine', xp: 45, type: 'Грамматика' },
       { id: 'plural',        title: 'Множественное число',                 desc: '5 основных типов образования', xp: 55, type: 'Грамматика' },
+      { id: 'n-deklination', title: 'N-Deklination (слабые сущ.)',         desc: 'der Student → den Studenten — -(e)n во всех падежах', xp: 55, type: 'Грамматика' },
     ],
   },
   {
