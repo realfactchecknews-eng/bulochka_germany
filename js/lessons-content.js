@@ -1787,28 +1787,26 @@ const LESSONS_CONTENT = {
 
   negation: {
     title: 'Отрицание: nicht и kein',
-    level: 'A1 · Урок 19',
-    intro: 'В немецком два главных отрицания: kein (отрицает существительное) и nicht (отрицает всё остальное — глагол, прилагательное, целое предложение). Разберём, когда какой и куда ставить nicht.',
+    intro: 'Два главных отрицания: kein (отрицает существительное) и nicht (отрицает всё остальное — глагол, прилагательное, целое предложение). Разберём выбор и — что сложнее — позицию nicht.',
     theory: [
       {
-        heading: '🚫 kein или nicht — как выбрать',
+        heading: '📘 Основа: kein или nicht',
         content: `
-          <p>Простое правило:</p>
           <ul>
             <li><b>kein</b> — если отрицаем существительное с <b>ein</b> или <b>без артикля</b>.</li>
-            <li><b>nicht</b> — во всех остальных случаях (глагол, прилагательное, наречие, имя собственное, существительное с <b>определённым</b> артиклем).</li>
+            <li><b>nicht</b> — во всех прочих случаях (глагол, прилагательное, наречие, имя, существительное с определённым артиклем или притяжательным).</li>
           </ul>
           <div class="table-wrap"><table>
-            <tr><th>Фраза</th><th>Отрицание</th></tr>
-            <tr><td>Ich habe ein Auto.</td><td>Ich habe <b>kein</b> Auto.</td></tr>
+            <tr><th>Утверждение</th><th>Отрицание</th></tr>
+            <tr><td>Ich habe einen Plan.</td><td>Ich habe <b>keinen</b> Plan.</td></tr>
             <tr><td>Ich trinke Kaffee.</td><td>Ich trinke <b>keinen</b> Kaffee.</td></tr>
             <tr><td>Ich kenne den Mann.</td><td>Ich kenne den Mann <b>nicht</b>.</td></tr>
-            <tr><td>Das ist schön.</td><td>Das ist <b>nicht</b> schön.</td></tr>
+            <tr><td>Das ist wichtig.</td><td>Das ist <b>nicht</b> wichtig.</td></tr>
           </table></div>
         `
       },
       {
-        heading: '📦 kein склоняется как ein',
+        heading: '📦 Тонкость: kein склоняется как ein',
         content: `
           <div class="table-wrap"><table>
             <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
@@ -1817,108 +1815,115 @@ const LESSONS_CONTENT = {
             <tr><td>Dat</td><td>keinem</td><td>keiner</td><td>keinem</td><td>keinen</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich habe <b>keinen</b> Bruder (Akk m). Ich habe <b>keine</b> Zeit (Akk f).</div>
-            <div class="ru">В отличие от ein, у kein есть множественное число: keine Freunde.</div>
+            <div class="de">Ich habe <b>keinen</b> Termin (Akk m). Ich habe <b>keine</b> Zeit (Akk f). В отличие от ein, у kein есть мн.число.</div>
+            <div class="ru">keine Argumente, keine Fragen.</div>
           </div>
         `
       },
       {
-        heading: '📐 Куда ставить nicht',
+        heading: '📐 Тонкость: позиция nicht',
         content: `
-          <p>Позиция nicht зависит от того, что именно отрицаем:</p>
           <ul>
-            <li><b>Всё предложение / глагол</b> → nicht в самый конец: <i>Ich komme heute <b>nicht</b>.</i></li>
-            <li><b>Конкретное слово</b> → nicht прямо перед ним: <i>Ich komme <b>nicht</b> heute</i> (а завтра).</li>
-            <li><b>Прилагательное после sein</b> → перед прилагательным: <i>Das ist <b>nicht</b> teuer.</i></li>
-            <li>При инфинитиве/Partizip nicht стоит перед ним: <i>Ich kann <b>nicht</b> kommen.</i></li>
+            <li><b>Всё предложение / глагол</b> → nicht в конец: Ich komme heute <b>nicht</b>.</li>
+            <li><b>Одно слово</b> → nicht прямо перед ним: Ich komme <b>nicht</b> heute (а завтра).</li>
+            <li><b>Прилагательное после sein</b> → перед ним: Das ist <b>nicht</b> teuer.</li>
+            <li><b>Инфинитив/Partizip/приставка</b> → nicht перед концом рамки: Ich kann <b>nicht</b> kommen.</li>
           </ul>
-          <div class="example-box">
-            <div class="de">Ich kenne ihn <b>nicht</b>. · Er arbeitet heute <b>nicht</b>. · Das Auto ist <b>nicht</b> neu.</div>
-            <div class="ru">По умолчанию — nicht в конец; если отрицаем одно слово — перед этим словом.</div>
-          </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>«нет машины» = kein Auto (существительное), а «не знаю» = weiß nicht (глагол).</li>
+            <li>nicht обычно ближе к концу, но <b>перед</b> тем, что отрицает конкретно.</li>
+            <li>Двойное отрицание не как в русском: «никогда ничего» = «nie etwas», а не два nicht.</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'kein или nicht? Ich habe ___ Auto. (ein Auto → ?)', answer: 'kein', placeholder: 'kein/nicht' },
-      { type: 'fill', question: 'kein или nicht? Ich kenne den Mann ___. (опред. артикль)', answer: 'nicht', placeholder: 'kein/nicht' },
-      { type: 'fill', question: 'Форма kein, Akk m: Ich habe ___ Bruder. (der Bruder)', answer: 'keinen', placeholder: 'kein...' },
-      { type: 'fill', question: 'Форма kein, Akk f: Ich habe ___ Zeit. (die Zeit)', answer: 'keine', placeholder: 'kein...' },
-      { type: 'fill', question: 'kein или nicht? Das ist ___ schön. (прилагательное)', answer: 'nicht', placeholder: 'kein/nicht' },
-      { type: 'fill', question: 'kein или nicht? Ich trinke ___ Kaffee. (без артикля)', answer: 'keinen', placeholder: 'kein...' },
-      { type: 'translate', question: 'У меня нет машины.', answer: 'Ich habe kein Auto.', hint: 'существительное с ein → kein', placeholder: 'Ich habe...' },
-      { type: 'translate', question: 'Я его не знаю.', answer: 'Ich kenne ihn nicht.', hint: 'отрицаем глагол → nicht в конец', placeholder: 'Ich kenne...' },
-      { type: 'translate', question: 'Это не дорого.', answer: 'Das ist nicht teuer.', hint: 'прилагательное → nicht перед ним', placeholder: 'Das ist...' },
-      { type: 'translate', question: 'У меня нет времени.', answer: 'Ich habe keine Zeit.', hint: 'die Zeit → keine', placeholder: 'Ich habe...' },
-      { type: 'listen', answer: 'Ich komme heute nicht.', hint: 'nicht в конце' },
-      { type: 'write', question: 'Schreib 3 verneinte Sätze — nutze 2× kein und 1× nicht.', hint: 'Существительное с ein/без артикля → kein. Глагол/прилагательное → nicht.', placeholder: 'Ich habe kein...', sample: 'Ich habe kein Auto. Ich trinke keinen Alkohol. Ich arbeite heute nicht.' }
+      { type: 'choice', question: 'kein или nicht: «Ich habe ___ Auto» (ein Auto)', options: ['kein', 'nicht', 'keinen'], answer: 0, explain: 'das Auto (n) с ein → kein.' },
+      { type: 'choice', question: 'kein или nicht: «Ich kenne den Direktor ___»', options: ['nicht', 'kein', 'keinen'], answer: 0, explain: 'Существительное с определённым артиклем → nicht.' },
+      { type: 'choice', question: 'Куда nicht в «Das ist ___ teuer»?', options: ['nicht teuer (перед прилаг.)', 'teuer nicht'], answer: 0, explain: 'nicht перед прилагательным после sein.' },
+      { type: 'fill', question: 'Форма kein, Akk m: Ich habe ___ Termin. (der Termin)', answer: 'keinen', placeholder: 'kein...', explain: 'Akk m → keinen.' },
+      { type: 'fill', question: 'Форма kein, Akk f: Ich habe ___ Zeit. (die Zeit)', answer: 'keine', placeholder: 'kein...', explain: 'Akk f → keine.' },
+      { type: 'fill', question: 'kein или nicht: Ich verstehe das ___.', answer: 'nicht', placeholder: '...', explain: 'Отрицаем глагол/предложение → nicht.' },
+      { type: 'translate', question: 'У меня нет времени. (die Zeit)', answer: 'Ich habe keine Zeit.', hint: 'Zeit → keine', placeholder: 'Ich habe...', explain: 'Существительное → kein-.' },
+      { type: 'translate', question: 'Я его не знаю. (kennen)', answer: 'Ich kenne ihn nicht.', hint: 'отрицаем глагол → nicht в конец', placeholder: 'Ich kenne...', explain: 'Глагол → nicht.' },
+      { type: 'translate', question: 'Это не срочно. (dringend)', answer: 'Das ist nicht dringend.', hint: 'прилагательное → nicht перед ним', placeholder: 'Das ist...', explain: 'nicht перед прилагательным.' },
+      { type: 'listen', answer: 'Ich habe heute leider keinen Termin frei.', hint: 'keinen (Akk m)' },
+      { type: 'write', question: 'Schreib 3 verneinte Sätze — 2× kein und 1× nicht.', hint: 'Существительное с ein/без артикля → kein; глагол/прилаг. → nicht.', placeholder: 'Ich habe kein...', sample: 'Ich habe keinen Plan B. Ich trinke keinen Alkohol. Diese Lösung funktioniert nicht.' }
     ],
   },
 
   'sentence-order': {
-    title: 'Порядок слов в предложении',
-    level: 'A1 · Урок 20',
-    intro: 'Главное правило немецкого: спрягаемый глагол стоит на 2-м месте (V2). Разберём, что можно ставить на 1-е место, инверсию подлежащего, рамку (Satzklammer) и порядок в середине предложения (TeKaMoLo).',
+    title: 'Порядок слов (V2, инверсия, рамка)',
+    intro: 'Главное правило немецкого: спрягаемый глагол на 2-м месте (V2). Разберём, что можно ставить на 1-е место, инверсию подлежащего, глагольную рамку и порядок в середине предложения (TeKaMoLo) — на этом спотыкаются больше всего.',
     theory: [
       {
-        heading: '2️⃣ Правило V2: глагол на втором месте',
+        heading: '📘 Основа: правило V2',
         content: `
-          <p>В обычном повествовательном предложении <b>спрягаемый глагол всегда второй</b> по позиции (не по слову, а по члену предложения):</p>
+          <p>В повествовательном предложении спрягаемый глагол — <b>второй по позиции</b> (не по слову, а по члену предложения):</p>
           <div class="table-wrap"><table>
-            <tr><th>1 место</th><th>2 место (глагол)</th><th>остальное</th></tr>
-            <tr><td>Ich</td><td><b>lerne</b></td><td>heute Deutsch.</td></tr>
-            <tr><td>Heute</td><td><b>lerne</b></td><td>ich Deutsch.</td></tr>
-            <tr><td>Deutsch</td><td><b>lerne</b></td><td>ich heute.</td></tr>
+            <tr><th>1 место</th><th>2 (глагол)</th><th>остальное</th></tr>
+            <tr><td>Ich</td><td>prüfe</td><td>heute den Vertrag.</td></tr>
+            <tr><td>Heute</td><td>prüfe</td><td>ich den Vertrag.</td></tr>
+            <tr><td>Den Vertrag</td><td>prüfe</td><td>ich heute.</td></tr>
           </table></div>
           <div class="example-box">
             <div class="de">Что бы ни стояло на 1-м месте — глагол остаётся на 2-м.</div>
-            <div class="ru">На 1-е место можно вынести время, объект, обстоятельство — для акцента.</div>
+            <div class="ru">На 1-е место выносят время, объект, обстоятельство — для акцента.</div>
           </div>
         `
       },
       {
-        heading: '🔄 Инверсия: подлежащее уходит за глагол',
+        heading: '🔄 Тонкость: инверсия подлежащего',
         content: `
-          <p>Если на 1-м месте НЕ подлежащее, то подлежащее встаёт <b>сразу после глагола</b> (на 3-ю позицию):</p>
+          <p>Если на 1-м месте НЕ подлежащее, оно встаёт <b>сразу после глагола</b>:</p>
           <div class="example-box">
-            <div class="de">Morgen <b>fahre ich</b> nach Wien. (не «Morgen ich fahre»!)<br>Am Abend <b>liest sie</b> ein Buch.</div>
-            <div class="ru">Это самая частая ошибка русскоязычных: после обстоятельства сразу глагол, потом подлежащее.</div>
+            <div class="de">Morgen <b>fahre ich</b> nach Wien. (не «Morgen ich fahre»!) · Deshalb <b>haben wir</b> abgesagt.</div>
+            <div class="ru">Самая частая ошибка русскоязычных: после обстоятельства идёт сначала глагол, потом подлежащее.</div>
           </div>
         `
       },
       {
-        heading: '🔗 Рамка (Satzklammer): второй глагол в конец',
+        heading: '🔗 Тонкость: рамка (Satzklammer)',
         content: `
-          <p>Если есть модальный глагол, Perfekt или отделяемая приставка — вторая часть глагола уходит в самый <b>конец</b>, образуя «рамку»:</p>
+          <p>При модальном, Perfekt или отделяемой приставке вторая часть глагола уходит в самый <b>конец</b>:</p>
           <div class="example-box">
-            <div class="de">Ich <b>muss</b> heute viel <b>arbeiten</b>. · Ich <b>habe</b> ein Buch <b>gekauft</b>. · Ich <b>stehe</b> um 7 Uhr <b>auf</b>.</div>
-            <div class="ru">Спрягаемая часть — на 2-м месте, неизменяемая (инфинитив/Partizip/приставка) — в конце.</div>
+            <div class="de">Ich <b>muss</b> heute den Bericht <b>abgeben</b>. · Ich <b>habe</b> den Vertrag <b>unterschrieben</b>. · Ich <b>rufe</b> dich später <b>an</b>.</div>
+            <div class="ru">Спрягаемая часть на 2-м месте, неизменяемая (инфинитив/Partizip/приставка) — в конце.</div>
           </div>
         `
       },
       {
-        heading: '📦 Середина предложения: TeKaMoLo',
+        heading: '📦 Тонкость и ошибки: TeKaMoLo + вопросы',
         content: `
-          <p>Когда в середине несколько обстоятельств, порядок такой: <b>Te</b>mporal (когда) → <b>Ka</b>usal (почему) → <b>Mo</b>dal (как) → <b>Lo</b>kal (где):</p>
+          <p>В середине обстоятельства идут в порядке <b>Te</b>mporal (когда) → <b>Ka</b>usal (почему) → <b>Mo</b>dal (как) → <b>Lo</b>kal (где):</p>
           <div class="example-box">
             <div class="de">Ich fahre <b>morgen</b> (когда) <b>wegen der Arbeit</b> (почему) <b>mit dem Auto</b> (как) <b>nach Wien</b> (куда).</div>
-            <div class="ru">Это ориентир, не жёсткий закон — но помогает строить длинные фразы правильно.</div>
+            <div class="ru">Это ориентир, не жёсткий закон.</div>
           </div>
-          <p>Вопросы: W-вопрос — глагол на 2-м месте (Wann kommst du?); да/нет-вопрос — глагол на 1-м (Kommst du?).</p>
+          <ul>
+            <li>W-вопрос: глагол на 2-м (Wann kommst du?). Да/нет-вопрос: глагол на 1-м (Kommst du?).</li>
+            <li>Не ставь два «полноценных» места перед глаголом: только ОДИН член предложения до V2.</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'translate', question: 'Завтра я еду в Вену. (начни с «Morgen» — следи за инверсией!)', answer: 'Morgen fahre ich nach Wien.', hint: 'Morgen + глагол + ich (инверсия)', placeholder: 'Morgen...' },
-      { type: 'translate', question: 'Сегодня я учу немецкий. (начни с «Heute»)', answer: 'Heute lerne ich Deutsch.', hint: 'Heute + lerne + ich', placeholder: 'Heute...' },
-      { type: 'fill', question: 'Поставь глагол правильно: «Am Abend ___ ich fern.» (fernsehen → sehe … fern, спрягаемая часть)', answer: 'sehe', placeholder: 's...' },
-      { type: 'translate', question: 'Я должна сегодня много работать. (модальный + рамка)', answer: 'Ich muss heute viel arbeiten.', hint: 'muss на 2-м, arbeiten в конец', placeholder: 'Ich muss...' },
-      { type: 'translate', question: 'Я встаю в 7 часов. (aufstehen, отделяемая)', answer: 'Ich stehe um 7 Uhr auf.', hint: 'stehe … auf — рамка', placeholder: 'Ich stehe...' },
-      { type: 'fill', question: 'Да/нет-вопрос: ___ du heute? (kommen — где глагол?)', answer: 'Kommst', placeholder: 'K...' },
-      { type: 'translate', question: 'Когда ты приходишь? (W-вопрос)', answer: 'Wann kommst du?', hint: 'Wann + глагол на 2-м', placeholder: 'Wann...' },
-      { type: 'translate', question: 'Вечером она читает книгу. (начни с «Am Abend»)', answer: 'Am Abend liest sie ein Buch.', hint: 'Am Abend + liest + sie', placeholder: 'Am Abend...' },
-      { type: 'listen', answer: 'Morgen gehe ich ins Kino.', hint: 'инверсия после Morgen' },
-      { type: 'write', question: 'Schreib 3 Sätze, die NICHT mit dem Subjekt anfangen (z.B. mit Heute/Morgen/Am Abend). Achte auf die Inversion!', hint: 'Zeit/Ort на 1-е место → глагол на 2-е → подлежащее на 3-е.', placeholder: 'Heute...', sample: 'Heute arbeite ich viel. Morgen fahre ich nach Hause. Am Wochenende treffe ich Freunde.' }
+      { type: 'choice', question: 'Что верно после «Morgen»?', options: ['Morgen fahre ich nach Wien', 'Morgen ich fahre nach Wien'], answer: 0, explain: 'Инверсия: глагол на 2-м, подлежащее после него.' },
+      { type: 'choice', question: 'Где Partizip в Perfekt?', options: ['в самом конце', 'сразу после haben', 'на 1-м месте'], answer: 0, explain: 'Рамка: Partizip в конце.' },
+      { type: 'choice', question: 'Да/нет-вопрос: глагол на каком месте?', options: ['1-м', '2-м', 'в конце'], answer: 0, explain: 'Kommst du? — глагол первый.' },
+      { type: 'fill', question: 'Спрягаемая часть: «Am Abend ___ ich den Chef an» (anrufen)', answer: 'rufe', placeholder: 'r...', explain: 'rufe … an — спрягаемая часть rufe.' },
+      { type: 'fill', question: 'W-вопрос: ___ kommst du? (когда)', answer: 'Wann', placeholder: 'W...', explain: 'Wann + глагол на 2-м.' },
+      { type: 'translate', question: 'Завтра я еду в Вену. (начни с Morgen)', answer: 'Morgen fahre ich nach Wien.', hint: 'Morgen + глагол + ich (инверсия)', placeholder: 'Morgen...', explain: 'Инверсия после обстоятельства.' },
+      { type: 'translate', question: 'Я должна сегодня сдать отчёт. (müssen, abgeben)', answer: 'Ich muss heute den Bericht abgeben.', hint: 'muss на 2-м, abgeben в конец', placeholder: 'Ich muss...', explain: 'Рамка с модальным.' },
+      { type: 'translate', question: 'Поэтому мы отменили встречу. (deshalb, absagen, Perfekt)', answer: 'Deshalb haben wir den Termin abgesagt.', hint: 'Deshalb + haben + wir … abgesagt', placeholder: 'Deshalb...', explain: 'Инверсия + рамка Perfekt.' },
+      { type: 'translate', question: 'Когда ты приходишь? (W-вопрос)', answer: 'Wann kommst du?', hint: 'Wann + глагол на 2-м', placeholder: 'Wann...', explain: 'W-вопрос: глагол второй.' },
+      { type: 'listen', answer: 'Heute Abend gehe ich ins Theater.', hint: 'инверсия после Heute Abend' },
+      { type: 'write', question: 'Schreib 3 Sätze, die NICHT mit dem Subjekt anfangen (Heute/Deshalb/Am Abend …). Achte auf die Inversion!', hint: 'Zeit/Grund на 1-е → глагол на 2-е → подлежащее на 3-е.', placeholder: 'Heute...', sample: 'Heute arbeite ich im Homeoffice. Deshalb komme ich später. Am Wochenende treffe ich meine Familie.' }
     ],
   },
 
@@ -2317,57 +2322,61 @@ const LESSONS_CONTENT = {
 
   'subordinate-clauses': {
     title: 'Придаточные предложения (weil, dass, wenn…)',
-    level: 'B1 · Урок 22',
-    intro: 'Союзы weil, dass, wenn, obwohl, ob отправляют спрягаемый глагол в самый КОНЕЦ придаточного. Это правило нельзя нарушать. Разберём порядок слов, запятую и инверсию, когда придаточное стоит первым.',
+    intro: 'Подчинительные союзы (weil, dass, wenn, obwohl, ob, als, damit) отправляют спрягаемый глагол в самый КОНЕЦ придаточного. Разберём порядок слов, запятую, инверсию при придаточном-первом и разницу weil/denn.',
     theory: [
       {
-        heading: '⛓️ Главное: глагол в конец',
+        heading: '📘 Основа: глагол в конец',
         content: `
-          <p>После подчинительного союза спрягаемый глагол уходит в самый конец придаточной части:</p>
+          <p>После подчинительного союза спрягаемый глагол уходит в конец придаточной части:</p>
           <div class="example-box">
-            <div class="de">Ich lerne Deutsch, <b>weil</b> ich in Wien studieren <b>will</b>.<br>Ich weiß, <b>dass</b> er heute <b>kommt</b>.</div>
-            <div class="ru">Сравни: Er kommt heute. → …, dass er heute kommt. (глагол улетел в конец)</div>
+            <div class="de">Ich lerne Deutsch, <b>weil</b> ich in Wien studieren <b>will</b>. · Ich weiß, <b>dass</b> er heute <b>kommt</b>.</div>
+            <div class="ru">Сравни: Er kommt heute. → …, dass er heute kommt (глагол улетел в конец).</div>
           </div>
-          <p>Частые союзы: <b>weil</b> (потому что), <b>dass</b> (что), <b>wenn</b> (когда/если), <b>obwohl</b> (хотя), <b>ob</b> (ли), <b>damit</b> (чтобы), <b>als</b> (когда, в прошлом).</p>
+          <p>Частые союзы: <b>weil</b> (потому что), <b>dass</b> (что), <b>wenn</b> (когда/если), <b>obwohl</b> (хотя), <b>ob</b> (ли), <b>damit</b> (чтобы), <b>als</b> (когда, однократно в прошлом).</p>
         `
       },
       {
-        heading: '🔄 Если придаточное стоит первым',
+        heading: '🔄 Тонкость: придаточное первым → инверсия',
         content: `
-          <p>Тогда вся придаточная часть = «1-е место», и в главном предложении глагол идёт <b>сразу после запятой</b> (инверсия — глагол к глаголу):</p>
+          <p>Если придаточное стоит первым, вся придаточная часть = «1-е место», и в главном глагол идёт <b>сразу после запятой</b> (глагол к глаголу):</p>
           <div class="example-box">
-            <div class="de"><b>Weil</b> ich müde <b>bin</b>, <b>bleibe</b> ich zu Hause.<br><b>Wenn</b> es <b>regnet</b>, <b>nehme</b> ich den Bus.</div>
+            <div class="de"><b>Weil</b> ich müde <b>bin</b>, <b>bleibe</b> ich zu Hause. · <b>Wenn</b> es <b>regnet</b>, <b>nehme</b> ich den Bus.</div>
             <div class="ru">Получается «…глагол, глагол…» через запятую — это правильно.</div>
           </div>
         `
       },
       {
-        heading: '⚖️ weil ≠ denn',
+        heading: '⚖️ Тонкость: weil ≠ denn; als ≠ wenn',
         content: `
-          <p>Оба значат «потому что», но строятся по-разному:</p>
           <ul>
-            <li><b>weil</b> — подчинительный → глагол в конец: Ich bleibe, <b>weil</b> ich krank <b>bin</b>.</li>
-            <li><b>denn</b> — сочинительный → обычный порядок (глагол на 2-м): Ich bleibe, <b>denn</b> ich <b>bin</b> krank.</li>
+            <li><b>weil</b> (подчинит.) → глагол в конец; <b>denn</b> (сочинит.) → обычный порядок: Ich bleibe, <b>denn</b> ich <b>bin</b> krank.</li>
+            <li><b>als</b> — однократное событие в прошлом (Als ich klein <b>war</b>…); <b>wenn</b> — повторяющееся/условие (Immer wenn es regnet…).</li>
           </ul>
-          <div class="example-box">
-            <div class="de">Оба верны, но не путай порядок слов: после weil — в конец, после denn — как обычно.</div>
-            <div class="ru">Запятая ставится перед союзом в обоих случаях.</div>
-          </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Забыть отправить глагол в конец: «…, weil ich <b>bin</b> müde» — нет, «…, weil ich müde <b>bin</b>».</li>
+            <li>Запятая перед союзом обязательна.</li>
+            <li>В придаточном отделяемый глагол НЕ разрывается: «…, dass er heute <b>ankommt</b>».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Поставь глагол в конец: Ich lerne Deutsch, weil ich nach Wien ___. (wollen → ich will)', answer: 'will', placeholder: 'w...' },
-      { type: 'fill', question: 'Глагол в конец: Ich weiß, dass er heute ___. (kommen → er kommt)', answer: 'kommt', placeholder: 'k...' },
-      { type: 'fill', question: 'wenn: Wenn es ___, nehme ich den Bus. (regnen → es regnet)', answer: 'regnet', placeholder: 'r...' },
-      { type: 'fill', question: 'ob (ли): Ich weiß nicht, ob er ___. (kommen → er kommt)', answer: 'kommt', placeholder: 'k...' },
-      { type: 'fill', question: 'После запятой при инверсии: Weil ich müde bin, ___ ich zu Hause. (bleiben → ich bleibe)', answer: 'bleibe', placeholder: 'b...' },
-      { type: 'translate', question: 'Я учу немецкий, потому что хочу жить в Вене. (weil)', answer: 'Ich lerne Deutsch, weil ich in Wien leben will.|Ich lerne Deutsch, weil ich in Wien wohnen will.', hint: 'weil → глагол will в конец', placeholder: 'Ich lerne Deutsch, weil...' },
-      { type: 'translate', question: 'Я думаю, что он прав. (dass)', answer: 'Ich denke, dass er recht hat.|Ich glaube, dass er recht hat.', hint: 'dass → hat в конец', placeholder: 'Ich denke, dass...' },
-      { type: 'translate', question: 'Когда у меня есть время, я читаю. (wenn)', answer: 'Wenn ich Zeit habe, lese ich.', hint: 'wenn … habe, + инверсия lese ich', placeholder: 'Wenn ich Zeit habe,...' },
-      { type: 'translate', question: 'Хотя идёт дождь, я иду гулять. (obwohl)', answer: 'Obwohl es regnet, gehe ich spazieren.', hint: 'obwohl … regnet, gehe ich…', placeholder: 'Obwohl es regnet,...' },
+      { type: 'choice', question: 'Где глагол в придаточном с weil?', options: ['в самом конце', 'на 2-м месте', 'сразу после weil'], answer: 0, explain: 'Подчинительный союз → глагол в конец.' },
+      { type: 'choice', question: 'als или wenn: «___ ich klein war, …» (однократно в прошлом)', options: ['Als', 'Wenn'], answer: 0, explain: 'Однократное прошлое → als.' },
+      { type: 'choice', question: 'weil или denn (глагол в конец): «Ich bleibe, ___ ich krank bin»', options: ['weil', 'denn'], answer: 0, explain: 'Глагол bin в конце → подчинительный weil.' },
+      { type: 'fill', question: 'Глагол в конец: Ich weiß, dass er heute ___. (kommen → er kommt)', answer: 'kommt', placeholder: 'k...', explain: 'dass → kommt в конец.' },
+      { type: 'fill', question: 'wenn: Wenn es ___, bleibe ich zu Hause. (regnen → es regnet)', answer: 'regnet', placeholder: 'r...', explain: 'Глагол в конец придаточного.' },
+      { type: 'fill', question: 'После запятой (инверсия): Weil ich müde bin, ___ ich zu Hause. (bleiben → ich bleibe)', answer: 'bleibe', placeholder: 'b...', explain: 'Главное предложение: глагол сразу после запятой.' },
+      { type: 'translate', question: 'Я учу немецкий, потому что хочу работать в Вене. (weil, arbeiten wollen)', answer: 'Ich lerne Deutsch, weil ich in Wien arbeiten will.', hint: 'weil → will в конец', placeholder: 'Ich lerne Deutsch, weil...', explain: 'weil отправляет глагол в конец.' },
+      { type: 'translate', question: 'Я думаю, что он прав. (dass, recht haben)', answer: 'Ich denke, dass er recht hat.|Ich glaube, dass er recht hat.', hint: 'dass → hat в конец', placeholder: 'Ich denke, dass...', explain: 'dass → глагол в конец.' },
+      { type: 'translate', question: 'Когда у меня есть время, я читаю. (wenn)', answer: 'Wenn ich Zeit habe, lese ich.', hint: 'wenn … habe, + инверсия lese ich', placeholder: 'Wenn ich Zeit habe,...', explain: 'Придаточное первым → инверсия в главном.' },
       { type: 'listen', answer: 'Ich bleibe zu Hause, weil ich krank bin.', hint: 'weil → bin в конец' },
-      { type: 'write', question: 'Schreib 3 Sätze mit weil/dass/wenn — Verb ans Ende des Nebensatzes!', hint: '…, weil ich … (Verb). Ich weiß, dass … (Verb). Wenn …, (Verb) ich …', placeholder: 'Ich...', sample: 'Ich lerne viel, weil ich die Prüfung bestehen will. Ich hoffe, dass das Wetter gut wird. Wenn ich Zeit habe, gehe ich ins Kino.' }
+      { type: 'write', question: 'Schreib 3 Sätze mit weil/dass/wenn — Verb ans Ende des Nebensatzes!', hint: '…, weil ich … (Verb). Ich weiß, dass … (Verb). Wenn …, (Verb) ich …', placeholder: 'Ich...', sample: 'Ich lerne fleißig, weil ich die Prüfung bestehen will. Ich hoffe, dass alles klappt. Wenn ich Zeit habe, gehe ich joggen.' }
     ],
   },
 
@@ -2948,64 +2957,70 @@ const LESSONS_CONTENT = {
 
   relativsatz: {
     title: 'Относительные предложения (Relativsatz)',
-    level: 'B1 · Урок 28',
-    intro: 'Относительное предложение описывает существительное: «человек, КОТОРЫЙ…». Относительное местоимение (der/die/das) берёт РОД от слова, к которому относится, а ПАДЕЖ — от своей роли в придаточном. И глагол, как всегда в придаточном, уходит в конец.',
+    intro: 'Относительное предложение описывает существительное: «человек, КОТОРЫЙ…». Относительное местоимение (der/die/das) берёт РОД от описываемого слова, а ПАДЕЖ — от своей роли в придаточном. Глагол, как всегда в придаточном, в конце.',
     theory: [
       {
-        heading: '🔗 Два правила сразу',
+        heading: '📘 Основа: два правила сразу',
         content: `
-          <p>Относительное местоимение der/die/das согласуется так:</p>
           <ul>
-            <li><b>Род и число</b> — берём у существительного, которое описываем.</li>
-            <li><b>Падеж</b> — определяем по роли местоимения ВНУТРИ придаточного.</li>
+            <li><b>Род и число</b> — от существительного, которое описываем.</li>
+            <li><b>Падеж</b> — от роли местоимения ВНУТРИ придаточного.</li>
           </ul>
           <div class="example-box">
-            <div class="de">Der Mann, <b>der</b> hier wohnt, ist nett. (Mann → m; der — подлежащее → Nom)<br>Der Mann, <b>den</b> ich kenne, ist nett. (Mann → m; den — объект → Akk)</div>
-            <div class="ru">Глагол в конце придаточного (wohnt, kenne), запятые с двух сторон.</div>
+            <div class="de">Der Kollege, <b>der</b> hier arbeitet, … (Kollege → m; der — подлежащее → Nom)<br>Der Kollege, <b>den</b> ich kenne, … (Kollege → m; den — объект → Akk)</div>
+            <div class="ru">Глагол в конце придаточного, запятые с двух сторон.</div>
           </div>
         `
       },
       {
-        heading: '📊 Формы относительных местоимений',
+        heading: '📊 Тонкость: формы местоимений',
         content: `
           <div class="table-wrap"><table>
             <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
             <tr><td>Nom</td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
-            <tr><td>Akk</td><td><b>den</b></td><td>die</td><td>das</td><td>die</td></tr>
-            <tr><td>Dat</td><td><b>dem</b></td><td><b>der</b></td><td><b>dem</b></td><td><b>denen</b></td></tr>
+            <tr><td>Akk</td><td>den</td><td>die</td><td>das</td><td>die</td></tr>
+            <tr><td>Dat</td><td>dem</td><td>der</td><td>dem</td><td><b>denen</b></td></tr>
             <tr><td>Gen</td><td><b>dessen</b></td><td><b>deren</b></td><td><b>dessen</b></td><td><b>deren</b></td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Почти как определённый артикль! Отличия: Dativ Plural <b>denen</b>, Genitiv <b>dessen/deren</b>.</div>
-            <div class="ru">Эти 3 формы (denen, dessen, deren) — единственное, что надо доучить.</div>
+            <div class="de">Почти как определённый артикль! Отличия: Dativ Pl <b>denen</b>, Genitiv <b>dessen/deren</b>.</div>
+            <div class="ru">Эти 3 формы и надо доучить.</div>
           </div>
         `
       },
       {
-        heading: '🔌 С предлогом',
+        heading: '🔌 Тонкость: с предлогом',
         content: `
-          <p>Если местоимение идёт с предлогом, предлог ставится <b>перед</b> ним, а падеж задаёт предлог:</p>
+          <p>Предлог ставится <b>перед</b> местоимением, падеж задаёт предлог:</p>
           <div class="example-box">
-            <div class="de">Die Frau, <b>mit der</b> ich spreche, ist Lehrerin. (mit → Dativ, Frau → f → der)<br>Das Haus, <b>in dem</b> wir wohnen, ist alt.</div>
-            <div class="ru">Сначала смотрим предлог (он даёт падеж), потом род слова → выбираем форму.</div>
+            <div class="de">Die Frau, <b>mit der</b> ich spreche, … (mit → Dativ, Frau → f → der)<br>Das Projekt, <b>an dem</b> wir arbeiten, … (arbeiten an → Dat)</div>
+            <div class="ru">Сначала предлог (даёт падеж), потом род слова → выбираем форму.</div>
           </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Падеж местоимения определяет роль в придаточном, не существительное снаружи: «Der Mann, <b>dem</b> ich helfe» (helfen → Dativ).</li>
+            <li>Глагол придаточного — в конец: «…, der hier <b>arbeitet</b>».</li>
+            <li>Dativ Plural — denen, не den: «die Leute, <b>denen</b> ich danke».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Nom m: Der Mann, ___ hier wohnt, ist nett. (Mann + подлежащее)', answer: 'der', placeholder: 'd...' },
-      { type: 'fill', question: 'Akk m: Der Mann, ___ ich kenne, ist nett. (Mann + объект)', answer: 'den', placeholder: 'd...' },
-      { type: 'fill', question: 'Nom f: Die Frau, ___ dort steht, ist meine Lehrerin.', answer: 'die', placeholder: 'd...' },
-      { type: 'fill', question: 'Dativ m: Der Freund, ___ ich helfe, ist krank. (helfen → Dativ)', answer: 'dem', placeholder: 'd...' },
-      { type: 'fill', question: 'Nom n: Das Buch, ___ hier liegt, ist neu.', answer: 'das', placeholder: 'd...' },
-      { type: 'fill', question: 'Dativ Plural: Die Leute, ___ ich danke, sind nett. (danken → Dativ Pl)', answer: 'denen', placeholder: 'd...' },
-      { type: 'fill', question: 'С предлогом: Die Frau, mit ___ ich spreche, ist Ärztin. (mit → Dativ, f)', answer: 'der', placeholder: 'd...' },
-      { type: 'fill', question: 'С предлогом: Das Haus, in ___ wir wohnen, ist alt. (in → Dativ, n)', answer: 'dem', placeholder: 'd...' },
-      { type: 'translate', question: 'Мужчина, который здесь живёт, мил.', answer: 'Der Mann, der hier wohnt, ist nett.', hint: 'Mann m + Nom → der; глагол wohnt в конец', placeholder: 'Der Mann, der...' },
-      { type: 'translate', question: 'Книга, которую я читаю, интересная.', answer: 'Das Buch, das ich lese, ist interessant.', hint: 'Buch n + Akk → das', placeholder: 'Das Buch, das...' },
-      { type: 'translate', question: 'Женщина, которой я помогаю, моя соседка.', answer: 'Die Frau, der ich helfe, ist meine Nachbarin.', hint: 'Frau f + Dativ (helfen) → der', placeholder: 'Die Frau, der...' },
+      { type: 'choice', question: 'Der Kollege, ___ ich vertraue, … (vertrauen → Dativ, m)', options: ['dem', 'den', 'der'], answer: 0, explain: 'Роль — Dativ (vertrauen), род m → dem.' },
+      { type: 'choice', question: 'Das Buch, ___ ich lese, … (читать → Akk, n)', options: ['das', 'dem', 'des'], answer: 0, explain: 'Akk среднего → das.' },
+      { type: 'choice', question: 'Die Leute, ___ ich danke, … (danken → Dativ Pl)', options: ['denen', 'die', 'der'], answer: 0, explain: 'Dativ Plural → denen.' },
+      { type: 'fill', question: 'Nom m: Der Mann, ___ dort steht, ist mein Chef.', answer: 'der', placeholder: 'd...', explain: 'Подлежащее m → der.' },
+      { type: 'fill', question: 'Akk m: Der Kunde, ___ ich gestern getroffen habe, …', answer: 'den', placeholder: 'd...', explain: 'Объект m → den.' },
+      { type: 'fill', question: 'С предлогом: Die Firma, bei ___ ich arbeite, … (bei → Dativ, f)', answer: 'der', placeholder: 'd...', explain: 'bei → Dativ; f → der.' },
+      { type: 'translate', question: 'Коллега, который здесь работает, очень опытный. (der Kollege, erfahren)', answer: 'Der Kollege, der hier arbeitet, ist sehr erfahren.', hint: 'Kollege m + Nom → der; глагол arbeitet в конец', placeholder: 'Der Kollege, der...', explain: 'Род m, роль Nom → der.' },
+      { type: 'translate', question: 'Книга, которую я читаю, интересная. (das Buch)', answer: 'Das Buch, das ich lese, ist interessant.', hint: 'Buch n + Akk → das', placeholder: 'Das Buch, das...', explain: 'Род n, роль Akk → das.' },
+      { type: 'translate', question: 'Проект, над которым мы работаем, важный. (arbeiten an, das Projekt)', answer: 'Das Projekt, an dem wir arbeiten, ist wichtig.', hint: 'arbeiten an + Dativ; Projekt n → dem', placeholder: 'Das Projekt, an dem...', explain: 'Предлог an → Dativ; n → dem.' },
       { type: 'listen', answer: 'Der Mann, den ich kenne, wohnt in Wien.', hint: 'Akk m → den' },
-      { type: 'write', question: 'Schreib 2 Sätze mit Relativsatz (… , der/die/das … , …). Eins im Nominativ, eins im Akkusativ.', hint: 'Род от существительного, падеж от роли. Глагол в конец придаточного.', placeholder: 'Das ist...', sample: 'Das ist der Lehrer, der gut erklärt. Ich habe ein Buch, das ich sehr mag.' }
+      { type: 'write', question: 'Schreib 2 Sätze mit Relativsatz — eins im Nominativ, eins im Akkusativ.', hint: 'Род от существительного, падеж от роли. Глагол в конец придаточного.', placeholder: 'Das ist...', sample: 'Das ist die Kollegin, die das Projekt leitet. Ich habe ein Angebot, das ich annehmen will.' }
     ],
   },
 
