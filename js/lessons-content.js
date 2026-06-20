@@ -2316,32 +2316,58 @@ const LESSONS_CONTENT = {
   // ══════════════════════════════════════════════════════════
 
   'subordinate-clauses': {
-    title: 'Придаточные предложения',
+    title: 'Придаточные предложения (weil, dass, wenn…)',
     level: 'B1 · Урок 22',
-    intro: 'Weil, dass, wenn — эти союзы отправляют глагол в конец предложения. Это правило нельзя нарушать!',
+    intro: 'Союзы weil, dass, wenn, obwohl, ob отправляют спрягаемый глагол в самый КОНЕЦ придаточного. Это правило нельзя нарушать. Разберём порядок слов, запятую и инверсию, когда придаточное стоит первым.',
     theory: [
       {
-        heading: '📐 Союзы и порядок слов',
+        heading: '⛓️ Главное: глагол в конец',
         content: `
-          <div class="table-wrap"><table>
-            <tr><th>Союз</th><th>Значение</th><th>Пример</th></tr>
-            <tr><td><b>weil</b></td><td>потому что</td><td>Ich lerne Deutsch, <b>weil</b> ich in Österreich studieren <b>will</b>.</td></tr>
-            <tr><td><b>dass</b></td><td>что</td><td>Ich weiß, <b>dass</b> Wien sehr schön <b>ist</b>.</td></tr>
-            <tr><td><b>wenn</b></td><td>когда / если</td><td><b>Wenn</b> ich Zeit <b>habe</b>, lerne ich Deutsch.</td></tr>
-            <tr><td><b>obwohl</b></td><td>хотя</td><td>Er schläft, <b>obwohl</b> er lernen <b>muss</b>.</td></tr>
-          </table></div>
+          <p>После подчинительного союза спрягаемый глагол уходит в самый конец придаточной части:</p>
           <div class="example-box">
-            <div class="de">⚠️ После этих союзов глагол — В КОНЕЦ! Это самая частая ошибка на B1.</div>
-            <div class="ru">Ich lerne, WEIL ich nach Österreich WILL. (nicht: weil ich will nach Österreich)</div>
+            <div class="de">Ich lerne Deutsch, <b>weil</b> ich in Wien studieren <b>will</b>.<br>Ich weiß, <b>dass</b> er heute <b>kommt</b>.</div>
+            <div class="ru">Сравни: Er kommt heute. → …, dass er heute kommt. (глагол улетел в конец)</div>
+          </div>
+          <p>Частые союзы: <b>weil</b> (потому что), <b>dass</b> (что), <b>wenn</b> (когда/если), <b>obwohl</b> (хотя), <b>ob</b> (ли), <b>damit</b> (чтобы), <b>als</b> (когда, в прошлом).</p>
+        `
+      },
+      {
+        heading: '🔄 Если придаточное стоит первым',
+        content: `
+          <p>Тогда вся придаточная часть = «1-е место», и в главном предложении глагол идёт <b>сразу после запятой</b> (инверсия — глагол к глаголу):</p>
+          <div class="example-box">
+            <div class="de"><b>Weil</b> ich müde <b>bin</b>, <b>bleibe</b> ich zu Hause.<br><b>Wenn</b> es <b>regnet</b>, <b>nehme</b> ich den Bus.</div>
+            <div class="ru">Получается «…глагол, глагол…» через запятую — это правильно.</div>
+          </div>
+        `
+      },
+      {
+        heading: '⚖️ weil ≠ denn',
+        content: `
+          <p>Оба значат «потому что», но строятся по-разному:</p>
+          <ul>
+            <li><b>weil</b> — подчинительный → глагол в конец: Ich bleibe, <b>weil</b> ich krank <b>bin</b>.</li>
+            <li><b>denn</b> — сочинительный → обычный порядок (глагол на 2-м): Ich bleibe, <b>denn</b> ich <b>bin</b> krank.</li>
+          </ul>
+          <div class="example-box">
+            <div class="de">Оба верны, но не путай порядок слов: после weil — в конец, после denn — как обычно.</div>
+            <div class="ru">Запятая ставится перед союзом в обоих случаях.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich lerne Deutsch, weil ich in Österreich studieren ___.',options: ['will', 'ich will', 'will ich', 'ich möchte'], answer: 0 },
-      { type: 'choice', question: 'Ich weiß, dass Wien sehr schön ___.',options: ['ist', 'is', 'sind', 'bin'], answer: 0 },
-      { type: 'choice', question: 'Союз «weil» означает:',options: ['потому что', 'хотя', 'что', 'когда'], answer: 0 },
-      { type: 'fill', question: 'Er schläft, obwohl er lernen ___. (müssen)', answer: 'muss', placeholder: 'm...' },
+      { type: 'fill', question: 'Поставь глагол в конец: Ich lerne Deutsch, weil ich nach Wien ___. (wollen → ich will)', answer: 'will', placeholder: 'w...' },
+      { type: 'fill', question: 'Глагол в конец: Ich weiß, dass er heute ___. (kommen → er kommt)', answer: 'kommt', placeholder: 'k...' },
+      { type: 'fill', question: 'wenn: Wenn es ___, nehme ich den Bus. (regnen → es regnet)', answer: 'regnet', placeholder: 'r...' },
+      { type: 'fill', question: 'ob (ли): Ich weiß nicht, ob er ___. (kommen → er kommt)', answer: 'kommt', placeholder: 'k...' },
+      { type: 'fill', question: 'После запятой при инверсии: Weil ich müde bin, ___ ich zu Hause. (bleiben → ich bleibe)', answer: 'bleibe', placeholder: 'b...' },
+      { type: 'translate', question: 'Я учу немецкий, потому что хочу жить в Вене. (weil)', answer: 'Ich lerne Deutsch, weil ich in Wien leben will.|Ich lerne Deutsch, weil ich in Wien wohnen will.', hint: 'weil → глагол will в конец', placeholder: 'Ich lerne Deutsch, weil...' },
+      { type: 'translate', question: 'Я думаю, что он прав. (dass)', answer: 'Ich denke, dass er recht hat.|Ich glaube, dass er recht hat.', hint: 'dass → hat в конец', placeholder: 'Ich denke, dass...' },
+      { type: 'translate', question: 'Когда у меня есть время, я читаю. (wenn)', answer: 'Wenn ich Zeit habe, lese ich.', hint: 'wenn … habe, + инверсия lese ich', placeholder: 'Wenn ich Zeit habe,...' },
+      { type: 'translate', question: 'Хотя идёт дождь, я иду гулять. (obwohl)', answer: 'Obwohl es regnet, gehe ich spazieren.', hint: 'obwohl … regnet, gehe ich…', placeholder: 'Obwohl es regnet,...' },
+      { type: 'listen', answer: 'Ich bleibe zu Hause, weil ich krank bin.', hint: 'weil → bin в конец' },
+      { type: 'write', question: 'Schreib 3 Sätze mit weil/dass/wenn — Verb ans Ende des Nebensatzes!', hint: '…, weil ich … (Verb). Ich weiß, dass … (Verb). Wenn …, (Verb) ich …', placeholder: 'Ich...', sample: 'Ich lerne viel, weil ich die Prüfung bestehen will. Ich hoffe, dass das Wetter gut wird. Wenn ich Zeit habe, gehe ich ins Kino.' }
     ],
   },
 
@@ -2806,199 +2832,159 @@ const LESSONS_CONTENT = {
   },
 
   praeteritum: {
-    title: 'Präteritum — Die Gelbe Kap. 14–16',
-    level: 'A2 · Грамматика',
-    intro: 'Präteritum — нарративное прошедшее время немецкого. В разговоре чаще используют Perfekt, но sein, haben и все модальные глаголы в прошлом говорят только в Präteritum. Плюс это единственное время в письменном рассказе.',
+    title: 'Präteritum (простое прошедшее)',
+    level: 'A2 · Урок 21',
+    intro: 'Präteritum — «книжное» прошедшее (рассказы, новости, тексты). Но sein, haben и модальные используют в Präteritum и в разговоре. Разберём слабые и сильные глаголы, окончания и важные исключения.',
     theory: [
       {
-        heading: '📖 Когда Präteritum, а когда Perfekt?',
+        heading: '📖 Когда Präteritum, а когда Perfekt',
         content: `
-          <div class="table-wrap"><table>
-            <tr><th></th><th>Präteritum</th><th>Perfekt</th></tr>
-            <tr><td><b>Где</b></td><td>письмо, рассказ, книга, СМИ</td><td>разговор, устная речь</td></tr>
-            <tr><td><b>Когда</b></td><td>sein, haben, модальные — всегда!</td><td>большинство глаголов</td></tr>
-          </table></div>
+          <p>Оба — прошедшее время. Разница в стиле:</p>
+          <ul>
+            <li><b>Perfekt</b> — разговор, устная речь («Ich habe gegessen»).</li>
+            <li><b>Präteritum</b> — письмо, рассказы, новости. НО: <b>sein, haben, модальные</b> и в разговоре чаще в Präteritum (war, hatte, konnte).</li>
+          </ul>
           <div class="example-box">
-            <div class="de">💬 Разговор: «Ich <b>habe</b> gestern viel gelernt.» — Я вчера много учила. (Perfekt)</div>
-            <div class="ru">📖 Книга: «Sie <b>lernte</b> jeden Tag fleißig.» — Она учила каждый день прилежно. (Präteritum)</div>
-          </div>
-          <div class="example-box">
-            <div class="de">⭐ Всегда Präteritum: «Gestern <b>war</b> ich müde. Ich <b>hatte</b> Kopfschmerzen. Ich <b>konnte</b> nicht schlafen.»</div>
+            <div class="de">Разговор: Ich <b>war</b> müde und <b>hatte</b> keine Zeit. (не «bin gewesen»)</div>
+            <div class="ru">Поэтому war/hatte/konnte нужно знать обязательно.</div>
           </div>
         `
       },
       {
-        heading: '⭐ sein и haben в Präteritum — обязательно!',
+        heading: '🔧 Слабые глаголы: основа + -te + окончание',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>sein → <b>war</b></th><th>haben → <b>hatte</b></th></tr>
-            <tr><td>ich</td><td><b>war</b></td><td><b>hatte</b></td></tr>
-            <tr><td>du</td><td><b>warst</b></td><td><b>hattest</b></td></tr>
-            <tr><td>er/sie/es</td><td><b>war</b></td><td><b>hatte</b></td></tr>
-            <tr><td>wir</td><td><b>waren</b></td><td><b>hatten</b></td></tr>
-            <tr><td>ihr</td><td><b>wart</b></td><td><b>hattet</b></td></tr>
-            <tr><td>sie/Sie</td><td><b>waren</b></td><td><b>hatten</b></td></tr>
-          </table></div>
+            <tr><th>Лицо</th><th>machen</th><th>arbeiten (+e)</th></tr>
+            <tr><td>ich</td><td>mach<b>te</b></td><td>arbeit<b>ete</b></td></tr>
+            <tr><td>du</td><td>mach<b>test</b></td><td>arbeitetest</td></tr>
+            <tr><td>er/sie/es</td><td>mach<b>te</b></td><td>arbeit<b>ete</b></td></tr>
+            <tr><td>wir/sie</td><td>mach<b>ten</b></td><td>arbeiteten</td></tr>
+            <tr><td>ihr</td><td>mach<b>tet</b></td><td>arbeitetet</td></tr>
+          </table></table></div>
           <div class="example-box">
-            <div class="de">Gestern <b>war</b> ich in Wien. Das Wetter <b>war</b> schön. Wir <b>hatten</b> viel Spaß!</div>
-            <div class="ru">Вчера я была в Вене. Погода была прекрасная. У нас было много веселья!</div>
-          </div>
-          <p>Выражение «было» / «существовало»: <b>es gab</b> + Akkusativ</p>
-          <div class="example-box">
-            <div class="de">Es <b>gab</b> viele Touristen. — Было много туристов.</div>
-            <div class="ru">Früher <b>gab es</b> hier einen Park. — Раньше здесь был парк.</div>
+            <div class="de">ich machte = er machte (одинаково, как у модальных). Основа на -t/-d → вставка -e- (arbeitete).</div>
+            <div class="ru">Так же: lernte, spielte, wohnte, kaufte, fragte.</div>
           </div>
         `
       },
       {
-        heading: '⚡ Модальные в Präteritum — тоже обязательно!',
+        heading: '💪 Сильные глаголы: смена гласной, без -te',
         content: `
+          <p>У сильных глаголов меняется корневая гласная, а в ich и er/sie/es <b>нет окончания</b>:</p>
           <div class="table-wrap"><table>
-            <tr><th>Инфинитив</th><th>Präteritum ich/er</th><th>Перевод</th></tr>
-            <tr><td>können</td><td><b>konnte</b></td><td>мог/могла</td></tr>
-            <tr><td>müssen</td><td><b>musste</b></td><td>должна была</td></tr>
-            <tr><td>wollen</td><td><b>wollte</b></td><td>хотела</td></tr>
-            <tr><td>dürfen</td><td><b>durfte</b></td><td>имела право</td></tr>
-            <tr><td>sollen</td><td><b>sollte</b></td><td>должна (по договорённости)</td></tr>
-            <tr><td>mögen</td><td><b>mochte</b></td><td>нравилось</td></tr>
+            <tr><th>Инфинитив</th><th>Präteritum (ich/er)</th></tr>
+            <tr><td>gehen</td><td><b>ging</b></td></tr>
+            <tr><td>fahren</td><td><b>fuhr</b></td></tr>
+            <tr><td>kommen</td><td><b>kam</b></td></tr>
+            <tr><td>sehen</td><td><b>sah</b></td></tr>
+            <tr><td>essen</td><td><b>aß</b></td></tr>
+            <tr><td>sprechen</td><td><b>sprach</b></td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Als Kind <b>konnte</b> ich gut schwimmen. — В детстве я умела плавать.</div>
-            <div class="ru">Ich <b>wollte</b> immer in Wien studieren. — Я всегда хотела учиться в Вене.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Er <b>musste</b> früh aufstehen. — Ему нужно было рано вставать.</div>
-            <div class="ru">Wir <b>durften</b> nicht laut sein. — Нам нельзя было шуметь.</div>
+            <div class="de">du gingst, wir gingen — окончания добавляются, но ich/er — голая основа (ich ging, er ging).</div>
+            <div class="ru">Формы сильных надо учить как таблицу (3 формы глагола).</div>
           </div>
         `
       },
       {
-        heading: '📝 Präteritum сильных глаголов (нарратив)',
+        heading: '⭐ Обязательные: sein, haben, модальные',
         content: `
-          <p>В рассказах и книгах — все глаголы в Präteritum:</p>
           <div class="table-wrap"><table>
-            <tr><th>Инфинитив</th><th>Präteritum (ich)</th><th>Перевод</th></tr>
-            <tr><td>gehen</td><td>ging</td><td>шёл/шла</td></tr>
-            <tr><td>kommen</td><td>kam</td><td>пришёл/пришла</td></tr>
-            <tr><td>fahren</td><td>fuhr</td><td>ехал/ехала</td></tr>
-            <tr><td>sehen</td><td>sah</td><td>видел/видела</td></tr>
-            <tr><td>sprechen</td><td>sprach</td><td>говорил/говорила</td></tr>
-            <tr><td>schreiben</td><td>schrieb</td><td>писал/писала</td></tr>
+            <tr><th>Инфинитив</th><th>ich/er</th><th>du</th><th>wir/sie</th></tr>
+            <tr><td>sein</td><td><b>war</b></td><td>warst</td><td>waren</td></tr>
+            <tr><td>haben</td><td><b>hatte</b></td><td>hattest</td><td>hatten</td></tr>
+            <tr><td>können</td><td><b>konnte</b></td><td>konntest</td><td>konnten</td></tr>
+            <tr><td>müssen</td><td><b>musste</b></td><td>musstest</td><td>mussten</td></tr>
+            <tr><td>wollen</td><td><b>wollte</b></td><td>wolltest</td><td>wollten</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Sie <b>ging</b> in die Stadt, <b>kaufte</b> Bücher und <b>kam</b> spät nach Hause.</div>
-            <div class="ru">Она пошла в город, купила книги и вернулась домой поздно.</div>
+            <div class="de">У модальных в Präteritum пропадает умлаут: müssen → musste, können → konnte.</div>
+            <div class="ru">Ich war, ich hatte, ich konnte — выучи в первую очередь.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Gestern _____ ich sehr müde. (sein, ich)', options: ['war', 'bin', 'hatte', 'ist'], answer: 0 },
-      { type: 'fill', question: 'Wir _____ keine Zeit. (haben, wir, Präteritum)', answer: 'hatten', placeholder: 'hatt...' },
-      { type: 'choice', question: 'Als Kind _____ sie kein Fahrrad. (haben, sie)', options: ['hatte', 'hat', 'hatten', 'war'], answer: 0 },
-      { type: 'fill', question: 'Ich _____ nicht schlafen. (können, Präteritum)', answer: 'konnte', placeholder: 'konn...' },
-      { type: 'choice', question: 'Er _____ immer nach Wien kommen. (wollen, Präteritum)', options: ['wollte', 'will', 'wollten', 'wollen'], answer: 0 },
-      { type: 'fill', question: 'Es _____ viele Touristen in Wien. (geben, Präteritum = es gab)', answer: 'gab', placeholder: 'g...' },
-      { type: 'choice', question: 'Wir _____ lange auf den Zug warten. (müssen, Präteritum)', options: ['mussten', 'müssen', 'musste', 'muss'], answer: 0 },
-      { type: 'translate', question: 'Вчера я была в Вене.', hint: 'gestern / war', answer: 'Gestern war ich in Wien.', placeholder: 'Gestern war...' },
-      { type: 'translate', question: 'В детстве мы умели кататься на велосипеде.', hint: 'Als Kinder / können / Rad fahren', answer: 'Als Kinder konnten wir Rad fahren.', placeholder: 'Als Kinder...' },
-      { type: 'fill', question: 'Sie _____ Ärztin werden. (wollen, sie, Präteritum)', answer: 'wollte', placeholder: 'wollt...' },
-      { type: 'choice', question: 'Das Konzert _____ fantastisch! (sein)', options: ['war', 'ist', 'hatte', 'waren'], answer: 0 },
+      { type: 'fill', question: 'Слабый: machen → ich ___', answer: 'machte', placeholder: 'mach...' },
+      { type: 'fill', question: 'Слабый: lernen → er ___', answer: 'lernte', placeholder: 'lern...' },
+      { type: 'fill', question: 'Слабый +e: arbeiten → ich ___', answer: 'arbeitete', placeholder: 'arbeit...' },
+      { type: 'fill', question: 'Сильный: gehen → ich ___', answer: 'ging', placeholder: 'g...' },
+      { type: 'fill', question: 'Сильный: kommen → er ___', answer: 'kam', placeholder: 'k...' },
+      { type: 'fill', question: 'Сильный: sehen → ich ___', answer: 'sah', placeholder: 's...' },
+      { type: 'fill', question: 'sein → ich ___', answer: 'war', placeholder: 'w...' },
+      { type: 'fill', question: 'haben → ich ___', answer: 'hatte', placeholder: 'h...' },
+      { type: 'fill', question: 'können → ich ___ (без умлаута!)', answer: 'konnte', placeholder: 'k...' },
+      { type: 'fill', question: 'müssen → er ___', answer: 'musste', placeholder: 'm...' },
+      { type: 'fill', question: 'sein → wir ___', answer: 'waren', placeholder: 'w...' },
+      { type: 'translate', question: 'Я был уставшим.', answer: 'Ich war müde.', hint: 'sein → war', placeholder: 'Ich war...' },
+      { type: 'translate', question: 'У меня не было времени.', answer: 'Ich hatte keine Zeit.', hint: 'haben → hatte', placeholder: 'Ich hatte...' },
+      { type: 'translate', question: 'Он пошёл домой.', answer: 'Er ging nach Hause.', hint: 'gehen → ging', placeholder: 'Er ging...' },
+      { type: 'listen', answer: 'Ich war gestern zu Hause.', hint: 'sein → war' },
+      { type: 'write', question: 'Schreib 3 Sätze im Präteritum über gestern (nutze war/hatte + ein starkes Verb wie ging/kam/sah).', hint: 'Ich war … Ich hatte … Ich ging/kam/sah …', placeholder: 'Gestern...', sample: 'Gestern war ich krank. Ich hatte Fieber. Am Abend kam meine Freundin und wir sahen einen Film.' }
     ],
   },
 
   'reflexive-verbs': {
-    title: 'Возвратные глаголы (sich) — Die Gelbe Kap. 18',
-    level: 'A2 · Грамматика',
-    intro: 'Возвратные глаголы используют местоимение sich (себя). В немецком их намного больше, чем в русском — многие глаголы, которые по-русски не возвратные, по-немецки обязательно идут с sich. Это очень важная тема для поступления в вуз!',
+    title: 'Возвратные глаголы (sich)',
+    level: 'B1 · Урок 16',
+    intro: 'Возвратные глаголы действуют «на себя»: sich waschen (мыться), sich freuen (радоваться). Нужно местоимение sich, которое меняется по лицу. Разберём формы (Akkusativ и Dativ) и позицию в предложении.',
     theory: [
       {
-        heading: '🔄 Возвратные местоимения — две таблицы',
+        heading: '🪞 Возвратные местоимения (Akkusativ)',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>Akkusativ (себя)</th><th>Dativ (себе)</th></tr>
-            <tr><td>ich</td><td><b>mich</b></td><td><b>mir</b></td></tr>
-            <tr><td>du</td><td><b>dich</b></td><td><b>dir</b></td></tr>
-            <tr><td>er/sie/es</td><td><b>sich</b></td><td><b>sich</b></td></tr>
-            <tr><td>wir</td><td><b>uns</b></td><td><b>uns</b></td></tr>
-            <tr><td>ihr</td><td><b>euch</b></td><td><b>euch</b></td></tr>
-            <tr><td>sie/Sie</td><td><b>sich</b></td><td><b>sich</b></td></tr>
+            <tr><th>Лицо</th><th>sich-форма</th><th>пример</th></tr>
+            <tr><td>ich</td><td><b>mich</b></td><td>ich freue mich</td></tr>
+            <tr><td>du</td><td><b>dich</b></td><td>du freust dich</td></tr>
+            <tr><td>er/sie/es</td><td><b>sich</b></td><td>er freut sich</td></tr>
+            <tr><td>wir</td><td><b>uns</b></td><td>wir freuen uns</td></tr>
+            <tr><td>ihr</td><td><b>euch</b></td><td>ihr freut euch</td></tr>
+            <tr><td>sie/Sie</td><td><b>sich</b></td><td>sie freuen sich</td></tr>
           </table></div>
-          <p>💡 <b>Akkusativ</b> — когда нет другого объекта: <i>Ich wasche <b>mich</b>.</i></p>
-          <p>💡 <b>Dativ</b> — когда есть другой объект: <i>Ich wasche <b>mir</b> die Hände.</i> (die Hände — Akk.)</p>
           <div class="example-box">
-            <div class="de">Ich ziehe <b>mich</b> an. — Я одеваюсь. (Akk., нет другого объекта)</div>
-            <div class="ru">Ich ziehe <b>mir</b> die Jacke an. — Я надеваю куртку. (Dat., есть Akk. — die Jacke)</div>
+            <div class="de">Совпадает с Akkusativ местоимений, кроме 3-го лица и Sie — там всегда <b>sich</b>.</div>
+            <div class="ru">Частые: sich freuen, sich waschen, sich fühlen, sich treffen, sich setzen, sich beeilen.</div>
           </div>
         `
       },
       {
-        heading: '📋 40 важнейших возвратных глаголов',
+        heading: '📍 Позиция sich в предложении',
         content: `
-          <div class="table-wrap"><table>
-            <tr><th>Глагол</th><th>Предлог</th><th>Перевод</th></tr>
-            <tr><td>sich waschen</td><td>—</td><td>мыться</td></tr>
-            <tr><td>sich anziehen</td><td>—</td><td>одеваться</td></tr>
-            <tr><td>sich ausziehen</td><td>—</td><td>раздеваться</td></tr>
-            <tr><td>sich setzen</td><td>—</td><td>садиться</td></tr>
-            <tr><td>sich legen</td><td>—</td><td>ложиться</td></tr>
-            <tr><td>sich fühlen</td><td>—</td><td>чувствовать себя</td></tr>
-            <tr><td>sich freuen</td><td>über + Akk. / auf + Akk.</td><td>радоваться / предвкушать</td></tr>
-            <tr><td>sich interessieren</td><td>für + Akk.</td><td>интересоваться чем-то</td></tr>
-            <tr><td>sich erinnern</td><td>an + Akk.</td><td>вспоминать кого-то/что-то</td></tr>
-            <tr><td>sich vorstellen</td><td>—</td><td>представляться; представлять</td></tr>
-            <tr><td>sich vorbereiten</td><td>auf + Akk.</td><td>готовиться к чему-то</td></tr>
-            <tr><td>sich bewerben</td><td>um + Akk.</td><td>подавать заявку</td></tr>
-            <tr><td>sich konzentrieren</td><td>auf + Akk.</td><td>концентрироваться</td></tr>
-            <tr><td>sich befinden</td><td>—</td><td>находиться</td></tr>
-            <tr><td>sich entscheiden</td><td>für + Akk.</td><td>решаться на что-то</td></tr>
-            <tr><td>sich treffen</td><td>mit + Dat.</td><td>встречаться с кем-то</td></tr>
-          </table></div>
-        `
-      },
-      {
-        heading: '💬 Возвратные глаголы в предложении',
-        content: `
-          <p>Местоимение sich стоит сразу после спрягаемого глагола (или после подлежащего при V2):</p>
+          <p>sich-местоимение стоит сразу <b>после спрягаемого глагола</b> (или после подлежащего при инверсии):</p>
           <div class="example-box">
-            <div class="de">Ich <b>freue mich</b> auf das Studium in Wien. — Я с нетерпением жду учёбы в Вене.</div>
-            <div class="ru">Sie <b>interessiert sich</b> für deutsche Literatur. — Она интересуется немецкой литературой.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Wir <b>bereiten uns</b> auf die Prüfung vor. — Мы готовимся к экзамену.</div>
-            <div class="ru">Heute <b>treffe ich mich</b> mit meiner Freundin. — Сегодня я встречаюсь с подругой.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Sie hat <b>sich</b> für die Universität Wien <b>beworben</b>. — Она подала заявку в Венский университет. (Perfekt)</div>
+            <div class="de">Ich <b>freue mich</b> auf das Wochenende.<br>Heute <b>freue ich mich</b> auf das Wochenende. (инверсия)<br>Im Sommer <b>treffen wir uns</b> oft.</div>
+            <div class="ru">При инверсии: глагол → подлежащее → sich.</div>
           </div>
         `
       },
       {
-        heading: '🏫 Полезные фразы для поступления',
+        heading: '✋ Dativ-вариант: с частями тела и «себе»',
         content: `
-          <div class="table-wrap"><table>
-            <tr><th>Немецкий</th><th>Русский</th></tr>
-            <tr><td>Ich <b>bewerbe mich</b> um einen Studienplatz.</td><td>Я подаю заявку на место в вузе.</td></tr>
-            <tr><td>Ich <b>entscheide mich</b> für Medizin.</td><td>Я выбираю медицину.</td></tr>
-            <tr><td>Ich <b>interessiere mich</b> für die Uni Wien.</td><td>Меня интересует Венский университет.</td></tr>
-            <tr><td>Ich <b>freue mich</b> auf das Studium.</td><td>Я с нетерпением жду учёбы.</td></tr>
-            <tr><td>Ich <b>bereite mich</b> auf die Prüfung vor.</td><td>Я готовлюсь к экзамену.</td></tr>
-          </table></div>
+          <p>Если в предложении есть прямой объект (часто часть тела), возвратное местоимение идёт в <b>Dativ</b> (mir/dir/sich):</p>
+          <div class="example-box">
+            <div class="de">Ich wasche <b>mich</b> (Akk — себя). НО: Ich wasche <b>mir</b> die Hände (Dativ — себе руки).</div>
+            <div class="ru">Различие только в ich/du: mich/dich (Akk) vs mir/dir (Dativ). В 3-м лице всегда sich.</div>
+          </div>
+          <p>Так же: sich (Dat) etwas merken/vorstellen/wünschen: Ich kann <b>mir</b> das nicht vorstellen.</p>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich freue _____ auf den Urlaub.', options: ['mich', 'mir', 'sich', 'dich'], answer: 0 },
-      { type: 'fill', question: 'Er interessiert _____ für Sport.', answer: 'sich', placeholder: 'si...' },
-      { type: 'choice', question: 'Wie fühlst du _____?', options: ['dich', 'mich', 'sich', 'uns'], answer: 0 },
-      { type: 'choice', question: 'Wir bereiten _____ auf die Prüfung vor.', options: ['uns', 'sich', 'mich', 'euch'], answer: 0 },
-      { type: 'fill', question: 'Sie bewirbt _____ um einen Studienplatz.', answer: 'sich', placeholder: 'si...' },
-      { type: 'choice', question: 'Ich wasche _____ die Hände. (есть другой объект → Dativ)', options: ['mir', 'mich', 'sich', 'dir'], answer: 0 },
-      { type: 'fill', question: 'Sie _____ für Musik. (sich interessieren, sie-форма)', answer: 'interessiert sich', placeholder: 'interessiert...' },
-      { type: 'choice', question: 'Er _____ gut. (sich fühlen, er)', options: ['fühlt sich', 'sich fühlt', 'fühlt mich', 'sich fühlen'], answer: 0 },
-      { type: 'translate', question: 'Я готовлюсь к экзамену.', hint: 'sich vorbereiten auf + Akk.', answer: 'Ich bereite mich auf die Prüfung vor.', placeholder: 'Ich bereite...' },
-      { type: 'translate', question: 'Она подаёт заявку на место в вузе.', hint: 'sich bewerben um', answer: 'Sie bewirbt sich um einen Studienplatz.', placeholder: 'Sie bewirbt...' },
-      { type: 'fill', question: 'Ich _____ für die Universität Wien entschieden. (sich entscheiden, Perfekt)', answer: 'habe mich', placeholder: 'habe...' },
+      { type: 'fill', question: 'ich freue ___', answer: 'mich', placeholder: 'm...' },
+      { type: 'fill', question: 'du freust ___', answer: 'dich', placeholder: 'd...' },
+      { type: 'fill', question: 'er freut ___', answer: 'sich', placeholder: 's...' },
+      { type: 'fill', question: 'wir treffen ___', answer: 'uns', placeholder: 'u...' },
+      { type: 'fill', question: 'ihr fühlt ___', answer: 'euch', placeholder: 'e...' },
+      { type: 'fill', question: 'sie (они) waschen ___', answer: 'sich', placeholder: 's...' },
+      { type: 'fill', question: 'Dativ (части тела): Ich wasche ___ die Hände. (себе)', answer: 'mir', placeholder: 'm...' },
+      { type: 'fill', question: 'Akkusativ: Ich wasche ___. (себя)', answer: 'mich', placeholder: 'm...' },
+      { type: 'fill', question: 'Инверсия: Heute freue ich ___ sehr.', answer: 'mich', placeholder: 'm...' },
+      { type: 'translate', question: 'Я радуюсь.', answer: 'Ich freue mich.', hint: 'sich freuen → ich freue mich', placeholder: 'Ich freue...' },
+      { type: 'translate', question: 'Мы встречаемся вечером.', answer: 'Wir treffen uns am Abend.', hint: 'sich treffen → wir treffen uns', placeholder: 'Wir treffen...' },
+      { type: 'translate', question: 'Он чувствует себя хорошо.', answer: 'Er fühlt sich gut.', hint: 'sich fühlen → er fühlt sich', placeholder: 'Er fühlt...' },
+      { type: 'translate', question: 'Я мою себе руки.', answer: 'Ich wasche mir die Hände.', hint: 'часть тела → Dativ mir', placeholder: 'Ich wasche...' },
+      { type: 'listen', answer: 'Ich interessiere mich für Musik.', hint: 'sich interessieren für + mich' },
+      { type: 'write', question: 'Schreib 3 Sätze mit reflexiven Verben (sich freuen, sich fühlen, sich treffen, sich waschen).', hint: 'ich → mich, du → dich, er/sie → sich. Не забудь местоимение!', placeholder: 'Ich...', sample: 'Ich freue mich auf den Urlaub. Wir treffen uns morgen. Sie fühlt sich heute nicht gut.' }
     ],
   },
 
