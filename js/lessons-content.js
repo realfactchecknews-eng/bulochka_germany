@@ -740,86 +740,76 @@ const LESSONS_CONTENT = {
 
   'personal-pronouns': {
     title: 'Личные местоимения (Nominativ / Akkusativ / Dativ)',
-    level: 'A1 · Урок 4',
-    intro: 'ich, du, er… — это только Nominativ. Но местоимения тоже склоняются: «меня» = mich, «мне» = mir. Разберём все три падежа — без этого нельзя строить нормальные фразы.',
+    intro: 'ich, du, er… — это лишь Nominativ. Но местоимения склоняются: «меня» = mich, «мне» = mir. Без точных форм невозможно строить нормальные фразы. Разберём три падежа и логику выбора.',
     theory: [
       {
-        heading: '👤 Nominativ — кто? (подлежащее)',
+        heading: '📘 Основа: три падежа местоимений',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>Ед. число</th><th>Мн. число</th></tr>
-            <tr><td>1-е</td><td><b>ich</b> (я)</td><td><b>wir</b> (мы)</td></tr>
-            <tr><td>2-е</td><td><b>du</b> (ты)</td><td><b>ihr</b> (вы, неформ.)</td></tr>
-            <tr><td>3-е</td><td><b>er</b> / <b>sie</b> / <b>es</b> (он/она/оно)</td><td><b>sie</b> (они)</td></tr>
-            <tr><td>вежл.</td><td colspan="2"><b>Sie</b> (Вы — всегда с большой буквы)</td></tr>
+            <tr><th>Nom</th><th>Akk (кого)</th><th>Dat (кому)</th></tr>
+            <tr><td>ich</td><td><b>mich</b></td><td><b>mir</b></td></tr>
+            <tr><td>du</td><td><b>dich</b></td><td><b>dir</b></td></tr>
+            <tr><td>er</td><td><b>ihn</b></td><td><b>ihm</b></td></tr>
+            <tr><td>sie (она)</td><td>sie</td><td><b>ihr</b></td></tr>
+            <tr><td>es</td><td>es</td><td><b>ihm</b></td></tr>
+            <tr><td>wir</td><td>uns</td><td>uns</td></tr>
+            <tr><td>ihr</td><td>euch</td><td>euch</td></tr>
+            <tr><td>sie/Sie</td><td>sie/Sie</td><td><b>ihnen/Ihnen</b></td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">er/sie/es зависит от РОДА слова: der Tisch → <b>er</b>, die Lampe → <b>sie</b>, das Buch → <b>es</b>.</div>
-            <div class="ru">«Он/она» в немецком — не про пол, а про род существительного.</div>
+            <div class="de">Ich sehe <b>ihn</b> (Akk). Ich helfe <b>ihm</b> (Dat). Ich danke <b>ihnen</b> (Dat Pl).</div>
+            <div class="ru">Заметно меняются ich/du/er; остальные часто совпадают.</div>
           </div>
         `
       },
       {
-        heading: '🎯 Akkusativ — кого? (прямой объект)',
+        heading: '🔍 Тонкость: er/sie/es зависят от рода слова',
         content: `
-          <div class="table-wrap"><table>
-            <tr><th>Nominativ</th><th>Akkusativ</th><th></th><th>Nominativ</th><th>Akkusativ</th></tr>
-            <tr><td>ich</td><td><b>mich</b></td><td></td><td>wir</td><td><b>uns</b></td></tr>
-            <tr><td>du</td><td><b>dich</b></td><td></td><td>ihr</td><td><b>euch</b></td></tr>
-            <tr><td>er</td><td><b>ihn</b></td><td></td><td>sie (они)</td><td><b>sie</b></td></tr>
-            <tr><td>sie</td><td><b>sie</b></td><td></td><td>Sie</td><td><b>Sie</b></td></tr>
-            <tr><td>es</td><td><b>es</b></td><td></td><td></td><td></td></tr>
-          </table></div>
+          <p>«Он/она/оно» в немецком — про <b>грамматический род</b>, а не про пол:</p>
           <div class="example-box">
-            <div class="de">Ich sehe <b>dich</b>. Er liebt <b>mich</b>. Wir kennen <b>ihn</b>.</div>
-            <div class="ru">Меняются заметно только ich→mich, du→dich, er→ihn. Остальные часто совпадают.</div>
+            <div class="de">der Vertrag → <b>er</b> (Ich lese ihn). die Frage → <b>sie</b>. das Formular → <b>es</b>.</div>
+            <div class="ru">«Где договор? — Я читаю его (ihn)», потому что der Vertrag — мужского рода.</div>
           </div>
         `
       },
       {
-        heading: '🎁 Dativ — кому? (косвенный объект)',
+        heading: '🧭 Тонкость: что задаёт падеж',
         content: `
-          <div class="table-wrap"><table>
-            <tr><th>Nominativ</th><th>Dativ</th><th></th><th>Nominativ</th><th>Dativ</th></tr>
-            <tr><td>ich</td><td><b>mir</b></td><td></td><td>wir</td><td><b>uns</b></td></tr>
-            <tr><td>du</td><td><b>dir</b></td><td></td><td>ihr</td><td><b>euch</b></td></tr>
-            <tr><td>er</td><td><b>ihm</b></td><td></td><td>sie (они)</td><td><b>ihnen</b></td></tr>
-            <tr><td>sie</td><td><b>ihr</b></td><td></td><td>Sie</td><td><b>Ihnen</b></td></tr>
-            <tr><td>es</td><td><b>ihm</b></td><td></td><td></td><td></td></tr>
-          </table></div>
-          <div class="example-box">
-            <div class="de">Gib <b>mir</b> das Buch. Ich helfe <b>dir</b>. Das gehört <b>ihm</b>.</div>
-            <div class="ru">Dativ нужен после helfen, danken, gehören, geben (кому), gefallen.</div>
-          </div>
-        `
-      },
-      {
-        heading: '🧭 Как выбрать падеж',
-        content: `
-          <p>Падеж местоимения зависит от глагола/предлога:</p>
           <ul>
-            <li><b>Akkusativ:</b> прямой объект (sehen, lieben, kennen, haben): Ich sehe <b>ihn</b>.</li>
-            <li><b>Dativ:</b> кому/чему (helfen, danken, geben, gehören): Ich danke <b>ihr</b>.</li>
-            <li><b>После предлога</b> — падеж задаёт предлог: für <b>mich</b> (Akk), mit <b>mir</b> (Dat).</li>
+            <li><b>Глагол:</b> прямой объект → Akkusativ (sehen, kennen, brauchen): Ich brauche <b>dich</b>.</li>
+            <li><b>Dativ-глаголы:</b> helfen, danken, gehören, antworten → Dativ: Ich antworte <b>ihm</b>.</li>
+            <li><b>Предлог:</b> падеж задаёт он: für <b>mich</b> (Akk), mit <b>mir</b> (Dat), von <b>ihm</b> (Dat).</li>
+          </ul>
+          <div class="example-box">
+            <div class="de">Порядок при двух местоимениях: сначала Akk, потом Dat — Ich gebe <b>es ihm</b>.</div>
+            <div class="ru">«Я даю это ему»: es (Akk) перед ihm (Dat).</div>
+          </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>mich/mir и dich/dir путают: <b>mich</b> = меня (Akk), <b>mir</b> = мне (Dat). «Hilf <b>mir</b>!», не «Hilf mich».</li>
+            <li>er→ihn только в Akkusative; в Dative «ему» = <b>ihm</b>. «Ich sehe <b>ihn</b>», но «Ich glaube <b>ihm</b>».</li>
+            <li>Вежливое <b>Sie/Ihnen</b> — с большой буквы в любом падеже.</li>
           </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Замени на местоимение: der Tisch → ___ (он, Nominativ)', answer: 'er', placeholder: '...' },
-      { type: 'fill', question: 'Замени: das Buch → ___ (Nominativ)', answer: 'es', placeholder: '...' },
-      { type: 'fill', question: 'Akkusativ: Er sieht ___. (меня)', answer: 'mich', placeholder: 'm...' },
-      { type: 'fill', question: 'Akkusativ: Ich kenne ___. (его)', answer: 'ihn', placeholder: 'i...' },
-      { type: 'fill', question: 'Akkusativ: Wir lieben ___. (тебя)', answer: 'dich', placeholder: 'd...' },
-      { type: 'fill', question: 'Dativ: Gib ___ das Buch! (мне)', answer: 'mir', placeholder: 'm...' },
-      { type: 'fill', question: 'Dativ: Ich helfe ___. (ей)', answer: 'ihr', placeholder: 'i...' },
-      { type: 'fill', question: 'Dativ: Das gehört ___. (им)', answer: 'ihnen', placeholder: 'i...' },
-      { type: 'fill', question: 'После предлога: Das ist für ___. (для тебя, für + Akk)', answer: 'dich', placeholder: 'd...' },
-      { type: 'translate', question: 'Я тебя люблю.', answer: 'Ich liebe dich.', hint: 'lieben → Akkusativ', placeholder: 'Ich liebe...' },
-      { type: 'translate', question: 'Он мне помогает.', answer: 'Er hilft mir.', hint: 'helfen → Dativ', placeholder: 'Er hilft...' },
-      { type: 'translate', question: 'Дай мне книгу.', answer: 'Gib mir das Buch.', hint: 'geben + кому (Dativ) + что (Akk)', placeholder: 'Gib...' },
-      { type: 'listen', answer: 'Ich danke dir und helfe ihm.', hint: 'два Dativ: dir, ihm' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Personalpronomen im Akkusativ und Dativ (z.B. Ich sehe ihn. Ich helfe ihr.).', hint: 'Akkusativ: mich/dich/ihn/sie. Dativ: mir/dir/ihm/ihr.', placeholder: 'Ich...', sample: 'Ich kenne ihn gut. Sie hilft mir oft. Wir danken euch.' }
+      { type: 'choice', question: '«Помоги мне!» — какой падеж? «Hilf ___!»', options: ['mir (Dativ)', 'mich (Akkusativ)', 'meiner'], answer: 0, explain: 'helfen управляет Dativ: mir.' },
+      { type: 'choice', question: 'der Vertrag → замени: «Ich unterschreibe ___».', options: ['ihn', 'es', 'ihm'], answer: 0, explain: 'der Vertrag мужского рода, Akkusativ → ihn.' },
+      { type: 'choice', question: '«Я доверяю ему»: «Ich vertraue ___».', options: ['ihm (Dativ)', 'ihn (Akkusativ)', 'er'], answer: 0, explain: 'vertrauen + Dativ → ihm.' },
+      { type: 'fill', question: 'Akkusativ: Er versteht ___ nicht. (меня)', answer: 'mich', placeholder: 'm...', explain: 'verstehen → Akkusativ; «меня» = mich.' },
+      { type: 'fill', question: 'Dativ: Das gehört ___. (им)', answer: 'ihnen', placeholder: 'i...', explain: 'gehören + Dativ Pl → ihnen.' },
+      { type: 'fill', question: 'die Idee → замени (Nom): ___ ist gut.', answer: 'sie', placeholder: 's...', explain: 'die Idee женского рода → sie.' },
+      { type: 'fill', question: 'После предлога: Das Paket ist für ___. (тебя)', answer: 'dich', placeholder: 'd...', explain: 'für + Akkusativ → dich.' },
+      { type: 'translate', question: 'Я тебе доверяю. (vertrauen)', answer: 'Ich vertraue dir.', hint: 'vertrauen → Dativ (dir)', placeholder: 'Ich vertraue...', explain: 'vertrauen требует Dativ.' },
+      { type: 'translate', question: 'Дай мне это. (geben)', answer: 'Gib mir das.|Gib es mir.', hint: 'кому (Dat) + что (Akk)', placeholder: 'Gib...', explain: 'geben: адресат в Dativ (mir), предмет в Akkusativ.' },
+      { type: 'translate', question: 'Я часто думаю о ней. (denken an + Akk)', answer: 'Ich denke oft an sie.', hint: 'denken an + Akkusativ (sie)', placeholder: 'Ich denke oft an...', explain: 'denken an управляет Akkusativ; «о ней» = an sie.' },
+      { type: 'listen', answer: 'Ich gebe es ihm morgen.', hint: 'es (Akk) перед ihm (Dat)' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Personalpronomen: ein Akkusativ-Objekt, ein Dativ-Objekt und eins nach einer Präposition.', hint: 'Ich sehe ihn. Ich helfe ihr. Das ist für dich.', placeholder: 'Ich...', sample: 'Ich rufe ihn später an. Ich antworte ihr sofort. Diese Blumen sind für dich.' }
     ],
   },
 
@@ -1322,147 +1312,151 @@ const LESSONS_CONTENT = {
 
   praesens: {
     title: 'Präsens: спряжение правильных (слабых) глаголов',
-    level: 'A1 · Урок 12',
-    intro: 'Präsens — настоящее время. У правильных глаголов берём основу (инфинитив без -en) и добавляем личное окончание. Разберём окончания и важные исключения (-t/-d, -s/-ß/-z).',
+    intro: 'Präsens — настоящее время. У правильных глаголов берём основу (инфинитив без -en) и добавляем личное окончание. Кроме базовых окончаний разберём три группы исключений, на которых все спотыкаются.',
     theory: [
       {
-        heading: '🔧 Окончания спряжения',
+        heading: '📘 Основа: личные окончания',
         content: `
-          <p>Основа = инфинитив без <b>-en</b>: machen → mach-. К ней добавляем окончание по лицу:</p>
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>Окончание</th><th>machen (делать)</th></tr>
-            <tr><td>ich</td><td><b>-e</b></td><td>ich mach<b>e</b></td></tr>
-            <tr><td>du</td><td><b>-st</b></td><td>du mach<b>st</b></td></tr>
-            <tr><td>er/sie/es</td><td><b>-t</b></td><td>er mach<b>t</b></td></tr>
-            <tr><td>wir</td><td><b>-en</b></td><td>wir mach<b>en</b></td></tr>
-            <tr><td>ihr</td><td><b>-t</b></td><td>ihr mach<b>t</b></td></tr>
-            <tr><td>sie/Sie</td><td><b>-en</b></td><td>sie mach<b>en</b></td></tr>
+            <tr><th>Лицо</th><th>оконч.</th><th>arbeiten → но базово machen</th></tr>
+            <tr><td>ich</td><td>-e</td><td>ich mach<b>e</b></td></tr>
+            <tr><td>du</td><td>-st</td><td>du mach<b>st</b></td></tr>
+            <tr><td>er/sie/es</td><td>-t</td><td>er mach<b>t</b></td></tr>
+            <tr><td>wir</td><td>-en</td><td>wir mach<b>en</b></td></tr>
+            <tr><td>ihr</td><td>-t</td><td>ihr mach<b>t</b></td></tr>
+            <tr><td>sie/Sie</td><td>-en</td><td>sie mach<b>en</b></td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Так же: lernen, wohnen, spielen, kaufen, fragen, sagen, brauchen.</div>
-            <div class="ru">wir и sie/Sie всегда совпадают с инфинитивом (-en).</div>
+            <div class="de">Так же: planen, prüfen, brauchen, bestellen, erklären, organisieren.</div>
+            <div class="ru">wir и sie/Sie всегда = инфинитиву (-en).</div>
           </div>
         `
       },
       {
-        heading: '➕ Исключение 1: основа на -t / -d / -n',
+        heading: '➕ Тонкость: основа на -t / -d / -n',
         content: `
-          <p>Если основа заканчивается на <b>-t, -d</b> (или -m/-n после согласной), между основой и окончанием -st/-t вставляется <b>-e-</b> (иначе не выговорить):</p>
+          <p>Если основа кончается на -t, -d (или -m/-n после согласной), перед -st/-t вставляется <b>-e-</b> для произносимости:</p>
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>arbeiten</th><th>finden</th></tr>
-            <tr><td>du</td><td>du arbeit<b>e</b>st</td><td>du find<b>e</b>st</td></tr>
-            <tr><td>er/sie/es</td><td>er arbeit<b>e</b>t</td><td>er find<b>e</b>t</td></tr>
-            <tr><td>ihr</td><td>ihr arbeit<b>e</b>t</td><td>ihr find<b>e</b>t</td></tr>
+            <tr><th></th><th>arbeiten</th><th>antworten</th><th>öffnen</th></tr>
+            <tr><td>du</td><td>arbeit<b>e</b>st</td><td>antwort<b>e</b>st</td><td>öffn<b>e</b>st</td></tr>
+            <tr><td>er</td><td>arbeit<b>e</b>t</td><td>antwort<b>e</b>t</td><td>öffn<b>e</b>t</td></tr>
+            <tr><td>ihr</td><td>arbeit<b>e</b>t</td><td>antwort<b>e</b>t</td><td>öffn<b>e</b>t</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Так же: warten (du wartest), baden, reden, öffnen, regnen (es regnet).</div>
-            <div class="ru">Вставляем -e- только в формах du, er, ihr.</div>
+            <div class="de">Так же: warten, bilden, reden, rechnen, atmen, es regnet.</div>
+            <div class="ru">Вставка -e- только в формах du, er, ihr.</div>
           </div>
         `
       },
       {
-        heading: '➕ Исключение 2: основа на -s / -ß / -z / -x',
+        heading: '➕ Тонкость: основа на -s / -ß / -z / -x',
         content: `
-          <p>Если основа заканчивается на шипящий/свистящий <b>-s, -ß, -z, -x</b>, то в форме <b>du</b> окончание -st теряет «s» → просто <b>-t</b>:</p>
-          <div class="table-wrap"><table>
-            <tr><th>Инфинитив</th><th>du</th></tr>
-            <tr><td>heißen</td><td>du heiß<b>t</b> (не «heißst»)</td></tr>
-            <tr><td>reisen</td><td>du reis<b>t</b></td></tr>
-            <tr><td>tanzen</td><td>du tanz<b>t</b></td></tr>
-            <tr><td>sitzen</td><td>du sitz<b>t</b></td></tr>
-          </table></div>
+          <p>У шипящих/свистящих окончаний форма <b>du</b> теряет «s» из -st → остаётся просто <b>-t</b>:</p>
           <div class="example-box">
-            <div class="de">Wie heißt du? — Ich heiße Anna.</div>
-            <div class="ru">Только форма du! er/sie остаётся с -t как обычно.</div>
+            <div class="de">heißen → du heißt · reisen → du reist · tanzen → du tanzt · sitzen → du sitzt · mixen → du mixt</div>
+            <div class="ru">Только форма du! er/sie остаётся с обычным -t.</div>
           </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Забыть -e- у arbeiten/warten: правильно «er arbeit<b>e</b>t», не «er arbeitt».</li>
+            <li>У heißen в форме du НЕ удваивают s: «du heißt», не «du heißst».</li>
+            <li>Präsens покрывает и будущее в разговоре: «Morgen <b>komme</b> ich» = «приду завтра».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'ich ___ (machen)', answer: 'mache', placeholder: 'mach...' },
-      { type: 'fill', question: 'du ___ (spielen)', answer: 'spielst', placeholder: 'spiel...' },
-      { type: 'fill', question: 'er ___ (wohnen)', answer: 'wohnt', placeholder: 'wohn...' },
-      { type: 'fill', question: 'wir ___ (lernen)', answer: 'lernen', placeholder: 'lern...' },
-      { type: 'fill', question: 'Исключение -t: du ___ (arbeiten)', answer: 'arbeitest', placeholder: 'arbeit...' },
-      { type: 'fill', question: 'Исключение -t: er ___ (warten)', answer: 'wartet', placeholder: 'wart...' },
-      { type: 'fill', question: 'Исключение -ß: du ___ (heißen)', answer: 'heißt|heisst', placeholder: 'heiß...' },
-      { type: 'fill', question: 'Исключение -z: du ___ (tanzen)', answer: 'tanzt', placeholder: 'tanz...' },
-      { type: 'translate', question: 'Я живу в Москве.', answer: 'Ich wohne in Moskau.', hint: 'wohnen → ich wohne', placeholder: 'Ich wohne...' },
-      { type: 'translate', question: 'Как тебя зовут?', answer: 'Wie heißt du?', hint: 'heißen → du heißt', placeholder: 'Wie...' },
-      { type: 'translate', question: 'Он много работает.', answer: 'Er arbeitet viel.', hint: 'arbeiten → er arbeitet (+e)', placeholder: 'Er arbeitet...' },
-      { type: 'listen', answer: 'Wir lernen Deutsch und spielen Fußball.', hint: 'два глагола: wir -en' },
-      { type: 'write', question: 'Schreib 3 Sätze über deinen Tag mit regelmäßigen Verben (wohnen, lernen, arbeiten, spielen, machen).', hint: 'Спрягай: ich -e, du -st, er -t. Не забудь -e- у arbeiten/warten.', placeholder: 'Ich...', sample: 'Ich wohne in Wien. Ich lerne Deutsch. Am Abend spiele ich Gitarre.' }
+      { type: 'choice', question: 'Правильная форма: «er ___» (arbeiten)', options: ['arbeitet', 'arbeitt', 'arbeitst'], answer: 0, explain: 'Основа на -t → вставка -e-: arbeitet.' },
+      { type: 'choice', question: 'Форма du от heißen:', options: ['heißt', 'heißst', 'heißest'], answer: 0, explain: 'Основа на -ß → du теряет s: heißt.' },
+      { type: 'choice', question: 'wir и sie/Sie берут окончание:', options: ['-en', '-t', '-st'], answer: 0, explain: 'wir/sie/Sie всегда -en (как инфинитив).' },
+      { type: 'fill', question: 'ich ___ (planen)', answer: 'plane', placeholder: 'plan...', explain: 'ich → -e: plane.' },
+      { type: 'fill', question: 'du ___ (bestellen)', answer: 'bestellst', placeholder: 'bestell...', explain: 'du → -st: bestellst.' },
+      { type: 'fill', question: 'er ___ (antworten)', answer: 'antwortet', placeholder: 'antwort...', explain: 'Основа на -t → -e-: antwortet.' },
+      { type: 'fill', question: 'du ___ (tanzen)', answer: 'tanzt', placeholder: 'tanz...', explain: 'Основа на -z → du: tanzt.' },
+      { type: 'translate', question: 'Я организую встречу. (organisieren, das Treffen)', answer: 'Ich organisiere das Treffen.', hint: 'organisieren → ich organisiere', placeholder: 'Ich organisiere...', explain: 'Правильное спряжение: ich + -e.' },
+      { type: 'translate', question: 'Он много работает. (arbeiten)', answer: 'Er arbeitet viel.', hint: 'arbeiten → er arbeitet (+e)', placeholder: 'Er arbeitet...', explain: 'Основа на -t требует -e- в форме er.' },
+      { type: 'translate', question: 'Как тебя зовут? (heißen)', answer: 'Wie heißt du?', hint: 'heißen → du heißt', placeholder: 'Wie...', explain: 'Основа на -ß → du heißt.' },
+      { type: 'listen', answer: 'Wir planen das Projekt zusammen.', hint: 'wir → -en' },
+      { type: 'write', question: 'Schreib 3 Sätze über deinen Tag mit regelmäßigen Verben (arbeiten, planen, organisieren, warten).', hint: 'Спрягай: ich -e, du -st, er -t (+ -e- у arbeiten/warten).', placeholder: 'Ich...', sample: 'Ich plane meinen Tag am Morgen. Mein Kollege arbeitet im Homeoffice. Wir warten auf eine Antwort.' }
     ],
   },
 
   'irregular-verbs': {
     title: 'Сильные глаголы (чередование e→i/ie, a→ä)',
-    level: 'A1 · Урок 13',
-    intro: 'У некоторых глаголов в Präsens меняется корневая гласная — но ТОЛЬКО в формах du и er/sie/es. Это нужно знать, потому что такие глаголы очень частые: sprechen, fahren, sehen, nehmen.',
+    intro: 'У части глаголов в Präsens меняется корневая гласная — но ТОЛЬКО в du и er/sie/es. Эти глаголы очень частотны (sprechen, fahren, nehmen, lesen), поэтому ошибки в них сразу слышны.',
     theory: [
       {
-        heading: '🔁 e → i (короткое i)',
+        heading: '📘 Основа: меняется только du и er/sie/es',
         content: `
-          <p>Гласная <b>e</b> в корне меняется на <b>i</b> в формах du и er/sie/es:</p>
+          <p>Чередование охватывает <b>только</b> две формы — du и er/sie/es. В ich, wir, ihr, sie гласная остаётся как в инфинитиве.</p>
           <div class="table-wrap"><table>
-            <tr><th></th><th>sprechen</th><th>geben</th><th>essen</th><th>helfen</th></tr>
-            <tr><td>ich</td><td>spreche</td><td>gebe</td><td>esse</td><td>helfe</td></tr>
-            <tr><td>du</td><td>spr<b>i</b>chst</td><td>g<b>i</b>bst</td><td><b>i</b>sst</td><td>h<b>i</b>lfst</td></tr>
-            <tr><td>er/sie/es</td><td>spr<b>i</b>cht</td><td>g<b>i</b>bt</td><td><b>i</b>sst</td><td>h<b>i</b>lft</td></tr>
-            <tr><td>wir/sie</td><td>sprechen</td><td>geben</td><td>essen</td><td>helfen</td></tr>
+            <tr><th></th><th>sprechen</th><th>geben</th><th>helfen</th></tr>
+            <tr><td>ich</td><td>spreche</td><td>gebe</td><td>helfe</td></tr>
+            <tr><td>du</td><td>spr<b>i</b>chst</td><td>g<b>i</b>bst</td><td>h<b>i</b>lfst</td></tr>
+            <tr><td>er/sie/es</td><td>spr<b>i</b>cht</td><td>g<b>i</b>bt</td><td>h<b>i</b>lft</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Особо: nehmen → du n<b>imm</b>st, er n<b>imm</b>t (двойное m!).</div>
-            <div class="ru">В ich, wir, ihr, sie — гласная НЕ меняется.</div>
+            <div class="de">Особо: nehmen → du n<b>imm</b>st, er n<b>imm</b>t (двойное m, без h).</div>
+            <div class="ru">e→i — самый частый тип чередования.</div>
           </div>
         `
       },
       {
-        heading: '🔁 e → ie (длинное i)',
+        heading: '🔁 Тонкость: e→ie (длинное i)',
         content: `
           <div class="table-wrap"><table>
-            <tr><th></th><th>sehen</th><th>lesen</th></tr>
-            <tr><td>ich</td><td>sehe</td><td>lese</td></tr>
-            <tr><td>du</td><td>s<b>ie</b>hst</td><td>l<b>ie</b>st</td></tr>
-            <tr><td>er/sie/es</td><td>s<b>ie</b>ht</td><td>l<b>ie</b>st</td></tr>
+            <tr><th></th><th>sehen</th><th>lesen</th><th>empfehlen</th></tr>
+            <tr><td>du</td><td>s<b>ie</b>hst</td><td>l<b>ie</b>st</td><td>empf<b>ie</b>hlst</td></tr>
+            <tr><td>er</td><td>s<b>ie</b>ht</td><td>l<b>ie</b>st</td><td>empf<b>ie</b>hlt</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Er s<b>ie</b>ht fern. Sie l<b>ie</b>st ein Buch.</div>
-            <div class="ru">lesen: основа на -s, поэтому du liest (а не «liesst»).</div>
+            <div class="de">lesen: основа на -s, поэтому du l<b>ie</b>st (а не «liesst»).</div>
+            <div class="ru">e→ie встречается реже, но в очень частых глаголах.</div>
           </div>
         `
       },
       {
-        heading: '🔁 a → ä',
+        heading: '🔁 Тонкость: a→ä (и au→äu)',
         content: `
-          <p>Корневое <b>a</b> получает умлаут <b>ä</b> в du и er/sie/es:</p>
           <div class="table-wrap"><table>
-            <tr><th></th><th>fahren</th><th>schlafen</th><th>tragen</th></tr>
-            <tr><td>ich</td><td>fahre</td><td>schlafe</td><td>trage</td></tr>
-            <tr><td>du</td><td>f<b>ä</b>hrst</td><td>schl<b>ä</b>fst</td><td>tr<b>ä</b>gst</td></tr>
-            <tr><td>er/sie/es</td><td>f<b>ä</b>hrt</td><td>schl<b>ä</b>ft</td><td>tr<b>ä</b>gt</td></tr>
+            <tr><th></th><th>fahren</th><th>schlafen</th><th>laufen</th></tr>
+            <tr><td>du</td><td>f<b>ä</b>hrst</td><td>schl<b>ä</b>fst</td><td>l<b>äu</b>fst</td></tr>
+            <tr><td>er</td><td>f<b>ä</b>hrt</td><td>schl<b>ä</b>ft</td><td>l<b>äu</b>ft</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Так же: laufen → du l<b>äu</b>fst, fallen → du f<b>ä</b>llst, tragen, waschen, gefallen.</div>
-            <div class="ru">Запомни главное правило: меняется только du и er/sie/es.</div>
+            <div class="de">Так же: tragen, waschen, fallen, gefallen, halten (du hältst, er hält), raten.</div>
+            <div class="ru">a получает умлаут ä, au → äu.</div>
           </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Меняется ТОЛЬКО du/er. Ошибка: «ich spriche» — нет, «ich spreche» (без чередования).</li>
+            <li>nehmen и halten нестандартны: du nimmst/er nimmt, du hältst/er hält.</li>
+            <li>Не путай с модальными — у тех своё особое спряжение.</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'e→i: du ___ (sprechen)', answer: 'sprichst', placeholder: 'spr...' },
-      { type: 'fill', question: 'e→i: er ___ (geben)', answer: 'gibt', placeholder: 'g...' },
-      { type: 'fill', question: 'e→i особый: du ___ (nehmen)', answer: 'nimmst', placeholder: 'n...' },
-      { type: 'fill', question: 'e→ie: er ___ fern (sehen)', answer: 'sieht', placeholder: 's...' },
-      { type: 'fill', question: 'e→ie: du ___ ein Buch (lesen)', answer: 'liest', placeholder: 'l...' },
-      { type: 'fill', question: 'a→ä: du ___ nach Wien (fahren)', answer: 'fährst', placeholder: 'f...' },
-      { type: 'fill', question: 'a→ä: er ___ lange (schlafen)', answer: 'schläft', placeholder: 'schl...' },
-      { type: 'fill', question: 'НЕ меняется (ich): ich ___ Deutsch (sprechen)', answer: 'spreche', placeholder: 'spr...' },
-      { type: 'translate', question: 'Он говорит по-немецки.', answer: 'Er spricht Deutsch.', hint: 'sprechen → er spricht (e→i)', placeholder: 'Er...' },
-      { type: 'translate', question: 'Ты едешь в Вену?', answer: 'Fährst du nach Wien?', hint: 'fahren → du fährst (a→ä)', placeholder: 'Fährst...' },
-      { type: 'translate', question: 'Она читает книгу.', answer: 'Sie liest ein Buch.', hint: 'lesen → sie liest (e→ie)', placeholder: 'Sie liest...' },
-      { type: 'listen', answer: 'Er nimmt den Bus und fährt nach Hause.', hint: 'nehmen + fahren' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Vokalwechsel-Verben über er/sie oder du (sprechen, fahren, lesen, essen, sehen).', hint: 'Помни: меняется только du и er/sie/es. Ich spreche, но er spricht.', placeholder: 'Er...', sample: 'Er spricht gut Deutsch. Sie fährt jeden Tag zur Arbeit. Du liest viele Bücher.' }
+      { type: 'choice', question: 'Где НЕТ чередования?', options: ['ich spreche', 'du sprichst', 'er spricht'], answer: 0, explain: 'В ich гласная не меняется: ich spreche.' },
+      { type: 'choice', question: 'er + nehmen:', options: ['nimmt', 'nehmt', 'nimt'], answer: 0, explain: 'nehmen → er nimmt (двойное m).' },
+      { type: 'choice', question: 'du + lesen:', options: ['liest', 'liesst', 'lest'], answer: 0, explain: 'e→ie + основа на -s → du liest.' },
+      { type: 'fill', question: 'e→i: du ___ (sprechen)', answer: 'sprichst', placeholder: 'spr...', explain: 'e→i: sprichst.' },
+      { type: 'fill', question: 'e→ie: er ___ einen Film (sehen)', answer: 'sieht', placeholder: 's...', explain: 'e→ie: sieht.' },
+      { type: 'fill', question: 'a→ä: du ___ nach Wien (fahren)', answer: 'fährst', placeholder: 'f...', explain: 'a→ä: fährst.' },
+      { type: 'fill', question: 'a→ä: er ___ den Termin (halten → er hält)', answer: 'hält', placeholder: 'h...', explain: 'halten нестандартный: er hält.' },
+      { type: 'translate', question: 'Он рекомендует этот ресторан. (empfehlen, das Restaurant)', answer: 'Er empfiehlt dieses Restaurant.|Er empfiehlt das Restaurant.', hint: 'empfehlen → er empfiehlt (e→ie)', placeholder: 'Er empfiehlt...', explain: 'empfehlen меняет e→ie в форме er.' },
+      { type: 'translate', question: 'Ты водишь машину? (fahren, das Auto)', answer: 'Fährst du Auto?', hint: 'fahren → du fährst (a→ä)', placeholder: 'Fährst...', explain: 'a→ä в форме du.' },
+      { type: 'translate', question: 'Она берёт такси. (nehmen, das Taxi)', answer: 'Sie nimmt ein Taxi.', hint: 'nehmen → sie nimmt', placeholder: 'Sie nimmt...', explain: 'nehmen → nimmt (особая форма).' },
+      { type: 'listen', answer: 'Er liest die Zeitung und trinkt Kaffee.', hint: 'lesen → er liest' },
+      { type: 'write', question: 'Schreib 3 Sätze über er/sie oder du mit Vokalwechsel-Verben (sprechen, fahren, lesen, nehmen, empfehlen).', hint: 'Только du/er меняют гласную: ich spreche, но er spricht.', placeholder: 'Er...', sample: 'Er spricht fließend Englisch. Sie nimmt jeden Morgen den Bus. Du liest sehr viel.' }
     ],
   },
 
@@ -1609,81 +1603,74 @@ const LESSONS_CONTENT = {
 
   'modal-verbs': {
     title: 'Модальные глаголы (können, müssen, wollen…)',
-    level: 'A1 · Урок 16',
-    intro: 'Модальные глаголы выражают возможность, необходимость, желание, разрешение. Их шесть, они спрягаются особо, а главный (смысловой) глагол уходит в конец в инфинитиве.',
+    intro: 'Модальные глаголы выражают возможность, необходимость, желание, разрешение. Их шесть, спрягаются они особо, а смысловой глагол уходит в инфинитиве в конец. Разберём формы, нюансы значений и отрицание.',
     theory: [
       {
-        heading: '🎭 Шесть модальных и их смысл',
+        heading: '📘 Основа: шесть модальных и смысл',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Глагол</th><th>Значение</th><th>Пример</th></tr>
-            <tr><td><b>können</b></td><td>мочь, уметь</td><td>Ich kann schwimmen.</td></tr>
-            <tr><td><b>dürfen</b></td><td>можно (разрешение)</td><td>Darf ich rauchen?</td></tr>
-            <tr><td><b>müssen</b></td><td>должен, нужно</td><td>Ich muss arbeiten.</td></tr>
-            <tr><td><b>sollen</b></td><td>следует; говорят, что</td><td>Du sollst mehr lernen.</td></tr>
-            <tr><td><b>wollen</b></td><td>хотеть (твёрдо)</td><td>Ich will nach Wien.</td></tr>
-            <tr><td><b>möchten</b></td><td>хотел бы (вежливо)</td><td>Ich möchte Kaffee.</td></tr>
+            <tr><td><b>können</b> мочь, уметь</td><td><b>dürfen</b> можно (разрешение)</td></tr>
+            <tr><td><b>müssen</b> должен, нужно</td><td><b>sollen</b> следует; говорят, что</td></tr>
+            <tr><td><b>wollen</b> хотеть (твёрдо)</td><td><b>möchten</b> хотел бы (вежливо)</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">wollen — категоричное «хочу», möchten — мягкое «хотел бы». В кафе говорят möchten.</div>
-            <div class="ru">müssen = объективная необходимость; sollen = чужое указание/совет.</div>
+            <div class="de">Ich <b>kann</b> Auto fahren. Du <b>musst</b> den Antrag abgeben. Wir <b>möchten</b> bestellen.</div>
+            <div class="ru">wollen — категоричное «хочу», möchten — мягкое «хотел бы».</div>
           </div>
         `
       },
       {
-        heading: '🔧 Спряжение (особое!)',
+        heading: '🔧 Тонкость: особое спряжение',
         content: `
-          <p>В единственном числе у модальных <b>нет окончания</b> у ich и er/sie/es, и часто меняется гласная:</p>
+          <p>В единственном числе нет окончания у ich и er, и часто меняется гласная:</p>
           <div class="table-wrap"><table>
-            <tr><th></th><th>können</th><th>müssen</th><th>wollen</th><th>möchten</th></tr>
-            <tr><td>ich</td><td>kann</td><td>muss</td><td>will</td><td>möchte</td></tr>
-            <tr><td>du</td><td>kannst</td><td>musst</td><td>willst</td><td>möchtest</td></tr>
-            <tr><td>er/sie/es</td><td>kann</td><td>muss</td><td>will</td><td>möchte</td></tr>
-            <tr><td>wir</td><td>können</td><td>müssen</td><td>wollen</td><td>möchten</td></tr>
-            <tr><td>ihr</td><td>könnt</td><td>müsst</td><td>wollt</td><td>möchtet</td></tr>
-            <tr><td>sie/Sie</td><td>können</td><td>müssen</td><td>wollen</td><td>möchten</td></tr>
+            <tr><th></th><th>können</th><th>müssen</th><th>wollen</th><th>dürfen</th></tr>
+            <tr><td>ich</td><td>kann</td><td>muss</td><td>will</td><td>darf</td></tr>
+            <tr><td>du</td><td>kannst</td><td>musst</td><td>willst</td><td>darfst</td></tr>
+            <tr><td>er/sie/es</td><td>kann</td><td>muss</td><td>will</td><td>darf</td></tr>
+            <tr><td>wir/sie</td><td>können</td><td>müssen</td><td>wollen</td><td>dürfen</td></tr>
+            <tr><td>ihr</td><td>könnt</td><td>müsst</td><td>wollt</td><td>dürft</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">ich kann = er kann (одинаково!). Так же: dürfen → ich darf, sollen → ich soll (без смены гласной).</div>
-            <div class="ru">Запомни: ich и er/sie/es у модальных всегда совпадают.</div>
+            <div class="de">ich kann = er kann (формы совпадают!). sollen без смены гласной: ich soll, er soll.</div>
+            <div class="ru">Главное: ich и er/sie/es у модальных одинаковы.</div>
           </div>
         `
       },
       {
-        heading: '📐 Порядок слов: инфинитив в конец (рамка)',
+        heading: '📐 Тонкость: рамка (инфинитив в конец)',
         content: `
-          <p>Модальный глагол стоит на <b>2-м месте</b>, а смысловой глагол — в <b>инфинитиве в самом конце</b>. Это «рамочная конструкция»:</p>
+          <p>Модальный — на 2-м месте, смысловой глагол в <b>инфинитиве в самом конце</b>:</p>
           <div class="example-box">
-            <div class="de">Ich <b>muss</b> heute viel <b>arbeiten</b>.<br>Wir <b>können</b> am Wochenende ins Kino <b>gehen</b>.</div>
-            <div class="ru">Между модальным и инфинитивом — всё остальное (время, место, объект).</div>
+            <div class="de">Ich <b>muss</b> heute den Bericht <b>fertigstellen</b>. <b>Kannst</b> du mir kurz <b>helfen</b>?</div>
+            <div class="ru">Между модальным и инфинитивом — всё остальное. В вопросе модальный на 1-м месте.</div>
           </div>
-          <p>В вопросе модальный выходит на 1-е место: <b>Kannst</b> du mir <b>helfen</b>?</p>
         `
       },
       {
-        heading: '🚫 Отрицание и нюанс müssen/dürfen',
+        heading: '⚠️ Частые ошибки и нюансы',
         content: `
-          <p>Отрицаем через <b>nicht</b> (или kein с существительным):</p>
-          <div class="example-box">
-            <div class="de">Ich kann <b>nicht</b> kommen. · <b>nicht müssen</b> = не обязательно (≠ нельзя!). · <b>nicht dürfen</b> = нельзя, запрещено.</div>
-            <div class="ru">Du musst nicht = тебе не обязательно. Du darfst nicht = тебе нельзя.</div>
-          </div>
+          <ul>
+            <li><b>nicht müssen</b> = «не обязательно» (≠ нельзя!). <b>nicht dürfen</b> = «нельзя, запрещено». «Du musst nicht kommen» — можешь не приходить.</li>
+            <li><b>sollen</b> часто = чужое указание/совет: «Du sollst mehr schlafen» (тебе советуют).</li>
+            <li>Не ставь смысловой глагол в спрягаемую форму: «Ich kann <b>schwimmen</b>», не «Ich kann schwimme».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'ich ___ schwimmen (können)', answer: 'kann', placeholder: 'k...' },
-      { type: 'fill', question: 'er ___ arbeiten (müssen)', answer: 'muss', placeholder: 'm...' },
-      { type: 'fill', question: 'du ___ mir helfen? (können)', answer: 'kannst', placeholder: 'k...' },
-      { type: 'fill', question: 'Вежливо в кафе: ich ___ einen Kaffee (möchten)', answer: 'möchte', placeholder: 'm...' },
-      { type: 'fill', question: 'wir ___ ins Kino gehen (wollen)', answer: 'wollen', placeholder: 'w...' },
-      { type: 'fill', question: 'Разрешение: ___ ich rauchen? (dürfen, ich)', answer: 'darf', placeholder: 'd...' },
-      { type: 'translate', question: 'Я должна сегодня много работать.', answer: 'Ich muss heute viel arbeiten.', hint: 'müssen + инфинитив в конец', placeholder: 'Ich muss...' },
-      { type: 'translate', question: 'Ты можешь мне помочь?', answer: 'Kannst du mir helfen?', hint: 'вопрос: модальный на 1-е место', placeholder: 'Kannst...' },
-      { type: 'translate', question: 'Я хотел бы кофе.', answer: 'Ich möchte einen Kaffee.|Ich möchte Kaffee.', hint: 'möchten — вежливое «хотел бы»', placeholder: 'Ich möchte...' },
-      { type: 'translate', question: 'Мы хотим поехать в Вену.', answer: 'Wir wollen nach Wien fahren.', hint: 'wollen + fahren в конец', placeholder: 'Wir wollen...' },
-      { type: 'listen', answer: 'Ich kann heute nicht kommen.', hint: 'können + nicht + инфинитив' },
-      { type: 'write', question: 'Schreib 3 Sätze: was kannst/musst/willst du heute machen? (Modalverb + Infinitiv am Ende)', hint: 'Ich kann/muss/will/möchte … + Infinitiv. Глагол в конце!', placeholder: 'Ich muss...', sample: 'Ich muss heute lernen. Ich kann gut kochen. Am Abend will ich einen Film sehen.' }
+      { type: 'choice', question: 'Что значит «Du musst nicht kommen»?', options: ['Можешь не приходить (необязательно)', 'Тебе нельзя приходить'], answer: 0, explain: 'nicht müssen = отсутствие необходимости, не запрет.' },
+      { type: 'choice', question: 'Форма ich от können:', options: ['kann', 'kanne', 'könne'], answer: 0, explain: 'ich kann (без окончания, ich=er).' },
+      { type: 'choice', question: 'Где стоит смысловой глагол при модальном?', options: ['в инфинитиве в конце', 'сразу после модального', 'на 1-м месте'], answer: 0, explain: 'Рамка: инфинитив уходит в конец.' },
+      { type: 'fill', question: 'ich ___ schwimmen (können)', answer: 'kann', placeholder: 'k...', explain: 'ich kann.' },
+      { type: 'fill', question: 'er ___ den Antrag abgeben (müssen)', answer: 'muss', placeholder: 'm...', explain: 'er muss (=ich muss).' },
+      { type: 'fill', question: 'Вежливо: ich ___ einen Kaffee (möchten)', answer: 'möchte', placeholder: 'm...', explain: 'ich möchte.' },
+      { type: 'fill', question: 'Разрешение: ___ ich hier rauchen? (dürfen, ich)', answer: 'darf', placeholder: 'd...', explain: 'dürfen → ich darf.' },
+      { type: 'translate', question: 'Я должна сегодня закончить отчёт. (müssen, den Bericht fertigstellen)', answer: 'Ich muss heute den Bericht fertigstellen.', hint: 'muss на 2-м, инфинитив в конец', placeholder: 'Ich muss...', explain: 'Рамочная конструкция с müssen.' },
+      { type: 'translate', question: 'Можешь мне коротко помочь? (können, helfen)', answer: 'Kannst du mir kurz helfen?', hint: 'вопрос: модальный на 1-м месте', placeholder: 'Kannst...', explain: 'В вопросе модальный выходит вперёд.' },
+      { type: 'translate', question: 'Мы хотели бы заказать. (möchten, bestellen)', answer: 'Wir möchten bestellen.', hint: 'möchten + Infinitiv', placeholder: 'Wir möchten...', explain: 'möchten — вежливое «хотели бы».' },
+      { type: 'listen', answer: 'Ich kann heute leider nicht kommen.', hint: 'können + nicht + Infinitiv' },
+      { type: 'write', question: 'Schreib 3 Sätze: was kannst/musst/willst du? (Modalverb + Infinitiv am Ende)', hint: 'Ich kann/muss/will/möchte … + Infinitiv (в конце).', placeholder: 'Ich...', sample: 'Ich muss heute eine Präsentation vorbereiten. Ich kann ziemlich gut organisieren. Am Wochenende will ich mich ausruhen.' }
     ],
   },
 
@@ -2266,77 +2253,71 @@ const LESSONS_CONTENT = {
 
   perfekt: {
     title: 'Прошедшее время Perfekt',
-    level: 'A2 · Урок 21',
-    intro: 'Perfekt — главное разговорное прошедшее время (в Австрии его используют постоянно). Формула: haben/sein + Partizip II. Разберём, как образуется Partizip, когда haben, а когда sein, и особые случаи (-ieren, приставки).',
+    intro: 'Perfekt — главное разговорное прошедшее (в Австрии его используют постоянно). Формула: haben/sein + Partizip II. Разберём образование Partizip, выбор haben/sein и три «ловушки» (-ieren, приставки, порядок слов).',
     theory: [
       {
-        heading: '🧱 Формула: haben/sein + Partizip II',
+        heading: '📘 Основа: haben/sein + Partizip II',
         content: `
-          <p>Спрягаемый глагол <b>haben</b> или <b>sein</b> на 2-м месте, а <b>Partizip II</b> — в конце (рамка):</p>
+          <p>Спрягаемый глагол (haben/sein) на 2-м месте, Partizip II — в конце (рамка):</p>
           <div class="example-box">
-            <div class="de">Ich <b>habe</b> Deutsch <b>gelernt</b>. · Wir <b>sind</b> nach Wien <b>gefahren</b>.</div>
+            <div class="de">Ich <b>habe</b> den Vertrag <b>geprüft</b>. Wir <b>sind</b> nach Wien <b>gefahren</b>.</div>
             <div class="ru">haben/sein меняется по лицу, Partizip всегда одинаковый.</div>
           </div>
         `
       },
       {
-        heading: '🔨 Как образовать Partizip II',
+        heading: '🔨 Тонкость: как образовать Partizip II',
         content: `
           <div class="table-wrap"><table>
             <tr><th>Тип</th><th>Схема</th><th>Пример</th></tr>
-            <tr><td>слабые</td><td><b>ge-</b> + основа + <b>-t</b></td><td>machen → ge<b>mach</b>t, lernen → gelernt</td></tr>
-            <tr><td>сильные</td><td><b>ge-</b> + основа + <b>-en</b> (часто смена гласной)</td><td>sprechen → ge<b>sproch</b>en, fahren → gefahren</td></tr>
-            <tr><td>смешанные</td><td>ge- + смена гласной + -t</td><td>denken → ge<b>dach</b>t, bringen → gebracht</td></tr>
+            <tr><td>слабые</td><td>ge- + основа + -t</td><td>machen → ge<b>mach</b>t, prüfen → geprüft</td></tr>
+            <tr><td>сильные</td><td>ge- + основа + -en (часто смена гласной)</td><td>sprechen → ge<b>sproch</b>en, schreiben → geschrieben</td></tr>
+            <tr><td>смешанные</td><td>ge- + смена гласной + -t</td><td>bringen → ge<b>brach</b>t, denken → gedacht</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Сильные надо учить: sehen → gesehen, essen → gegessen, nehmen → genommen, lesen → gelesen, trinken → getrunken.</div>
+            <div class="de">Сильные учим: sehen→gesehen, nehmen→genommen, essen→gegessen, finden→gefunden, verstehen→verstanden.</div>
             <div class="ru">Слабые предсказуемы (ge…t), сильные — по списку.</div>
           </div>
         `
       },
       {
-        heading: '🚗 haben или sein?',
+        heading: '🚗 Тонкость: haben или sein',
         content: `
-          <p>С <b>sein</b> идут глаголы <b>движения</b> (из точки А в Б) и <b>изменения состояния</b>; всё остальное — с <b>haben</b>:</p>
+          <p>С <b>sein</b> — глаголы движения (из А в Б) и изменения состояния; всё прочее — с <b>haben</b>:</p>
           <div class="table-wrap"><table>
             <tr><th>sein</th><th>haben</th></tr>
-            <tr><td>gehen, fahren, kommen, fliegen, laufen, reisen</td><td>machen, lernen, essen, kaufen, lesen, sehen</td></tr>
-            <tr><td>aufstehen, einschlafen, werden, sterben, passieren, bleiben*</td><td>(все переходные — с объектом)</td></tr>
+            <tr><td>gehen, fahren, kommen, fliegen, reisen, aufstehen, einschlafen, werden, passieren, bleiben*, sein*</td><td>все переходные (с объектом): machen, prüfen, essen, kaufen, lesen, schreiben</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich <b>bin</b> gegangen / gefahren / aufgestanden. · Ich <b>habe</b> gegessen / gekauft / gelesen.</div>
-            <div class="ru">* sein, bleiben, werden — тоже с sein (исключения-«состояния»).</div>
+            <div class="de">Ich <b>bin</b> gegangen/aufgestanden/geblieben. Ich <b>habe</b> gegessen/geschrieben.</div>
+            <div class="ru">* bleiben, sein, werden — тоже с sein.</div>
           </div>
         `
       },
       {
-        heading: '⚙️ Особые случаи: -ieren и приставки',
+        heading: '⚠️ Частые ошибки: -ieren и приставки',
         content: `
           <ul>
-            <li>Глаголы на <b>-ieren</b> — БЕЗ ge-: studieren → studi<b>ert</b>, telefonieren → telefoniert.</li>
+            <li>Глаголы на <b>-ieren</b> — БЕЗ ge-: studieren → studi<b>ert</b>, organisieren → organisiert.</li>
             <li>Неотделяемые приставки (be-, ver-, er-, ent-, ge-, zer-) — БЕЗ ge-: bezahlen → be<b>zahlt</b>, verstehen → verstanden.</li>
             <li>Отделяемые приставки — ge- встаёт <b>внутрь</b>: aufstehen → auf<b>ge</b>standen, einkaufen → eingekauft.</li>
           </ul>
-          <div class="example-box">
-            <div class="de">Ich habe Medizin <b>studiert</b>. Ich habe die Rechnung <b>bezahlt</b>. Ich bin früh <b>aufgestanden</b>.</div>
-            <div class="ru">Это три самые частые «ловушки» Partizip II.</div>
-          </div>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'haben или sein? Ich ___ Deutsch gelernt.', answer: 'habe', placeholder: 'h...' },
-      { type: 'fill', question: 'haben или sein? Wir ___ nach Wien gefahren. (движение!)', answer: 'sind', placeholder: 's...' },
-      { type: 'fill', question: 'Partizip слабый: machen → ge___t', answer: 'gemacht', placeholder: 'ge...' },
-      { type: 'fill', question: 'Partizip сильный: sprechen → ___', answer: 'gesprochen', placeholder: 'ge...' },
-      { type: 'fill', question: 'Глагол на -ieren (без ge!): studieren → ___', answer: 'studiert', placeholder: 'stud...' },
-      { type: 'fill', question: 'Отделяемая приставка: aufstehen → ___', answer: 'aufgestanden', placeholder: 'auf...' },
-      { type: 'fill', question: 'Неотделяемая (без ge): bezahlen → ___', answer: 'bezahlt', placeholder: 'be...' },
-      { type: 'translate', question: 'Я выучила немецкий.', answer: 'Ich habe Deutsch gelernt.', hint: 'haben + gelernt', placeholder: 'Ich habe...' },
-      { type: 'translate', question: 'Мы поехали в Вену.', answer: 'Wir sind nach Wien gefahren.', hint: 'движение → sein + gefahren', placeholder: 'Wir sind...' },
-      { type: 'translate', question: 'Я встала рано.', answer: 'Ich bin früh aufgestanden.', hint: 'aufstehen → sein + aufgestanden', placeholder: 'Ich bin...' },
-      { type: 'listen', answer: 'Ich habe gestern ein Buch gelesen.', hint: 'haben + gelesen' },
-      { type: 'write', question: 'Schreib 3 Sätze über gestern im Perfekt — nutze 1× sein (Bewegung) und 2× haben.', hint: 'Ich bin … gegangen/gefahren. Ich habe … gemacht/gegessen/gekauft.', placeholder: 'Gestern...', sample: 'Gestern habe ich viel gelernt. Ich bin ins Kino gegangen. Danach habe ich Pizza gegessen.' }
+      { type: 'choice', question: 'haben или sein: «Wir ___ nach Wien gefahren»?', options: ['sind', 'haben'], answer: 0, explain: 'fahren — движение → sein.' },
+      { type: 'choice', question: 'Partizip II от studieren:', options: ['studiert', 'gestudiert', 'studierte'], answer: 0, explain: 'Глаголы на -ieren без ge-: studiert.' },
+      { type: 'choice', question: 'Partizip от aufstehen:', options: ['aufgestanden', 'geaufstanden', 'aufstehen'], answer: 0, explain: 'Отделяемая приставка: ge- внутрь → aufgestanden.' },
+      { type: 'fill', question: 'haben или sein: Ich ___ den Bericht geschrieben.', answer: 'habe', placeholder: 'h...', explain: 'schreiben переходный → haben.' },
+      { type: 'fill', question: 'Partizip слабый: prüfen → ge___t', answer: 'geprüft', placeholder: 'ge...', explain: 'ge + основа + t: geprüft.' },
+      { type: 'fill', question: 'Partizip сильный: schreiben → ___', answer: 'geschrieben', placeholder: 'ge...', explain: 'Сильный: geschrieben.' },
+      { type: 'fill', question: 'Неотделяемая (без ge): bezahlen → ___', answer: 'bezahlt', placeholder: 'be...', explain: 'be- → без ge-: bezahlt.' },
+      { type: 'translate', question: 'Я проверил договор. (prüfen, der Vertrag)', answer: 'Ich habe den Vertrag geprüft.', hint: 'haben + geprüft', placeholder: 'Ich habe...', explain: 'Переходный глагол → haben.' },
+      { type: 'translate', question: 'Мы приехали в Вену. (fahren)', answer: 'Wir sind nach Wien gefahren.', hint: 'движение → sein + gefahren', placeholder: 'Wir sind...', explain: 'fahren с sein.' },
+      { type: 'translate', question: 'Я изучала медицину. (studieren, Medizin)', answer: 'Ich habe Medizin studiert.', hint: '-ieren → без ge-: studiert', placeholder: 'Ich habe...', explain: 'studieren → studiert (без ge-), с haben.' },
+      { type: 'listen', answer: 'Ich bin früh aufgestanden und habe gefrühstückt.', hint: 'sein (aufstehen) + haben (frühstücken)' },
+      { type: 'write', question: 'Schreib 3 Sätze über gestern im Perfekt — 1× sein (Bewegung) und 2× haben.', hint: 'Ich bin … gefahren/gegangen. Ich habe … gemacht/geschrieben.', placeholder: 'Gestern...', sample: 'Gestern habe ich den ganzen Tag gearbeitet. Am Abend bin ich ins Theater gegangen. Danach habe ich Freunde getroffen.' }
     ],
   },
 
@@ -3158,73 +3139,65 @@ const LESSONS_CONTENT = {
     ],
   },
 
-  'possessivpron': {
+  possessivpron: {
     title: 'Притяжательные местоимения (mein, dein, sein…)',
-    level: 'B1 · Урок 17',
-    intro: 'mein, dein, sein, ihr — «мой, твой, его, её». Они показывают принадлежность и склоняются так же, как ein/kein. Разберём все формы и склонение по падежам.',
+    intro: 'mein, dein, sein, ihr — «мой, твой, его, её». Показывают принадлежность и склоняются по схеме ein/kein. Главная сложность — окончание зависит не от владельца, а от предмета.',
     theory: [
       {
-        heading: '👪 Базовые формы — чьё?',
+        heading: '📘 Основа: чьё? (базовые формы)',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>Притяж.</th><th>Перевод</th></tr>
-            <tr><td>ich</td><td><b>mein</b></td><td>мой</td></tr>
-            <tr><td>du</td><td><b>dein</b></td><td>твой</td></tr>
-            <tr><td>er / es</td><td><b>sein</b></td><td>его</td></tr>
-            <tr><td>sie (она)</td><td><b>ihr</b></td><td>её</td></tr>
-            <tr><td>wir</td><td><b>unser</b></td><td>наш</td></tr>
-            <tr><td>ihr</td><td><b>euer</b></td><td>ваш</td></tr>
-            <tr><td>sie (они)</td><td><b>ihr</b></td><td>их</td></tr>
-            <tr><td>Sie (вежл.)</td><td><b>Ihr</b></td><td>Ваш</td></tr>
+            <tr><td>ich → <b>mein</b></td><td>wir → <b>unser</b></td></tr>
+            <tr><td>du → <b>dein</b></td><td>ihr → <b>euer</b></td></tr>
+            <tr><td>er/es → <b>sein</b></td><td>sie (они) → <b>ihr</b></td></tr>
+            <tr><td>sie (она) → <b>ihr</b></td><td>Sie → <b>Ihr</b></td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">⚠️ Не путай: <b>ihr</b> = «её» И «их» И «вы» (по контексту). <b>sein</b> = «его».</div>
-            <div class="ru">sein/ihr зависят от того, КТО владелец (он → sein, она → ihr).</div>
+            <div class="de">⚠️ <b>ihr</b> = «её», «их» И «ваш(е)» (по контексту). <b>sein</b> = «его».</div>
+            <div class="ru">sein/ihr зависят от владельца: он → sein, она → ihr.</div>
           </div>
         `
       },
       {
-        heading: '🔗 Окончание зависит от того, ЧЕМ владеют',
+        heading: '🔗 Тонкость: окончание — от ПРЕДМЕТА',
         content: `
-          <p>Притяжательное согласуется по роду/падежу с <b>предметом</b>, а не с владельцем. Окончания — как у <b>ein/kein</b>:</p>
+          <p>Притяжательное согласуется по роду/падежу с тем, ЧЕМ владеют (не с владельцем). Окончания — как у ein/kein:</p>
           <div class="table-wrap"><table>
             <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
-            <tr><td>Nominativ</td><td>mein</td><td>mein<b>e</b></td><td>mein</td><td>mein<b>e</b></td></tr>
-            <tr><td>Akkusativ</td><td>mein<b>en</b></td><td>mein<b>e</b></td><td>mein</td><td>mein<b>e</b></td></tr>
-            <tr><td>Dativ</td><td>mein<b>em</b></td><td>mein<b>er</b></td><td>mein<b>em</b></td><td>mein<b>en</b></td></tr>
+            <tr><td>Nom</td><td>mein</td><td>meine</td><td>mein</td><td>meine</td></tr>
+            <tr><td>Akk</td><td>meinen</td><td>meine</td><td>mein</td><td>meine</td></tr>
+            <tr><td>Dat</td><td>meinem</td><td>meiner</td><td>meinem</td><td>meinen</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Das ist <b>mein</b> Bruder (Nom, m). Ich sehe <b>meinen</b> Bruder (Akk, m). Ich helfe <b>meiner</b> Schwester (Dat, f).</div>
-            <div class="ru">Один корень mein- + окончание по роду и падежу предмета.</div>
+            <div class="de">Das ist <b>mein</b> Termin (Nom m). Ich verschiebe <b>meinen</b> Termin (Akk m). Mit <b>meiner</b> Kollegin (Dat f).</div>
+            <div class="ru">Один корень mein- + окончание по роду/падежу предмета.</div>
           </div>
         `
       },
       {
-        heading: '⚠️ Тонкость: unser / euer',
+        heading: '⚠️ Тонкость и ошибки: euer и совпадения',
         content: `
-          <p>У <b>unser</b> и <b>euer</b> те же окончания, но <b>euer</b> теряет «e» перед окончанием:</p>
-          <div class="example-box">
-            <div class="de">euer + e → <b>eure</b> (eure Mutter), euer + en → <b>euren</b> (euren Hund). unser → unsere, unseren.</div>
-            <div class="ru">«euer Auto», но «eure Wohnung» (не «euere»).</div>
-          </div>
-          <p>Совет: выучи на примере одного слова (mein), а дальше просто меняй корень: dein-, sein-, ihr-, unser-, euer-, Ihr-.</p>
+          <ul>
+            <li><b>euer</b> теряет «e» перед окончанием: euer Auto, но <b>eure</b> Wohnung, <b>euren</b> Plan.</li>
+            <li>Не путай «её» и «его»: <b>ihr</b> Bruder (её брат) ↔ <b>sein</b> Bruder (его брат).</li>
+            <li>Akkusativ мужского — не забывай -en: «Ich rufe <b>meinen</b> Chef an», не «mein Chef».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Nominativ m: Das ist ___ Bruder. (мой)', answer: 'mein', placeholder: 'mein...' },
-      { type: 'fill', question: 'Nominativ f: Das ist ___ Schwester. (моя)', answer: 'meine', placeholder: 'mein...' },
-      { type: 'fill', question: 'Akkusativ m: Ich sehe ___ Bruder. (моего)', answer: 'meinen', placeholder: 'mein...' },
-      { type: 'fill', question: 'Dativ f: Ich helfe ___ Schwester. (моей)', answer: 'meiner', placeholder: 'mein...' },
-      { type: 'fill', question: '«её»: Anna und ___ Hund. (её собака, Nom m)', answer: 'ihr', placeholder: '...' },
-      { type: 'fill', question: '«его»: Max und ___ Auto. (его машина, Nom n)', answer: 'sein', placeholder: 's...' },
-      { type: 'fill', question: 'euer + окончание: Wo ist ___ Wohnung? (ваша, Nom f)', answer: 'eure', placeholder: 'eu...' },
-      { type: 'fill', question: 'Akkusativ: Ich mag ___ Idee. (твою, die Idee)', answer: 'deine', placeholder: 'dein...' },
-      { type: 'translate', question: 'Это мой брат.', answer: 'Das ist mein Bruder.', hint: 'Nom m → mein (без окончания)', placeholder: 'Das ist...' },
-      { type: 'translate', question: 'Я люблю свою сестру.', answer: 'Ich liebe meine Schwester.', hint: 'Akk f → meine', placeholder: 'Ich liebe...' },
-      { type: 'translate', question: 'Я играю с её собакой.', answer: 'Ich spiele mit ihrem Hund.', hint: 'mit + Dativ, ihr + Dativ m → ihrem', placeholder: 'Ich spiele...' },
+      { type: 'choice', question: 'Anna spricht über ihren Bruder. «ihr» здесь значит:', options: ['её', 'его', 'их'], answer: 0, explain: 'Владелец — Anna (она) → ihr = её.' },
+      { type: 'choice', question: 'Akkusativ m: «Ich rufe ___ Chef an» (мой, der Chef)', options: ['meinen', 'mein', 'meinem'], answer: 0, explain: 'Akkusativ мужского: mein → meinen.' },
+      { type: 'choice', question: 'euer + Wohnung (Nom f): «Wo ist ___ Wohnung?»', options: ['eure', 'euer', 'euren'], answer: 0, explain: 'euer теряет e перед окончанием -e → eure.' },
+      { type: 'fill', question: 'Nom m: Das ist ___ Vorschlag. (мой)', answer: 'mein', placeholder: 'mein...', explain: 'Nom m без окончания: mein.' },
+      { type: 'fill', question: 'Dativ f: Ich spreche mit ___ Kollegin. (моей)', answer: 'meiner', placeholder: 'mein...', explain: 'mit → Dativ; f → meiner.' },
+      { type: 'fill', question: '«его машина» (Nom n): Max und ___ Auto. (его)', answer: 'sein', placeholder: 's...', explain: 'Владелец Max (он) → sein.' },
+      { type: 'fill', question: 'Akk f: Ich mag ___ Idee. (твою, die Idee)', answer: 'deine', placeholder: 'dein...', explain: 'Akk женского: deine.' },
+      { type: 'translate', question: 'Это мой коллега. (der Kollege)', answer: 'Das ist mein Kollege.', hint: 'Nom m → mein', placeholder: 'Das ist...', explain: 'Именительный мужского — без окончания.' },
+      { type: 'translate', question: 'Я переношу свою встречу. (der Termin, verschieben)', answer: 'Ich verschiebe meinen Termin.', hint: 'Akk m → meinen', placeholder: 'Ich verschiebe...', explain: 'Прямой объект мужского рода → meinen.' },
+      { type: 'translate', question: 'Я играю с её собакой. (der Hund)', answer: 'Ich spiele mit ihrem Hund.', hint: 'mit + Dativ; ihr + Dat m → ihrem', placeholder: 'Ich spiele...', explain: 'mit → Dativ; «её» (ihr) + Dat m → ihrem.' },
       { type: 'listen', answer: 'Das ist mein Bruder und seine Frau.', hint: 'mein + sein' },
-      { type: 'write', question: 'Schreib 3 Sätze über deine Familie mit Possessivartikeln (mein/meine…).', hint: 'Nom: mein Bruder, meine Mutter. Akk: meinen Vater. Dativ: meiner Oma.', placeholder: 'Mein...', sample: 'Mein Bruder heißt Max. Ich liebe meine Eltern. Ich helfe meiner Schwester oft.' }
+      { type: 'write', question: 'Schreib 3 Sätze über deine Sachen/Leute mit Possessivartikeln in verschiedenen Kasus.', hint: 'mein Plan (Nom), meinen Plan (Akk), meiner Kollegin (Dat).', placeholder: 'Mein...', sample: 'Mein Projekt läuft gut. Ich treffe meinen Mentor. Ich danke meiner Familie für die Unterstützung.' }
     ],
   },
 
