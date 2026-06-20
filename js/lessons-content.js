@@ -1846,34 +1846,68 @@ const LESSONS_CONTENT = {
 
   'sentence-order': {
     title: 'Порядок слов в предложении',
-    level: 'A1 · Урок 18',
-    intro: 'Главное правило немецкого синтаксиса — глагол ВСЕГДА стоит на втором месте. Запомни это раз и навсегда!',
+    level: 'A1 · Урок 20',
+    intro: 'Главное правило немецкого: спрягаемый глагол стоит на 2-м месте (V2). Разберём, что можно ставить на 1-е место, инверсию подлежащего, рамку (Satzklammer) и порядок в середине предложения (TeKaMoLo).',
     theory: [
       {
-        heading: '📐 Правило второго места (V2)',
+        heading: '2️⃣ Правило V2: глагол на втором месте',
         content: `
-          <p>В немецком предложении <b>сказуемое (глагол) всегда на 2-м месте</b>. Не слова, а именно <b>позиции</b>!</p>
+          <p>В обычном повествовательном предложении <b>спрягаемый глагол всегда второй</b> по позиции (не по слову, а по члену предложения):</p>
           <div class="table-wrap"><table>
-            <tr><th>Позиция 1</th><th>Позиция 2 (глагол)</th><th>Остальное</th></tr>
-            <tr><td>Ich</td><td><b>lerne</b></td><td>jeden Tag Deutsch.</td></tr>
-            <tr><td>Jeden Tag</td><td><b>lerne</b></td><td>ich Deutsch.</td></tr>
-            <tr><td>Deutsch</td><td><b>lerne</b></td><td>ich jeden Tag.</td></tr>
+            <tr><th>1 место</th><th>2 место (глагол)</th><th>остальное</th></tr>
+            <tr><td>Ich</td><td><b>lerne</b></td><td>heute Deutsch.</td></tr>
+            <tr><td>Heute</td><td><b>lerne</b></td><td>ich Deutsch.</td></tr>
+            <tr><td>Deutsch</td><td><b>lerne</b></td><td>ich heute.</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Heute <b>fahre</b> ich nach Wien. (Сегодня я еду в Вену.)</div>
-            <div class="ru">«Heute» на первом месте → глагол всё равно на втором, ich сдвигается!</div>
+            <div class="de">Что бы ни стояло на 1-м месте — глагол остаётся на 2-м.</div>
+            <div class="ru">На 1-е место можно вынести время, объект, обстоятельство — для акцента.</div>
           </div>
+        `
+      },
+      {
+        heading: '🔄 Инверсия: подлежащее уходит за глагол',
+        content: `
+          <p>Если на 1-м месте НЕ подлежащее, то подлежащее встаёт <b>сразу после глагола</b> (на 3-ю позицию):</p>
           <div class="example-box">
-            <div class="de">In Österreich <b>spricht</b> man Deutsch.</div>
-            <div class="ru">В Австрии говорят по-немецки.</div>
+            <div class="de">Morgen <b>fahre ich</b> nach Wien. (не «Morgen ich fahre»!)<br>Am Abend <b>liest sie</b> ein Buch.</div>
+            <div class="ru">Это самая частая ошибка русскоязычных: после обстоятельства сразу глагол, потом подлежащее.</div>
           </div>
+        `
+      },
+      {
+        heading: '🔗 Рамка (Satzklammer): второй глагол в конец',
+        content: `
+          <p>Если есть модальный глагол, Perfekt или отделяемая приставка — вторая часть глагола уходит в самый <b>конец</b>, образуя «рамку»:</p>
+          <div class="example-box">
+            <div class="de">Ich <b>muss</b> heute viel <b>arbeiten</b>. · Ich <b>habe</b> ein Buch <b>gekauft</b>. · Ich <b>stehe</b> um 7 Uhr <b>auf</b>.</div>
+            <div class="ru">Спрягаемая часть — на 2-м месте, неизменяемая (инфинитив/Partizip/приставка) — в конце.</div>
+          </div>
+        `
+      },
+      {
+        heading: '📦 Середина предложения: TeKaMoLo',
+        content: `
+          <p>Когда в середине несколько обстоятельств, порядок такой: <b>Te</b>mporal (когда) → <b>Ka</b>usal (почему) → <b>Mo</b>dal (как) → <b>Lo</b>kal (где):</p>
+          <div class="example-box">
+            <div class="de">Ich fahre <b>morgen</b> (когда) <b>wegen der Arbeit</b> (почему) <b>mit dem Auto</b> (как) <b>nach Wien</b> (куда).</div>
+            <div class="ru">Это ориентир, не жёсткий закон — но помогает строить длинные фразы правильно.</div>
+          </div>
+          <p>Вопросы: W-вопрос — глагол на 2-м месте (Wann kommst du?); да/нет-вопрос — глагол на 1-м (Kommst du?).</p>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Правильный порядок: «Ich / lerne / Deutsch / jeden Tag»:', options: ['Ich lerne jeden Tag Deutsch.', 'Ich Deutsch lerne jeden Tag.', 'Jeden Tag ich lerne Deutsch.', 'Lerne ich Deutsch jeden Tag.'], answer: 0 },
-      { type: 'choice', question: 'Если предложение начинается с «Heute» (сегодня):',options: ['Heute fahre ich...', 'Heute ich fahre...', 'Heute ich...', 'Ich heute fahre...'], answer: 0 },
-      { type: 'choice', question: 'Глагол в немецком предложении стоит на:',options: ['2-м месте', '1-м месте', '3-м месте', 'в конце'], answer: 0 },
+      { type: 'translate', question: 'Завтра я еду в Вену. (начни с «Morgen» — следи за инверсией!)', answer: 'Morgen fahre ich nach Wien.', hint: 'Morgen + глагол + ich (инверсия)', placeholder: 'Morgen...' },
+      { type: 'translate', question: 'Сегодня я учу немецкий. (начни с «Heute»)', answer: 'Heute lerne ich Deutsch.', hint: 'Heute + lerne + ich', placeholder: 'Heute...' },
+      { type: 'fill', question: 'Поставь глагол правильно: «Am Abend ___ ich fern.» (fernsehen → sehe … fern, спрягаемая часть)', answer: 'sehe', placeholder: 's...' },
+      { type: 'translate', question: 'Я должна сегодня много работать. (модальный + рамка)', answer: 'Ich muss heute viel arbeiten.', hint: 'muss на 2-м, arbeiten в конец', placeholder: 'Ich muss...' },
+      { type: 'translate', question: 'Я встаю в 7 часов. (aufstehen, отделяемая)', answer: 'Ich stehe um 7 Uhr auf.', hint: 'stehe … auf — рамка', placeholder: 'Ich stehe...' },
+      { type: 'fill', question: 'Да/нет-вопрос: ___ du heute? (kommen — где глагол?)', answer: 'Kommst', placeholder: 'K...' },
+      { type: 'translate', question: 'Когда ты приходишь? (W-вопрос)', answer: 'Wann kommst du?', hint: 'Wann + глагол на 2-м', placeholder: 'Wann...' },
+      { type: 'translate', question: 'Вечером она читает книгу. (начни с «Am Abend»)', answer: 'Am Abend liest sie ein Buch.', hint: 'Am Abend + liest + sie', placeholder: 'Am Abend...' },
+      { type: 'listen', answer: 'Morgen gehe ich ins Kino.', hint: 'инверсия после Morgen' },
+      { type: 'write', question: 'Schreib 3 Sätze, die NICHT mit dem Subjekt anfangen (z.B. mit Heute/Morgen/Am Abend). Achte auf die Inversion!', hint: 'Zeit/Ort на 1-е место → глагол на 2-е → подлежащее на 3-е.', placeholder: 'Heute...', sample: 'Heute arbeite ich viel. Morgen fahre ich nach Hause. Am Wochenende treffe ich Freunde.' }
     ],
   },
 
@@ -2204,34 +2238,76 @@ const LESSONS_CONTENT = {
   perfekt: {
     title: 'Прошедшее время Perfekt',
     level: 'A2 · Урок 21',
-    intro: 'Perfekt — главное прошедшее время в разговорном немецком. Строится из have/sein + Partizip II. Именно это время используют в Австрии в разговоре!',
+    intro: 'Perfekt — главное разговорное прошедшее время (в Австрии его используют постоянно). Формула: haben/sein + Partizip II. Разберём, как образуется Partizip, когда haben, а когда sein, и особые случаи (-ieren, приставки).',
     theory: [
       {
-        heading: '🕐 Формула Perfekt',
+        heading: '🧱 Формула: haben/sein + Partizip II',
         content: `
-          <p><b>haben / sein</b> (на 2-м месте) + <b>Partizip II</b> (в конце)</p>
-          <div class="table-wrap"><table>
-            <tr><th>Инфинитив</th><th>Partizip II</th><th>Пример</th></tr>
-            <tr><td>machen</td><td><b>ge</b>mach<b>t</b></td><td>Ich habe Hausaufgaben <b>gemacht</b>.</td></tr>
-            <tr><td>lernen</td><td><b>ge</b>lern<b>t</b></td><td>Sie hat Deutsch <b>gelernt</b>.</td></tr>
-            <tr><td>kaufen</td><td><b>ge</b>kauf<b>t</b></td><td>Er hat ein Buch <b>gekauft</b>.</td></tr>
-            <tr><td>sprechen</td><td><b>ge</b>sproch<b>en</b></td><td>Wir haben Deutsch <b>gesprochen</b>.</td></tr>
-            <tr><td>fahren</td><td><b>ge</b>fahr<b>en</b></td><td>Sie ist nach Wien <b>gefahren</b>.*</td></tr>
-            <tr><td>kommen</td><td><b>ge</b>komm<b>en</b></td><td>Er ist <b>gekommen</b>.*</td></tr>
-          </table></div>
-          <p>* Глаголы движения и изменения состояния используют <b>sein</b>, а не haben!</p>
+          <p>Спрягаемый глагол <b>haben</b> или <b>sein</b> на 2-м месте, а <b>Partizip II</b> — в конце (рамка):</p>
           <div class="example-box">
-            <div class="de">Ich habe heute viel Deutsch gelernt. Wir sind gestern nach Wien gefahren.</div>
-            <div class="ru">Сегодня я много учила немецкий. Мы вчера ездили в Вену.</div>
+            <div class="de">Ich <b>habe</b> Deutsch <b>gelernt</b>. · Wir <b>sind</b> nach Wien <b>gefahren</b>.</div>
+            <div class="ru">haben/sein меняется по лицу, Partizip всегда одинаковый.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🔨 Как образовать Partizip II',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Тип</th><th>Схема</th><th>Пример</th></tr>
+            <tr><td>слабые</td><td><b>ge-</b> + основа + <b>-t</b></td><td>machen → ge<b>mach</b>t, lernen → gelernt</td></tr>
+            <tr><td>сильные</td><td><b>ge-</b> + основа + <b>-en</b> (часто смена гласной)</td><td>sprechen → ge<b>sproch</b>en, fahren → gefahren</td></tr>
+            <tr><td>смешанные</td><td>ge- + смена гласной + -t</td><td>denken → ge<b>dach</b>t, bringen → gebracht</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Сильные надо учить: sehen → gesehen, essen → gegessen, nehmen → genommen, lesen → gelesen, trinken → getrunken.</div>
+            <div class="ru">Слабые предсказуемы (ge…t), сильные — по списку.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🚗 haben или sein?',
+        content: `
+          <p>С <b>sein</b> идут глаголы <b>движения</b> (из точки А в Б) и <b>изменения состояния</b>; всё остальное — с <b>haben</b>:</p>
+          <div class="table-wrap"><table>
+            <tr><th>sein</th><th>haben</th></tr>
+            <tr><td>gehen, fahren, kommen, fliegen, laufen, reisen</td><td>machen, lernen, essen, kaufen, lesen, sehen</td></tr>
+            <tr><td>aufstehen, einschlafen, werden, sterben, passieren, bleiben*</td><td>(все переходные — с объектом)</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Ich <b>bin</b> gegangen / gefahren / aufgestanden. · Ich <b>habe</b> gegessen / gekauft / gelesen.</div>
+            <div class="ru">* sein, bleiben, werden — тоже с sein (исключения-«состояния»).</div>
+          </div>
+        `
+      },
+      {
+        heading: '⚙️ Особые случаи: -ieren и приставки',
+        content: `
+          <ul>
+            <li>Глаголы на <b>-ieren</b> — БЕЗ ge-: studieren → studi<b>ert</b>, telefonieren → telefoniert.</li>
+            <li>Неотделяемые приставки (be-, ver-, er-, ent-, ge-, zer-) — БЕЗ ge-: bezahlen → be<b>zahlt</b>, verstehen → verstanden.</li>
+            <li>Отделяемые приставки — ge- встаёт <b>внутрь</b>: aufstehen → auf<b>ge</b>standen, einkaufen → eingekauft.</li>
+          </ul>
+          <div class="example-box">
+            <div class="de">Ich habe Medizin <b>studiert</b>. Ich habe die Rechnung <b>bezahlt</b>. Ich bin früh <b>aufgestanden</b>.</div>
+            <div class="ru">Это три самые частые «ловушки» Partizip II.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich ___ viel gelernt. (haben/sein → haben)', options: ['habe', 'bin', 'ist', 'hat'], answer: 0 },
-      { type: 'choice', question: 'Sie ___ nach Wien gefahren. (fahren → sein!)', options: ['ist', 'hat', 'habe', 'haben'], answer: 0 },
-      { type: 'fill', question: 'Ich habe das Buch ge___t. (kaufen → Partizip II)', answer: 'kauf', placeholder: 'kauf...' },
-      { type: 'choice', question: 'Partizip II правильных глаголов: ge- + Stamm + ?', options: ['-t', '-en', '-st', '-e'], answer: 0 },
+      { type: 'fill', question: 'haben или sein? Ich ___ Deutsch gelernt.', answer: 'habe', placeholder: 'h...' },
+      { type: 'fill', question: 'haben или sein? Wir ___ nach Wien gefahren. (движение!)', answer: 'sind', placeholder: 's...' },
+      { type: 'fill', question: 'Partizip слабый: machen → ge___t', answer: 'gemacht', placeholder: 'ge...' },
+      { type: 'fill', question: 'Partizip сильный: sprechen → ___', answer: 'gesprochen', placeholder: 'ge...' },
+      { type: 'fill', question: 'Глагол на -ieren (без ge!): studieren → ___', answer: 'studiert', placeholder: 'stud...' },
+      { type: 'fill', question: 'Отделяемая приставка: aufstehen → ___', answer: 'aufgestanden', placeholder: 'auf...' },
+      { type: 'fill', question: 'Неотделяемая (без ge): bezahlen → ___', answer: 'bezahlt', placeholder: 'be...' },
+      { type: 'translate', question: 'Я выучила немецкий.', answer: 'Ich habe Deutsch gelernt.', hint: 'haben + gelernt', placeholder: 'Ich habe...' },
+      { type: 'translate', question: 'Мы поехали в Вену.', answer: 'Wir sind nach Wien gefahren.', hint: 'движение → sein + gefahren', placeholder: 'Wir sind...' },
+      { type: 'translate', question: 'Я встала рано.', answer: 'Ich bin früh aufgestanden.', hint: 'aufstehen → sein + aufgestanden', placeholder: 'Ich bin...' },
+      { type: 'listen', answer: 'Ich habe gestern ein Buch gelesen.', hint: 'haben + gelesen' },
+      { type: 'write', question: 'Schreib 3 Sätze über gestern im Perfekt — nutze 1× sein (Bewegung) und 2× haben.', hint: 'Ich bin … gegangen/gefahren. Ich habe … gemacht/gegessen/gekauft.', placeholder: 'Gestern...', sample: 'Gestern habe ich viel gelernt. Ich bin ins Kino gegangen. Danach habe ich Pizza gegessen.' }
     ],
   },
 
@@ -2449,89 +2525,75 @@ const LESSONS_CONTENT = {
   },
 
   genitiv: {
-    title: 'Родительный падеж (Genitiv) — Die Gelbe Kap. 8',
-    level: 'A2 · Грамматика',
-    intro: 'Genitiv — четвёртый падеж немецкого. Отвечает на вопрос «чей? чьего?» и показывает принадлежность. В разговорной речи часто заменяется на von + Dativ, но в письменном и академическом немецком Genitiv обязателен.',
+    title: 'Родительный падеж (Genitiv)',
+    level: 'A2 · Урок 19',
+    intro: 'Genitiv отвечает на «чей? чего?» и показывает принадлежность (das Auto des Mannes). В разговоре его часто заменяют на «von + Dativ», но в письме и с предлогами он обязателен. Разберём формы, имена и Genitiv-предлоги.',
     theory: [
       {
-        heading: '📐 Четыре падежа немецкого — система',
+        heading: '👑 Принадлежность: чей?',
         content: `
+          <p>Genitiv показывает, кому/чему что-то принадлежит. Вопрос: <b>Wessen?</b> (чей?). Существительное-«владелец» стоит обычно <b>после</b> предмета:</p>
           <div class="table-wrap"><table>
-            <tr><th>Падеж</th><th>Вопрос</th><th>Роль</th><th>Пример</th></tr>
-            <tr><td>Nominativ</td><td>Wer? Was?</td><td>подлежащее</td><td><b>Der Mann</b> kommt.</td></tr>
-            <tr><td>Akkusativ</td><td>Wen? Was?</td><td>прямое дополнение</td><td>Ich sehe <b>den Mann</b>.</td></tr>
-            <tr><td>Dativ</td><td>Wem?</td><td>косвенное дополнение</td><td>Ich helfe <b>dem Mann</b>.</td></tr>
-            <tr><td><b>Genitiv</b></td><td><b>Wessen?</b></td><td><b>принадлежность</b></td><td>Das Auto <b>des Mannes</b>.</td></tr>
+            <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+            <tr><td>опред.</td><td>des …(e)s</td><td>der</td><td>des …(e)s</td><td>der</td></tr>
+            <tr><td>неопр.</td><td>eines …(e)s</td><td>einer</td><td>eines …(e)s</td><td>—</td></tr>
           </table></div>
-        `
-      },
-      {
-        heading: '📋 Артикли в Genitiv',
-        content: `
-          <div class="table-wrap"><table>
-            <tr><th>Род</th><th>Bestimmt (the)</th><th>Unbestimmt (a)</th><th>kein</th><th>Окончание существит.</th></tr>
-            <tr><td><b>m</b> der Mann</td><td>des Mann<b>es</b></td><td>eines Mann<b>es</b></td><td>keines Mannes</td><td>+s / +es</td></tr>
-            <tr><td><b>f</b> die Frau</td><td>der Frau</td><td>einer Frau</td><td>keiner Frau</td><td>без изменений</td></tr>
-            <tr><td><b>n</b> das Kind</td><td>des Kind<b>es</b></td><td>eines Kind<b>es</b></td><td>keines Kindes</td><td>+s / +es</td></tr>
-            <tr><td><b>pl</b> die Kinder</td><td>der Kinder</td><td>—</td><td>keiner Kinder</td><td>без изменений</td></tr>
-          </table></div>
-          <p>💡 Правило +s/+es: короткие слова и слова на -s, -sch, -tz, -z берут <b>+es</b>: des Mann<b>es</b>, des Kind<b>es</b>. Длинные слова берут просто <b>+s</b>: des Vater<b>s</b>, des Student<b>en</b>.</p>
           <div class="example-box">
-            <div class="de">Das ist das Auto <b>des Mannes</b>. — Это машина мужчины.</div>
-            <div class="ru">Das ist das Haus <b>meiner Schwester</b>. — Это дом моей сестры.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Die Bücher <b>der Studentin</b> liegen auf dem Tisch. — Книги студентки лежат на столе.</div>
-            <div class="ru">Der Name <b>des Professors</b> ist Müller. — Имя профессора — Мюллер.</div>
+            <div class="de">das Auto <b>des</b> Mann<b>es</b> · die Tasche <b>der</b> Frau · das Spielzeug <b>des</b> Kind<b>es</b></div>
+            <div class="ru">Главная фишка: у мужского и среднего рода САМО существительное получает -(e)s.</div>
           </div>
         `
       },
       {
-        heading: '🏙️ Genitiv с именами собственными — апостроф «s»',
+        heading: '✍️ Имена собственные: +s',
         content: `
-          <p>Имена собственные образуют Genitiv просто добавляя <b>'s</b> (без апострофа!) или апостроф если имя оканчивается на s/z:</p>
+          <p>С именами Genitiv проще — добавляем <b>-s</b> (без апострофа!) и ставим имя <b>впереди</b>:</p>
           <div class="example-box">
-            <div class="de">Das ist <b>Margos</b> Buch. — Это книга Марго.</div>
-            <div class="ru"><b>Wiens</b> Universität ist bekannt. — Венский университет известен.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Das ist <b>Hans'</b> Auto. (имя на -s → только апостроф)</div>
+            <div class="de"><b>Annas</b> Buch (книга Анны) · <b>Maxes</b> Auto · <b>Deutschlands</b> Hauptstadt</div>
+            <div class="ru">Если имя оканчивается на -s/-z/-x, ставят апостроф: Hans' Auto.</div>
           </div>
         `
       },
       {
-        heading: '📌 Предлоги с Genitiv',
+        heading: '📍 Предлоги с Genitiv',
         content: `
-          <p>Эти предлоги <b>всегда</b> требуют Genitiv. Их нужно знать наизусть!</p>
+          <p>Эти предлоги требуют Genitiv (в письменном и формальном языке):</p>
           <div class="table-wrap"><table>
-            <tr><th>Предлог</th><th>Значение</th><th>Пример</th></tr>
-            <tr><td><b>wegen</b></td><td>из-за</td><td>wegen des Regens — из-за дождя</td></tr>
-            <tr><td><b>während</b></td><td>во время</td><td>während der Prüfung — во время экзамена</td></tr>
-            <tr><td><b>trotz</b></td><td>несмотря на</td><td>trotz des Wetters — несмотря на погоду</td></tr>
-            <tr><td><b>statt / anstatt</b></td><td>вместо</td><td>statt des Kaffees — вместо кофе</td></tr>
-            <tr><td><b>außerhalb</b></td><td>за пределами</td><td>außerhalb der Stadt — за городом</td></tr>
-            <tr><td><b>innerhalb</b></td><td>в пределах</td><td>innerhalb eines Jahres — в течение года</td></tr>
-            <tr><td><b>aufgrund</b></td><td>вследствие</td><td>aufgrund des Fehlers — из-за ошибки</td></tr>
+            <tr><td><b>wegen</b></td><td>из-за</td><td>wegen des Wetters</td></tr>
+            <tr><td><b>trotz</b></td><td>несмотря на</td><td>trotz der Kälte</td></tr>
+            <tr><td><b>während</b></td><td>во время</td><td>während der Pause</td></tr>
+            <tr><td><b>(an)statt</b></td><td>вместо</td><td>statt des Kaffees</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">💬 Разговорный вариант: «Das ist das Auto von meinem Vater» вместо «meines Vaters» — оба варианта правильны. Но в письменном немецком и в Австрии в официальных документах пишут Genitiv.</div>
+            <div class="de">В разговоре часто слышно «wegen dem Wetter» (Dativ), но правильно — wegen des Wetters.</div>
+            <div class="ru">Запомни четвёрку: wegen, trotz, während, statt.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🗣️ Разговорная замена: von + Dativ',
+        content: `
+          <p>В устной речи Genitiv принадлежности часто заменяют на <b>von + Dativ</b>:</p>
+          <div class="example-box">
+            <div class="de">das Auto <b>des</b> Mannes = das Auto <b>von dem (vom)</b> Mann · die Mutter <b>von</b> Anna</div>
+            <div class="ru">Для имён без артикля von удобнее: «die Freundin von Max».</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Das ist das Buch _____ Studentin. (die Studentin)', options: ['der', 'die', 'das', 'den'], answer: 0 },
-      { type: 'choice', question: 'Das Auto _____ Mannes ist neu. (der Mann)', options: ['des', 'dem', 'den', 'der'], answer: 0 },
-      { type: 'fill', question: 'Wegen _____ Wetters bleibe ich zu Hause. (das Wetter)', answer: 'des', placeholder: 'd...' },
-      { type: 'choice', question: 'Während _____ Prüfung darf man nicht sprechen. (die Prüfung)', options: ['der', 'die', 'den', 'dem'], answer: 0 },
-      { type: 'choice', question: 'Trotz _____ Regens gehen wir spazieren. (der Regen)', options: ['des', 'dem', 'den', 'der'], answer: 0 },
-      { type: 'fill', question: 'Das ist das Haus _____ Professorin. (die Professorin)', answer: 'der', placeholder: 'd...' },
-      { type: 'choice', question: 'Der Name _____ Kindes ist Lena. (das Kind)', options: ['des', 'der', 'dem', 'den'], answer: 0 },
-      { type: 'choice', question: 'Innerhalb _____ Jahres lerne ich Deutsch. (ein Jahr)', options: ['eines', 'einem', 'einen', 'einer'], answer: 0 },
-      { type: 'translate', question: 'Это книга моей подруги.', hint: 'Das ist das Buch + Genitiv von meine Freundin', answer: 'Das ist das Buch meiner Freundin.', placeholder: 'Das ist...' },
-      { type: 'translate', question: 'Из-за экзамена я не могу прийти.', hint: 'wegen + Genitiv / kommen können', answer: 'Wegen der Prüfung kann ich nicht kommen.', placeholder: 'Wegen...' },
-      { type: 'fill', question: 'Statt _____ Tees trinke ich Kaffee. (der Tee — вместо чая)', answer: 'des', placeholder: 'd...' },
-      { type: 'choice', question: 'Außerhalb _____ Stadt gibt es viele Wälder. (die Stadt)', options: ['der', 'die', 'dem', 'den'], answer: 0 },
+      { type: 'fill', question: 'Genitiv m, артикль: das Auto ___ Mannes. (der Mann)', answer: 'des', placeholder: 'd...' },
+      { type: 'fill', question: 'Genitiv m, окончание сущ.: das Auto des ___. (der Mann → +es)', answer: 'Mannes', placeholder: 'Mann...' },
+      { type: 'fill', question: 'Genitiv f: die Tasche ___ Frau. (die Frau)', answer: 'der', placeholder: 'd...' },
+      { type: 'fill', question: 'Имя: Это книга Анны → ___ Buch.', answer: 'Annas', placeholder: 'Anna...' },
+      { type: 'fill', question: 'Предлог wegen + Genitiv: ___ des Wetters bleibe ich zu Hause.', answer: 'Wegen', placeholder: 'W...' },
+      { type: 'fill', question: 'während + Genitiv f: Ich schlafe während ___ Pause. (die Pause)', answer: 'der', placeholder: 'd...' },
+      { type: 'translate', question: 'Это машина (этого) мужчины.', answer: 'Das ist das Auto des Mannes.', hint: 'Genitiv m: des Mannes (+es)', placeholder: 'Das ist...' },
+      { type: 'translate', question: 'Это книга Анны.', answer: 'Das ist Annas Buch.', hint: 'имя + s, впереди', placeholder: 'Das ist...' },
+      { type: 'translate', question: 'Из-за погоды я остаюсь дома.', answer: 'Wegen des Wetters bleibe ich zu Hause.', hint: 'wegen + Genitiv (das Wetter → des Wetters); инверсия!', placeholder: 'Wegen...' },
+      { type: 'translate', question: 'Подруга Макса (через von).', answer: 'die Freundin von Max', hint: 'разговорно: von + имя', placeholder: 'die Freundin...' },
+      { type: 'listen', answer: 'Das ist das Haus meiner Eltern.', hint: 'Genitiv Pl: meiner Eltern' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Genitiv: Besitz (des/der …) oder mit wegen/während/trotz.', hint: 'das … des Mannes / der Frau · Annas … · wegen des …', placeholder: 'Das ist...', sample: 'Das ist das Auto meines Vaters. Annas Schwester wohnt in Berlin. Wegen der Arbeit habe ich keine Zeit.' }
     ],
   },
 
