@@ -819,67 +819,60 @@ const LESSONS_CONTENT = {
 
   'verb-sein': {
     title: 'Глагол sein (быть)',
-    level: 'A1 · Урок 5',
-    intro: 'sein — самый важный глагол немецкого. Он неправильный, его нужно знать наизусть. Используется для имени, профессии, описания, местоположения и в Perfekt как вспомогательный.',
+    intro: 'sein — самый важный и самый неправильный глагол. Его формы не похожи на инфинитив, поэтому только наизусть. Он нужен для имени, профессии, описания, места и как вспомогательный в Perfekt.',
     theory: [
       {
-        heading: '🧱 Спряжение sein',
+        heading: '📘 Основа: спряжение',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>форма</th><th>пример</th></tr>
-            <tr><td>ich</td><td><b>bin</b></td><td>Ich bin Anna.</td></tr>
-            <tr><td>du</td><td><b>bist</b></td><td>Du bist nett.</td></tr>
-            <tr><td>er/sie/es</td><td><b>ist</b></td><td>Er ist Student.</td></tr>
-            <tr><td>wir</td><td><b>sind</b></td><td>Wir sind hier.</td></tr>
-            <tr><td>ihr</td><td><b>seid</b></td><td>Ihr seid jung.</td></tr>
-            <tr><td>sie/Sie</td><td><b>sind</b></td><td>Sie sind Lehrer.</td></tr>
+            <tr><td>ich <b>bin</b></td><td>wir <b>sind</b></td></tr>
+            <tr><td>du <b>bist</b></td><td>ihr <b>seid</b></td></tr>
+            <tr><td>er/sie/es <b>ist</b></td><td>sie/Sie <b>sind</b></td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Совсем не похоже на инфинитив «sein» — поэтому только наизусть.</div>
+            <div class="de">Ich bin bereit. Du bist dran. Wir sind fast fertig.</div>
             <div class="ru">wir и sie/Sie совпадают: sind.</div>
           </div>
         `
       },
       {
-        heading: '🎯 Где используем sein',
+        heading: '🎯 Тонкость: где используем sein',
         content: `
           <ul>
-            <li>Имя: Ich <b>bin</b> Margo.</li>
-            <li>Профессия (без артикля): Sie <b>ist</b> Studentin.</li>
-            <li>Качество/описание: Das <b>ist</b> schön. Wir <b>sind</b> müde.</li>
-            <li>Местоположение: Ich <b>bin</b> zu Hause. Wo <b>bist</b> du?</li>
+            <li>Имя/идентификация: Ich <b>bin</b> Margo.</li>
+            <li>Профессия/роль (без артикля): Sie <b>ist</b> Juristin.</li>
+            <li>Качество: Das <b>ist</b> kompliziert. Wir <b>sind</b> erschöpft.</li>
+            <li>Местоположение: Ich <b>bin</b> im Büro. Wo <b>bist</b> du?</li>
           </ul>
           <div class="example-box">
-            <div class="de">После sein идёт Nominativ: Das ist <b>ein</b> guter Lehrer (не «einen»).</div>
-            <div class="ru">sein — «глагол-равенство», поэтому Nominativ.</div>
+            <div class="de">После sein — Nominativ: Das ist <b>ein</b> guter Plan (не «einen»).</div>
+            <div class="ru">sein — «глагол-равенство».</div>
           </div>
         `
       },
       {
-        heading: '❓ Вопрос и отрицание',
+        heading: '⚠️ Частые ошибки',
         content: `
-          <p>Вопрос — sein на 1-е место; отрицание — через <b>nicht</b>:</p>
-          <div class="example-box">
-            <div class="de"><b>Bist</b> du müde? — Nein, ich bin <b>nicht</b> müde.<br><b>Ist</b> das richtig? — Ja, das ist richtig.</div>
-            <div class="ru">Da/нет-вопрос: глагол первый, потом подлежащее.</div>
-          </div>
+          <ul>
+            <li>Возраст — через sein, не haben: «Ich <b>bin</b> 22 Jahre alt».</li>
+            <li>Профессия без артикля: «Ich bin Studentin», не «eine Studentin» (если нет прилагательного).</li>
+            <li>В Perfekt sein — вспомогательный для движения: «Ich <b>bin</b> gekommen».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'ich ___ Anna', answer: 'bin', placeholder: 'b...' },
-      { type: 'fill', question: 'du ___ nett', answer: 'bist', placeholder: 'b...' },
-      { type: 'fill', question: 'er ___ Student', answer: 'ist', placeholder: 'i...' },
-      { type: 'fill', question: 'wir ___ hier', answer: 'sind', placeholder: 's...' },
-      { type: 'fill', question: 'ihr ___ jung', answer: 'seid', placeholder: 's...' },
-      { type: 'fill', question: 'sie (они) ___ müde', answer: 'sind', placeholder: 's...' },
-      { type: 'fill', question: 'Вопрос: ___ du müde? (sein, du)', answer: 'Bist', placeholder: 'B...' },
-      { type: 'translate', question: 'Я студентка.', answer: 'Ich bin Studentin.', hint: 'sein → bin, профессия без артикля', placeholder: 'Ich bin...' },
-      { type: 'translate', question: 'Мы дома.', answer: 'Wir sind zu Hause.', hint: 'sein → sind', placeholder: 'Wir sind...' },
-      { type: 'translate', question: 'Ты устал?', answer: 'Bist du müde?', hint: 'вопрос: bist на 1-е место', placeholder: 'Bist du...' },
-      { type: 'translate', question: 'Это неправильно.', answer: 'Das ist nicht richtig.', hint: 'отрицание nicht', placeholder: 'Das ist...' },
-      { type: 'listen', answer: 'Wir sind heute sehr müde.', hint: 'wir → sind' },
-      { type: 'write', question: 'Schreib 3 Sätze mit sein: über dich (Name/Beruf), über jemanden, eine Frage.', hint: 'Ich bin … Er/Sie ist … Bist du …?', placeholder: 'Ich bin...', sample: 'Ich bin Margo. Mein Freund ist Student. Bist du auch hier?' }
+      { type: 'choice', question: 'После sein нужен падеж: «Das ist ___ guter Plan» (der Plan)', options: ['ein (Nominativ)', 'einen (Akkusativ)'], answer: 0, explain: 'После sein — Nominativ.' },
+      { type: 'choice', question: 'Возраст: «Мне 22» —', options: ['Ich bin 22 Jahre alt', 'Ich habe 22 Jahre'], answer: 0, explain: 'Возраст через sein.' },
+      { type: 'fill', question: 'ihr ___ dran', answer: 'seid', placeholder: 's...', explain: 'ihr → seid.' },
+      { type: 'fill', question: 'wir ___ fast fertig', answer: 'sind', placeholder: 's...', explain: 'wir → sind.' },
+      { type: 'fill', question: 'Вопрос: ___ du bereit? (sein, du)', answer: 'Bist', placeholder: 'B...', explain: 'Вопрос: bist на 1-м месте.' },
+      { type: 'translate', question: 'Я юрист. (профессия)', answer: 'Ich bin Jurist.|Ich bin Juristin.', hint: 'профессия без артикля', placeholder: 'Ich bin...', explain: 'sein + профессия без артикля.' },
+      { type: 'translate', question: 'Мы почти закончили.', answer: 'Wir sind fast fertig.', hint: 'sein → sind', placeholder: 'Wir sind...', explain: 'wir sind.' },
+      { type: 'translate', question: 'Ты готов?', answer: 'Bist du bereit?', hint: 'вопрос: bist первый', placeholder: 'Bist du...', explain: 'Инверсия в вопросе.' },
+      { type: 'translate', question: 'Мне 22 года.', answer: 'Ich bin 22 Jahre alt.', hint: 'возраст → sein', placeholder: 'Ich bin...', explain: 'Возраст через sein.' },
+      { type: 'listen', answer: 'Wir sind heute leider sehr im Stress.', hint: 'wir → sind' },
+      { type: 'write', question: 'Schreib 3 Sätze mit sein: über dich (Name/Beruf), über jemanden, eine Frage.', hint: 'Ich bin … Er/Sie ist … Bist du …?', placeholder: 'Ich bin...', sample: 'Ich bin Übersetzerin. Mein Kollege ist sehr zuverlässig. Bist du schon da?' }
     ],
   },
 
@@ -1525,70 +1518,70 @@ const LESSONS_CONTENT = {
 
   'verb-haben': {
     title: 'Глагол haben (иметь)',
-    level: 'A1 · Урок 6',
-    intro: 'haben — «иметь». Тоже неправильный и очень частый: показывает обладание, используется в устойчивых выражениях (Hunger haben) и как вспомогательный в Perfekt. После haben идёт Akkusativ.',
+    intro: 'haben — «иметь», тоже неправильный и очень частый: обладание, устойчивые выражения (Hunger haben) и вспомогательный в Perfekt. После haben идёт Akkusativ.',
     theory: [
       {
-        heading: '🧱 Спряжение haben',
+        heading: '📘 Основа: спряжение',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>форма</th><th>пример</th></tr>
-            <tr><td>ich</td><td><b>habe</b></td><td>Ich habe Zeit.</td></tr>
-            <tr><td>du</td><td><b>hast</b></td><td>Du hast Recht.</td></tr>
-            <tr><td>er/sie/es</td><td><b>hat</b></td><td>Er hat ein Auto.</td></tr>
-            <tr><td>wir</td><td><b>haben</b></td><td>Wir haben Hunger.</td></tr>
-            <tr><td>ihr</td><td><b>habt</b></td><td>Ihr habt Glück.</td></tr>
-            <tr><td>sie/Sie</td><td><b>haben</b></td><td>Sie haben Kinder.</td></tr>
+            <tr><td>ich <b>habe</b></td><td>wir <b>haben</b></td></tr>
+            <tr><td>du <b>hast</b></td><td>ihr <b>habt</b></td></tr>
+            <tr><td>er/sie/es <b>hat</b></td><td>sie/Sie <b>haben</b></td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Неправильные формы: du <b>hast</b>, er <b>hat</b> (без второго «b»).</div>
-            <div class="ru">ich/wir/ihr/sie — почти как обычный глагол (hab-).</div>
+            <div class="de">Неправильные формы: du <b>hast</b>, er <b>hat</b> (без второго b).</div>
+            <div class="ru">ich/wir/ihr/sie — как обычный глагол (hab-).</div>
           </div>
         `
       },
       {
-        heading: '🎯 После haben — Akkusativ',
+        heading: '🎯 Тонкость: после haben — Akkusativ',
         content: `
-          <p>То, что «имеют» — прямой объект в Akkusativ:</p>
           <div class="example-box">
-            <div class="de">Ich habe <b>einen</b> Bruder (m → einen). Ich habe <b>eine</b> Schwester (f). Ich habe <b>ein</b> Auto (n).</div>
-            <div class="ru">Отрицание — kein: Ich habe <b>keinen</b> Bruder.</div>
+            <div class="de">Ich habe <b>einen</b> Termin (m). Ich habe <b>eine</b> Frage (f). Ich habe <b>ein</b> Problem (n).</div>
+            <div class="ru">Отрицание — kein: Ich habe <b>keinen</b> Termin.</div>
           </div>
         `
       },
       {
-        heading: '💬 Устойчивые выражения с haben (без артикля)',
+        heading: '💬 Тонкость: устойчивые выражения (без артикля)',
         content: `
-          <p>Много чувств и состояний по-немецки выражают через haben + существительное БЕЗ артикля:</p>
           <div class="table-wrap"><table>
-            <tr><td>Hunger haben</td><td>быть голодным</td></tr>
-            <tr><td>Durst haben</td><td>хотеть пить</td></tr>
-            <tr><td>Angst haben</td><td>бояться</td></tr>
+            <tr><td>Hunger/Durst haben</td><td>быть голодным/хотеть пить</td></tr>
+            <tr><td>Angst haben (vor + Dat)</td><td>бояться</td></tr>
             <tr><td>Zeit / Lust haben</td><td>иметь время / желание</td></tr>
             <tr><td>Recht haben</td><td>быть правым</td></tr>
-            <tr><td>… Jahre alt sein (возраст — это sein!)</td><td>⚠️ возраст через sein, не haben</td></tr>
+            <tr><td>Stress / Erfolg haben</td><td>быть в стрессе / иметь успех</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich <b>habe</b> Hunger und Durst. Du <b>hast</b> Recht.</div>
-            <div class="ru">Но возраст: Ich <b>bin</b> 20 Jahre alt (sein!).</div>
+            <div class="de">Ich habe Hunger. Du hast Recht. Sie hat viel Stress.</div>
+            <div class="ru">⚠️ Возраст — через sein: Ich <b>bin</b> 20 Jahre alt.</div>
           </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Akkusativ мужского с -en: «Ich habe <b>einen</b> Termin».</li>
+            <li>Возраст: НЕ «Ich habe 20 Jahre», а «Ich <b>bin</b> 20 (Jahre alt)».</li>
+            <li>В Perfekt haben — вспомогательный для большинства глаголов: «Ich <b>habe</b> gearbeitet».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'ich ___ Zeit', answer: 'habe', placeholder: 'hab...' },
-      { type: 'fill', question: 'du ___ Recht', answer: 'hast', placeholder: 'ha...' },
-      { type: 'fill', question: 'er ___ ein Auto', answer: 'hat', placeholder: 'h...' },
-      { type: 'fill', question: 'wir ___ Hunger', answer: 'haben', placeholder: 'hab...' },
-      { type: 'fill', question: 'ihr ___ Glück', answer: 'habt', placeholder: 'hab...' },
-      { type: 'fill', question: 'Akkusativ m: Ich habe ___ Bruder. (der Bruder)', answer: 'einen', placeholder: 'ein...' },
-      { type: 'fill', question: 'Отрицание: Ich habe ___ Zeit. (kein, die Zeit)', answer: 'keine', placeholder: 'kein...' },
-      { type: 'translate', question: 'У меня есть брат.', answer: 'Ich habe einen Bruder.', hint: 'haben + Akk → einen', placeholder: 'Ich habe...' },
-      { type: 'translate', question: 'Я голодный.', answer: 'Ich habe Hunger.', hint: 'Hunger haben (без артикля)', placeholder: 'Ich habe...' },
-      { type: 'translate', question: 'Ты прав.', answer: 'Du hast Recht.', hint: 'Recht haben', placeholder: 'Du hast...' },
-      { type: 'translate', question: 'Мне 20 лет.', answer: 'Ich bin 20 Jahre alt.', hint: 'возраст → sein, не haben!', placeholder: 'Ich bin...' },
-      { type: 'listen', answer: 'Wir haben heute keine Zeit.', hint: 'haben + kein' },
-      { type: 'write', question: 'Schreib 3 Sätze mit haben: was hast du? (Akkusativ) + 1 Ausdruck (Hunger/Zeit/Recht).', hint: 'Ich habe einen/eine/ein … · Ich habe Hunger/Zeit.', placeholder: 'Ich habe...', sample: 'Ich habe einen Hund. Ich habe eine Schwester. Heute habe ich keine Zeit.' }
+      { type: 'choice', question: 'Akkusativ m: «Ich habe ___ Termin» (der Termin)', options: ['einen', 'ein', 'einem'], answer: 0, explain: 'haben → Akk; der → einen.' },
+      { type: 'choice', question: 'Возраст: «Мне 20» —', options: ['Ich bin 20', 'Ich habe 20 Jahre'], answer: 0, explain: 'Возраст через sein.' },
+      { type: 'fill', question: 'du ___ Recht', answer: 'hast', placeholder: 'ha...', explain: 'du hast.' },
+      { type: 'fill', question: 'er ___ viel Stress', answer: 'hat', placeholder: 'h...', explain: 'er hat.' },
+      { type: 'fill', question: 'Отрицание: Ich habe ___ Zeit. (kein, die Zeit)', answer: 'keine', placeholder: 'kein...', explain: 'Zeit → keine.' },
+      { type: 'translate', question: 'У меня есть вопрос. (die Frage)', answer: 'Ich habe eine Frage.', hint: 'haben → Akk f: eine', placeholder: 'Ich habe...', explain: 'Прямой объект женского рода → eine.' },
+      { type: 'translate', question: 'Я голодная.', answer: 'Ich habe Hunger.', hint: 'Hunger haben (без артикля)', placeholder: 'Ich habe...', explain: 'Устойчивое выражение.' },
+      { type: 'translate', question: 'Ты прав.', answer: 'Du hast Recht.', hint: 'Recht haben', placeholder: 'Du hast...', explain: 'Recht haben.' },
+      { type: 'translate', question: 'Мне 20 лет.', answer: 'Ich bin 20 Jahre alt.', hint: 'возраст → sein!', placeholder: 'Ich bin...', explain: 'Возраст через sein, не haben.' },
+      { type: 'listen', answer: 'Heute habe ich leider keine Zeit.', hint: 'haben + kein' },
+      { type: 'write', question: 'Schreib 3 Sätze mit haben: was hast du (Akkusativ) + ein Ausdruck (Hunger/Zeit/Recht/Stress).', hint: 'Ich habe einen/eine/ein … · Ich habe Hunger/Stress.', placeholder: 'Ich habe...', sample: 'Ich habe einen wichtigen Termin. Ich habe eine Idee. Heute habe ich ziemlich viel Stress.' }
     ],
   },
 
@@ -2010,66 +2003,72 @@ const LESSONS_CONTENT = {
 
   'verben-praepositionen': {
     title: 'Глаголы с предлогами (Verben mit Präposition)',
-    level: 'B1 · Урок 23',
-    intro: 'Многие глаголы «срослись» с конкретным предлогом, и этот предлог задаёт падеж. Их нельзя перевести дословно — надо учить парами: warten AUF (Akk), denken AN (Akk), sich freuen ÜBER/AUF. Плюс разберём вопросы Worauf…? и слова darauf/daran.',
+    intro: 'Многие глаголы «срослись» с конкретным предлогом, и этот предлог задаёт падеж. Дословно их не перевести — учим парами: warten AUF (Akk), denken AN (Akk), sich freuen ÜBER. Плюс вопросы Worauf…? и формы darauf/daran.',
     theory: [
       {
-        heading: '🔗 Что это и почему важно',
+        heading: '📘 Основа: глагол + «свой» предлог + падеж',
         content: `
-          <p>У глагола есть «свой» предлог, и предлог диктует падеж. Учим глагол + предлог + падеж как одно целое:</p>
+          <p>У глагола закреплён предлог, и предлог диктует падеж. Учим тройку «глагол + предлог + падеж» как единое целое:</p>
           <div class="example-box">
-            <div class="de">warten — ждать. Но «ждать кого-то» = warten <b>auf</b> + <b>Akkusativ</b>: Ich warte <b>auf den</b> Bus.</div>
-            <div class="ru">Дословно «warten auf» ≠ «ждать на» — это просто фиксированная связка.</div>
+            <div class="de">warten <b>auf</b> + Akk: Ich warte auf <b>den</b> Bus. · sich interessieren <b>für</b> + Akk: Ich interessiere mich für <b>Politik</b>.</div>
+            <div class="ru">«warten auf» — это не «ждать на», а фиксированная связка.</div>
           </div>
         `
       },
       {
-        heading: '📋 Частые глаголы с предлогами',
+        heading: '📋 Тонкость: частотный список',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Глагол + предлог</th><th>Падеж</th><th>Перевод / пример</th></tr>
-            <tr><td>warten <b>auf</b></td><td>Akk</td><td>ждать: Ich warte auf dich.</td></tr>
-            <tr><td>denken <b>an</b></td><td>Akk</td><td>думать о: Ich denke an dich.</td></tr>
-            <tr><td>sich freuen <b>auf</b></td><td>Akk</td><td>радоваться (предстоящему): auf das Wochenende</td></tr>
-            <tr><td>sich freuen <b>über</b></td><td>Akk</td><td>радоваться (случившемуся): über das Geschenk</td></tr>
-            <tr><td>sich interessieren <b>für</b></td><td>Akk</td><td>интересоваться: für Musik</td></tr>
-            <tr><td>sprechen / reden <b>über</b></td><td>Akk</td><td>говорить о: über das Problem</td></tr>
-            <tr><td>teilnehmen <b>an</b></td><td>Dat</td><td>участвовать в: an dem Kurs</td></tr>
-            <tr><td>helfen <b>bei</b></td><td>Dat</td><td>помогать с: bei der Arbeit</td></tr>
-            <tr><td>bitten <b>um</b></td><td>Akk</td><td>просить о: um Hilfe</td></tr>
-            <tr><td>sich treffen <b>mit</b></td><td>Dat</td><td>встречаться с: mit Freunden</td></tr>
+            <tr><th>Глагол + предлог</th><th>Падеж</th></tr>
+            <tr><td>warten auf, denken an, sich erinnern an</td><td>Akk</td></tr>
+            <tr><td>sich freuen auf (предстоящее) / über (случившееся)</td><td>Akk</td></tr>
+            <tr><td>sich interessieren für, bitten um, sich kümmern um</td><td>Akk</td></tr>
+            <tr><td>sprechen/reden über, sich ärgern über</td><td>Akk</td></tr>
+            <tr><td>teilnehmen an, leiden an, arbeiten an</td><td>Dat</td></tr>
+            <tr><td>helfen bei, sich treffen mit, gehören zu</td><td>Dat</td></tr>
+            <tr><td>fragen nach, suchen nach, sich sehnen nach</td><td>Dat</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">an, auf, über, für, um — чаще Akkusativ. mit, bei, an(teilnehmen), zu — Dativ.</div>
+            <div class="de">an/auf/über/für/um — чаще Akk; an(teilnehmen)/bei/mit/nach/zu — Dat.</div>
             <div class="ru">Падеж учим вместе с глаголом, не угадываем.</div>
           </div>
         `
       },
       {
-        heading: '❓ Вопросы и da(r)-/wo(r)-',
+        heading: '❓ Тонкость: вопросы и da(r)-/wo(r)-',
         content: `
-          <p>Если спрашиваем про <b>предмет</b> — предлог + <b>wo(r)</b>: Wo<b>rauf</b> wartest du? (на что?). Если про <b>человека</b> — предлог + кто: <b>Auf wen</b> wartest du?</p>
-          <p>Чтобы не повторять предмет, используем <b>da(r)</b> + предлог:</p>
+          <p>Спрашиваем про <b>предмет</b> — предлог + wo(r): <b>Worauf</b> wartest du? Про <b>человека</b> — предлог + кто: <b>Auf wen</b> wartest du?</p>
+          <p>Вместо предмета — <b>da(r)</b> + предлог:</p>
           <div class="example-box">
-            <div class="de">— Denkst du an die Prüfung? — Ja, ich denke <b>daran</b>.<br>— Wartest du auf den Bus? — Ja, ich warte <b>darauf</b>.</div>
-            <div class="ru">darauf = «на это», daran = «об этом». «r» вставляется, если предлог с гласной (an→daran, auf→darauf, über→darüber).</div>
+            <div class="de">— Denkst du an die Prüfung? — Ja, ich denke <b>daran</b>. — Wartest du auf den Bus? — Ja, ich warte <b>darauf</b>.</div>
+            <div class="ru">«r» вставляется перед гласной предлога: daran, darauf, darüber.</div>
           </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Не переноси русское управление: «думать О» = denken <b>an</b> + Akk (не «über»), «ждать кого-то» = warten <b>auf</b> + Akk.</li>
+            <li>sich freuen auf ≠ über: auf — о будущем, über — о случившемся.</li>
+            <li>teilnehmen — с <b>an + Dativ</b>: «Ich nehme an dem Kurs teil».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Предлог: Ich warte ___ den Bus. (warten …)', answer: 'auf', placeholder: '...' },
-      { type: 'fill', question: 'Падеж: Ich denke an ___ Prüfung. (denken an + Akk, die Prüfung)', answer: 'die', placeholder: 'd...' },
-      { type: 'fill', question: 'Предлог: Ich interessiere mich ___ Musik. (sich interessieren …)', answer: 'für', placeholder: '...' },
-      { type: 'fill', question: 'Предлог: Wir sprechen ___ das Problem. (sprechen …)', answer: 'über', placeholder: '...' },
-      { type: 'fill', question: 'Падеж Dativ: Ich nehme an ___ Kurs teil. (teilnehmen an + Dat, der Kurs)', answer: 'dem', placeholder: 'd...' },
-      { type: 'fill', question: 'da(r)-форма: — Wartest du auf den Bus? — Ja, ich warte ___.', answer: 'darauf', placeholder: 'd...' },
-      { type: 'fill', question: 'Вопрос про предмет: ___ denkst du? (denken an → на что/о чём)', answer: 'Woran', placeholder: 'Wo...' },
-      { type: 'translate', question: 'Я жду тебя.', answer: 'Ich warte auf dich.', hint: 'warten auf + Akk (dich)', placeholder: 'Ich warte...' },
-      { type: 'translate', question: 'Я думаю о тебе.', answer: 'Ich denke an dich.', hint: 'denken an + Akk', placeholder: 'Ich denke...' },
-      { type: 'translate', question: 'Я радуюсь выходным.', answer: 'Ich freue mich auf das Wochenende.', hint: 'sich freuen auf + Akk (предстоящее)', placeholder: 'Ich freue mich...' },
-      { type: 'listen', answer: 'Ich interessiere mich für Geschichte.', hint: 'sich interessieren für + Akk' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Verben mit Präposition (warten auf, denken an, sich freuen auf, sich interessieren für).', hint: 'Учи связку глагол+предлог+падеж. warten auf + Akk, sich interessieren für + Akk.', placeholder: 'Ich...', sample: 'Ich warte auf meine Freundin. Ich denke oft an meine Familie. Ich interessiere mich für Kunst.' }
+      { type: 'choice', question: '«Ждать кого-то» — какой предлог?', options: ['warten auf + Akk', 'warten für', 'warten an'], answer: 0, explain: 'warten auf + Akkusativ.' },
+      { type: 'choice', question: 'teilnehmen управляет:', options: ['an + Dativ', 'an + Akkusativ', 'für + Akkusativ'], answer: 0, explain: 'teilnehmen an + Dativ.' },
+      { type: 'choice', question: '— Wartest du auf den Bus? — Ja, ich warte ___.', options: ['darauf', 'darüber', 'daran'], answer: 0, explain: 'auf → darauf.' },
+      { type: 'fill', question: 'Предлог: Ich denke oft ___ dich. (denken …)', answer: 'an', placeholder: '...', explain: 'denken an + Akk.' },
+      { type: 'fill', question: 'Падеж: Ich interessiere mich für ___ Thema. (das Thema)', answer: 'das', placeholder: 'd...', explain: 'für + Akk; среднее → das.' },
+      { type: 'fill', question: 'Dativ: Ich nehme an ___ Konferenz teil. (die Konferenz)', answer: 'der', placeholder: 'd...', explain: 'teilnehmen an + Dativ; f → der.' },
+      { type: 'fill', question: 'Вопрос про предмет: ___ wartest du? (warten auf)', answer: 'Worauf', placeholder: 'Wo...', explain: 'auf + предмет → Worauf.' },
+      { type: 'translate', question: 'Я жду свою коллегу. (warten auf)', answer: 'Ich warte auf meine Kollegin.', hint: 'warten auf + Akk', placeholder: 'Ich warte auf...', explain: 'warten auf + Akkusativ.' },
+      { type: 'translate', question: 'Я интересуюсь историей. (sich interessieren für, Geschichte)', answer: 'Ich interessiere mich für Geschichte.', hint: 'sich interessieren für + Akk', placeholder: 'Ich interessiere mich für...', explain: 'für + Akkusativ.' },
+      { type: 'translate', question: 'Я участвую в собрании. (teilnehmen an, das Treffen)', answer: 'Ich nehme an dem Treffen teil.|Ich nehme am Treffen teil.', hint: 'teilnehmen an + Dativ', placeholder: 'Ich nehme an...', explain: 'an + Dativ (am Treffen).' },
+      { type: 'listen', answer: 'Ich ärgere mich über den Stau.', hint: 'sich ärgern über + Akk' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Verben mit Präposition (warten auf, sich interessieren für, sich freuen auf, teilnehmen an).', hint: 'Учи связку глагол+предлог+падеж.', placeholder: 'Ich...', sample: 'Ich warte auf eine Antwort. Ich interessiere mich für Architektur. Ich nehme an einem Sprachkurs teil.' }
     ],
   },
 
@@ -2881,14 +2880,13 @@ const LESSONS_CONTENT = {
 
   'reflexive-verbs': {
     title: 'Возвратные глаголы (sich)',
-    level: 'B1 · Урок 16',
-    intro: 'Возвратные глаголы действуют «на себя»: sich waschen (мыться), sich freuen (радоваться). Нужно местоимение sich, которое меняется по лицу. Разберём формы (Akkusativ и Dativ) и позицию в предложении.',
+    intro: 'Возвратные глаголы направляют действие «на себя»: sich freuen (радоваться), sich waschen (мыться). Нужно местоимение sich, меняющееся по лицу. Разберём формы (Akkusativ и Dativ), позицию и частые глаголы.',
     theory: [
       {
-        heading: '🪞 Возвратные местоимения (Akkusativ)',
+        heading: '📘 Основа: возвратные местоимения (Akkusativ)',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>sich-форма</th><th>пример</th></tr>
+            <tr><th>Лицо</th><th>форма</th><th>пример</th></tr>
             <tr><td>ich</td><td><b>mich</b></td><td>ich freue mich</td></tr>
             <tr><td>du</td><td><b>dich</b></td><td>du freust dich</td></tr>
             <tr><td>er/sie/es</td><td><b>sich</b></td><td>er freut sich</td></tr>
@@ -2897,49 +2895,55 @@ const LESSONS_CONTENT = {
             <tr><td>sie/Sie</td><td><b>sich</b></td><td>sie freuen sich</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Совпадает с Akkusativ местоимений, кроме 3-го лица и Sie — там всегда <b>sich</b>.</div>
-            <div class="ru">Частые: sich freuen, sich waschen, sich fühlen, sich treffen, sich setzen, sich beeilen.</div>
+            <div class="de">Совпадает с Akkusativ-местоимениями, кроме 3-го лица и Sie — там всегда <b>sich</b>.</div>
+            <div class="ru">Частые: sich freuen, sich fühlen, sich treffen, sich beeilen, sich erholen, sich vorbereiten.</div>
           </div>
         `
       },
       {
-        heading: '📍 Позиция sich в предложении',
+        heading: '📍 Тонкость: позиция sich',
         content: `
-          <p>sich-местоимение стоит сразу <b>после спрягаемого глагола</b> (или после подлежащего при инверсии):</p>
+          <p>sich стоит сразу после спрягаемого глагола (или после подлежащего при инверсии):</p>
           <div class="example-box">
-            <div class="de">Ich <b>freue mich</b> auf das Wochenende.<br>Heute <b>freue ich mich</b> auf das Wochenende. (инверсия)<br>Im Sommer <b>treffen wir uns</b> oft.</div>
-            <div class="ru">При инверсии: глагол → подлежащее → sich.</div>
+            <div class="de">Ich <b>freue mich</b> auf den Urlaub.<br>Heute <b>freue ich mich</b> besonders. (инверсия: глагол → подлежащее → sich)<br>…, weil ich <b>mich</b> auf den Urlaub <b>freue</b>. (придаточное)</div>
+            <div class="ru">При инверсии: глагол, потом подлежащее, потом sich.</div>
           </div>
         `
       },
       {
-        heading: '✋ Dativ-вариант: с частями тела и «себе»',
+        heading: '✋ Тонкость: Dativ-вариант (с прямым объектом)',
         content: `
-          <p>Если в предложении есть прямой объект (часто часть тела), возвратное местоимение идёт в <b>Dativ</b> (mir/dir/sich):</p>
+          <p>Если в предложении есть прямой объект (часто часть тела или вещь), возвратное местоимение идёт в <b>Dativ</b> (mir/dir/sich):</p>
           <div class="example-box">
-            <div class="de">Ich wasche <b>mich</b> (Akk — себя). НО: Ich wasche <b>mir</b> die Hände (Dativ — себе руки).</div>
-            <div class="ru">Различие только в ich/du: mich/dich (Akk) vs mir/dir (Dativ). В 3-м лице всегда sich.</div>
+            <div class="de">Ich wasche <b>mich</b> (Akk — себя). НО: Ich wasche <b>mir</b> die Hände (Dat — себе руки). Ich merke <b>mir</b> den Termin.</div>
+            <div class="ru">Разница видна только в ich/du: mich/dich (Akk) ↔ mir/dir (Dat). В 3-м лице всегда sich.</div>
           </div>
-          <p>Так же: sich (Dat) etwas merken/vorstellen/wünschen: Ich kann <b>mir</b> das nicht vorstellen.</p>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Не терять sich: «Ich freue <b>mich</b>», не «Ich freue».</li>
+            <li>sich freuen <b>auf</b> (предстоящее) ↔ sich freuen <b>über</b> (случившееся): auf das Wochenende / über das Geschenk.</li>
+            <li>С частью тела — Dativ: «Ich putze <b>mir</b> die Zähne», не «mich».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'ich freue ___', answer: 'mich', placeholder: 'm...' },
-      { type: 'fill', question: 'du freust ___', answer: 'dich', placeholder: 'd...' },
-      { type: 'fill', question: 'er freut ___', answer: 'sich', placeholder: 's...' },
-      { type: 'fill', question: 'wir treffen ___', answer: 'uns', placeholder: 'u...' },
-      { type: 'fill', question: 'ihr fühlt ___', answer: 'euch', placeholder: 'e...' },
-      { type: 'fill', question: 'sie (они) waschen ___', answer: 'sich', placeholder: 's...' },
-      { type: 'fill', question: 'Dativ (части тела): Ich wasche ___ die Hände. (себе)', answer: 'mir', placeholder: 'm...' },
-      { type: 'fill', question: 'Akkusativ: Ich wasche ___. (себя)', answer: 'mich', placeholder: 'm...' },
-      { type: 'fill', question: 'Инверсия: Heute freue ich ___ sehr.', answer: 'mich', placeholder: 'm...' },
-      { type: 'translate', question: 'Я радуюсь.', answer: 'Ich freue mich.', hint: 'sich freuen → ich freue mich', placeholder: 'Ich freue...' },
-      { type: 'translate', question: 'Мы встречаемся вечером.', answer: 'Wir treffen uns am Abend.', hint: 'sich treffen → wir treffen uns', placeholder: 'Wir treffen...' },
-      { type: 'translate', question: 'Он чувствует себя хорошо.', answer: 'Er fühlt sich gut.', hint: 'sich fühlen → er fühlt sich', placeholder: 'Er fühlt...' },
-      { type: 'translate', question: 'Я мою себе руки.', answer: 'Ich wasche mir die Hände.', hint: 'часть тела → Dativ mir', placeholder: 'Ich wasche...' },
-      { type: 'listen', answer: 'Ich interessiere mich für Musik.', hint: 'sich interessieren für + mich' },
-      { type: 'write', question: 'Schreib 3 Sätze mit reflexiven Verben (sich freuen, sich fühlen, sich treffen, sich waschen).', hint: 'ich → mich, du → dich, er/sie → sich. Не забудь местоимение!', placeholder: 'Ich...', sample: 'Ich freue mich auf den Urlaub. Wir treffen uns morgen. Sie fühlt sich heute nicht gut.' }
+      { type: 'choice', question: 'Akkusativ или Dativ: «Ich wasche ___ die Hände»?', options: ['mir (Dativ)', 'mich (Akkusativ)'], answer: 0, explain: 'Есть прямой объект (die Hände) → возвратное в Dativ: mir.' },
+      { type: 'choice', question: 'er + sich freuen:', options: ['er freut sich', 'er freut ihn', 'er freut mich'], answer: 0, explain: '3-е лицо всегда sich.' },
+      { type: 'choice', question: 'sich freuen auf vs über: «радоваться предстоящему отпуску»', options: ['sich freuen auf', 'sich freuen über'], answer: 0, explain: 'auf — о будущем/предстоящем.' },
+      { type: 'fill', question: 'ich beeile ___', answer: 'mich', placeholder: 'm...', explain: 'ich → mich.' },
+      { type: 'fill', question: 'wir treffen ___ um 8', answer: 'uns', placeholder: 'u...', explain: 'wir → uns.' },
+      { type: 'fill', question: 'Инверсия: Heute fühle ich ___ gut.', answer: 'mich', placeholder: 'm...', explain: 'ich → mich (после подлежащего).' },
+      { type: 'fill', question: 'Dativ: Ich merke ___ den Termin. (себе)', answer: 'mir', placeholder: 'm...', explain: 'Есть объект (Termin) → Dativ mir.' },
+      { type: 'translate', question: 'Я радуюсь выходным. (sich freuen auf)', answer: 'Ich freue mich auf das Wochenende.', hint: 'sich freuen auf + Akk', placeholder: 'Ich freue mich...', explain: 'auf — о предстоящем.' },
+      { type: 'translate', question: 'Мы встречаемся вечером. (sich treffen)', answer: 'Wir treffen uns am Abend.', hint: 'wir → uns', placeholder: 'Wir treffen...', explain: 'sich treffen → wir treffen uns.' },
+      { type: 'translate', question: 'Я чищу зубы. (sich die Zähne putzen)', answer: 'Ich putze mir die Zähne.', hint: 'часть тела → Dativ mir', placeholder: 'Ich putze...', explain: 'С частью тела возвратное в Dativ.' },
+      { type: 'listen', answer: 'Ich bereite mich auf die Prüfung vor.', hint: 'sich vorbereiten auf + mich' },
+      { type: 'write', question: 'Schreib 3 Sätze mit reflexiven Verben (sich freuen, sich fühlen, sich vorbereiten, sich beeilen).', hint: 'ich → mich, du → dich, er/sie → sich.', placeholder: 'Ich...', sample: 'Ich freue mich auf den Sommer. Heute fühle ich mich fit. Wir bereiten uns auf das Gespräch vor.' }
     ],
   },
 
