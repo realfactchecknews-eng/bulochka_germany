@@ -74,7 +74,7 @@ function renderModules() {
             <h3>${mod.title}</h3>
             <p>${mod.desc}</p>
           </div>
-          <span class="module-level-tag tag-${mod.level.toLowerCase()}">${mod.level}</span>
+          <span class="module-level-tag tag-topic">Тема ${mi + 1}</span>
         </div>
         <div class="lessons-grid">${lessonsHtml}</div>
       </div>`;

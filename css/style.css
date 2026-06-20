@@ -940,8 +940,42 @@ tr:nth-child(even) td { background: var(--milk-2); }
 
 /* ── Незаметная ссылка «Что нового» (только для Марго) ───────────────────── */
 .wn-link {
-  margin-left: 10px; text-decoration: none; font-size: 0.95rem;
-  opacity: 0.45; transition: opacity .2s;
+  display: inline-block; margin-top: 8px; text-decoration: none;
+  font-size: 0.8rem; font-weight: 600; color: var(--pink-500);
+  opacity: 0.85; transition: opacity .2s;
 }
-.wn-link:hover { opacity: 1; }
+.wn-link:hover { opacity: 1; text-decoration: underline; }
 .theme-generic .wn-link { display: none !important; }
+
+/* ── Шаговый интерфейс урока (Stepik-style) ──────────────────────────────── */
+.step-bar {
+  display: flex; flex-wrap: wrap; gap: 7px;
+  margin: 6px 0 18px; padding: 12px;
+  background: var(--white, #fff); border: 1.5px solid var(--cream, #ffe3ef);
+  border-radius: 16px;
+}
+.step-cell {
+  width: 38px; height: 38px; border-radius: 10px; cursor: pointer;
+  border: 1.5px solid var(--cream, #ffe3ef); background: #fff;
+  font-size: 1rem; line-height: 1; display: flex; align-items: center; justify-content: center;
+  transition: all .15s; padding: 0;
+}
+.step-cell.theory { background: #f3f7ff; border-color: #d6e4ff; }
+.step-cell.task   { background: #fff8fc; }
+.step-cell.done   { background: #d6f5d6; border-color: #9ad99a; }
+.step-cell.current { outline: 3px solid var(--pink-300, #ffadd1); outline-offset: 1px; transform: translateY(-1px); }
+.step-cell:hover { border-color: var(--pink-300, #ffadd1); }
+
+.step-body { min-height: 120px; margin-bottom: 16px; }
+
+.step-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; }
+.step-btn {
+  border: none; border-radius: 13px; padding: 12px 24px;
+  font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 800; cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+.step-prev { background: var(--cream, #ffe3ef); color: var(--text-dark, #3a2230); }
+.step-next { background: linear-gradient(135deg, var(--pink-400, #ff80b9), var(--pink-500, #e0397f)); color: #fff; margin-left: auto; }
+.step-btn:hover { transform: translateY(-1px); opacity: .95; }
+
+.fb-explain { font-size: 0.84rem; color: var(--text-muted, #9a7388); font-weight: 500; }

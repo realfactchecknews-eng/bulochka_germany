@@ -63,14 +63,139 @@ function renderHeaderStats() {
   if (streakEl) streakEl.textContent = localStorage.getItem('bulochka-streak') || '0';
 }
 
-// Build lesson HTML
+// ── Состояние шагов (Stepik-style) ────────────────────────────────────────
+const selected = {};
+const checked = {};
+let STEPS = [];       // [{kind:'theory', t} | {kind:'ex', i}]
+let curStep = 0;
+const seenTheory = {}; // какие теоретические шаги уже открыты
+
+// Иконка и подпись типа шага (как блоки в Stepik)
+function stepMeta(step, idxInTheory) {
+  if (step.kind === 'theory') {
+    return { icon: idxInTheory === 0 ? '📘' : '📖', label: idxInTheory === 0 ? 'Теория' : 'Тонкости' };
+  }
+  const ex = LESSONS_CONTENT[lessonId].exercises[step.i];
+  switch (ex.type) {
+    case 'choice':    return { icon: '❓', label: 'Выбор' };
+    case 'fill':      return { icon: '✎', label: 'Впиши' };
+    case 'translate': return { icon: '🔤', label: 'Перевод' };
+    case 'write':     return { icon: '✍️', label: 'Письмо' };
+    case 'listen':    return { icon: '🎧', label: 'Аудио' };
+    case 'reading':   return { icon: '📑', label: 'Чтение' };
+    default:          return { icon: '•', label: '' };
+  }
+}
+
+// Шаг пройден?
+function isStepDone(n) {
+  const s = STEPS[n];
+  if (!s) return false;
+  if (s.kind === 'theory') return !!seenTheory[n];
+  const ex = LESSONS_CONTENT[lessonId].exercises[s.i];
+  if (ex.type === 'reading') {
+    // чтение пройдено, когда отвечены все подвопросы
+    return (ex.questions || []).every((_, k) => checked[`r${s.i}_${k}`]);
+  }
+  return !!checked[s.i];
+}
+
+// HTML одного упражнения (тот же формат, что и раньше — обработчики не меняются)
+function renderExerciseHtml(ex, i, dp) {
+  if (ex.type === 'choice') {
+    const optionsHtml = ex.options.map((opt, j) =>
+      `<button class="option-btn" data-ex="${i}" data-idx="${j}" onclick="selectOption(${i},${j})">${dp(opt)}</button>`
+    ).join('');
+    return `
+      <div class="exercise" id="ex-${i}">
+        <div class="exercise-num">Выбери правильный вариант</div>
+        <div class="exercise-q">${dp(ex.question)}</div>
+        <div class="options">${optionsHtml}</div>
+        <button class="check-btn" id="check-${i}" onclick="checkChoice(${i})" disabled>Проверить</button>
+        <div class="feedback" id="fb-${i}"></div>
+      </div>`;
+  } else if (ex.type === 'fill') {
+    return `
+      <div class="exercise" id="ex-${i}">
+        <div class="exercise-num">Впиши ответ</div>
+        <div class="exercise-q">${dp(ex.question)}</div>
+        <input class="fill-input" id="fill-${i}" placeholder="${ex.placeholder || ''}"
+          oninput="enableFillCheck(${i})" onkeydown="if(event.key==='Enter') checkFill(${i})" />
+        <button class="check-btn" id="check-${i}" onclick="checkFill(${i})" disabled>Проверить</button>
+        <div class="feedback" id="fb-${i}"></div>
+      </div>`;
+  } else if (ex.type === 'translate') {
+    return `
+      <div class="exercise" id="ex-${i}">
+        <div class="exercise-num">Переведи на немецкий</div>
+        <div class="exercise-q">${dp(ex.question)}</div>
+        <div class="exercise-hint" style="font-size:0.82rem;color:#b06090;margin-bottom:8px;">${dp(ex.hint || 'Напиши по-немецки')}</div>
+        <textarea class="fill-input translate-input" id="fill-${i}" placeholder="${ex.placeholder || 'Auf Deutsch...'}"
+          oninput="enableFillCheck(${i})" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();checkFill(${i});}" rows="2"></textarea>
+        <button class="check-btn" id="check-${i}" onclick="checkFill(${i})" disabled>Проверить</button>
+        <div class="feedback" id="fb-${i}"></div>
+      </div>`;
+  } else if (ex.type === 'reading') {
+    const qHtml = (ex.questions || []).map((q, k) => {
+      if (q.options) {
+        const opts = q.options.map((opt, j) =>
+          `<button class="option-btn" data-rex="${i}" data-rq="${k}" data-idx="${j}" onclick="selectReadOption(${i},${k},${j})">${dp(opt)}</button>`
+        ).join('');
+        return `<div class="read-q" id="rq-${i}-${k}">
+            <div class="exercise-q">${dp(q.q)}</div>
+            <div class="options">${opts}</div>
+            <button class="check-btn" id="rcheck-${i}-${k}" onclick="checkReadChoice(${i},${k})" disabled>Проверить</button>
+            <div class="feedback" id="rfb-${i}-${k}"></div>
+          </div>`;
+      }
+      return `<div class="read-q" id="rq-${i}-${k}">
+          <div class="exercise-q">${dp(q.q)}</div>
+          <input class="fill-input" id="rfill-${i}-${k}" placeholder="Antwort..."
+            oninput="document.getElementById('rcheck-${i}-${k}').disabled=this.value.trim().length===0"
+            onkeydown="if(event.key==='Enter')checkReadFill(${i},${k})" />
+          <button class="check-btn" id="rcheck-${i}-${k}" onclick="checkReadFill(${i},${k})" disabled>Проверить</button>
+          <div class="feedback" id="rfb-${i}-${k}"></div>
+        </div>`;
+    }).join('');
+    return `
+      <div class="exercise reading-ex" id="ex-${i}">
+        <div class="exercise-num">📑 Чтение с пониманием</div>
+        <div class="reading-text">${dp(ex.text)} ${speakBtn(ex.text)}</div>
+        ${ex.translation ? `<button class="link-btn" type="button" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Показать перевод</button><div class="reading-trans" style="display:none">${dp(ex.translation)}</div>` : ''}
+        ${qHtml}
+      </div>`;
+  } else if (ex.type === 'write') {
+    return `
+      <div class="exercise" id="ex-${i}">
+        <div class="exercise-num">✍️ Напиши свой ответ</div>
+        <div class="exercise-q">${dp(ex.question)}</div>
+        ${ex.hint ? `<div class="exercise-hint" style="font-size:0.82rem;color:#b06090;margin-bottom:8px;">${dp(ex.hint)}</div>` : ''}
+        <textarea class="fill-input translate-input" id="write-${i}" placeholder="${ex.placeholder || 'Schreib auf Deutsch...'}"
+          oninput="document.getElementById('check-${i}').disabled=this.value.trim().length===0" rows="3"></textarea>
+        <button class="check-btn" id="check-${i}" onclick="checkWrite(${i})" disabled>Проверить с ИИ</button>
+        <div class="feedback" id="fb-${i}"></div>
+      </div>`;
+  } else if (ex.type === 'listen') {
+    return `
+      <div class="exercise" id="ex-${i}">
+        <div class="exercise-num">🎧 Аудирование (диктант)</div>
+        <div class="exercise-q">Послушай и запиши, что ты услышал(а): ${speakBtn(ex.answer)}</div>
+        ${ex.hint ? `<div class="exercise-hint" style="font-size:0.82rem;color:#b06090;margin-bottom:8px;">${dp(ex.hint)}</div>` : ''}
+        <input class="fill-input" id="fill-${i}" placeholder="Schreib auf Deutsch..."
+          oninput="enableFillCheck(${i})" onkeydown="if(event.key==='Enter')checkFill(${i})" />
+        <button class="check-btn" id="check-${i}" onclick="checkFill(${i})" disabled>Проверить</button>
+        <div class="feedback" id="fb-${i}"></div>
+      </div>`;
+  }
+  return '';
+}
+
+// ── Построение и рендер урока ─────────────────────────────────────────────
 function renderLesson() {
   const root = document.getElementById('lesson-root');
   if (!root) return;
 
-  const meta = findLessonMeta(lessonId);
   const content = LESSONS_CONTENT[lessonId];
-
   if (!content) {
     root.innerHTML = `
       <div class="lesson-page">
@@ -83,133 +208,94 @@ function renderLesson() {
     return;
   }
 
-  // Подмена персональных имён для гостей (Марго видит как есть)
-  const dp = window.depersonalize || (t => t);
-
-  // Theory HTML
-  const theoryHtml = content.theory.map(t => `
-    <div class="theory-block">
-      <h2>${dp(t.heading)}</h2>
-      ${dp(t.content)}
-    </div>
-  `).join('');
-
-  // Exercises HTML
-  let exerciseHtml = '';
-  content.exercises.forEach((ex, i) => {
-    if (ex.type === 'choice') {
-      const optionsHtml = ex.options.map((opt, j) =>
-        `<button class="option-btn" data-ex="${i}" data-idx="${j}" onclick="selectOption(${i},${j})">${dp(opt)}</button>`
-      ).join('');
-      exerciseHtml += `
-        <div class="exercise" id="ex-${i}">
-          <div class="exercise-num">Вопрос ${i + 1}</div>
-          <div class="exercise-q">${dp(ex.question)}</div>
-          <div class="options">${optionsHtml}</div>
-          <button class="check-btn" id="check-${i}" onclick="checkChoice(${i})" disabled>Проверить</button>
-          <div class="feedback" id="fb-${i}"></div>
-        </div>`;
-    } else if (ex.type === 'fill') {
-      exerciseHtml += `
-        <div class="exercise" id="ex-${i}">
-          <div class="exercise-num">Вопрос ${i + 1}</div>
-          <div class="exercise-q">${dp(ex.question)}</div>
-          <input class="fill-input" id="fill-${i}" placeholder="${ex.placeholder || ''}"
-            oninput="enableFillCheck(${i})" onkeydown="if(event.key==='Enter') checkFill(${i})" />
-          <button class="check-btn" id="check-${i}" onclick="checkFill(${i})" disabled>Проверить</button>
-          <div class="feedback" id="fb-${i}"></div>
-        </div>`;
-    } else if (ex.type === 'translate') {
-      exerciseHtml += `
-        <div class="exercise" id="ex-${i}">
-          <div class="exercise-num">Перевод ${i + 1}</div>
-          <div class="exercise-q">${dp(ex.question)}</div>
-          <div class="exercise-hint" style="font-size:0.82rem;color:#b06090;margin-bottom:8px;">${dp(ex.hint || 'Напиши по-немецки')}</div>
-          <textarea class="fill-input translate-input" id="fill-${i}" placeholder="${ex.placeholder || 'Auf Deutsch...'}"
-            oninput="enableFillCheck(${i})" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();checkFill(${i});}" rows="2"></textarea>
-          <button class="check-btn" id="check-${i}" onclick="checkFill(${i})" disabled>Проверить</button>
-          <div class="feedback" id="fb-${i}"></div>
-        </div>`;
-    } else if (ex.type === 'reading') {
-      // Текст на немецком + вопросы на понимание
-      const qHtml = (ex.questions || []).map((q, k) => {
-        if (q.options) {
-          const opts = q.options.map((opt, j) =>
-            `<button class="option-btn" data-rex="${i}" data-rq="${k}" data-idx="${j}" onclick="selectReadOption(${i},${k},${j})">${dp(opt)}</button>`
-          ).join('');
-          return `<div class="read-q" id="rq-${i}-${k}">
-              <div class="exercise-q">${dp(q.q)}</div>
-              <div class="options">${opts}</div>
-              <button class="check-btn" id="rcheck-${i}-${k}" onclick="checkReadChoice(${i},${k})" disabled>Проверить</button>
-              <div class="feedback" id="rfb-${i}-${k}"></div>
-            </div>`;
-        }
-        return `<div class="read-q" id="rq-${i}-${k}">
-            <div class="exercise-q">${dp(q.q)}</div>
-            <input class="fill-input" id="rfill-${i}-${k}" placeholder="Antwort..."
-              oninput="document.getElementById('rcheck-${i}-${k}').disabled=this.value.trim().length===0"
-              onkeydown="if(event.key==='Enter')checkReadFill(${i},${k})" />
-            <button class="check-btn" id="rcheck-${i}-${k}" onclick="checkReadFill(${i},${k})" disabled>Проверить</button>
-            <div class="feedback" id="rfb-${i}-${k}"></div>
-          </div>`;
-      }).join('');
-      exerciseHtml += `
-        <div class="exercise reading-ex" id="ex-${i}">
-          <div class="exercise-num">📖 Чтение ${i + 1}</div>
-          <div class="reading-text">${dp(ex.text)} ${speakBtn(ex.text)}</div>
-          ${ex.translation ? `<button class="link-btn" type="button" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Показать перевод</button><div class="reading-trans" style="display:none">${dp(ex.translation)}</div>` : ''}
-          ${qHtml}
-        </div>`;
-    } else if (ex.type === 'write') {
-      // Свободный ответ с ИИ-проверкой
-      exerciseHtml += `
-        <div class="exercise" id="ex-${i}">
-          <div class="exercise-num">✍️ Письмо ${i + 1}</div>
-          <div class="exercise-q">${dp(ex.question)}</div>
-          ${ex.hint ? `<div class="exercise-hint" style="font-size:0.82rem;color:#b06090;margin-bottom:8px;">${dp(ex.hint)}</div>` : ''}
-          <textarea class="fill-input translate-input" id="write-${i}" placeholder="${ex.placeholder || 'Schreib auf Deutsch...'}"
-            oninput="document.getElementById('check-${i}').disabled=this.value.trim().length===0" rows="3"></textarea>
-          <button class="check-btn" id="check-${i}" onclick="checkWrite(${i})" disabled>Проверить с ИИ</button>
-          <div class="feedback" id="fb-${i}"></div>
-        </div>`;
-    } else if (ex.type === 'listen') {
-      // Диктант: слушаешь немецкую фразу и записываешь
-      exerciseHtml += `
-        <div class="exercise" id="ex-${i}">
-          <div class="exercise-num">🎧 Аудирование ${i + 1}</div>
-          <div class="exercise-q">Послушай и запиши, что ты услышал(а): ${speakBtn(ex.answer)}</div>
-          ${ex.hint ? `<div class="exercise-hint" style="font-size:0.82rem;color:#b06090;margin-bottom:8px;">${dp(ex.hint)}</div>` : ''}
-          <input class="fill-input" id="fill-${i}" placeholder="Schreib auf Deutsch..."
-            oninput="enableFillCheck(${i})" onkeydown="if(event.key==='Enter')checkFill(${i})" />
-          <button class="check-btn" id="check-${i}" onclick="checkFill(${i})" disabled>Проверить</button>
-          <div class="feedback" id="fb-${i}"></div>
-        </div>`;
-    }
-  });
+  // Собираем шаги: сначала все блоки теории (первый — основа, дальше тонкости),
+  // потом упражнения в их порядке.
+  STEPS = [];
+  content.theory.forEach(t => STEPS.push({ kind: 'theory', t }));
+  content.exercises.forEach((ex, i) => STEPS.push({ kind: 'ex', i }));
+  curStep = 0;
 
   root.innerHTML = `
     <div class="lesson-page">
       <a class="back-btn" href="index.html">← На главную</a>
       <div class="lesson-top">
-        <div class="lesson-level">${content.level}</div>
         <h1>${content.title}</h1>
         <p>${content.intro}</p>
       </div>
-      ${theoryHtml}
-      <div class="exercises-section">
-        <h2>✏️ Упражнения</h2>
-        ${exerciseHtml}
-      </div>
-      <div class="complete-section">
-        <button class="complete-btn" onclick="completeLesson()">Завершить урок 🎉</button>
+      <div class="step-bar" id="step-bar"></div>
+      <div class="step-body" id="step-body"></div>
+      <div class="step-nav">
+        <button class="step-btn step-prev" id="step-prev" onclick="goStep(curStep-1)">← Назад</button>
+        <button class="step-btn step-next" id="step-next" onclick="nextStep()">Дальше →</button>
       </div>
     </div>`;
+
+  showStep(0);
 }
 
-// Exercise state
-const selected = {};
-const checked = {};
+function renderStepBar() {
+  const bar = document.getElementById('step-bar');
+  if (!bar) return;
+  let theoryCount = 0;
+  bar.innerHTML = STEPS.map((s, n) => {
+    const m = stepMeta(s, s.kind === 'theory' ? theoryCount++ : -1);
+    const cls = ['step-cell'];
+    if (n === curStep) cls.push('current');
+    if (isStepDone(n)) cls.push('done');
+    if (s.kind === 'theory') cls.push('theory'); else cls.push('task');
+    return `<button class="${cls.join(' ')}" title="${m.label}" onclick="goStep(${n})">${m.icon}</button>`;
+  }).join('');
+}
 
+function showStep(n) {
+  if (n < 0 || n >= STEPS.length) return;
+  curStep = n;
+  const dp = window.depersonalize || (t => t);
+  const s = STEPS[n];
+  const body = document.getElementById('step-body');
+
+  if (s.kind === 'theory') {
+    seenTheory[n] = true;
+    body.innerHTML = `<div class="theory-block">
+        <h2>${dp(s.t.heading)}</h2>
+        ${dp(s.t.content)}
+      </div>`;
+    // кликабельные немецкие слова в теории (перевод + добавить в Anki)
+    if (window.WordLookup) window.WordLookup.attach(body.querySelector('.theory-block'));
+  } else {
+    body.innerHTML = renderExerciseHtml(LESSONS_CONTENT[lessonId].exercises[s.i], s.i, dp);
+  }
+
+  renderStepBar();
+  updateStepNav();
+  body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateStepNav() {
+  const prev = document.getElementById('step-prev');
+  const next = document.getElementById('step-next');
+  if (!next) return;
+  prev.style.visibility = curStep === 0 ? 'hidden' : 'visible';
+  const last = curStep === STEPS.length - 1;
+  next.textContent = last ? 'Завершить урок 🎉' : 'Дальше →';
+}
+
+function goStep(n) {
+  if (n < 0) return;
+  if (n >= STEPS.length) { completeLesson(); return; }
+  showStep(n);
+}
+function nextStep() {
+  if (curStep === STEPS.length - 1) { completeLesson(); return; }
+  goStep(curStep + 1);
+}
+window.goStep = goStep;
+window.nextStep = nextStep;
+
+// Вызывается из обработчиков проверки — обновить полоску шагов
+function afterAnswer() { renderStepBar(); window._autoSave?.(); }
+
+// ── Обработчики ответов ───────────────────────────────────────────────────
 function selectOption(exIdx, optIdx) {
   if (checked[exIdx]) return;
   selected[exIdx] = optIdx;
@@ -234,20 +320,21 @@ function checkChoice(exIdx) {
   const exEl = document.getElementById(`ex-${exIdx}`);
   document.getElementById(`check-${exIdx}`).disabled = true;
   document.querySelectorAll(`[data-ex="${exIdx}"]`).forEach(btn => btn.disabled = true);
+  const dp = window.depersonalize || (t => t);
 
   if (chosen === correct) {
     document.querySelector(`[data-ex="${exIdx}"][data-idx="${chosen}"]`).classList.add('correct-ans');
     exEl.classList.add('correct');
-    fb.textContent = '✓ Правильно!';
+    fb.innerHTML = '✓ Правильно!' + (ex.explain ? `<br><span class="fb-explain">${dp(ex.explain)}</span>` : '');
     fb.className = 'feedback ok';
   } else {
     document.querySelector(`[data-ex="${exIdx}"][data-idx="${chosen}"]`).classList.add('wrong-ans');
     document.querySelector(`[data-ex="${exIdx}"][data-idx="${correct}"]`).classList.add('correct-ans');
     exEl.classList.add('wrong');
-    fb.textContent = `✗ Не совсем. Правильный ответ: ${ex.options[correct]}`;
+    fb.innerHTML = `✗ Не совсем. Правильно: <b>${dp(ex.options[correct])}</b>` + (ex.explain ? `<br><span class="fb-explain">${dp(ex.explain)}</span>` : '');
     fb.className = 'feedback bad';
   }
-  window._autoSave?.();
+  afterAnswer();
 }
 
 function checkFill(exIdx) {
@@ -262,22 +349,22 @@ function checkFill(exIdx) {
   const exEl = document.getElementById(`ex-${exIdx}`);
   input.disabled = true;
   document.getElementById(`check-${exIdx}`).disabled = true;
+  const dp = window.depersonalize || (t => t);
 
-  // Поддержка нескольких правильных ответов через |
   const correctOptions = correct.split('|').map(s => s.trim().toLowerCase());
   const isCorrect = correctOptions.some(opt => val.toLowerCase() === opt);
   if (isCorrect) {
     input.classList.add('correct-input');
     exEl.classList.add('correct');
-    fb.textContent = '✓ Правильно!';
+    fb.innerHTML = '✓ Правильно!' + (ex.explain ? `<br><span class="fb-explain">${dp(ex.explain)}</span>` : '');
     fb.className = 'feedback ok';
   } else {
     input.classList.add('wrong-input');
     exEl.classList.add('wrong');
-    fb.textContent = `✗ Почти! Правильный ответ: ${correctOptions[0]}`;
+    fb.innerHTML = `✗ Почти! Правильный ответ: <b>${correctOptions[0]}</b>` + (ex.explain ? `<br><span class="fb-explain">${dp(ex.explain)}</span>` : '');
     fb.className = 'feedback bad';
   }
-  window._autoSave?.();
+  afterAnswer();
 }
 
 // ── ЧТЕНИЕ: вопросы на понимание ──────────────────────────────────────────
@@ -307,7 +394,7 @@ function checkReadChoice(i, k) {
     document.querySelector(`[data-rex="${i}"][data-rq="${k}"][data-idx="${q.answer}"]`).classList.add('correct-ans');
     fb.textContent = `✗ Правильный ответ: ${dp(q.options[q.answer])}`; fb.className = 'feedback bad';
   }
-  window._autoSave?.();
+  afterAnswer();
 }
 function checkReadFill(i, k) {
   const key = `r${i}_${k}`;
@@ -324,7 +411,7 @@ function checkReadFill(i, k) {
   } else {
     input.classList.add('wrong-input'); fb.textContent = `✗ Правильный ответ: ${opts[0]}`; fb.className = 'feedback bad';
   }
-  window._autoSave?.();
+  afterAnswer();
 }
 
 // ── ПИСЬМО: свободный ответ с ИИ-проверкой ────────────────────────────────
@@ -339,7 +426,6 @@ async function checkWrite(exIdx) {
   const btn = document.getElementById(`check-${exIdx}`);
   const key = window._orKey;
 
-  // Нет ключа (гость без ключа) — показываем образец
   if (!key) {
     checked[exIdx] = true;
     btn.disabled = true;
@@ -348,7 +434,7 @@ async function checkWrite(exIdx) {
     fb.innerHTML = ex.sample
       ? `ИИ-проверка сейчас недоступна. Образец ответа:<br><b>${dp(ex.sample)}</b>`
       : 'ИИ-проверка сейчас недоступна. Сравни свой ответ с теорией выше 🙂';
-    window._autoSave?.();
+    afterAnswer();
     return;
   }
 
@@ -375,7 +461,7 @@ async function checkWrite(exIdx) {
     fb.style.whiteSpace = 'pre-wrap';
     fb.textContent = reply;
     btn.style.display = 'none';
-    window._autoSave?.();
+    afterAnswer();
   } catch (e) {
     fb.className = 'feedback bad';
     fb.textContent = 'Ошибка проверки. Попробуй позже.';
