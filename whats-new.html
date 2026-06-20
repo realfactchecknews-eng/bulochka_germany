@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Что нового — Булочка учит Deutsch</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/theme.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    .wn-page { max-width: 760px; margin: 0 auto; padding: 24px 20px 80px; }
+    .wn-nav { margin-bottom: 14px; }
+    .wn-nav a { color: var(--pink-500); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .wn-hero { text-align: center; padding: 0 20px 22px; }
+    .wn-hero h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--pink-500); margin-bottom: 6px; }
+    .wn-hero p { color: var(--text-muted); font-size: 0.92rem; }
+
+    .update-card {
+      background: var(--white); border: 1.5px solid var(--cream);
+      border-radius: 18px; padding: 18px 20px; margin-bottom: 14px;
+      box-shadow: 0 4px 16px rgba(224,57,127,0.06);
+    }
+    .update-date {
+      display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+      background: linear-gradient(135deg, var(--pink-400), var(--pink-500)); color: #fff;
+      padding: 2px 10px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .update-card h3 { font-size: 1.05rem; color: var(--text-dark); margin-bottom: 8px; }
+    .update-card ul { margin: 0; padding-left: 20px; }
+    .update-card li { font-size: 0.9rem; color: var(--text-dark); line-height: 1.65; margin-bottom: 4px; }
+    .update-card .note { font-size: 0.86rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── Форма обратной связи ── */
+    .fb-card {
+      background: linear-gradient(135deg, #fff0f7, #fce8f3);
+      border: 1.5px solid var(--cream); border-radius: 20px;
+      padding: 22px 22px 24px; margin-top: 26px;
+    }
+    .fb-card h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--pink-500); margin-bottom: 4px; }
+    .fb-card p.sub { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6; }
+    .fb-area {
+      width: 100%; min-height: 110px; box-sizing: border-box;
+      border: 2px solid var(--cream); border-radius: 13px; padding: 13px 15px;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--text-dark);
+      resize: vertical; outline: none; background: var(--white); transition: border-color .2s, box-shadow .2s;
+    }
+    .fb-area:focus { border-color: var(--pink-400); box-shadow: 0 0 0 3px rgba(255,173,209,0.22); }
+    .fb-area::placeholder { color: #d4a0b8; }
+    .fb-btn {
+      margin-top: 12px; background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
+      color: #fff; border: none; border-radius: 13px; padding: 12px 26px;
+      font-size: 0.93rem; font-weight: 700; cursor: pointer; transition: opacity .2s, transform .15s;
+    }
+    .fb-btn:hover:not(:disabled) { opacity: .9; transform: translateY(-1px); }
+    .fb-btn:disabled { opacity: .5; cursor: default; }
+    .fb-status { font-size: 0.86rem; margin-top: 10px; min-height: 18px; }
+    .fb-status.ok { color: #27ae60; font-weight: 600; }
+
+    .fb-history { margin-top: 18px; }
+    .fb-history h4 { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px; font-weight: 700; }
+    .fb-msg {
+      background: var(--white); border: 1px solid var(--cream); border-radius: 12px;
+      padding: 10px 13px; margin-bottom: 8px; font-size: 0.88rem; color: var(--text-dark); line-height: 1.55;
+    }
+    .fb-msg .fb-msg-date { font-size: 0.72rem; color: var(--text-muted); display: block; margin-bottom: 3px; }
+  </style>
+</head>
+<body>
+  <div class="floating-hearts" id="floating-hearts"></div>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo"><span class="logo-heart">❤️</span><span id="user-name">Булочка</span> учит Deutsch</div>
+      <div class="header-right">
+        <button class="logout-btn" id="logout-btn" title="Выйти">↩</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wn-page">
+    <div class="wn-nav"><a href="index.html">← На главную</a></div>
+
+    <div class="wn-hero">
+      <h1>✨ Что нового</h1>
+      <p>Личная страничка апдейтов для Булочки 💕</p>
+    </div>
+
+    <div id="updates"></div>
+
+    <!-- ОБРАТНАЯ СВЯЗЬ -->
+    <div class="fb-card">
+      <h2>💬 Обратная связь</h2>
+      <p class="sub">Напиши, что нравится, что неудобно, чего не хватает или какие темы доработать — Матвей всё прочитает.</p>
+      <textarea class="fb-area" id="fb-text" placeholder="Бубусь, мне бы хотелось..."></textarea>
+      <button class="fb-btn" id="fb-btn" onclick="sendFeedback()">Отправить 💌</button>
+      <div class="fb-status" id="fb-status"></div>
+      <div class="fb-history" id="fb-history"></div>
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script type="module" src="./js/chat-widget.js"></script>
+
+  <!-- Список апдейтов: новые добавляй СВЕРХУ -->
+  <script>
+    const UPDATES = [
+      {
+        date: '19 июня 2026',
+        title: '📚 Уроки стали глубже + новые типы заданий',
+        items: [
+          'Переписали ~29 грамматических уроков: намного больше теории, с разбором тонкостей и частых ошибок.',
+          'В упражнениях теперь ты сама пишешь ответы (вписать / перевести / написать), а не выбираешь варианты.',
+          'Новые задания как в рабочей тетради: 📖 чтение (текст + вопросы), ✍️ свободное письмо с ИИ-проверкой, 🎧 аудирование (озвучка прямо в браузере).',
+          'Эталон глубины — урок «Предлоги места». Глянь его и скажи, та ли это глубина 🙂',
+        ],
+        note: 'Что углубили: артикли и склонение, существительные (+ N-Deklination), местоимения, прилагательные (окончания!), все падежи, спряжение (Präsens/Präteritum/Perfekt), модальные/возвратные/смешанные глаголы, управление глаголов, порядок слов, придаточные и относительные предложения.'
+      },
+      {
+        date: '18 июня 2026',
+        title: '🃏 Карточки и 🎬 видео-уроки',
+        items: [
+          '12 больших тематических колод вместо кучи мелких + колода «🌟 Мои слова».',
+          'Прогресс карточек больше не сбивается и сохраняется в облаке (телефон + ноут).',
+          'Свои слова можно добавлять прямо из книг и уроков: клик по слову → перевод → «➕ В Anki».',
+          'Добавили видео-уроки по YouTube (Nicos Weg + курс @deutschmityehor).',
+        ],
+        note: ''
+      },
+    ];
+
+    function renderUpdates() {
+      document.getElementById('updates').innerHTML = UPDATES.map(u => `
+        <div class="update-card">
+          <span class="update-date">${u.date}</span>
+          <h3>${u.title}</h3>
+          <ul>${u.items.map(i => `<li>${i}</li>`).join('')}</ul>
+          ${u.note ? `<p class="note" style="margin-top:10px">${u.note}</p>` : ''}
+        </div>
+      `).join('');
+    }
+    renderUpdates();
+
+    // floating hearts
+    const fhC = document.getElementById('floating-hearts');
+    ['❤️','🩷','💕','✨','🌸'].forEach(ch => {
+      const el = document.createElement('div'); el.className = 'fh'; el.textContent = ch;
+      el.style.cssText = `left:${Math.random()*100}%;bottom:-10%;font-size:${0.9+Math.random()}rem;animation-delay:${Math.random()*20}s;animation-duration:${22+Math.random()*14}s;`;
+      fhC.appendChild(el);
+    });
+  </script>
+
+  <script type="module">
+    import { initAuth, logout } from './js/sync.js';
+    import { getFirestore, collection, addDoc, getDocs, query, where, orderBy }
+      from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+    const _app = initializeApp(FIREBASE_CONFIG, 'whatsnew');
+    const _db  = getFirestore(_app);
+    const _auth = getAuth(_app);
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      if (confirm('Выйти?')) logout();
+    });
+
+    initAuth(async () => {
+      // Эта страница — только для Марго (персональная тема). Остальных уводим.
+      if (window.IS_PERSONAL_THEME === false) {
+        window.location.href = 'index.html';
+        return;
+      }
+      const name = localStorage.getItem('bulochka-login') || 'Булочка';
+      document.getElementById('user-name').textContent = name.charAt(0).toUpperCase() + name.slice(1);
+      loadHistory();
+    });
+
+    async function loadHistory() {
+      const uid = localStorage.getItem('bulochka_uid');
+      if (!uid) return;
+      try {
+        const q = query(collection(_db, 'feedback'), where('uid', '==', uid), orderBy('ts', 'desc'));
+        const snap = await getDocs(q);
+        if (snap.empty) return;
+        const host = document.getElementById('fb-history');
+        host.innerHTML = '<h4>Твои сообщения:</h4>' + snap.docs.map(d => {
+          const x = d.data();
+          return `<div class="fb-msg"><span class="fb-msg-date">${x.date || ''}</span>${escapeHtml(x.text || '')}</div>`;
+        }).join('');
+      } catch (e) { console.warn('feedback history:', e); }
+    }
+
+    function escapeHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    window.sendFeedback = async function () {
+      const text = document.getElementById('fb-text').value.trim();
+      const btn = document.getElementById('fb-btn');
+      const status = document.getElementById('fb-status');
+      if (!text) { status.className = 'fb-status'; status.textContent = 'Напиши пару слов 🙂'; return; }
+      btn.disabled = true; status.className = 'fb-status'; status.textContent = 'Отправляю...';
+      try {
+        const now = new Date();
+        await addDoc(collection(_db, 'feedback'), {
+          uid: localStorage.getItem('bulochka_uid') || (_auth.currentUser && _auth.currentUser.uid) || '',
+          login: localStorage.getItem('bulochka-login') || '',
+          text,
+          date: now.toLocaleString('ru-RU', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }),
+          ts: now.getTime(),
+        });
+        document.getElementById('fb-text').value = '';
+        status.className = 'fb-status ok'; status.textContent = '✅ Спасибо! Сообщение отправлено 💕';
+        loadHistory();
+      } catch (e) {
+        console.error(e);
+        status.className = 'fb-status'; status.textContent = 'Ошибка отправки, попробуй позже.';
+      }
+      btn.disabled = false;
+    };
+  </script>
+</body>
+</html>

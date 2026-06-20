@@ -937,3 +937,11 @@ tr:nth-child(even) td { background: var(--milk-2); }
   background: none; border: none; color: var(--pink-500, #e0397f);
   font-size: 0.82rem; font-weight: 600; cursor: pointer; padding: 0 0 10px; text-decoration: underline;
 }
+
+/* ── Незаметная ссылка «Что нового» (только для Марго) ───────────────────── */
+.wn-link {
+  margin-left: 10px; text-decoration: none; font-size: 0.95rem;
+  opacity: 0.45; transition: opacity .2s;
+}
+.wn-link:hover { opacity: 1; }
+.theme-generic .wn-link { display: none !important; }
