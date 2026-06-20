@@ -830,52 +830,66 @@ const LESSONS_CONTENT = {
   'verb-sein': {
     title: 'Глагол sein (быть)',
     level: 'A1 · Урок 5',
-    intro: '«Sein» — самый важный глагол немецкого. Он неправильный, и его формы нужно просто выучить. Без этого глагола никуда!',
+    intro: 'sein — самый важный глагол немецкого. Он неправильный, его нужно знать наизусть. Используется для имени, профессии, описания, местоположения и в Perfekt как вспомогательный.',
     theory: [
       {
-        heading: '📋 Спряжение sein — выучи наизусть',
+        heading: '🧱 Спряжение sein',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Местоимение</th><th>Форма</th><th>Произношение</th></tr>
-            <tr><td>ich</td><td><b>bin</b></td><td>бин</td></tr>
-            <tr><td>du</td><td><b>bist</b></td><td>бист</td></tr>
-            <tr><td>er / sie / es</td><td><b>ist</b></td><td>ист</td></tr>
-            <tr><td>wir</td><td><b>sind</b></td><td>зинд</td></tr>
-            <tr><td>ihr</td><td><b>seid</b></td><td>зайд</td></tr>
-            <tr><td>sie / Sie</td><td><b>sind</b></td><td>зинд</td></tr>
+            <tr><th>Лицо</th><th>форма</th><th>пример</th></tr>
+            <tr><td>ich</td><td><b>bin</b></td><td>Ich bin Anna.</td></tr>
+            <tr><td>du</td><td><b>bist</b></td><td>Du bist nett.</td></tr>
+            <tr><td>er/sie/es</td><td><b>ist</b></td><td>Er ist Student.</td></tr>
+            <tr><td>wir</td><td><b>sind</b></td><td>Wir sind hier.</td></tr>
+            <tr><td>ihr</td><td><b>seid</b></td><td>Ihr seid jung.</td></tr>
+            <tr><td>sie/Sie</td><td><b>sind</b></td><td>Sie sind Lehrer.</td></tr>
           </table></div>
-          <p>💡 Лайфхак: <b>bin-bist-ist</b> выучи как считалочку. Потом <b>sind-seid-sind</b>.</p>
+          <div class="example-box">
+            <div class="de">Совсем не похоже на инфинитив «sein» — поэтому только наизусть.</div>
+            <div class="ru">wir и sie/Sie совпадают: sind.</div>
+          </div>
         `
       },
       {
-        heading: '💬 Реальные примеры',
+        heading: '🎯 Где используем sein',
         content: `
+          <ul>
+            <li>Имя: Ich <b>bin</b> Margo.</li>
+            <li>Профессия (без артикля): Sie <b>ist</b> Studentin.</li>
+            <li>Качество/описание: Das <b>ist</b> schön. Wir <b>sind</b> müde.</li>
+            <li>Местоположение: Ich <b>bin</b> zu Hause. Wo <b>bist</b> du?</li>
+          </ul>
           <div class="example-box">
-            <div class="de">Ich bin Studentin. Ich bin 20 Jahre alt.</div>
-            <div class="ru">Я студентка. Мне 20 лет.</div>
+            <div class="de">После sein идёт Nominativ: Das ist <b>ein</b> guter Lehrer (не «einen»).</div>
+            <div class="ru">sein — «глагол-равенство», поэтому Nominativ.</div>
           </div>
+        `
+      },
+      {
+        heading: '❓ Вопрос и отрицание',
+        content: `
+          <p>Вопрос — sein на 1-е место; отрицание — через <b>nicht</b>:</p>
           <div class="example-box">
-            <div class="de">Du bist sehr klug und fleißig!</div>
-            <div class="ru">Ты очень умная и трудолюбивая!</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Wien ist wunderschön. Es ist die Hauptstadt von Österreich.</div>
-            <div class="ru">Вена прекрасна. Это столица Австрии.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Wir sind Freunde. Wir sind aus Russland.</div>
-            <div class="ru">Мы друзья. Мы из России.</div>
+            <div class="de"><b>Bist</b> du müde? — Nein, ich bin <b>nicht</b> müde.<br><b>Ist</b> das richtig? — Ja, das ist richtig.</div>
+            <div class="ru">Da/нет-вопрос: глагол первый, потом подлежащее.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich ___ Studentin.', options: ['bin', 'bist', 'ist', 'sind'], answer: 0 },
-      { type: 'choice', question: 'Wien ___ sehr schön.', options: ['ist', 'bist', 'bin', 'seid'], answer: 0 },
-      { type: 'fill', question: 'Wir ___ aus Russland. (вставь sein)', answer: 'sind', placeholder: 's...' },
-      { type: 'choice', question: 'Du ___ sehr nett!', options: ['bist', 'bin', 'ist', 'sind'], answer: 0 },
-      { type: 'choice', question: 'Ihr ___ meine Freunde.', options: ['seid', 'sind', 'bist', 'ist'], answer: 0 },
-      { type: 'fill', question: 'Ich ___ 21 Jahre alt.', answer: 'bin', placeholder: 'b...' },
+      { type: 'fill', question: 'ich ___ Anna', answer: 'bin', placeholder: 'b...' },
+      { type: 'fill', question: 'du ___ nett', answer: 'bist', placeholder: 'b...' },
+      { type: 'fill', question: 'er ___ Student', answer: 'ist', placeholder: 'i...' },
+      { type: 'fill', question: 'wir ___ hier', answer: 'sind', placeholder: 's...' },
+      { type: 'fill', question: 'ihr ___ jung', answer: 'seid', placeholder: 's...' },
+      { type: 'fill', question: 'sie (они) ___ müde', answer: 'sind', placeholder: 's...' },
+      { type: 'fill', question: 'Вопрос: ___ du müde? (sein, du)', answer: 'Bist', placeholder: 'B...' },
+      { type: 'translate', question: 'Я студентка.', answer: 'Ich bin Studentin.', hint: 'sein → bin, профессия без артикля', placeholder: 'Ich bin...' },
+      { type: 'translate', question: 'Мы дома.', answer: 'Wir sind zu Hause.', hint: 'sein → sind', placeholder: 'Wir sind...' },
+      { type: 'translate', question: 'Ты устал?', answer: 'Bist du müde?', hint: 'вопрос: bist на 1-е место', placeholder: 'Bist du...' },
+      { type: 'translate', question: 'Это неправильно.', answer: 'Das ist nicht richtig.', hint: 'отрицание nicht', placeholder: 'Das ist...' },
+      { type: 'listen', answer: 'Wir sind heute sehr müde.', hint: 'wir → sind' },
+      { type: 'write', question: 'Schreib 3 Sätze mit sein: über dich (Name/Beruf), über jemanden, eine Frage.', hint: 'Ich bin … Er/Sie ist … Bist du …?', placeholder: 'Ich bin...', sample: 'Ich bin Margo. Mein Freund ist Student. Bist du auch hier?' }
     ],
   },
 
@@ -1529,34 +1543,70 @@ const LESSONS_CONTENT = {
 
   'verb-haben': {
     title: 'Глагол haben (иметь)',
-    level: 'A1 · Урок 13',
-    intro: 'Haben — второй важнейший глагол после sein. Без него не скажешь «у меня есть» и не построишь прошедшее время.',
+    level: 'A1 · Урок 6',
+    intro: 'haben — «иметь». Тоже неправильный и очень частый: показывает обладание, используется в устойчивых выражениях (Hunger haben) и как вспомогательный в Perfekt. После haben идёт Akkusativ.',
     theory: [
       {
-        heading: '📋 Спряжение haben',
+        heading: '🧱 Спряжение haben',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Местоимение</th><th>Форма</th><th>Пример</th></tr>
-            <tr><td>ich</td><td><b>habe</b></td><td>Ich habe eine Frage.</td></tr>
-            <tr><td>du</td><td><b>hast</b></td><td>Hast du Zeit?</td></tr>
-            <tr><td>er/sie/es</td><td><b>hat</b></td><td>Sie hat ein Visum.</td></tr>
+            <tr><th>Лицо</th><th>форма</th><th>пример</th></tr>
+            <tr><td>ich</td><td><b>habe</b></td><td>Ich habe Zeit.</td></tr>
+            <tr><td>du</td><td><b>hast</b></td><td>Du hast Recht.</td></tr>
+            <tr><td>er/sie/es</td><td><b>hat</b></td><td>Er hat ein Auto.</td></tr>
             <tr><td>wir</td><td><b>haben</b></td><td>Wir haben Hunger.</td></tr>
-            <tr><td>ihr</td><td><b>habt</b></td><td>Ihr habt Glück!</td></tr>
-            <tr><td>sie/Sie</td><td><b>haben</b></td><td>Sie haben Recht.</td></tr>
+            <tr><td>ihr</td><td><b>habt</b></td><td>Ihr habt Glück.</td></tr>
+            <tr><td>sie/Sie</td><td><b>haben</b></td><td>Sie haben Kinder.</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich habe Hunger / Durst / Angst / Glück / Zeit.</div>
-            <div class="ru">Я хочу есть / пить / мне страшно / мне везёт / у меня есть время.</div>
+            <div class="de">Неправильные формы: du <b>hast</b>, er <b>hat</b> (без второго «b»).</div>
+            <div class="ru">ich/wir/ihr/sie — почти как обычный глагол (hab-).</div>
+          </div>
+        `
+      },
+      {
+        heading: '🎯 После haben — Akkusativ',
+        content: `
+          <p>То, что «имеют» — прямой объект в Akkusativ:</p>
+          <div class="example-box">
+            <div class="de">Ich habe <b>einen</b> Bruder (m → einen). Ich habe <b>eine</b> Schwester (f). Ich habe <b>ein</b> Auto (n).</div>
+            <div class="ru">Отрицание — kein: Ich habe <b>keinen</b> Bruder.</div>
+          </div>
+        `
+      },
+      {
+        heading: '💬 Устойчивые выражения с haben (без артикля)',
+        content: `
+          <p>Много чувств и состояний по-немецки выражают через haben + существительное БЕЗ артикля:</p>
+          <div class="table-wrap"><table>
+            <tr><td>Hunger haben</td><td>быть голодным</td></tr>
+            <tr><td>Durst haben</td><td>хотеть пить</td></tr>
+            <tr><td>Angst haben</td><td>бояться</td></tr>
+            <tr><td>Zeit / Lust haben</td><td>иметь время / желание</td></tr>
+            <tr><td>Recht haben</td><td>быть правым</td></tr>
+            <tr><td>… Jahre alt sein (возраст — это sein!)</td><td>⚠️ возраст через sein, не haben</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Ich <b>habe</b> Hunger und Durst. Du <b>hast</b> Recht.</div>
+            <div class="ru">Но возраст: Ich <b>bin</b> 20 Jahre alt (sein!).</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich ___ eine Frage.', options: ['habe', 'hast', 'hat', 'haben'], answer: 0 },
-      { type: 'choice', question: 'Er ___ keine Zeit.', options: ['hat', 'habe', 'hast', 'habt'], answer: 0 },
-      { type: 'fill', question: 'Wir ___ Hunger. (haben)', answer: 'haben', placeholder: 'h...' },
-      { type: 'fill', question: 'Du ___ viel Glück! (haben)', answer: 'hast', placeholder: 'h...' },
-      { type: 'fill', question: 'Sie (она) ___ ein Visum für Österreich.', answer: 'hat', placeholder: 'h...' },
+      { type: 'fill', question: 'ich ___ Zeit', answer: 'habe', placeholder: 'hab...' },
+      { type: 'fill', question: 'du ___ Recht', answer: 'hast', placeholder: 'ha...' },
+      { type: 'fill', question: 'er ___ ein Auto', answer: 'hat', placeholder: 'h...' },
+      { type: 'fill', question: 'wir ___ Hunger', answer: 'haben', placeholder: 'hab...' },
+      { type: 'fill', question: 'ihr ___ Glück', answer: 'habt', placeholder: 'hab...' },
+      { type: 'fill', question: 'Akkusativ m: Ich habe ___ Bruder. (der Bruder)', answer: 'einen', placeholder: 'ein...' },
+      { type: 'fill', question: 'Отрицание: Ich habe ___ Zeit. (kein, die Zeit)', answer: 'keine', placeholder: 'kein...' },
+      { type: 'translate', question: 'У меня есть брат.', answer: 'Ich habe einen Bruder.', hint: 'haben + Akk → einen', placeholder: 'Ich habe...' },
+      { type: 'translate', question: 'Я голодный.', answer: 'Ich habe Hunger.', hint: 'Hunger haben (без артикля)', placeholder: 'Ich habe...' },
+      { type: 'translate', question: 'Ты прав.', answer: 'Du hast Recht.', hint: 'Recht haben', placeholder: 'Du hast...' },
+      { type: 'translate', question: 'Мне 20 лет.', answer: 'Ich bin 20 Jahre alt.', hint: 'возраст → sein, не haben!', placeholder: 'Ich bin...' },
+      { type: 'listen', answer: 'Wir haben heute keine Zeit.', hint: 'haben + kein' },
+      { type: 'write', question: 'Schreib 3 Sätze mit haben: was hast du? (Akkusativ) + 1 Ausdruck (Hunger/Zeit/Recht).', hint: 'Ich habe einen/eine/ein … · Ich habe Hunger/Zeit.', placeholder: 'Ich habe...', sample: 'Ich habe einen Hund. Ich habe eine Schwester. Heute habe ich keine Zeit.' }
     ],
   },
 
@@ -2989,84 +3039,65 @@ const LESSONS_CONTENT = {
   },
 
   relativsatz: {
-    title: 'Относительные предложения (Relativsatz) — Die Gelbe Kap. 27',
-    level: 'B1 · Грамматика',
-    intro: 'Relativsatz — придаточное предложение, уточняющее существительное. «Девушка, которая учит немецкий» = «Das Mädchen, das Deutsch lernt». Это основа сложного синтаксиса — без этого B1 невозможен!',
+    title: 'Относительные предложения (Relativsatz)',
+    level: 'B1 · Урок 28',
+    intro: 'Относительное предложение описывает существительное: «человек, КОТОРЫЙ…». Относительное местоимение (der/die/das) берёт РОД от слова, к которому относится, а ПАДЕЖ — от своей роли в придаточном. И глагол, как всегда в придаточном, уходит в конец.',
     theory: [
       {
-        heading: '🔗 Относительные местоимения — таблица',
+        heading: '🔗 Два правила сразу',
+        content: `
+          <p>Относительное местоимение der/die/das согласуется так:</p>
+          <ul>
+            <li><b>Род и число</b> — берём у существительного, которое описываем.</li>
+            <li><b>Падеж</b> — определяем по роли местоимения ВНУТРИ придаточного.</li>
+          </ul>
+          <div class="example-box">
+            <div class="de">Der Mann, <b>der</b> hier wohnt, ist nett. (Mann → m; der — подлежащее → Nom)<br>Der Mann, <b>den</b> ich kenne, ist nett. (Mann → m; den — объект → Akk)</div>
+            <div class="ru">Глагол в конце придаточного (wohnt, kenne), запятые с двух сторон.</div>
+          </div>
+        `
+      },
+      {
+        heading: '📊 Формы относительных местоимений',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Падеж</th><th>m (der)</th><th>f (die)</th><th>n (das)</th><th>pl (die)</th></tr>
-            <tr><td><b>Nominativ</b></td><td><b>der</b></td><td><b>die</b></td><td><b>das</b></td><td><b>die</b></td></tr>
-            <tr><td><b>Akkusativ</b></td><td><b>den</b></td><td><b>die</b></td><td><b>das</b></td><td><b>die</b></td></tr>
-            <tr><td><b>Dativ</b></td><td><b>dem</b></td><td><b>der</b></td><td><b>dem</b></td><td><b>denen</b></td></tr>
-            <tr><td><b>Genitiv</b></td><td><b>dessen</b></td><td><b>deren</b></td><td><b>dessen</b></td><td><b>deren</b></td></tr>
+            <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+            <tr><td>Nom</td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
+            <tr><td>Akk</td><td><b>den</b></td><td>die</td><td>das</td><td>die</td></tr>
+            <tr><td>Dat</td><td><b>dem</b></td><td><b>der</b></td><td><b>dem</b></td><td><b>denen</b></td></tr>
+            <tr><td>Gen</td><td><b>dessen</b></td><td><b>deren</b></td><td><b>dessen</b></td><td><b>deren</b></td></tr>
           </table></div>
-          <p>Выглядит как таблица определённого артикля (der/die/das) — только в Dativ Plural и Genitiv отличаются!</p>
-        `
-      },
-      {
-        heading: '⚙️ Как построить Relativsatz',
-        content: `
-          <p>Шаги: 1) определи существительное 2) определи его род 3) определи роль местоимения внутри придаточного 4) поставь глагол в конец</p>
           <div class="example-box">
-            <div class="de">Das Mädchen lernt Deutsch. → Das Mädchen, <b>das</b> Deutsch lernt, …</div>
-            <div class="ru">das Mädchen (n) + Nominativ (оно учит) → das</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Ich kenne die Studentin. → Die Studentin, <b>die</b> ich kenne, …</div>
-            <div class="ru">die Studentin (f) + Akkusativ (я её знаю) → die</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Ich helfe dem Professor. → Der Professor, <b>dem</b> ich helfe, …</div>
-            <div class="ru">der Professor (m) + Dativ (я ему помогаю) → dem</div>
-          </div>
-          <p>⚠️ Относительное предложение всегда выделяется <b>запятыми</b> с обеих сторон!</p>
-        `
-      },
-      {
-        heading: '📌 Relativsatz с предлогами',
-        content: `
-          <p>Если глагол требует предлог — предлог идёт перед местоимением:</p>
-          <div class="example-box">
-            <div class="de">Das ist die Stadt, <b>in der</b> ich studieren möchte. — Это город, в котором я хочу учиться.</div>
-            <div class="ru">Das ist der Freund, <b>mit dem</b> ich lerne. — Это друг, с которым я учусь.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Das ist das Thema, <b>für das</b> ich mich interessiere. — Это тема, которой я интересуюсь.</div>
-            <div class="ru">Das ist die Professorin, <b>von der</b> ich viel gelernt habe. — Это профессор, от которой я многому научилась.</div>
+            <div class="de">Почти как определённый артикль! Отличия: Dativ Plural <b>denen</b>, Genitiv <b>dessen/deren</b>.</div>
+            <div class="ru">Эти 3 формы (denen, dessen, deren) — единственное, что надо доучить.</div>
           </div>
         `
       },
       {
-        heading: '💬 Genitiv в Relativsatz',
+        heading: '🔌 С предлогом',
         content: `
-          <p>Dessen/deren заменяет «чей»:</p>
+          <p>Если местоимение идёт с предлогом, предлог ставится <b>перед</b> ним, а падеж задаёт предлог:</p>
           <div class="example-box">
-            <div class="de">Der Student, <b>dessen</b> Aufsatz sehr gut ist, bekommt einen Preis. (m → dessen)</div>
-            <div class="ru">Студент, чья работа очень хорошая, получает приз.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Die Professorin, <b>deren</b> Kurs ich belege, ist sehr bekannt. (f → deren)</div>
-            <div class="ru">Профессор, курс которой я посещаю, очень известна.</div>
+            <div class="de">Die Frau, <b>mit der</b> ich spreche, ist Lehrerin. (mit → Dativ, Frau → f → der)<br>Das Haus, <b>in dem</b> wir wohnen, ist alt.</div>
+            <div class="ru">Сначала смотрим предлог (он даёт падеж), потом род слова → выбираем форму.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Der Student, _____ aus Wien kommt, spricht perfekt Deutsch. (m, Nom.)', options: ['der', 'die', 'das', 'den'], answer: 0 },
-      { type: 'choice', question: 'Die Universität, _____ ich besuchen möchte, ist sehr bekannt. (f, Akk.)', options: ['die', 'der', 'das', 'den'], answer: 0 },
-      { type: 'fill', question: 'Das Buch, _____ ich lese, ist interessant. (n, Akk.)', answer: 'das', placeholder: 'd...' },
-      { type: 'choice', question: 'Der Mann, _____ ich helfe, ist krank. (m, Dat.)', options: ['dem', 'der', 'den', 'die'], answer: 0 },
-      { type: 'choice', question: 'Die Studentin, _____ Tasche ich gefunden habe, heißt Margo. (f, Gen.)', options: ['deren', 'dessen', 'die', 'der'], answer: 0 },
-      { type: 'fill', question: 'Das ist die Stadt, in _____ ich studieren möchte. (f, Dat.)', answer: 'der', placeholder: 'd...' },
-      { type: 'choice', question: 'Der Kurs, _____ ich mich interessiere, ist ausgebucht. (für + n)', options: ['für den', 'für das', 'für dem', 'für die'], answer: 0 },
-      { type: 'fill', question: 'Die Professorin, _____ Kurs sehr gut ist, kommt aus Graz. (f, Gen.)', answer: 'deren', placeholder: 'der...' },
-      { type: 'translate', question: 'Это девушка, которую я знаю.', hint: 'das Mädchen, das ich kenne', answer: 'Das ist das Mädchen, das ich kenne.', placeholder: 'Das ist das Mädchen...' },
-      { type: 'translate', question: 'Город, в котором я живу, называется Вена.', hint: 'die Stadt, in der ich wohne / heißen', answer: 'Die Stadt, in der ich wohne, heißt Wien.', placeholder: 'Die Stadt, in der...' },
-      { type: 'choice', question: 'Das sind die Studenten, _____ ich kenne. (pl, Akk.)', options: ['die', 'der', 'denen', 'deren'], answer: 0 },
-      { type: 'fill', question: 'Der Freund, mit _____ ich lerne, heißt Max. (m, Dat.)', answer: 'dem', placeholder: 'd...' },
+      { type: 'fill', question: 'Nom m: Der Mann, ___ hier wohnt, ist nett. (Mann + подлежащее)', answer: 'der', placeholder: 'd...' },
+      { type: 'fill', question: 'Akk m: Der Mann, ___ ich kenne, ist nett. (Mann + объект)', answer: 'den', placeholder: 'd...' },
+      { type: 'fill', question: 'Nom f: Die Frau, ___ dort steht, ist meine Lehrerin.', answer: 'die', placeholder: 'd...' },
+      { type: 'fill', question: 'Dativ m: Der Freund, ___ ich helfe, ist krank. (helfen → Dativ)', answer: 'dem', placeholder: 'd...' },
+      { type: 'fill', question: 'Nom n: Das Buch, ___ hier liegt, ist neu.', answer: 'das', placeholder: 'd...' },
+      { type: 'fill', question: 'Dativ Plural: Die Leute, ___ ich danke, sind nett. (danken → Dativ Pl)', answer: 'denen', placeholder: 'd...' },
+      { type: 'fill', question: 'С предлогом: Die Frau, mit ___ ich spreche, ist Ärztin. (mit → Dativ, f)', answer: 'der', placeholder: 'd...' },
+      { type: 'fill', question: 'С предлогом: Das Haus, in ___ wir wohnen, ist alt. (in → Dativ, n)', answer: 'dem', placeholder: 'd...' },
+      { type: 'translate', question: 'Мужчина, который здесь живёт, мил.', answer: 'Der Mann, der hier wohnt, ist nett.', hint: 'Mann m + Nom → der; глагол wohnt в конец', placeholder: 'Der Mann, der...' },
+      { type: 'translate', question: 'Книга, которую я читаю, интересная.', answer: 'Das Buch, das ich lese, ist interessant.', hint: 'Buch n + Akk → das', placeholder: 'Das Buch, das...' },
+      { type: 'translate', question: 'Женщина, которой я помогаю, моя соседка.', answer: 'Die Frau, der ich helfe, ist meine Nachbarin.', hint: 'Frau f + Dativ (helfen) → der', placeholder: 'Die Frau, der...' },
+      { type: 'listen', answer: 'Der Mann, den ich kenne, wohnt in Wien.', hint: 'Akk m → den' },
+      { type: 'write', question: 'Schreib 2 Sätze mit Relativsatz (… , der/die/das … , …). Eins im Nominativ, eins im Akkusativ.', hint: 'Род от существительного, падеж от роли. Глагол в конец придаточного.', placeholder: 'Das ist...', sample: 'Das ist der Lehrer, der gut erklärt. Ich habe ein Buch, das ich sehr mag.' }
     ],
   },
 
