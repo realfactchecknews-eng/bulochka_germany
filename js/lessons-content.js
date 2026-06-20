@@ -1462,24 +1462,23 @@ const LESSONS_CONTENT = {
 
   mischverben: {
     title: 'Смешанные глаголы (Mischverben)',
-    level: 'B1 · Урок 14',
-    intro: 'Смешанные глаголы — это «гибрид»: в прошедшем времени они берут окончания слабых глаголов (-te / ge…-t), НО при этом меняют корневую гласную, как сильные. Их немного, но они очень частые: denken, bringen, wissen, kennen.',
+    intro: 'Смешанные глаголы — «гибрид»: в прошедшем времени берут слабые окончания (-te / ge…-t), НО при этом меняют корневую гласную, как сильные. Их немного, но они очень частые: denken, bringen, wissen, kennen.',
     theory: [
       {
-        heading: '🔀 Что такое смешанный глагол',
+        heading: '📘 Основа: что это за группа',
         content: `
-          <p>Сравним три типа в Präteritum (прош.) и Partizip II (для Perfekt):</p>
+          <p>Сравни три типа в Präteritum и Partizip II:</p>
           <div class="table-wrap"><table>
             <tr><th>Тип</th><th>Инфинитив</th><th>Präteritum</th><th>Partizip II</th></tr>
             <tr><td>слабый</td><td>machen</td><td>machte</td><td>gemacht</td></tr>
             <tr><td>сильный</td><td>sprechen</td><td>sprach</td><td>gesprochen</td></tr>
             <tr><td><b>смешанный</b></td><td>denken</td><td>d<b>a</b>chte</td><td>ged<b>a</b>cht</td></tr>
           </table></div>
-          <p>Видишь? У denken окончание слабое (-te, ge…-t), но гласная меняется (e→a). Это и есть смесь.</p>
+          <p>У denken окончание слабое (-te, ge…-t), но гласная меняется (e→a) — это и есть «смесь».</p>
         `
       },
       {
-        heading: '📋 Список (выучить наизусть)',
+        heading: '📋 Тонкость: список (учить наизусть)',
         content: `
           <div class="table-wrap"><table>
             <tr><th>Инфинитив</th><th>Präteritum</th><th>Partizip II</th><th>Перевод</th></tr>
@@ -1491,44 +1490,36 @@ const LESSONS_CONTENT = {
             <tr><td>wissen</td><td>wusste</td><td>gewusst</td><td>знать (факт)</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich <b>dachte</b> an dich. Sie hat mir Kaffee <b>gebracht</b>. Ich habe das nicht <b>gewusst</b>.</div>
-            <div class="ru">Большинство меняют гласную на «a» в Präteritum/Partizip.</div>
+            <div class="de">Ich <b>dachte</b> an dich. Sie hat mir Kaffee <b>gebracht</b>. Das habe ich nicht <b>gewusst</b>.</div>
+            <div class="ru">Большинство меняют гласную на «a» в прошедшем.</div>
           </div>
         `
       },
       {
-        heading: '⚠️ wissen в настоящем времени — особый',
+        heading: '⚠️ Тонкость и ошибки: wissen и kennen',
         content: `
-          <p>Глагол <b>wissen</b> (знать факт) спрягается необычно уже в Präsens — как модальный:</p>
-          <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>wissen</th></tr>
-            <tr><td>ich</td><td>w<b>ei</b>ß</td></tr>
-            <tr><td>du</td><td>w<b>ei</b>ßt</td></tr>
-            <tr><td>er/sie/es</td><td>w<b>ei</b>ß</td></tr>
-            <tr><td>wir/sie/Sie</td><td>wissen</td></tr>
-            <tr><td>ihr</td><td>wisst</td></tr>
-          </table></div>
-          <div class="example-box">
-            <div class="de">kennen = быть знакомым (с человеком/местом): Ich kenne ihn.<br>wissen = знать факт/информацию: Ich weiß, wo er wohnt.</div>
-            <div class="ru">Частая ошибка — путать kennen и wissen. «Знаю человека» = kennen, «знаю что…» = wissen.</div>
-          </div>
+          <p><b>wissen</b> спрягается необычно уже в Präsens (как модальный): ich w<b>ei</b>ß, du weißt, er weiß, wir wissen.</p>
+          <ul>
+            <li><b>kennen</b> = быть знакомым (с человеком/местом): Ich kenne ihn / die Stadt.</li>
+            <li><b>wissen</b> = знать факт/информацию: Ich weiß, wo er wohnt.</li>
+            <li>Ошибка: «Ich kenne, dass…» — нет, факты только через wissen.</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Präteritum: Ich ___ an dich. (denken)', answer: 'dachte', placeholder: 'd...' },
-      { type: 'fill', question: 'Präteritum: Sie ___ mir Kaffee. (bringen)', answer: 'brachte', placeholder: 'br...' },
-      { type: 'fill', question: 'Partizip II: Ich habe das nicht ___. (wissen)', answer: 'gewusst', placeholder: 'ge...' },
-      { type: 'fill', question: 'Partizip II: Wir haben ihn lange ___. (kennen)', answer: 'gekannt', placeholder: 'ge...' },
-      { type: 'fill', question: 'Präsens особый: Ich ___ die Antwort. (wissen)', answer: 'weiß|weiss', placeholder: 'w...' },
-      { type: 'fill', question: 'Präsens: du ___ das nicht. (wissen)', answer: 'weißt|weisst', placeholder: 'w...' },
-      { type: 'fill', question: 'kennen или wissen? Ich ___ diesen Mann. (быть знакомым)', answer: 'kenne', placeholder: 'k...' },
-      { type: 'fill', question: 'kennen или wissen? Ich ___, wo er wohnt. (факт)', answer: 'weiß|weiss', placeholder: 'w...' },
-      { type: 'translate', question: 'Я думал о тебе.', answer: 'Ich dachte an dich.', hint: 'denken → dachte (Präteritum)', placeholder: 'Ich...' },
-      { type: 'translate', question: 'Я не знал этого.', answer: 'Ich wusste das nicht.|Ich habe das nicht gewusst.', hint: 'wissen → wusste / gewusst', placeholder: 'Ich...' },
-      { type: 'translate', question: 'Я знаю этого человека.', answer: 'Ich kenne diesen Mann.|Ich kenne den Mann.', hint: 'знаком с человеком → kennen', placeholder: 'Ich kenne...' },
-      { type: 'listen', answer: 'Ich weiß die Antwort nicht.', hint: 'wissen в Präsens: ich weiß' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Mischverben (denken, bringen, kennen, wissen) — im Präsens oder in der Vergangenheit.', hint: 'Präteritum: dachte, brachte, kannte, wusste. Präsens wissen: ich weiß.', placeholder: 'Ich...', sample: 'Ich kenne ihn gut. Gestern dachte ich an dich. Ich weiß nicht, wo das Buch ist.' }
+      { type: 'choice', question: 'kennen или wissen: «Ich ___, wo das Büro ist».', options: ['weiß (факт)', 'kenne'], answer: 0, explain: 'Знание факта → wissen.' },
+      { type: 'choice', question: 'Präteritum от bringen:', options: ['brachte', 'bringte', 'brang'], answer: 0, explain: 'Смешанный: brachte (i→a + -te).' },
+      { type: 'choice', question: 'Präsens: «du ___ die Antwort» (wissen)', options: ['weißt', 'wisst', 'weisst'], answer: 0, explain: 'wissen → du weißt (особая форма).' },
+      { type: 'fill', question: 'Präteritum: Ich ___ an dich. (denken)', answer: 'dachte', placeholder: 'd...', explain: 'denken → dachte.' },
+      { type: 'fill', question: 'Partizip II: Ich habe das nicht ___. (wissen)', answer: 'gewusst', placeholder: 'ge...', explain: 'wissen → gewusst.' },
+      { type: 'fill', question: 'Präsens: Ich ___ die Antwort nicht. (wissen, ich)', answer: 'weiß|weiss', placeholder: 'w...', explain: 'ich weiß.' },
+      { type: 'fill', question: 'kennen или wissen? Ich ___ diese Stadt gut.', answer: 'kenne', placeholder: 'k...', explain: 'Знаком с местом → kennen.' },
+      { type: 'translate', question: 'Я думал о тебе. (denken an)', answer: 'Ich dachte an dich.|Ich habe an dich gedacht.', hint: 'denken → dachte / gedacht', placeholder: 'Ich...', explain: 'Смешанный глагол denken.' },
+      { type: 'translate', question: 'Я этого не знал. (wissen)', answer: 'Ich wusste das nicht.|Ich habe das nicht gewusst.', hint: 'wissen → wusste / gewusst', placeholder: 'Ich...', explain: 'Факт → wissen.' },
+      { type: 'translate', question: 'Я знаю этого человека. (kennen)', answer: 'Ich kenne diesen Mann.|Ich kenne den Mann.', hint: 'знаком → kennen', placeholder: 'Ich kenne...', explain: 'Знакомство с человеком → kennen.' },
+      { type: 'listen', answer: 'Ich weiß die Antwort leider nicht.', hint: 'wissen: ich weiß' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Mischverben (denken, bringen, kennen, wissen) — Präsens oder Vergangenheit.', hint: 'Präteritum: dachte, brachte, kannte, wusste. Präsens wissen: ich weiß.', placeholder: 'Ich...', sample: 'Ich kenne ihn schon lange. Gestern brachte ich ihr die Unterlagen. Ich weiß nicht, ob das stimmt.' }
     ],
   },
 
@@ -2466,97 +2457,63 @@ const LESSONS_CONTENT = {
   // ══════════════════════════════════════════════════════════
 
   'trennbare-verben': {
-    title: 'Отделяемые глаголы (Präfix) — Die Gelbe Kap. 7',
-    level: 'A1 · Грамматика',
-    intro: 'В немецком многие глаголы состоят из приставки + основы. В предложении приставка «отлетает» в самый конец — это одна из самых частых ошибок у новичков. Но правило простое и красивое!',
+    title: 'Отделяемые и неотделяемые глаголы (Präfix)',
+    intro: 'У многих глаголов есть приставка. Отделяемая приставка в простом предложении «улетает» в конец (aufstehen → Ich stehe auf). Неотделяемая остаётся слитной. Разберём, как отличать и где приставка оказывается в разных временах.',
     theory: [
       {
-        heading: '✂️ Принцип отделяемых приставок',
+        heading: '📘 Основа: отделяемая приставка идёт в конец',
         content: `
-          <p>Глагол в словаре выглядит цельно: <b>aufstehen</b>. Но в предложении приставка уходит в конец:</p>
+          <p>В простом предложении (Präsens, Präteritum, Imperativ) отделяемая приставка отрывается и встаёт в самый <b>конец</b>:</p>
           <div class="example-box">
-            <div class="de">aufstehen → Ich <b>stehe</b> um 7 Uhr <b>auf</b>.</div>
-            <div class="ru">вставать → Я встаю в 7 часов.</div>
+            <div class="de">aufstehen → Ich <b>stehe</b> um 7 Uhr <b>auf</b>. · anrufen → Ich <b>rufe</b> dich später <b>an</b>. · einkaufen → Wir <b>kaufen</b> am Freitag <b>ein</b>.</div>
+            <div class="ru">Спрягаемая часть — на 2-м месте, приставка — в конце.</div>
           </div>
-          <div class="example-box">
-            <div class="de">anrufen → Er <b>ruft</b> seine Mutter <b>an</b>.</div>
-            <div class="ru">звонить → Он звонит своей маме.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">mitkommen → <b>Kommst</b> du <b>mit</b>?</div>
-            <div class="ru">идти вместе → Ты идёшь с нами?</div>
-          </div>
-          <p>Отделяемые приставки: <b>auf‑, an‑, aus‑, mit‑, ab‑, ein‑, vor‑, zu‑, nach‑, weg‑, zurück‑, weiter‑</b></p>
-          <p>НЕ отделяются приставки: <b>be‑, ge‑, er‑, ver‑, zer‑, ent‑, emp‑, miss‑</b></p>
+          <p>Частые отделяемые приставки: <b>auf-, an-, ab-, aus-, ein-, mit-, vor-, zu-, nach-, weg-, fern-, zurück-, statt-</b>. Они почти всегда ударные.</p>
         `
       },
       {
-        heading: '📋 50 важнейших отделяемых глаголов',
+        heading: '🔒 Тонкость: неотделяемые приставки',
         content: `
-          <div class="table-wrap"><table>
-            <tr><th>Глагол</th><th>Перевод</th><th>Пример в предложении</th></tr>
-            <tr><td><b>auf</b>stehen</td><td>вставать</td><td>Ich stehe um 8 Uhr <b>auf</b>.</td></tr>
-            <tr><td><b>an</b>rufen</td><td>звонить</td><td>Ich rufe dich <b>an</b>.</td></tr>
-            <tr><td><b>mit</b>kommen</td><td>идти вместе</td><td>Kommst du <b>mit</b>?</td></tr>
-            <tr><td><b>ein</b>kaufen</td><td>делать покупки</td><td>Wir kaufen im Supermarkt <b>ein</b>.</td></tr>
-            <tr><td><b>ab</b>fahren</td><td>отправляться</td><td>Der Zug fährt um 10 Uhr <b>ab</b>.</td></tr>
-            <tr><td><b>aus</b>gehen</td><td>выходить/гулять</td><td>Wir gehen heute Abend <b>aus</b>.</td></tr>
-            <tr><td><b>an</b>fangen</td><td>начинать</td><td>Der Kurs fängt um 9 Uhr <b>an</b>.</td></tr>
-            <tr><td><b>zu</b>machen</td><td>закрывать</td><td>Mach bitte die Tür <b>zu</b>!</td></tr>
-            <tr><td><b>auf</b>machen</td><td>открывать</td><td>Er macht das Fenster <b>auf</b>.</td></tr>
-            <tr><td><b>vor</b>bereiten</td><td>готовить(ся)</td><td>Ich bereite mich auf die Prüfung <b>vor</b>.</td></tr>
-            <tr><td><b>mit</b>nehmen</td><td>брать с собой</td><td>Nimmst du mich <b>mit</b>?</td></tr>
-            <tr><td><b>aus</b>sehen</td><td>выглядеть</td><td>Du siehst toll <b>aus</b>!</td></tr>
-            <tr><td><b>an</b>kommen</td><td>прибывать</td><td>Der Zug kommt um 15 Uhr <b>an</b>.</td></tr>
-            <tr><td><b>ab</b>holen</td><td>забирать/встречать</td><td>Ich hole dich vom Bahnhof <b>ab</b>.</td></tr>
-            <tr><td><b>zurück</b>kommen</td><td>возвращаться</td><td>Wann kommst du <b>zurück</b>?</td></tr>
-          </table></div>
+          <p>Эти приставки <b>не отделяются</b> и обычно безударны: <b>be-, ge-, er-, ver-, ent-, emp-, miss-, zer-</b>.</p>
+          <div class="example-box">
+            <div class="de">bezahlen → Ich <b>bezahle</b> die Rechnung. · verstehen → Ich <b>verstehe</b> dich. · erklären → Sie <b>erklärt</b> die Aufgabe.</div>
+            <div class="ru">Глагол остаётся слитным во всех формах.</div>
+          </div>
         `
       },
       {
-        heading: '⚡ С модальными глаголами — приставка НЕ отделяется',
+        heading: '🔀 Тонкость: приставка в разных формах',
         content: `
-          <p>Когда рядом стоит модальный глагол (können, müssen, wollen...), глагол стоит целиком в конце:</p>
-          <div class="example-box">
-            <div class="de">Ich muss um 7 Uhr <b>aufstehen</b>. — Мне нужно встать в 7 часов.</div>
-            <div class="ru">Kannst du mich <b>anrufen</b>? — Ты можешь мне позвонить?</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Wir wollen heute Abend <b>ausgehen</b>. — Мы хотим сегодня вечером пойти гулять.</div>
-            <div class="ru">Sie muss die Tür <b>zumachen</b>. — Она должна закрыть дверь.</div>
-          </div>
-          <p>💡 Правило: в предложении всегда только <b>один глагол на 2-й позиции</b> (спрягается), остальные в конец.</p>
+          <ul>
+            <li><b>Perfekt:</b> у отделяемых ge- встаёт внутрь: aufstehen → auf<b>ge</b>standen; у неотделяемых ge- нет: verstehen → verstanden.</li>
+            <li><b>zu-инфинитив:</b> zu вставляется внутрь отделяемого: Ich versuche, früh auf<b>zu</b>stehen.</li>
+            <li><b>Придаточное:</b> там глагол целиком в конце и НЕ разрывается: …, weil ich früh <b>aufstehe</b>.</li>
+          </ul>
         `
       },
       {
-        heading: '🔄 Порядок слов с отделяемым глаголом',
+        heading: '⚠️ Частые ошибки',
         content: `
-          <div class="table-wrap"><table>
-            <tr><th>Позиция 1</th><th>Позиция 2 (глагол)</th><th>Середина</th><th>Конец (приставка)</th></tr>
-            <tr><td>Ich</td><td><b>stehe</b></td><td>um 7 Uhr</td><td><b>auf</b>.</td></tr>
-            <tr><td>Heute</td><td><b>ruft</b></td><td>er mich</td><td><b>an</b>.</td></tr>
-            <tr><td>Wir</td><td><b>kaufen</b></td><td>im Supermarkt</td><td><b>ein</b>.</td></tr>
-          </table></div>
-          <div class="example-box">
-            <div class="de">❓ Вопрос: Stehst du um 7 Uhr <b>auf</b>? — Ты встаёшь в 7?</div>
-            <div class="ru">❗ Повелительное: Steh bitte <b>auf</b>! — Вставай, пожалуйста!</div>
-          </div>
+          <ul>
+            <li>Забыть отнести приставку: правильно «Ich <b>rufe</b> dich <b>an</b>», не «Ich anrufe dich».</li>
+            <li>Приставки <b>um-, über-, unter-, durch-</b> бывают и теми, и теми — зависит от ударения/значения: <i>úmziehen</i> (переезжать, отдел.) ↔ <i>umgében</i> (окружать, неотдел.).</li>
+            <li>В придаточном приставку НЕ отрывают: «…, dass er heute <b>ankommt</b>».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich _____ um 7 Uhr _____. (aufstehen)', options: ['stehe … auf', 'aufstehe … –', 'stehe … aufstehen', 'auf … stehe'], answer: 0 },
-      { type: 'fill', question: 'Er _____ seine Mutter _____. (anrufen — er-форма)', answer: 'ruft … an', placeholder: 'ruft...' },
-      { type: 'choice', question: 'Kommst du _____? (mitkommen)', options: ['mit', 'mitkommen', 'kommt mit', 'gekommen'], answer: 0 },
-      { type: 'choice', question: 'Wir _____ im Supermarkt _____. (einkaufen)', options: ['kaufen … ein', 'einkaufen', 'kaufen ein … –', 'ein … kaufen'], answer: 0 },
-      { type: 'fill', question: 'Der Kurs _____ um 9 Uhr _____. (anfangen — er-форма)', answer: 'fängt … an', placeholder: 'fängt...' },
-      { type: 'choice', question: 'Ich muss die Tür _____ . (zumachen — с модальным)', options: ['zumachen', 'zumacht', 'macht zu', 'machen zu'], answer: 0 },
-      { type: 'choice', question: 'Du siehst toll _____! (aussehen)', options: ['aus', 'aus sehen', 'aussiehst', 'sehen aus'], answer: 0 },
-      { type: 'fill', question: 'Wann _____ du _____? (zurückkommen — du-форма)', answer: 'kommst … zurück', placeholder: 'kommst...' },
-      { type: 'translate', question: 'Я встаю каждый день в 6 часов.', hint: 'aufstehen / jeden Tag / um 6 Uhr', answer: 'Ich stehe jeden Tag um 6 Uhr auf.', placeholder: 'Ich stehe...' },
-      { type: 'translate', question: 'Он забирает меня со станции.', hint: 'abholen / vom Bahnhof', answer: 'Er holt mich vom Bahnhof ab.', placeholder: 'Er holt...' },
-      { type: 'choice', question: 'Heute _____ sie ihre Freundin _____. (anrufen)', options: ['ruft … an', 'rufen … an', 'anruft … –', 'an … ruft'], answer: 0 },
-      { type: 'translate', question: 'Ты хочешь пойти со мной?', hint: 'wollen / mitkommen', answer: 'Willst du mitkommen?', placeholder: 'Willst...' },
+      { type: 'choice', question: 'Где приставка в «anrufen» (Präsens)? «Ich ___ dich später ___».', options: ['rufe … an', 'anrufe … —', 'rufe an … —'], answer: 0, explain: 'Отделяемая: rufe (2-е место) … an (конец).' },
+      { type: 'choice', question: 'Какая приставка НЕ отделяется?', options: ['ver- (verstehen)', 'auf- (aufstehen)', 'ein- (einkaufen)'], answer: 0, explain: 'be-, ver-, er-, ent-, ge- неотделяемые.' },
+      { type: 'choice', question: 'Partizip от aufstehen:', options: ['aufgestanden', 'geaufstanden', 'aufstanden'], answer: 0, explain: 'ge- внутрь отделяемой приставки.' },
+      { type: 'fill', question: 'Поставь приставку: Ich ___ um 7 Uhr ___ . (aufstehen)', answer: 'stehe', placeholder: 'спрягаемая часть', explain: 'Ich stehe … auf — спрягаемая часть «stehe».' },
+      { type: 'fill', question: 'Неотделяемый: Ich ___ die Rechnung. (bezahlen → ich)', answer: 'bezahle', placeholder: 'be...', explain: 'be- не отделяется: bezahle.' },
+      { type: 'fill', question: 'zu-инфинитив: Ich versuche, früh ___. (aufstehen)', answer: 'aufzustehen', placeholder: 'auf...', explain: 'zu внутрь: aufzustehen.' },
+      { type: 'translate', question: 'Я позвоню тебе позже. (anrufen)', answer: 'Ich rufe dich später an.', hint: 'rufe … an (приставка в конец)', placeholder: 'Ich rufe...', explain: 'Отделяемая приставка an уходит в конец.' },
+      { type: 'translate', question: 'Мы закупаемся по пятницам. (einkaufen, freitags)', answer: 'Wir kaufen freitags ein.|Freitags kaufen wir ein.', hint: 'kaufen … ein', placeholder: 'Wir kaufen...', explain: 'ein- в конец.' },
+      { type: 'translate', question: 'Я тебя понимаю. (verstehen)', answer: 'Ich verstehe dich.', hint: 'ver- не отделяется', placeholder: 'Ich verstehe...', explain: 'Неотделяемая приставка остаётся слитной.' },
+      { type: 'listen', answer: 'Ich rufe dich heute Abend an.', hint: 'rufe … an' },
+      { type: 'write', question: 'Schreib 3 Sätze mit trennbaren Verben (aufstehen, anrufen, einkaufen, mitkommen, vorbereiten).', hint: 'Спрягаемая часть на 2-м месте, приставка в конце.', placeholder: 'Ich...', sample: 'Ich stehe werktags um sechs auf. Ich rufe meinen Chef gleich an. Am Samstag kaufen wir gemeinsam ein.' }
     ],
   },
 
@@ -2841,94 +2798,84 @@ const LESSONS_CONTENT = {
 
   praeteritum: {
     title: 'Präteritum (простое прошедшее)',
-    level: 'A2 · Урок 21',
-    intro: 'Präteritum — «книжное» прошедшее (рассказы, новости, тексты). Но sein, haben и модальные используют в Präteritum и в разговоре. Разберём слабые и сильные глаголы, окончания и важные исключения.',
+    intro: 'Präteritum — «книжное» прошедшее (рассказы, новости, тексты). Но sein, haben и модальные стоят в Präteritum и в разговоре (war, hatte, konnte). Разберём слабые и сильные глаголы и обязательный минимум.',
     theory: [
       {
-        heading: '📖 Когда Präteritum, а когда Perfekt',
+        heading: '📘 Основа: когда Präteritum, когда Perfekt',
         content: `
-          <p>Оба — прошедшее время. Разница в стиле:</p>
           <ul>
-            <li><b>Perfekt</b> — разговор, устная речь («Ich habe gegessen»).</li>
-            <li><b>Präteritum</b> — письмо, рассказы, новости. НО: <b>sein, haben, модальные</b> и в разговоре чаще в Präteritum (war, hatte, konnte).</li>
+            <li><b>Perfekt</b> — устная речь: «Ich habe gegessen».</li>
+            <li><b>Präteritum</b> — письменные тексты, рассказы. НО <b>sein, haben, модальные</b> и в разговоре идут в Präteritum: war, hatte, konnte, musste.</li>
           </ul>
           <div class="example-box">
-            <div class="de">Разговор: Ich <b>war</b> müde und <b>hatte</b> keine Zeit. (не «bin gewesen»)</div>
-            <div class="ru">Поэтому war/hatte/konnte нужно знать обязательно.</div>
+            <div class="de">Разговор: Ich <b>war</b> krank und <b>hatte</b> Fieber. (не «bin gewesen»)</div>
+            <div class="ru">war / hatte / konnte нужно знать обязательно.</div>
           </div>
         `
       },
       {
-        heading: '🔧 Слабые глаголы: основа + -te + окончание',
+        heading: '🔧 Тонкость: слабые глаголы (-te)',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Лицо</th><th>machen</th><th>arbeiten (+e)</th></tr>
-            <tr><td>ich</td><td>mach<b>te</b></td><td>arbeit<b>ete</b></td></tr>
-            <tr><td>du</td><td>mach<b>test</b></td><td>arbeitetest</td></tr>
-            <tr><td>er/sie/es</td><td>mach<b>te</b></td><td>arbeit<b>ete</b></td></tr>
-            <tr><td>wir/sie</td><td>mach<b>ten</b></td><td>arbeiteten</td></tr>
-            <tr><td>ihr</td><td>mach<b>tet</b></td><td>arbeitetet</td></tr>
-          </table></table></div>
-          <div class="example-box">
-            <div class="de">ich machte = er machte (одинаково, как у модальных). Основа на -t/-d → вставка -e- (arbeitete).</div>
-            <div class="ru">Так же: lernte, spielte, wohnte, kaufte, fragte.</div>
-          </div>
-        `
-      },
-      {
-        heading: '💪 Сильные глаголы: смена гласной, без -te',
-        content: `
-          <p>У сильных глаголов меняется корневая гласная, а в ich и er/sie/es <b>нет окончания</b>:</p>
-          <div class="table-wrap"><table>
-            <tr><th>Инфинитив</th><th>Präteritum (ich/er)</th></tr>
-            <tr><td>gehen</td><td><b>ging</b></td></tr>
-            <tr><td>fahren</td><td><b>fuhr</b></td></tr>
-            <tr><td>kommen</td><td><b>kam</b></td></tr>
-            <tr><td>sehen</td><td><b>sah</b></td></tr>
-            <tr><td>essen</td><td><b>aß</b></td></tr>
-            <tr><td>sprechen</td><td><b>sprach</b></td></tr>
+            <tr><th></th><th>machen</th><th>arbeiten (+e)</th></tr>
+            <tr><td>ich / er</td><td>mach<b>te</b></td><td>arbeit<b>ete</b></td></tr>
+            <tr><td>du</td><td>machtest</td><td>arbeitetest</td></tr>
+            <tr><td>wir / sie</td><td>machten</td><td>arbeiteten</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">du gingst, wir gingen — окончания добавляются, но ich/er — голая основа (ich ging, er ging).</div>
-            <div class="ru">Формы сильных надо учить как таблицу (3 формы глагола).</div>
+            <div class="de">ich machte = er machte (совпадают). Основа на -t/-d → вставка -e- (arbeitete, redete).</div>
+            <div class="ru">Так же: plante, prüfte, organisierte.</div>
           </div>
         `
       },
       {
-        heading: '⭐ Обязательные: sein, haben, модальные',
+        heading: '💪 Тонкость: сильные глаголы (смена гласной, без -te)',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Инфинитив</th><th>ich/er</th><th>du</th><th>wir/sie</th></tr>
-            <tr><td>sein</td><td><b>war</b></td><td>warst</td><td>waren</td></tr>
-            <tr><td>haben</td><td><b>hatte</b></td><td>hattest</td><td>hatten</td></tr>
-            <tr><td>können</td><td><b>konnte</b></td><td>konntest</td><td>konnten</td></tr>
-            <tr><td>müssen</td><td><b>musste</b></td><td>musstest</td><td>mussten</td></tr>
-            <tr><td>wollen</td><td><b>wollte</b></td><td>wolltest</td><td>wollten</td></tr>
+            <tr><th>Инфинитив</th><th>ich/er</th></tr>
+            <tr><td>gehen</td><td>ging</td></tr>
+            <tr><td>kommen</td><td>kam</td></tr>
+            <tr><td>fahren</td><td>fuhr</td></tr>
+            <tr><td>sehen</td><td>sah</td></tr>
+            <tr><td>schreiben</td><td>schrieb</td></tr>
+            <tr><td>finden</td><td>fand</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">У модальных в Präteritum пропадает умлаут: müssen → musste, können → konnte.</div>
-            <div class="ru">Ich war, ich hatte, ich konnte — выучи в первую очередь.</div>
+            <div class="de">du gingst, wir gingen — окончания есть, но ich/er — голая основа (ich ging).</div>
+            <div class="ru">Формы сильных учим как 3 формы глагола.</div>
           </div>
+        `
+      },
+      {
+        heading: '⭐ Обязательно: sein, haben, модальные + ошибки',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Инф.</th><th>ich/er</th><th>du</th><th>wir/sie</th></tr>
+            <tr><td>sein</td><td>war</td><td>warst</td><td>waren</td></tr>
+            <tr><td>haben</td><td>hatte</td><td>hattest</td><td>hatten</td></tr>
+            <tr><td>können</td><td>konnte</td><td>konntest</td><td>konnten</td></tr>
+            <tr><td>müssen</td><td>musste</td><td>musstest</td><td>mussten</td></tr>
+          </table></div>
+          <ul>
+            <li>У модальных в Präteritum пропадает умлаут: müssen→musste, können→konnte, dürfen→durfte.</li>
+            <li>Ошибка: «ich konnte» путают с «ich könnte» (Konjunktiv «мог бы») — это разное.</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Слабый: machen → ich ___', answer: 'machte', placeholder: 'mach...' },
-      { type: 'fill', question: 'Слабый: lernen → er ___', answer: 'lernte', placeholder: 'lern...' },
-      { type: 'fill', question: 'Слабый +e: arbeiten → ich ___', answer: 'arbeitete', placeholder: 'arbeit...' },
-      { type: 'fill', question: 'Сильный: gehen → ich ___', answer: 'ging', placeholder: 'g...' },
-      { type: 'fill', question: 'Сильный: kommen → er ___', answer: 'kam', placeholder: 'k...' },
-      { type: 'fill', question: 'Сильный: sehen → ich ___', answer: 'sah', placeholder: 's...' },
-      { type: 'fill', question: 'sein → ich ___', answer: 'war', placeholder: 'w...' },
-      { type: 'fill', question: 'haben → ich ___', answer: 'hatte', placeholder: 'h...' },
-      { type: 'fill', question: 'können → ich ___ (без умлаута!)', answer: 'konnte', placeholder: 'k...' },
-      { type: 'fill', question: 'müssen → er ___', answer: 'musste', placeholder: 'm...' },
-      { type: 'fill', question: 'sein → wir ___', answer: 'waren', placeholder: 'w...' },
-      { type: 'translate', question: 'Я был уставшим.', answer: 'Ich war müde.', hint: 'sein → war', placeholder: 'Ich war...' },
-      { type: 'translate', question: 'У меня не было времени.', answer: 'Ich hatte keine Zeit.', hint: 'haben → hatte', placeholder: 'Ich hatte...' },
-      { type: 'translate', question: 'Он пошёл домой.', answer: 'Er ging nach Hause.', hint: 'gehen → ging', placeholder: 'Er ging...' },
-      { type: 'listen', answer: 'Ich war gestern zu Hause.', hint: 'sein → war' },
-      { type: 'write', question: 'Schreib 3 Sätze im Präteritum über gestern (nutze war/hatte + ein starkes Verb wie ging/kam/sah).', hint: 'Ich war … Ich hatte … Ich ging/kam/sah …', placeholder: 'Gestern...', sample: 'Gestern war ich krank. Ich hatte Fieber. Am Abend kam meine Freundin und wir sahen einen Film.' }
+      { type: 'choice', question: 'В разговоре «я был болен»:', options: ['Ich war krank', 'Ich bin krank gewesen (книжно/реже)'], answer: 0, explain: 'sein в прошедшем обычно Präteritum: war.' },
+      { type: 'choice', question: 'Präteritum от können:', options: ['konnte', 'könnte', 'kannte'], answer: 0, explain: 'konnte (без умлаута). könnte — Konjunktiv, kannte — kennen.' },
+      { type: 'choice', question: 'Сильный gehen в Präteritum (ich):', options: ['ging', 'gehte', 'gang'], answer: 0, explain: 'gehen → ging.' },
+      { type: 'fill', question: 'Слабый: planen → ich ___', answer: 'plante', placeholder: 'plan...', explain: 'plante (-te).' },
+      { type: 'fill', question: 'Слабый +e: arbeiten → er ___', answer: 'arbeitete', placeholder: 'arbeit...', explain: 'Основа на -t → -ete.' },
+      { type: 'fill', question: 'sein → ich ___', answer: 'war', placeholder: 'w...', explain: 'sein → war.' },
+      { type: 'fill', question: 'haben → wir ___', answer: 'hatten', placeholder: 'h...', explain: 'haben → hatten.' },
+      { type: 'translate', question: 'У меня не было времени. (haben)', answer: 'Ich hatte keine Zeit.', hint: 'haben → hatte', placeholder: 'Ich hatte...', explain: 'haben в Präteritum: hatte.' },
+      { type: 'translate', question: 'Он пришёл слишком поздно. (kommen)', answer: 'Er kam zu spät.', hint: 'kommen → kam', placeholder: 'Er kam...', explain: 'Сильный: kam.' },
+      { type: 'translate', question: 'Я не мог прийти. (können)', answer: 'Ich konnte nicht kommen.', hint: 'können → konnte', placeholder: 'Ich konnte...', explain: 'Модальный в Präteritum: konnte.' },
+      { type: 'listen', answer: 'Ich war gestern den ganzen Tag im Büro.', hint: 'sein → war' },
+      { type: 'write', question: 'Schreib 3 Sätze über gestern im Präteritum (war/hatte + ein starkes Verb wie ging/kam/schrieb).', hint: 'Ich war … Ich hatte … Ich ging/kam/schrieb …', placeholder: 'Gestern...', sample: 'Gestern war viel los. Ich hatte drei Termine. Am Abend schrieb ich noch zwei E-Mails.' }
     ],
   },
 
