@@ -1646,110 +1646,201 @@ const LESSONS_CONTENT = {
 
   nominativ: {
     title: 'Именительный падеж (Nominativ)',
-    level: 'A1 · Урок 15',
-    intro: 'Падежи — это как имя, фамилия и отчество у артиклей. Nominativ — базовый, «паспортный» вид слова.',
+    level: 'A1 · Урок 17',
+    intro: 'Nominativ — «начальный» падеж, в нём слово стоит в словаре. Отвечает на «кто? что?» и обозначает подлежащее. А ещё именно Nominativ стоит после глаголов sein, werden, bleiben.',
     theory: [
       {
-        heading: '📋 Nominativ — кто? что?',
+        heading: '👤 Что такое Nominativ',
         content: `
-          <p>Nominativ — это <b>подлежащее</b> предложения. Тот, кто совершает действие.</p>
+          <p>Nominativ — это <b>подлежащее</b>, тот, кто выполняет действие. Вопрос: <b>Wer?</b> (кто?) / <b>Was?</b> (что?).</p>
           <div class="table-wrap"><table>
-            <tr><th>Род</th><th>Определённый</th><th>Неопределённый</th><th>Пример</th></tr>
-            <tr><td>Мужской</td><td><b>der</b></td><td><b>ein</b></td><td><b>Der</b> Mann kommt.</td></tr>
-            <tr><td>Женский</td><td><b>die</b></td><td><b>eine</b></td><td><b>Die</b> Frau lernt.</td></tr>
-            <tr><td>Средний</td><td><b>das</b></td><td><b>ein</b></td><td><b>Das</b> Kind spielt.</td></tr>
-            <tr><td>Мн.число</td><td><b>die</b></td><td><b>—</b></td><td><b>Die</b> Studenten lernen.</td></tr>
+            <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+            <tr><td>опред.</td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
+            <tr><td>неопр.</td><td>ein</td><td>eine</td><td>ein</td><td>—</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Der Student lernt Deutsch. Eine Frau kommt. Das Kind schläft.</div>
-            <div class="ru">Студент учит немецкий. Одна женщина приходит. Ребёнок спит.</div>
+            <div class="de"><b>Der Mann</b> liest. <b>Die Frau</b> arbeitet. <b>Das Kind</b> spielt. (кто? — подлежащее)</div>
+            <div class="ru">Чтобы найти Nominativ, спроси к глаголу: «кто/что делает?».</div>
+          </div>
+        `
+      },
+      {
+        heading: '🟰 Nominativ после sein, werden, bleiben',
+        content: `
+          <p>Эти три глагола — «глаголы-равенства»: после них тоже идёт <b>Nominativ</b>, а не Akkusativ:</p>
+          <div class="example-box">
+            <div class="de">Das ist <b>ein guter Lehrer</b>. Er wird <b>Arzt</b>. Sie bleibt <b>meine Freundin</b>.</div>
+            <div class="ru">«быть кем-то / стать кем-то / оставаться кем-то» — всё Nominativ.</div>
+          </div>
+          <p>⚠️ Частая ошибка: после «Das ist…» ставят Akkusativ. Правильно — Nominativ: <i>Das ist <b>der</b> Mann</i> (а не «den Mann»).</p>
+        `
+      },
+      {
+        heading: '🔎 Как отличить подлежащее',
+        content: `
+          <p>В немецком порядок слов гибкий, подлежащее не всегда первое. Ищи по форме и вопросу «кто?»:</p>
+          <div class="example-box">
+            <div class="de">Den Apfel isst <b>der Junge</b>. → кто ест? der Junge (Nom). den Apfel — это объект (Akk).</div>
+            <div class="ru">Даже если объект стоит впереди, подлежащее остаётся в Nominativ.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: '___ Mann kommt aus Deutschland.', options: ['Der', 'Die', 'Das', 'Den'], answer: 0 },
-      { type: 'choice', question: '___ Frau lernt Deutsch.', options: ['Die', 'Der', 'Das', 'Den'], answer: 0 },
-      { type: 'fill', question: '___ Kind spielt. (средний род)', answer: 'Das', placeholder: 'D...' },
-      { type: 'choice', question: 'Nominativ отвечает на вопрос:', options: ['Кто? Что?', 'Кого? Чего?', 'Кому? Чему?', 'Кем? Чем?'], answer: 0 },
+      { type: 'fill', question: 'Артикль Nom m: ___ Mann liest. (der/den)', answer: 'der', placeholder: 'd...' },
+      { type: 'fill', question: 'Артикль Nom n: ___ Kind spielt. (das Kind)', answer: 'das', placeholder: 'd...' },
+      { type: 'fill', question: 'После sein → Nominativ: Das ist ___ Lehrer. (der/den, опред.)', answer: 'der', placeholder: 'd...' },
+      { type: 'fill', question: 'Неопр. Nom f: Das ist ___ Idee. (die Idee)', answer: 'eine', placeholder: 'ein...' },
+      { type: 'fill', question: 'Найди подлежащее: «Den Ball wirft ___ Junge.» (der Junge)', answer: 'der', placeholder: 'd...' },
+      { type: 'translate', question: 'Мужчина читает.', answer: 'Der Mann liest.', hint: 'подлежащее в Nominativ', placeholder: 'Der Mann...' },
+      { type: 'translate', question: 'Это хороший учитель.', answer: 'Das ist ein guter Lehrer.', hint: 'после ist → Nominativ', placeholder: 'Das ist...' },
+      { type: 'translate', question: 'Она становится врачом.', answer: 'Sie wird Ärztin.|Sie wird Arzt.', hint: 'werden + Nominativ (профессия без артикля)', placeholder: 'Sie wird...' },
+      { type: 'listen', answer: 'Der Lehrer ist sehr nett.', hint: 'Nominativ: der Lehrer' },
+      { type: 'write', question: 'Schreib 3 Sätze: wer macht was? Подлежащее в Nominativ (Der/Die/Das … + Verb).', hint: 'Der Mann arbeitet. Die Frau liest. Das Kind spielt.', placeholder: 'Der...', sample: 'Der Mann kocht. Die Frau singt. Das Kind schläft.' }
     ],
   },
 
   akkusativ: {
     title: 'Винительный падеж (Akkusativ)',
-    level: 'A1 · Урок 16',
-    intro: 'Akkusativ — это прямое дополнение, объект действия. Меняется только мужской род! Это главная новость.',
+    level: 'A1 · Урок 18',
+    intro: 'Akkusativ — прямой объект, вопрос «кого? что?». Главная фишка: из всех родов меняется ТОЛЬКО мужской (der→den, ein→einen). Плюс разберём Akkusativ-предлоги и выражения времени.',
     theory: [
       {
-        heading: '📋 Akkusativ — кого? что?',
+        heading: '🎯 Формы — меняется только мужской род!',
         content: `
-          <p>⚠️ <b>Меняется только мужской род</b>: der → <b>den</b>, ein → <b>einen</b>. Остальные — как в Nominativ!</p>
           <div class="table-wrap"><table>
-            <tr><th>Род</th><th>Nominativ</th><th>Akkusativ</th><th>Изменение</th></tr>
-            <tr><td>Мужской</td><td>der / ein</td><td><b>den / einen</b></td><td>⚠️ МЕНЯЕТСЯ</td></tr>
-            <tr><td>Женский</td><td>die / eine</td><td>die / eine</td><td>✓ не меняется</td></tr>
-            <tr><td>Средний</td><td>das / ein</td><td>das / ein</td><td>✓ не меняется</td></tr>
-            <tr><td>Мн.число</td><td>die / —</td><td>die / —</td><td>✓ не меняется</td></tr>
+            <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+            <tr><td>опред.</td><td><b>den</b></td><td>die</td><td>das</td><td>die</td></tr>
+            <tr><td>неопр.</td><td><b>einen</b></td><td>eine</td><td>ein</td><td>—</td></tr>
+            <tr><td>отриц.</td><td><b>keinen</b></td><td>keine</td><td>kein</td><td>keine</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich liebe <b>einen</b> Mann. (Akkusativ, мужской → einen)</div>
-            <div class="ru">Я люблю одного мужчину.</div>
+            <div class="de">Ich sehe <b>den</b> Mann / <b>die</b> Frau / <b>das</b> Kind. Ich habe <b>einen</b> Bruder.</div>
+            <div class="ru">Женский, средний и множественное в Akkusativ = как в Nominativ. Меняется только der→den, ein→einen.</div>
           </div>
+        `
+      },
+      {
+        heading: '🔨 Когда Akkusativ: прямой объект',
+        content: `
+          <p>Большинство глаголов с прямым дополнением требуют Akkusativ: <b>haben, sehen, kaufen, lesen, essen, trinken, brauchen, suchen, mögen, nehmen</b>.</p>
           <div class="example-box">
-            <div class="de">Ich trinke <b>einen</b> Kaffee. Ich lese <b>ein</b> Buch. Ich liebe <b>die</b> Sprache.</div>
-            <div class="ru">Я пью кофе. Я читаю книгу. Я люблю этот язык.</div>
+            <div class="de">Ich kaufe <b>einen</b> Apfel. Sie liest <b>ein</b> Buch. Wir brauchen <b>den</b> Schlüssel.</div>
+            <div class="ru">Вопрос к объекту: «кого? что?» (Wen? Was?).</div>
           </div>
-          <p>🔑 Глаголы с Akkusativ: haben, lieben, kaufen, essen, trinken, lesen, sehen, brauchen…</p>
+        `
+      },
+      {
+        heading: '📍 Предлоги, которые ВСЕГДА с Akkusativ',
+        content: `
+          <p style="font-size:1.05rem"><b>durch, für, gegen, ohne, um</b> (+ entlang, bis)</p>
+          <div class="table-wrap"><table>
+            <tr><td>durch + Akk</td><td>через, сквозь</td><td>durch den Park</td></tr>
+            <tr><td>für + Akk</td><td>для</td><td>für meinen Freund</td></tr>
+            <tr><td>gegen + Akk</td><td>против</td><td>gegen den Plan</td></tr>
+            <tr><td>ohne + Akk</td><td>без</td><td>ohne einen Plan</td></tr>
+            <tr><td>um + Akk</td><td>вокруг; в (время)</td><td>um den Tisch; um acht Uhr</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Считалочка: «durch-für-gegen-ohne-um» — все Akkusativ.</div>
+            <div class="ru">ohne обычно без артикля: ohne Auto.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🕐 Akkusativ во времени',
+        content: `
+          <p>Длительность и регулярность времени — тоже Akkusativ (без предлога):</p>
+          <div class="example-box">
+            <div class="de">Ich lerne <b>jeden Tag</b>. Wir bleiben <b>einen Monat</b>. <b>Letzten Sommer</b> war ich in Wien.</div>
+            <div class="ru">jeden Tag (каждый день), einen Monat (месяц), letzten Sommer — в Akkusativ.</div>
+          </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich kaufe ___ Kaffee. (der Kaffee → Akkusativ)', options: ['einen', 'ein', 'eine', 'der'], answer: 0 },
-      { type: 'choice', question: 'Ich liebe ___ Deutsch. (das Deutsch → Akkusativ)', options: ['das', 'den', 'die', 'dem'], answer: 0 },
-      { type: 'fill', question: 'Ich sehe ___ Mann. (Akkusativ от der Mann)', answer: 'den', placeholder: 'd...' },
-      { type: 'choice', question: 'В Akkusativ меняется только:', options: ['мужской род', 'женский род', 'средний род', 'все роды'], answer: 0 },
-      { type: 'choice', question: 'Ich brauche ___ Hilfe. (die Hilfe → Akkusativ)', options: ['die', 'den', 'das', 'eine'], answer: 0 },
+      { type: 'fill', question: 'Опр. Akk m: Ich sehe ___ Mann. (der Mann)', answer: 'den', placeholder: 'd...' },
+      { type: 'fill', question: 'Опр. Akk f: Ich sehe ___ Frau. (die Frau — меняется?)', answer: 'die', placeholder: 'd...' },
+      { type: 'fill', question: 'Неопр. Akk m: Ich habe ___ Bruder. (der Bruder)', answer: 'einen', placeholder: 'ein...' },
+      { type: 'fill', question: 'Неопр. Akk n: Sie liest ___ Buch. (das Buch)', answer: 'ein', placeholder: 'ein...' },
+      { type: 'fill', question: 'Предлог für + Akk: Das ist für ___ Freund. (der Freund)', answer: 'den', placeholder: 'd...' },
+      { type: 'fill', question: 'Предлог durch + Akk: Wir gehen durch ___ Park. (der Park)', answer: 'den', placeholder: 'd...' },
+      { type: 'fill', question: 'Время в Akkusativ: Ich lerne ___ Tag. (jeder Tag → каждый день)', answer: 'jeden', placeholder: 'jed...' },
+      { type: 'translate', question: 'Я вижу мужчину.', answer: 'Ich sehe den Mann.', hint: 'sehen → Akk, der→den', placeholder: 'Ich sehe...' },
+      { type: 'translate', question: 'У меня есть брат.', answer: 'Ich habe einen Bruder.', hint: 'haben → Akk, ein→einen', placeholder: 'Ich habe...' },
+      { type: 'translate', question: 'Это подарок для тебя.', answer: 'Das ist ein Geschenk für dich.', hint: 'für + Akk (dich)', placeholder: 'Das ist...' },
+      { type: 'listen', answer: 'Ich kaufe einen Apfel und eine Banane.', hint: 'einen (m) + eine (f)' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Akkusativ: was siehst/hast/kaufst du? (Achte auf den maskulinen Artikel den/einen!)', hint: 'Ich sehe den … / Ich habe einen … / Ich kaufe ein …', placeholder: 'Ich...', sample: 'Ich habe einen Hund. Ich sehe den Bus. Ich kaufe ein Buch für meinen Bruder.' }
     ],
   },
 
   negation: {
     title: 'Отрицание: nicht и kein',
-    level: 'A1 · Урок 17',
-    intro: 'Как сказать «нет» по-немецки? Есть два варианта — nicht и kein. Путаница гарантирована, но сейчас разберём раз и навсегда!',
+    level: 'A1 · Урок 19',
+    intro: 'В немецком два главных отрицания: kein (отрицает существительное) и nicht (отрицает всё остальное — глагол, прилагательное, целое предложение). Разберём, когда какой и куда ставить nicht.',
     theory: [
       {
-        heading: '🚫 nicht vs kein — в чём разница?',
+        heading: '🚫 kein или nicht — как выбрать',
+        content: `
+          <p>Простое правило:</p>
+          <ul>
+            <li><b>kein</b> — если отрицаем существительное с <b>ein</b> или <b>без артикля</b>.</li>
+            <li><b>nicht</b> — во всех остальных случаях (глагол, прилагательное, наречие, имя собственное, существительное с <b>определённым</b> артиклем).</li>
+          </ul>
+          <div class="table-wrap"><table>
+            <tr><th>Фраза</th><th>Отрицание</th></tr>
+            <tr><td>Ich habe ein Auto.</td><td>Ich habe <b>kein</b> Auto.</td></tr>
+            <tr><td>Ich trinke Kaffee.</td><td>Ich trinke <b>keinen</b> Kaffee.</td></tr>
+            <tr><td>Ich kenne den Mann.</td><td>Ich kenne den Mann <b>nicht</b>.</td></tr>
+            <tr><td>Das ist schön.</td><td>Das ist <b>nicht</b> schön.</td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: '📦 kein склоняется как ein',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Слово</th><th>Когда использовать</th><th>Пример</th></tr>
-            <tr><td><b>nicht</b></td><td>отрицание глагола, прилагательного, наречия</td><td>Ich lerne <b>nicht</b>.</td></tr>
-            <tr><td><b>kein/keine</b></td><td>отрицание существительного (замена ein/eine или отсутствие)</td><td>Ich habe <b>kein</b> Geld.</td></tr>
+            <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+            <tr><td>Nom</td><td>kein</td><td>keine</td><td>kein</td><td>keine</td></tr>
+            <tr><td>Akk</td><td>keinen</td><td>keine</td><td>kein</td><td>keine</td></tr>
+            <tr><td>Dat</td><td>keinem</td><td>keiner</td><td>keinem</td><td>keinen</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich verstehe das <b>nicht</b>. (глагол → nicht)</div>
-            <div class="ru">Я этого не понимаю.</div>
+            <div class="de">Ich habe <b>keinen</b> Bruder (Akk m). Ich habe <b>keine</b> Zeit (Akk f).</div>
+            <div class="ru">В отличие от ein, у kein есть множественное число: keine Freunde.</div>
           </div>
+        `
+      },
+      {
+        heading: '📐 Куда ставить nicht',
+        content: `
+          <p>Позиция nicht зависит от того, что именно отрицаем:</p>
+          <ul>
+            <li><b>Всё предложение / глагол</b> → nicht в самый конец: <i>Ich komme heute <b>nicht</b>.</i></li>
+            <li><b>Конкретное слово</b> → nicht прямо перед ним: <i>Ich komme <b>nicht</b> heute</i> (а завтра).</li>
+            <li><b>Прилагательное после sein</b> → перед прилагательным: <i>Das ist <b>nicht</b> teuer.</i></li>
+            <li>При инфинитиве/Partizip nicht стоит перед ним: <i>Ich kann <b>nicht</b> kommen.</i></li>
+          </ul>
           <div class="example-box">
-            <div class="de">Das ist <b>nicht</b> gut. (прилагательное → nicht)</div>
-            <div class="ru">Это нехорошо.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Ich habe <b>keine</b> Zeit. (die Zeit → keine)</div>
-            <div class="ru">У меня нет времени.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Er hat <b>kein</b> Geld. (das Geld → kein)</div>
-            <div class="ru">У него нет денег.</div>
+            <div class="de">Ich kenne ihn <b>nicht</b>. · Er arbeitet heute <b>nicht</b>. · Das Auto ist <b>nicht</b> neu.</div>
+            <div class="ru">По умолчанию — nicht в конец; если отрицаем одно слово — перед этим словом.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich verstehe das ___. (не понимаю — глагол)', options: ['nicht', 'kein', 'keine', 'nein'], answer: 0 },
-      { type: 'choice', question: 'Ich habe ___ Zeit. (нет времени, die Zeit)', options: ['keine', 'nicht', 'kein', 'nein'], answer: 0 },
-      { type: 'choice', question: 'Er hat ___ Auto. (нет машины, das Auto)', options: ['kein', 'keine', 'nicht', 'nein'], answer: 0 },
-      { type: 'fill', question: 'Das ist ___ gut. (нехорошо — прилагательное)', answer: 'nicht', placeholder: 'n...' },
-      { type: 'choice', question: 'Sie ist ___ krank. (она не больна — прилагательное)', options: ['nicht', 'kein', 'keine', 'un-'], answer: 0 },
+      { type: 'fill', question: 'kein или nicht? Ich habe ___ Auto. (ein Auto → ?)', answer: 'kein', placeholder: 'kein/nicht' },
+      { type: 'fill', question: 'kein или nicht? Ich kenne den Mann ___. (опред. артикль)', answer: 'nicht', placeholder: 'kein/nicht' },
+      { type: 'fill', question: 'Форма kein, Akk m: Ich habe ___ Bruder. (der Bruder)', answer: 'keinen', placeholder: 'kein...' },
+      { type: 'fill', question: 'Форма kein, Akk f: Ich habe ___ Zeit. (die Zeit)', answer: 'keine', placeholder: 'kein...' },
+      { type: 'fill', question: 'kein или nicht? Das ist ___ schön. (прилагательное)', answer: 'nicht', placeholder: 'kein/nicht' },
+      { type: 'fill', question: 'kein или nicht? Ich trinke ___ Kaffee. (без артикля)', answer: 'keinen', placeholder: 'kein...' },
+      { type: 'translate', question: 'У меня нет машины.', answer: 'Ich habe kein Auto.', hint: 'существительное с ein → kein', placeholder: 'Ich habe...' },
+      { type: 'translate', question: 'Я его не знаю.', answer: 'Ich kenne ihn nicht.', hint: 'отрицаем глагол → nicht в конец', placeholder: 'Ich kenne...' },
+      { type: 'translate', question: 'Это не дорого.', answer: 'Das ist nicht teuer.', hint: 'прилагательное → nicht перед ним', placeholder: 'Das ist...' },
+      { type: 'translate', question: 'У меня нет времени.', answer: 'Ich habe keine Zeit.', hint: 'die Zeit → keine', placeholder: 'Ich habe...' },
+      { type: 'listen', answer: 'Ich komme heute nicht.', hint: 'nicht в конце' },
+      { type: 'write', question: 'Schreib 3 verneinte Sätze — nutze 2× kein und 1× nicht.', hint: 'Существительное с ein/без артикля → kein. Глагол/прилагательное → nicht.', placeholder: 'Ich habe kein...', sample: 'Ich habe kein Auto. Ich trinke keinen Alkohol. Ich arbeite heute nicht.' }
     ],
   },
 
