@@ -1561,40 +1561,82 @@ const LESSONS_CONTENT = {
   },
 
   'modal-verbs': {
-    title: 'Модальные глаголы: können, wollen, müssen',
-    level: 'A1 · Урок 14',
-    intro: 'Модальные глаголы — «могу», «хочу», «должна». Они меняют смысл других глаголов и используются в речи постоянно!',
+    title: 'Модальные глаголы (können, müssen, wollen…)',
+    level: 'A1 · Урок 16',
+    intro: 'Модальные глаголы выражают возможность, необходимость, желание, разрешение. Их шесть, они спрягаются особо, а главный (смысловой) глагол уходит в конец в инфинитиве.',
     theory: [
       {
-        heading: '📋 Три главных модальных глагола',
+        heading: '🎭 Шесть модальных и их смысл',
         content: `
           <div class="table-wrap"><table>
-            <tr><th></th><th>können (мочь/уметь)</th><th>wollen (хотеть)</th><th>müssen (должен)</th></tr>
-            <tr><td>ich</td><td><b>kann</b></td><td><b>will</b></td><td><b>muss</b></td></tr>
-            <tr><td>du</td><td><b>kannst</b></td><td><b>willst</b></td><td><b>musst</b></td></tr>
-            <tr><td>er/sie/es</td><td><b>kann</b></td><td><b>will</b></td><td><b>muss</b></td></tr>
-            <tr><td>wir</td><td><b>können</b></td><td><b>wollen</b></td><td><b>müssen</b></td></tr>
-            <tr><td>ihr</td><td><b>könnt</b></td><td><b>wollt</b></td><td><b>müsst</b></td></tr>
-            <tr><td>sie/Sie</td><td><b>können</b></td><td><b>wollen</b></td><td><b>müssen</b></td></tr>
+            <tr><th>Глагол</th><th>Значение</th><th>Пример</th></tr>
+            <tr><td><b>können</b></td><td>мочь, уметь</td><td>Ich kann schwimmen.</td></tr>
+            <tr><td><b>dürfen</b></td><td>можно (разрешение)</td><td>Darf ich rauchen?</td></tr>
+            <tr><td><b>müssen</b></td><td>должен, нужно</td><td>Ich muss arbeiten.</td></tr>
+            <tr><td><b>sollen</b></td><td>следует; говорят, что</td><td>Du sollst mehr lernen.</td></tr>
+            <tr><td><b>wollen</b></td><td>хотеть (твёрдо)</td><td>Ich will nach Wien.</td></tr>
+            <tr><td><b>möchten</b></td><td>хотел бы (вежливо)</td><td>Ich möchte Kaffee.</td></tr>
           </table></div>
-          <p>🔑 Правило: модальный глагол стоит на 2-м месте, основной глагол — <b>в конец предложения в инфинитиве!</b></p>
           <div class="example-box">
-            <div class="de">Ich <b>will</b> in Österreich studier<b>en</b>. (хочу учиться)</div>
-            <div class="ru">Модальный — на 2-м месте. Инфинитив — в конец!</div>
+            <div class="de">wollen — категоричное «хочу», möchten — мягкое «хотел бы». В кафе говорят möchten.</div>
+            <div class="ru">müssen = объективная необходимость; sollen = чужое указание/совет.</div>
           </div>
+        `
+      },
+      {
+        heading: '🔧 Спряжение (особое!)',
+        content: `
+          <p>В единственном числе у модальных <b>нет окончания</b> у ich и er/sie/es, и часто меняется гласная:</p>
+          <div class="table-wrap"><table>
+            <tr><th></th><th>können</th><th>müssen</th><th>wollen</th><th>möchten</th></tr>
+            <tr><td>ich</td><td>kann</td><td>muss</td><td>will</td><td>möchte</td></tr>
+            <tr><td>du</td><td>kannst</td><td>musst</td><td>willst</td><td>möchtest</td></tr>
+            <tr><td>er/sie/es</td><td>kann</td><td>muss</td><td>will</td><td>möchte</td></tr>
+            <tr><td>wir</td><td>können</td><td>müssen</td><td>wollen</td><td>möchten</td></tr>
+            <tr><td>ihr</td><td>könnt</td><td>müsst</td><td>wollt</td><td>möchtet</td></tr>
+            <tr><td>sie/Sie</td><td>können</td><td>müssen</td><td>wollen</td><td>möchten</td></tr>
+          </table></div>
           <div class="example-box">
-            <div class="de">Ich kann gut Deutsch sprechen. Du musst viel lernen. Sie will nach Wien fahren.</div>
-            <div class="ru">Я умею хорошо говорить по-немецки. Тебе надо много учить. Она хочет поехать в Вену.</div>
+            <div class="de">ich kann = er kann (одинаково!). Так же: dürfen → ich darf, sollen → ich soll (без смены гласной).</div>
+            <div class="ru">Запомни: ich и er/sie/es у модальных всегда совпадают.</div>
+          </div>
+        `
+      },
+      {
+        heading: '📐 Порядок слов: инфинитив в конец (рамка)',
+        content: `
+          <p>Модальный глагол стоит на <b>2-м месте</b>, а смысловой глагол — в <b>инфинитиве в самом конце</b>. Это «рамочная конструкция»:</p>
+          <div class="example-box">
+            <div class="de">Ich <b>muss</b> heute viel <b>arbeiten</b>.<br>Wir <b>können</b> am Wochenende ins Kino <b>gehen</b>.</div>
+            <div class="ru">Между модальным и инфинитивом — всё остальное (время, место, объект).</div>
+          </div>
+          <p>В вопросе модальный выходит на 1-е место: <b>Kannst</b> du mir <b>helfen</b>?</p>
+        `
+      },
+      {
+        heading: '🚫 Отрицание и нюанс müssen/dürfen',
+        content: `
+          <p>Отрицаем через <b>nicht</b> (или kein с существительным):</p>
+          <div class="example-box">
+            <div class="de">Ich kann <b>nicht</b> kommen. · <b>nicht müssen</b> = не обязательно (≠ нельзя!). · <b>nicht dürfen</b> = нельзя, запрещено.</div>
+            <div class="ru">Du musst nicht = тебе не обязательно. Du darfst nicht = тебе нельзя.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich ___ Deutsch sprechen. (уметь)', options: ['kann', 'will', 'muss', 'könnte'], answer: 0 },
-      { type: 'choice', question: 'Sie ___ nach Wien fahren. (хотеть)', options: ['will', 'kann', 'muss', 'wollt'], answer: 0 },
-      { type: 'fill', question: 'Du ___ viel lernen. (müssen)', answer: 'musst', placeholder: 'muss...' },
-      { type: 'choice', question: 'Где стоит инфинитив при модальном глаголе?', options: ['В конце предложения', 'На 2-м месте', 'В начале', 'После существительного'], answer: 0 },
-      { type: 'fill', question: 'Wir ___ Deutsch lernen. (wollen)', answer: 'wollen', placeholder: 'woll...' },
+      { type: 'fill', question: 'ich ___ schwimmen (können)', answer: 'kann', placeholder: 'k...' },
+      { type: 'fill', question: 'er ___ arbeiten (müssen)', answer: 'muss', placeholder: 'm...' },
+      { type: 'fill', question: 'du ___ mir helfen? (können)', answer: 'kannst', placeholder: 'k...' },
+      { type: 'fill', question: 'Вежливо в кафе: ich ___ einen Kaffee (möchten)', answer: 'möchte', placeholder: 'm...' },
+      { type: 'fill', question: 'wir ___ ins Kino gehen (wollen)', answer: 'wollen', placeholder: 'w...' },
+      { type: 'fill', question: 'Разрешение: ___ ich rauchen? (dürfen, ich)', answer: 'darf', placeholder: 'd...' },
+      { type: 'translate', question: 'Я должна сегодня много работать.', answer: 'Ich muss heute viel arbeiten.', hint: 'müssen + инфинитив в конец', placeholder: 'Ich muss...' },
+      { type: 'translate', question: 'Ты можешь мне помочь?', answer: 'Kannst du mir helfen?', hint: 'вопрос: модальный на 1-е место', placeholder: 'Kannst...' },
+      { type: 'translate', question: 'Я хотел бы кофе.', answer: 'Ich möchte einen Kaffee.|Ich möchte Kaffee.', hint: 'möchten — вежливое «хотел бы»', placeholder: 'Ich möchte...' },
+      { type: 'translate', question: 'Мы хотим поехать в Вену.', answer: 'Wir wollen nach Wien fahren.', hint: 'wollen + fahren в конец', placeholder: 'Wir wollen...' },
+      { type: 'listen', answer: 'Ich kann heute nicht kommen.', hint: 'können + nicht + инфинитив' },
+      { type: 'write', question: 'Schreib 3 Sätze: was kannst/musst/willst du heute machen? (Modalverb + Infinitiv am Ende)', hint: 'Ich kann/muss/will/möchte … + Infinitiv. Глагол в конце!', placeholder: 'Ich muss...', sample: 'Ich muss heute lernen. Ich kann gut kochen. Am Abend will ich einen Film sehen.' }
     ],
   },
 
@@ -1750,37 +1792,152 @@ const LESSONS_CONTENT = {
 
   dativ: {
     title: 'Дательный падеж (Dativ)',
-    level: 'A2 · Урок 19',
-    intro: 'Dativ — третий падеж. Отвечает на вопрос «кому?». Меняются все роды! Это уже A2.',
+    level: 'A2 · Урок 18',
+    intro: 'Dativ отвечает на вопрос «кому? чему?». Это косвенный объект, а ещё его требуют определённые глаголы и предлоги. Разберём формы артиклей, глаголы Dativ и предлоги, которые всегда с Dativ.',
     theory: [
       {
-        heading: '📋 Dativ — кому? чему?',
+        heading: '🎁 Формы артиклей в Dativ',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Род</th><th>Nominativ</th><th>Dativ</th></tr>
-            <tr><td>Мужской</td><td>der / ein</td><td><b>dem / einem</b></td></tr>
-            <tr><td>Женский</td><td>die / eine</td><td><b>der / einer</b></td></tr>
-            <tr><td>Средний</td><td>das / ein</td><td><b>dem / einem</b></td></tr>
-            <tr><td>Мн.число</td><td>die / —</td><td><b>den / — (+n к сущ.)</b></td></tr>
+            <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+            <tr><td>опред.</td><td>dem</td><td>der</td><td>dem</td><td>den (+n)</td></tr>
+            <tr><td>неопр.</td><td>einem</td><td>einer</td><td>einem</td><td>— / keinen</td></tr>
+            <tr><td>притяж.</td><td>meinem</td><td>meiner</td><td>meinem</td><td>meinen</td></tr>
           </table></div>
-          <p>⚠️ Женский в Dativ = der (как мужской в Nominativ). Это частая ловушка!</p>
           <div class="example-box">
-            <div class="de">Ich gebe <b>dem Mann</b> das Buch. (кому? → мужской Dativ)</div>
-            <div class="ru">Я даю мужчине книгу.</div>
+            <div class="de">Ich gebe <b>dem</b> Mann / <b>der</b> Frau / <b>dem</b> Kind das Buch. Mit <b>den</b> Kinder<b>n</b>.</div>
+            <div class="ru">В Plural к существительному добавляется -n: den Kindern, den Freunden.</div>
           </div>
+        `
+      },
+      {
+        heading: '🤝 Глаголы, которые требуют Dativ',
+        content: `
+          <p>Некоторые глаголы «по природе» идут с Dativ (хотя по-русски это может быть винительный):</p>
+          <div class="table-wrap"><table>
+            <tr><th>Глагол</th><th>Перевод</th><th>Пример</th></tr>
+            <tr><td><b>helfen</b></td><td>помогать</td><td>Ich helfe dem Freund.</td></tr>
+            <tr><td><b>danken</b></td><td>благодарить</td><td>Ich danke dir.</td></tr>
+            <tr><td><b>gefallen</b></td><td>нравиться</td><td>Das Buch gefällt mir.</td></tr>
+            <tr><td><b>gehören</b></td><td>принадлежать</td><td>Das Auto gehört ihm.</td></tr>
+            <tr><td><b>antworten</b></td><td>отвечать (кому)</td><td>Ich antworte der Lehrerin.</td></tr>
+            <tr><td><b>passen</b></td><td>подходить</td><td>Der Termin passt mir.</td></tr>
+          </table></div>
           <div class="example-box">
-            <div class="de">Ich helfe <b>der Frau</b>. (кому? → женский Dativ = der!)</div>
-            <div class="ru">Я помогаю женщине.</div>
+            <div class="de">⚠️ «Мне нравится X» = X gefällt mir (подлежащее — X, не «я»!).</div>
+            <div class="ru">Запомни эти глаголы как «Dativ-глаголы».</div>
           </div>
-          <p>🔑 Глаголы с Dativ: helfen, geben, sagen, zeigen, danken, gefallen…</p>
+        `
+      },
+      {
+        heading: '📍 Предлоги, которые ВСЕГДА с Dativ',
+        content: `
+          <p>Эти предлоги не «плавают» — после них всегда Dativ:</p>
+          <p style="font-size:1.05rem"><b>mit, nach, aus, zu, von, bei, seit, gegenüber</b></p>
+          <div class="table-wrap"><table>
+            <tr><td>mit + Dat</td><td>с</td><td>mit dem Bus</td></tr>
+            <tr><td>nach + Dat</td><td>после; в (города)</td><td>nach der Arbeit</td></tr>
+            <tr><td>aus + Dat</td><td>из</td><td>aus der Schweiz</td></tr>
+            <tr><td>zu + Dat</td><td>к</td><td>zu dem (zum) Arzt</td></tr>
+            <tr><td>bei + Dat</td><td>у, при</td><td>bei dem (beim) Freund</td></tr>
+            <tr><td>seit + Dat</td><td>с (времени)</td><td>seit einem Jahr</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">Слияния: zu dem → zum, zu der → zur, bei dem → beim, von dem → vom.</div>
+            <div class="ru">Их удобно выучить считалочкой: «mit-nach-aus-zu-von-bei-seit».</div>
+          </div>
+        `
+      },
+      {
+        heading: '🧑 Личные местоимения в Dativ',
+        content: `
+          <p>mir, dir, ihm, ihr, ihm, uns, euch, ihnen, Ihnen.</p>
+          <div class="example-box">
+            <div class="de">Gib <b>mir</b> das Buch. Ich helfe <b>dir</b>. Das gehört <b>ihnen</b>.</div>
+            <div class="ru">После Dativ-глаголов и Dativ-предлогов местоимение тоже в Dativ.</div>
+          </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich helfe ___ Frau. (die Frau → Dativ)', options: ['der', 'die', 'den', 'dem'], answer: 0 },
-      { type: 'choice', question: 'Ich gebe ___ Mann das Buch. (der Mann → Dativ)', options: ['dem', 'den', 'der', 'die'], answer: 0 },
-      { type: 'fill', question: 'Ich danke ___ Lehrerin. (die Lehrerin → Dativ)', answer: 'der', placeholder: 'd...' },
-      { type: 'choice', question: 'Женский род в Dativ:', options: ['der', 'die', 'dem', 'den'], answer: 0 },
+      { type: 'fill', question: 'Артикль Dativ m: Ich gebe ___ Mann das Buch. (der Mann)', answer: 'dem', placeholder: 'd...' },
+      { type: 'fill', question: 'Артикль Dativ f: Ich helfe ___ Frau. (die Frau)', answer: 'der', placeholder: 'd...' },
+      { type: 'fill', question: 'Plural Dativ: Ich spiele mit ___ Kindern. (die Kinder)', answer: 'den', placeholder: 'd...' },
+      { type: 'fill', question: 'Dativ-глагол: Das Buch ___ mir. (gefallen → es)', answer: 'gefällt', placeholder: 'gef...' },
+      { type: 'fill', question: 'Предлог mit + Dativ: Ich fahre mit ___ Bus. (der Bus)', answer: 'dem', placeholder: 'd...' },
+      { type: 'fill', question: 'Слияние zu+dem: Ich gehe ___ Arzt.', answer: 'zum', placeholder: 'z...' },
+      { type: 'fill', question: 'Местоимение Dativ: Gib ___ das Buch. (мне)', answer: 'mir', placeholder: 'm...' },
+      { type: 'fill', question: 'seit + Dativ: Ich lerne Deutsch seit ___ Jahr. (ein Jahr)', answer: 'einem', placeholder: 'ein...' },
+      { type: 'translate', question: 'Я помогаю своему другу.', answer: 'Ich helfe meinem Freund.', hint: 'helfen → Dativ, mein → meinem (m)', placeholder: 'Ich helfe...' },
+      { type: 'translate', question: 'Эта книга мне нравится.', answer: 'Das Buch gefällt mir.|Dieses Buch gefällt mir.', hint: 'gefallen → подлежащее «книга», «мне» = mir', placeholder: 'Das Buch...' },
+      { type: 'translate', question: 'Я еду на автобусе.', answer: 'Ich fahre mit dem Bus.', hint: 'mit + Dativ (der Bus → dem Bus)', placeholder: 'Ich fahre...' },
+      { type: 'listen', answer: 'Ich danke dir für deine Hilfe.', hint: 'danken + Dativ (dir)' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Dativ: nutze ein Dativ-Verb (helfen, gefallen, danken) oder eine Dativ-Präposition (mit, bei, zu).', hint: 'Ich helfe dem/der … · Das gefällt mir · Ich fahre mit dem …', placeholder: 'Ich...', sample: 'Ich helfe meiner Mutter. Das Wetter gefällt mir nicht. Ich fahre mit dem Zug nach Wien.' }
+    ],
+  },
+
+  'verben-praepositionen': {
+    title: 'Глаголы с предлогами (Verben mit Präposition)',
+    level: 'B1 · Урок 23',
+    intro: 'Многие глаголы «срослись» с конкретным предлогом, и этот предлог задаёт падеж. Их нельзя перевести дословно — надо учить парами: warten AUF (Akk), denken AN (Akk), sich freuen ÜBER/AUF. Плюс разберём вопросы Worauf…? и слова darauf/daran.',
+    theory: [
+      {
+        heading: '🔗 Что это и почему важно',
+        content: `
+          <p>У глагола есть «свой» предлог, и предлог диктует падеж. Учим глагол + предлог + падеж как одно целое:</p>
+          <div class="example-box">
+            <div class="de">warten — ждать. Но «ждать кого-то» = warten <b>auf</b> + <b>Akkusativ</b>: Ich warte <b>auf den</b> Bus.</div>
+            <div class="ru">Дословно «warten auf» ≠ «ждать на» — это просто фиксированная связка.</div>
+          </div>
+        `
+      },
+      {
+        heading: '📋 Частые глаголы с предлогами',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Глагол + предлог</th><th>Падеж</th><th>Перевод / пример</th></tr>
+            <tr><td>warten <b>auf</b></td><td>Akk</td><td>ждать: Ich warte auf dich.</td></tr>
+            <tr><td>denken <b>an</b></td><td>Akk</td><td>думать о: Ich denke an dich.</td></tr>
+            <tr><td>sich freuen <b>auf</b></td><td>Akk</td><td>радоваться (предстоящему): auf das Wochenende</td></tr>
+            <tr><td>sich freuen <b>über</b></td><td>Akk</td><td>радоваться (случившемуся): über das Geschenk</td></tr>
+            <tr><td>sich interessieren <b>für</b></td><td>Akk</td><td>интересоваться: für Musik</td></tr>
+            <tr><td>sprechen / reden <b>über</b></td><td>Akk</td><td>говорить о: über das Problem</td></tr>
+            <tr><td>teilnehmen <b>an</b></td><td>Dat</td><td>участвовать в: an dem Kurs</td></tr>
+            <tr><td>helfen <b>bei</b></td><td>Dat</td><td>помогать с: bei der Arbeit</td></tr>
+            <tr><td>bitten <b>um</b></td><td>Akk</td><td>просить о: um Hilfe</td></tr>
+            <tr><td>sich treffen <b>mit</b></td><td>Dat</td><td>встречаться с: mit Freunden</td></tr>
+          </table></div>
+          <div class="example-box">
+            <div class="de">an, auf, über, für, um — чаще Akkusativ. mit, bei, an(teilnehmen), zu — Dativ.</div>
+            <div class="ru">Падеж учим вместе с глаголом, не угадываем.</div>
+          </div>
+        `
+      },
+      {
+        heading: '❓ Вопросы и da(r)-/wo(r)-',
+        content: `
+          <p>Если спрашиваем про <b>предмет</b> — предлог + <b>wo(r)</b>: Wo<b>rauf</b> wartest du? (на что?). Если про <b>человека</b> — предлог + кто: <b>Auf wen</b> wartest du?</p>
+          <p>Чтобы не повторять предмет, используем <b>da(r)</b> + предлог:</p>
+          <div class="example-box">
+            <div class="de">— Denkst du an die Prüfung? — Ja, ich denke <b>daran</b>.<br>— Wartest du auf den Bus? — Ja, ich warte <b>darauf</b>.</div>
+            <div class="ru">darauf = «на это», daran = «об этом». «r» вставляется, если предлог с гласной (an→daran, auf→darauf, über→darüber).</div>
+          </div>
+        `
+      }
+    ],
+    exercises: [
+      { type: 'fill', question: 'Предлог: Ich warte ___ den Bus. (warten …)', answer: 'auf', placeholder: '...' },
+      { type: 'fill', question: 'Падеж: Ich denke an ___ Prüfung. (denken an + Akk, die Prüfung)', answer: 'die', placeholder: 'd...' },
+      { type: 'fill', question: 'Предлог: Ich interessiere mich ___ Musik. (sich interessieren …)', answer: 'für', placeholder: '...' },
+      { type: 'fill', question: 'Предлог: Wir sprechen ___ das Problem. (sprechen …)', answer: 'über', placeholder: '...' },
+      { type: 'fill', question: 'Падеж Dativ: Ich nehme an ___ Kurs teil. (teilnehmen an + Dat, der Kurs)', answer: 'dem', placeholder: 'd...' },
+      { type: 'fill', question: 'da(r)-форма: — Wartest du auf den Bus? — Ja, ich warte ___.', answer: 'darauf', placeholder: 'd...' },
+      { type: 'fill', question: 'Вопрос про предмет: ___ denkst du? (denken an → на что/о чём)', answer: 'Woran', placeholder: 'Wo...' },
+      { type: 'translate', question: 'Я жду тебя.', answer: 'Ich warte auf dich.', hint: 'warten auf + Akk (dich)', placeholder: 'Ich warte...' },
+      { type: 'translate', question: 'Я думаю о тебе.', answer: 'Ich denke an dich.', hint: 'denken an + Akk', placeholder: 'Ich denke...' },
+      { type: 'translate', question: 'Я радуюсь выходным.', answer: 'Ich freue mich auf das Wochenende.', hint: 'sich freuen auf + Akk (предстоящее)', placeholder: 'Ich freue mich...' },
+      { type: 'listen', answer: 'Ich interessiere mich für Geschichte.', hint: 'sich interessieren für + Akk' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Verben mit Präposition (warten auf, denken an, sich freuen auf, sich interessieren für).', hint: 'Учи связку глагол+предлог+падеж. warten auf + Akk, sich interessieren für + Akk.', placeholder: 'Ich...', sample: 'Ich warte auf meine Freundin. Ich denke oft an meine Familie. Ich interessiere mich für Kunst.' }
     ],
   },
 

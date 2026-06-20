@@ -119,6 +119,7 @@ const MODULES = [
     lessons: [
       { id: 'reflexive-verbs',title: 'Возвратные глаголы (sich)',     desc: 'sich waschen, sich freuen, sich interessieren für', xp: 60, type: 'Грамматика' },
       { id: 'possessivpron',  title: 'Притяжательные местоимения',    desc: 'mein/dein/sein/ihr в Nom./Akk./Dativ', xp: 55, type: 'Грамматика' },
+      { id: 'verben-praepositionen', title: 'Глаголы с предлогами',   desc: 'warten auf, denken an, sich freuen über — управление', xp: 70, type: 'Грамматика' },
     ],
   },
   {
