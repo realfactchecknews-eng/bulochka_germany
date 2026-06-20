@@ -2598,237 +2598,210 @@ const LESSONS_CONTENT = {
   },
 
   'adjektiv-nach-def': {
-    title: 'Прилагательные после der/die/das — Die Gelbe Kap. 11',
-    level: 'A2 · Грамматика',
-    intro: 'Один из важнейших разделов «Die Gelbe» — склонение прилагательных. После определённого артикля (der/die/das/die) используется «слабое склонение». Здесь очень простое правило: почти всё -en!',
+    title: 'Прилагательные после der/die/das (слабое склонение)',
+    level: 'A2 · Урок 22',
+    intro: 'Когда перед прилагательным стоит определённый артикль (der/die/das/diese), у прилагательного только два возможных окончания: -e или -en. Это «слабое» склонение — самое простое. Разберём правило и натренируем ручным вводом.',
     theory: [
       {
-        heading: '📐 Слабое склонение — полная таблица',
+        heading: '🟢 Только два окончания: -e и -en',
         content: `
+          <p>После der/die/das артикль уже показал род и падеж, поэтому прилагательному «работать» не нужно — оно берёт нейтральное -e или -en:</p>
           <div class="table-wrap"><table>
-            <tr><th>Падеж</th><th>der (m)</th><th>die (f)</th><th>das (n)</th><th>die (pl)</th></tr>
-            <tr><td><b>Nominativ</b></td><td>der alt<b>e</b> Mann</td><td>die alt<b>e</b> Frau</td><td>das alt<b>e</b> Kind</td><td>die alt<b>en</b> Leute</td></tr>
-            <tr><td><b>Akkusativ</b></td><td>den alt<b>en</b> Mann</td><td>die alt<b>e</b> Frau</td><td>das alt<b>e</b> Kind</td><td>die alt<b>en</b> Leute</td></tr>
-            <tr><td><b>Dativ</b></td><td>dem alt<b>en</b> Mann</td><td>der alt<b>en</b> Frau</td><td>dem alt<b>en</b> Kind</td><td>den alt<b>en</b> Leuten</td></tr>
-            <tr><td><b>Genitiv</b></td><td>des alt<b>en</b> Mannes</td><td>der alt<b>en</b> Frau</td><td>des alt<b>en</b> Kindes</td><td>der alt<b>en</b> Leute</td></tr>
+            <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+            <tr><td>Nom</td><td>der gut<b>e</b></td><td>die gut<b>e</b></td><td>das gut<b>e</b></td><td>die gut<b>en</b></td></tr>
+            <tr><td>Akk</td><td>den gut<b>en</b></td><td>die gut<b>e</b></td><td>das gut<b>e</b></td><td>die gut<b>en</b></td></tr>
+            <tr><td>Dat</td><td>dem gut<b>en</b></td><td>der gut<b>en</b></td><td>dem gut<b>en</b></td><td>den gut<b>en</b></td></tr>
+            <tr><td>Gen</td><td>des gut<b>en</b></td><td>der gut<b>en</b></td><td>des gut<b>en</b></td><td>der gut<b>en</b></td></tr>
           </table></div>
-          <p>✨ <b>Супер-правило:</b> Nom. единственного числа m/f/n → <b>-e</b>. Akk. f и n тоже <b>-e</b>. Всё остальное → <b>-en</b>. Это 90% случаев!</p>
-        `
-      },
-      {
-        heading: '🔴 Только 5 форм с -e (запомни эти!)',
-        content: `
-          <div class="table-wrap"><table>
-            <tr><th>Форма</th><th>Пример</th></tr>
-            <tr><td>Nom. m</td><td>der alt<b>e</b> Mann</td></tr>
-            <tr><td>Nom. f</td><td>die jung<b>e</b> Frau</td></tr>
-            <tr><td>Nom. n</td><td>das klein<b>e</b> Kind</td></tr>
-            <tr><td>Akk. f</td><td>die schön<b>e</b> Stadt</td></tr>
-            <tr><td>Akk. n</td><td>das neu<b>e</b> Auto</td></tr>
-          </table></div>
-          <p>🟢 Всё остальное — <b>-en</b>! Akk. m, все Dativ, все Genitiv, весь Plural.</p>
-        `
-      },
-      {
-        heading: '💬 Примеры из жизни',
-        content: `
           <div class="example-box">
-            <div class="de">Der <b>alte</b> Professor kommt aus Wien. (Nom. m → -e)</div>
-            <div class="ru">Старый профессор из Вены.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Ich kenne die <b>nette</b> Studentin. (Akk. f → -e)</div>
-            <div class="ru">Ich helfe dem <b>kleinen</b> Kind. (Dat. n → -en)</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Mit dem <b>schnellen</b> Zug bin ich in einer Stunde in Wien. (Dat. m → -en)</div>
-            <div class="ru">На быстром поезде я за час в Вене.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Die <b>österreichischen</b> Universitäten sind sehr gut. (Nom. pl → -en)</div>
-            <div class="ru">Австрийские университеты очень хорошие.</div>
+            <div class="de">der alt<b>e</b> Mann · die schön<b>e</b> Frau · das klein<b>e</b> Kind · die net<b>en</b> Leute</div>
+            <div class="ru">Запомни «уголок -e»: только Nom (все роды) и Akk женского/среднего. Всё остальное — -en.</div>
           </div>
         `
       },
       {
-        heading: '🏛️ dieser/diese/dieses — то же самое!',
+        heading: '🧠 Простое правило «5 раз -e, остальное -en»',
         content: `
-          <p>После dieser (этот), jeder (каждый), welcher (какой) — те же окончания, что и после der/die/das:</p>
+          <p>В таблице ровно <b>5 клеток с -e</b> (верхний левый уголок): Nom m/f/n и Akk f/n. Все 11 остальных — <b>-en</b>.</p>
           <div class="example-box">
-            <div class="de">dies<b>er</b> alt<b>e</b> Mann → Nominativ m (der = dieser, окончание -e)</div>
-            <div class="ru">jed<b>en</b> lang<b>en</b> Tag → Akkusativ m (den = jeden, окончание -en)</div>
+            <div class="de">Nom: Der neu<b>e</b> Lehrer ist hier. → Akk m: Ich kenne den neu<b>en</b> Lehrer.</div>
+            <div class="ru">Как только падеж не Nom (или мужской Akk, Dativ, Genitiv, Plural) — ставь -en.</div>
+          </div>
+        `
+      },
+      {
+        heading: '👀 То же со словами dieser, jeder, alle',
+        content: `
+          <p>Слова <b>dieser, jener, jeder, welcher, alle, beide</b> склоняются как der/die/das, поэтому прилагательное после них — тоже слабое (-e/-en):</p>
+          <div class="example-box">
+            <div class="de">dies<b>er</b> alt<b>e</b> Mann · jed<b>es</b> klein<b>e</b> Kind · all<b>e</b> net<b>en</b> Leute</div>
+            <div class="ru">Логика та же: артикль-слово показывает род/падеж → прилагательное слабое.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Der _____ Mann spricht Deutsch. (alt, Nom. m)', options: ['alte', 'alten', 'altem', 'alter'], answer: 0 },
-      { type: 'choice', question: 'Ich sehe den _____ Hund. (groß, Akk. m)', options: ['großen', 'große', 'großem', 'großer'], answer: 0 },
-      { type: 'choice', question: 'Die _____ Frau kommt aus Wien. (jung, Nom. f)', options: ['junge', 'jungen', 'jungem', 'junger'], answer: 0 },
-      { type: 'fill', question: 'Ich helfe dem _____ Kind. (klein, Dat. n)', answer: 'kleinen', placeholder: 'klein...' },
-      { type: 'choice', question: 'Das ist das Buch des _____ Professors. (bekannt, Gen. m)', options: ['bekannten', 'bekannte', 'bekanntem', 'bekannter'], answer: 0 },
-      { type: 'choice', question: 'Mit dem _____ Zug fahre ich nach Wien. (schnell, Dat. m)', options: ['schnellen', 'schnelle', 'schneller', 'schnellem'], answer: 0 },
-      { type: 'fill', question: 'Die _____ Universität ist in Wien. (bekannt, Nom. f)', answer: 'bekannte', placeholder: 'bekannt...' },
-      { type: 'choice', question: 'Ich esse die _____ Suppe. (heiß, Akk. f)', options: ['heiße', 'heißen', 'heißem', 'heißer'], answer: 0 },
-      { type: 'translate', question: 'Старый город очень красивый.', hint: 'die alte Stadt / schön sein', answer: 'Die alte Stadt ist sehr schön.', placeholder: 'Die alte...' },
-      { type: 'translate', question: 'Я знаю этого молодого студента.', hint: 'kennen / den jungen Studenten', answer: 'Ich kenne den jungen Studenten.', placeholder: 'Ich kenne...' },
-      { type: 'fill', question: 'Den _____ Professor kenne ich gut. (neu, Akk. m)', answer: 'neuen', placeholder: 'neu...' },
+      { type: 'fill', question: 'Nom m: der alt___ Mann', answer: 'alte', placeholder: 'alt...' },
+      { type: 'fill', question: 'Nom f: die schön___ Frau', answer: 'schöne', placeholder: 'schön...' },
+      { type: 'fill', question: 'Nom n: das klein___ Kind', answer: 'kleine', placeholder: 'klein...' },
+      { type: 'fill', question: 'Akk m (меняется!): Ich sehe den alt___ Mann.', answer: 'alten', placeholder: 'alt...' },
+      { type: 'fill', question: 'Akk f: Ich sehe die schön___ Frau.', answer: 'schöne', placeholder: 'schön...' },
+      { type: 'fill', question: 'Akk n: Ich sehe das klein___ Kind.', answer: 'kleine', placeholder: 'klein...' },
+      { type: 'fill', question: 'Dativ m: mit dem neu___ Auto', answer: 'neuen', placeholder: 'neu...' },
+      { type: 'fill', question: 'Dativ f: mit der jung___ Frau', answer: 'jungen', placeholder: 'jung...' },
+      { type: 'fill', question: 'Plural Nom: die net___ Leute', answer: 'netten', placeholder: 'nett...' },
+      { type: 'fill', question: 'Plural Dativ: mit den klein___ Kindern', answer: 'kleinen', placeholder: 'klein...' },
+      { type: 'fill', question: 'diese + прилаг.: dieser alt___ Mann', answer: 'alte', placeholder: 'alt...' },
+      { type: 'translate', question: 'Старый мужчина читает.', answer: 'Der alte Mann liest.', hint: 'Nom m → -e', placeholder: 'Der alte...' },
+      { type: 'translate', question: 'Я вижу старого мужчину.', answer: 'Ich sehe den alten Mann.', hint: 'Akk m → -en', placeholder: 'Ich sehe...' },
+      { type: 'translate', question: 'Красивая женщина поёт.', answer: 'Die schöne Frau singt.', hint: 'Nom f → -e', placeholder: 'Die schöne...' },
+      { type: 'translate', question: 'Я играю с маленьким ребёнком.', answer: 'Ich spiele mit dem kleinen Kind.', hint: 'Dativ n → -en', placeholder: 'Ich spiele...' },
+      { type: 'listen', answer: 'Der neue Lehrer ist sehr nett.', hint: 'Nom m → neue' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Adjektiv nach der/die/das (z.B. der große Tisch, die kleine Lampe). Nutze Nominativ UND Akkusativ.', hint: 'Nom: der/die/das + …e. Akk m: den + …en.', placeholder: 'Der...', sample: 'Das alte Haus ist schön. Ich kaufe den roten Apfel. Die junge Frau arbeitet hier.' }
     ],
   },
 
   'adjektiv-nach-indef': {
-    title: 'Прилагательные после ein/eine — Die Gelbe Kap. 12',
-    level: 'A2 · Грамматика',
-    intro: 'После неопределённого артикля (ein/eine/kein/mein/dein...) используется «смешанное склонение». Логика проста: прилагательное берёт «сильное» окончание там, где артикль его не показывает.',
+    title: 'Прилагательные после ein/eine/kein/mein (смешанное склонение)',
+    level: 'A2 · Урок 23',
+    intro: 'После ein/eine/kein/mein прилагательное иногда должно «договаривать» род за артикль — ведь «ein» не показывает, мужской это или средний род. Поэтому в трёх клетках окончания «сильные» (-er, -es). Разберём и натренируем.',
     theory: [
       {
-        heading: '📐 Смешанное склонение — полная таблица',
+        heading: '🔵 Где артикль «молчит» — там прилагательное «говорит»',
         content: `
+          <p>«ein» в Nom m и Nom/Akk n не имеет окончания и не показывает род. Тогда род показывает <b>прилагательное</b> сильным окончанием (-er для m, -es для n):</p>
           <div class="table-wrap"><table>
-            <tr><th>Падеж</th><th>ein (m)</th><th>eine (f)</th><th>ein (n)</th><th>— (pl)</th></tr>
-            <tr><td><b>Nom.</b></td><td>ein alt<b>er</b> Mann</td><td>eine alt<b>e</b> Frau</td><td>ein alt<b>es</b> Kind</td><td>alt<b>e</b> Leute</td></tr>
-            <tr><td><b>Akk.</b></td><td>einen alt<b>en</b> Mann</td><td>eine alt<b>e</b> Frau</td><td>ein alt<b>es</b> Kind</td><td>alt<b>e</b> Leute</td></tr>
-            <tr><td><b>Dat.</b></td><td>einem alt<b>en</b> Mann</td><td>einer alt<b>en</b> Frau</td><td>einem alt<b>en</b> Kind</td><td>alt<b>en</b> Leuten</td></tr>
-            <tr><td><b>Gen.</b></td><td>eines alt<b>en</b> Mannes</td><td>einer alt<b>en</b> Frau</td><td>eines alt<b>en</b> Kindes</td><td>alt<b>er</b> Leute</td></tr>
+            <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th></tr>
+            <tr><td>Nom</td><td>ein gut<b>er</b></td><td>eine gut<b>e</b></td><td>ein gut<b>es</b></td></tr>
+            <tr><td>Akk</td><td>einen gut<b>en</b></td><td>eine gut<b>e</b></td><td>ein gut<b>es</b></td></tr>
+            <tr><td>Dat</td><td>einem gut<b>en</b></td><td>einer gut<b>en</b></td><td>einem gut<b>en</b></td></tr>
           </table></div>
-        `
-      },
-      {
-        heading: '🧠 Логика смешанного склонения',
-        content: `
-          <p>Смотри на то, что <b>показывает артикль</b>:</p>
-          <ul style="margin:10px 0 10px 20px;line-height:2">
-            <li><b>ein</b> (m, Nom.) — НЕ показывает род → прилагательное берёт -<b>er</b> (как der)</li>
-            <li><b>ein</b> (n, Nom./Akk.) — НЕ показывает род → прилагательное берёт -<b>es</b> (как das)</li>
-            <li><b>eine</b>, <b>einen</b>, <b>einem</b>, <b>einer</b> — уже показывают → прилагательное -<b>e/-en</b></li>
-          </ul>
           <div class="example-box">
-            <div class="de">Das ist ein <b>schöner</b> Tag! (m, Nom.) — ein не показывает m → -er</div>
-            <div class="ru">Das ist ein <b>neues</b> Auto. (n, Nom.) — ein не показывает n → -es</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Ich wohne in einem <b>kleinen</b> Zimmer. (Dat.) — einem уже показывает → -en</div>
+            <div class="de">ein gut<b>er</b> Mann (m) · ein klein<b>es</b> Kind (n) · eine schön<b>e</b> Frau (f)</div>
+            <div class="ru">Три «особые» клетки: Nom m (-er), Nom n (-es), Akk n (-es). Остальное как у слабого: -e или -en.</div>
           </div>
         `
       },
       {
-        heading: '💬 Примеры с mein/dein/kein (те же окончания!)',
+        heading: '🔁 То же с kein, mein, dein, sein…',
+        content: `
+          <p>kein и притяжательные (mein/dein/sein/ihr/unser…) склоняются <b>точно как ein</b>, поэтому прилагательное после них — по той же таблице:</p>
+          <div class="example-box">
+            <div class="de">mein gut<b>er</b> Freund · kein klein<b>es</b> Problem · ihre neu<b>e</b> Wohnung</div>
+            <div class="ru">ein/kein/mein → одинаковое поведение прилагательного.</div>
+          </div>
+          <p>⚠️ Во множественном числе у mein/kein есть окончание (meine, keine), поэтому прилагательное там слабое: meine gut<b>en</b> Freunde.</p>
+        `
+      },
+      {
+        heading: '🆚 Сравнение: der guteein guter',
         content: `
           <div class="example-box">
-            <div class="de">Das ist mein <b>neuer</b> Laptop. (m, Nom.) — mein не показывает m → -er</div>
-            <div class="ru">Ich habe keine <b>gute</b> Idee. (f, Akk.) — keine показывает f → -e</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Mit meinem <b>guten</b> Freund. (m, Dat.) → -en</div>
-            <div class="ru">Ihr <b>schönes</b> Zimmer ist in Wien. (n, Nom.) → -es</div>
+            <div class="de"><b>der</b> gute Mann (артикль показал род → -e) ↔ <b>ein</b> guter Mann (артикль молчит → -er)</div>
+            <div class="ru">Вся разница — кто «показывает род»: артикль или прилагательное.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Das ist ein _____ Tag! (schön, m, Nom.)', options: ['schöner', 'schöne', 'schönen', 'schönem'], answer: 0 },
-      { type: 'choice', question: 'Ich habe eine _____ Idee. (gut, f, Akk.)', options: ['gute', 'guter', 'guten', 'gutem'], answer: 0 },
-      { type: 'fill', question: 'Ich wohne in einem _____ Zimmer. (groß, Dat. n)', answer: 'großen', placeholder: 'groß...' },
-      { type: 'choice', question: 'Er kauft ein _____ Auto. (neu, n, Akk.)', options: ['neues', 'neue', 'neuer', 'neuen'], answer: 0 },
-      { type: 'choice', question: 'Sie kommt mit einem _____ Freund. (gut, Dat. m)', options: ['guten', 'gute', 'guter', 'gutem'], answer: 0 },
-      { type: 'fill', question: 'Das ist mein _____ Laptop. (neu, m, Nom.)', answer: 'neuer', placeholder: 'neu...' },
-      { type: 'choice', question: 'Ich kenne keinen _____ Arzt hier. (gut, m, Akk.)', options: ['guten', 'gute', 'guter', 'gutem'], answer: 0 },
-      { type: 'fill', question: 'Ihr _____ Zimmer ist sehr schön. (klein, n, Nom.)', answer: 'kleines', placeholder: 'klein...' },
-      { type: 'translate', question: 'Это прекрасный день!', hint: 'ein schöner Tag / Das ist...', answer: 'Das ist ein schöner Tag!', placeholder: 'Das ist ein...' },
-      { type: 'translate', question: 'У меня нет хорошей идеи.', hint: 'keine gute Idee / haben', answer: 'Ich habe keine gute Idee.', placeholder: 'Ich habe...' },
-      { type: 'choice', question: 'Sie hat eine _____ Wohnung in Wien. (schön, f, Akk.)', options: ['schöne', 'schöner', 'schönen', 'schönem'], answer: 0 },
+      { type: 'fill', question: 'Nom m: ein gut___ Mann', answer: 'guter', placeholder: 'gut...' },
+      { type: 'fill', question: 'Nom n: ein klein___ Kind', answer: 'kleines', placeholder: 'klein...' },
+      { type: 'fill', question: 'Nom f: eine schön___ Frau', answer: 'schöne', placeholder: 'schön...' },
+      { type: 'fill', question: 'Akk m: Ich habe einen alt___ Freund.', answer: 'alten', placeholder: 'alt...' },
+      { type: 'fill', question: 'Akk n: Ich habe ein klein___ Problem.', answer: 'kleines', placeholder: 'klein...' },
+      { type: 'fill', question: 'Akk f: Ich kaufe eine rot___ Tasche.', answer: 'rote', placeholder: 'rot...' },
+      { type: 'fill', question: 'Dativ m: mit einem neu___ Auto', answer: 'neuen', placeholder: 'neu...' },
+      { type: 'fill', question: 'mein + прилаг. (Nom m): mein gut___ Freund', answer: 'guter', placeholder: 'gut...' },
+      { type: 'fill', question: 'kein + прилаг. (Nom n): kein groß___ Problem', answer: 'großes', placeholder: 'groß...' },
+      { type: 'fill', question: 'Plural (mein): meine gut___ Freunde', answer: 'guten', placeholder: 'gut...' },
+      { type: 'translate', question: 'Это хороший мужчина.', answer: 'Das ist ein guter Mann.', hint: 'Nom m → ein guter', placeholder: 'Das ist...' },
+      { type: 'translate', question: 'У меня маленькая проблема.', answer: 'Ich habe ein kleines Problem.', hint: 'Akk n → ein kleines', placeholder: 'Ich habe...' },
+      { type: 'translate', question: 'У меня есть старый друг.', answer: 'Ich habe einen alten Freund.', hint: 'Akk m → einen alten', placeholder: 'Ich habe...' },
+      { type: 'translate', question: 'Мой хороший друг живёт в Вене.', answer: 'Mein guter Freund wohnt in Wien.', hint: 'mein + Nom m → guter', placeholder: 'Mein guter...' },
+      { type: 'listen', answer: 'Ich habe einen neuen Computer gekauft.', hint: 'Akk m → einen neuen' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Adjektiv nach ein/mein/kein (z.B. ein guter Freund, mein neues Auto). Nominativ und Akkusativ.', hint: 'Nom m → …er, Nom/Akk n → …es, Akk m → …en.', placeholder: 'Ich habe...', sample: 'Ich habe einen guten Freund. Mein neues Auto ist rot. Das ist eine schöne Idee.' }
     ],
   },
 
   komparativ: {
-    title: 'Komparativ und Superlativ — Die Gelbe Kap. 9',
-    level: 'A2 · Грамматика',
-    intro: 'Сравниваем людей, вещи и места! Komparativ — «больше/лучше», Superlativ — «самый большой/лучший». Немецкое сравнение проще, чем ты думаешь — одно правило покрывает 90%.',
+    title: 'Komparativ и Superlativ (сравнение)',
+    level: 'A2 · Урок 9',
+    intro: 'Сравнительная степень: groß → größer → am größten. Разберём окончания, слово als (чем), конструкцию so…wie (такой же), умлаут и важные исключения (gut, viel, gern).',
     theory: [
       {
-        heading: '📊 Komparativ = прилагательное + -er',
+        heading: '📈 Три степени',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Grundform</th><th>Komparativ</th><th>Перевод</th></tr>
-            <tr><td>schnell</td><td>schnell<b>er</b></td><td>быстрее</td></tr>
-            <tr><td>schön</td><td>schön<b>er</b></td><td>красивее</td></tr>
-            <tr><td>interessant</td><td>interessant<b>er</b></td><td>интереснее</td></tr>
-            <tr><td>billig</td><td>billig<b>er</b></td><td>дешевле</td></tr>
-            <tr><td>teuer</td><td>teur<b>er</b></td><td>дороже (выпадает e)</td></tr>
-            <tr><td>dunkel</td><td>dunkl<b>er</b></td><td>темнее (выпадает e)</td></tr>
-          </table></div>
-          <p>⚡ Многие односложные берут умлаут:</p>
-          <div class="table-wrap"><table>
-            <tr><th>Grundform</th><th>Komparativ</th><th>Superlativ</th></tr>
-            <tr><td>alt</td><td>ält<b>er</b></td><td>am ält<b>esten</b></td></tr>
-            <tr><td>jung</td><td>jüng<b>er</b></td><td>am jüng<b>sten</b></td></tr>
-            <tr><td>groß</td><td>größ<b>er</b></td><td>am größ<b>ten</b></td></tr>
-            <tr><td>lang</td><td>läng<b>er</b></td><td>am läng<b>sten</b></td></tr>
-            <tr><td>warm</td><td>wärm<b>er</b></td><td>am wärm<b>sten</b></td></tr>
-            <tr><td>kalt</td><td>kält<b>er</b></td><td>am kält<b>esten</b></td></tr>
-            <tr><td>kurz</td><td>kürz<b>er</b></td><td>am kürz<b>esten</b></td></tr>
-          </table></div>
-        `
-      },
-      {
-        heading: '⚠️ Исключения — нужно выучить!',
-        content: `
-          <div class="table-wrap"><table>
-            <tr><th>Grundform</th><th>Komparativ</th><th>Superlativ</th><th>Перевод</th></tr>
-            <tr><td><b>gut</b></td><td><b>besser</b></td><td><b>am besten</b></td><td>хорошо → лучше → лучше всего</td></tr>
-            <tr><td><b>viel</b></td><td><b>mehr</b></td><td><b>am meisten</b></td><td>много → больше → больше всего</td></tr>
-            <tr><td><b>gern</b></td><td><b>lieber</b></td><td><b>am liebsten</b></td><td>охотно → охотнее → охотнее всего</td></tr>
-            <tr><td><b>hoch</b></td><td><b>höher</b></td><td><b>am höchsten</b></td><td>высокий → выше → самый высокий</td></tr>
-            <tr><td><b>nah</b></td><td><b>näher</b></td><td><b>am nächsten</b></td><td>близкий → ближе → ближайший</td></tr>
+            <tr><th>Положит.</th><th>Сравнит. (+er)</th><th>Превосх. (am …sten)</th></tr>
+            <tr><td>klein</td><td>klein<b>er</b></td><td>am klein<b>sten</b></td></tr>
+            <tr><td>schnell</td><td>schnell<b>er</b></td><td>am schnell<b>sten</b></td></tr>
+            <tr><td>interessant</td><td>interessant<b>er</b></td><td>am interessant<b>esten</b></td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich spreche gut Englisch, aber <b>besser</b> Deutsch. — Я хорошо говорю по-английски, но лучше по-немецки.</div>
-            <div class="ru">Ich lerne <b>am liebsten</b> Deutsch. — Охотнее всего я учу немецкий.</div>
+            <div class="de">После -t, -d, -s, -ß, -z в превосходной вставляется -e-: am ältesten, am heißesten.</div>
+            <div class="ru">Сравнительная = прилагательное + -er. Превосходная = am + …sten.</div>
           </div>
         `
       },
       {
-        heading: '🔗 Сравнение: als / wie',
+        heading: '🔤 als и so … wie',
         content: `
-          <p><b>als</b> = чем (при Komparativ) · <b>wie</b> = как (при равенстве)</p>
+          <ul>
+            <li>Неравенство — <b>als</b> (чем): <i>Anna ist größer <b>als</b> Max.</i></li>
+            <li>Равенство — <b>so … wie</b> (такой же … как): <i>Max ist <b>so</b> groß <b>wie</b> ich.</i></li>
+          </ul>
           <div class="example-box">
-            <div class="de">Wien ist kleiner <b>als</b> Moskau. — Вена меньше, чем Москва.</div>
-            <div class="ru">Margo ist genauso klug <b>wie</b> ihre Schwester. — Марго такая же умная, как её сестра.</div>
-          </div>
-          <div class="example-box">
-            <div class="de">Deutsch ist schwieriger <b>als</b> Englisch, aber schöner! — Немецкий сложнее, чем английский, но красивее!</div>
+            <div class="de">Wien ist kleiner <b>als</b> Berlin, aber <b>so</b> schön <b>wie</b> Berlin.</div>
+            <div class="ru">Частая ошибка: «größer wie» — неправильно. С сравнительной только als!</div>
           </div>
         `
       },
       {
-        heading: '🏆 Superlativ — два способа',
+        heading: '🔼 Умлаут у коротких прилагательных',
         content: `
-          <p><b>Предикативный</b> (после sein/werden): am + прилагательное + <b>-(e)sten</b></p>
-          <p><b>Атрибутивный</b> (перед существительным): артикль + прилагательное + <b>-(e)sten</b> + склонение</p>
+          <p>Многие односложные прилагательные получают умлаут в сравнительной и превосходной:</p>
+          <div class="table-wrap"><table>
+            <tr><td>alt → <b>ä</b>lter → am ältesten</td><td>jung → j<b>ü</b>nger</td></tr>
+            <tr><td>groß → gr<b>ö</b>ßer → am größten</td><td>kurz → k<b>ü</b>rzer</td></tr>
+            <tr><td>warm → w<b>ä</b>rmer</td><td>stark → st<b>ä</b>rker</td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: '⚠️ Исключения (учить наизусть)',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Положит.</th><th>Сравнит.</th><th>Превосх.</th></tr>
+            <tr><td>gut</td><td><b>besser</b></td><td>am <b>besten</b></td></tr>
+            <tr><td>viel</td><td><b>mehr</b></td><td>am <b>meisten</b></td></tr>
+            <tr><td>gern</td><td><b>lieber</b></td><td>am <b>liebsten</b></td></tr>
+            <tr><td>hoch</td><td><b>höher</b></td><td>am höchsten</td></tr>
+            <tr><td>nah</td><td><b>näher</b></td><td>am nächsten</td></tr>
+          </table></div>
           <div class="example-box">
-            <div class="de">Das ist <b>am interessantesten</b>. — Это самое интересное. (предикатив)</div>
-            <div class="ru">Das ist die <b>interessanteste</b> Stadt. — Это самый интересный город. (атрибутив)</div>
+            <div class="de">Ich trinke gern Tee, aber <b>lieber</b> Kaffee, und <b>am liebsten</b> Kakao.</div>
+            <div class="ru">Эти пять — самые частые, их спрашивают на экзамене.</div>
           </div>
-          <div class="example-box">
-            <div class="de">Der <b>höchste</b> Berg Österreichs ist der Großglockner. — Самая высокая гора Австрии — Гросглокнер.</div>
-            <div class="ru">Wien ist die <b>schönste</b> Stadt, die ich kenne. — Вена — красивейший город, который я знаю.</div>
-          </div>
-          <p>💡 Прибавляй <b>-esten</b> (с e) после: -d, -t, -s, -sch, -z, -ß → am interessant<b>esten</b>, am groß<b>ten</b> (→ größten)</p>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Wien ist schön, aber Paris ist _____. (schön + -er)', answer: 'schöner', placeholder: 'schön...' },
-      { type: 'fill', question: 'Dieses Buch ist _____ als jenes. (gut → Komparativ)', answer: 'besser', placeholder: 'bes...' },
-      { type: 'choice', question: 'Er ist _____ als sein Bruder. (alt)', options: ['älter', 'alter', 'am alten', 'ältesten'], answer: 0 },
-      { type: 'choice', question: 'Das ist die _____ Stadt Österreichs. (schön, Superlativ, f)', options: ['schönste', 'schöner', 'am schönsten', 'schönsten'], answer: 0 },
-      { type: 'fill', question: 'Ich lerne _____ Deutsch. (gern → Superlativ)', answer: 'am liebsten', placeholder: 'am li...' },
-      { type: 'choice', question: 'Moskau ist _____ als Wien. (groß)', options: ['größer', 'größt', 'am größten', 'groß'], answer: 0 },
-      { type: 'choice', question: 'Sie spricht Englisch so gut _____ ich.', options: ['wie', 'als', 'dann', 'denn'], answer: 0 },
-      { type: 'fill', question: 'Er ist _____ als seine Schwester. (jung → Komparativ)', answer: 'jünger', placeholder: 'jüng...' },
-      { type: 'translate', question: 'Немецкий сложнее, чем английский.', hint: 'schwieriger als', answer: 'Deutsch ist schwieriger als Englisch.', placeholder: 'Deutsch ist...' },
-      { type: 'choice', question: 'Das ist der _____ Berg Österreichs. (hoch, Superlativ, m)', options: ['höchste', 'höher', 'am höchsten', 'höchsten'], answer: 0 },
-      { type: 'translate', question: 'Этот университет лучший в Австрии.', hint: 'die beste Universität / in Österreich', answer: 'Diese Universität ist die beste in Österreich.', placeholder: 'Diese Universität...' },
+      { type: 'fill', question: 'Сравнит.: klein → ___', answer: 'kleiner', placeholder: 'klein...' },
+      { type: 'fill', question: 'Сравнит. с умлаутом: alt → ___', answer: 'älter', placeholder: '...' },
+      { type: 'fill', question: 'Сравнит. с умлаутом: groß → ___', answer: 'größer', placeholder: '...' },
+      { type: 'fill', question: 'Превосх.: schnell → am ___', answer: 'schnellsten', placeholder: 'schnell...' },
+      { type: 'fill', question: 'Превосх. (+e): alt → am ___', answer: 'ältesten', placeholder: '...' },
+      { type: 'fill', question: 'Исключение: gut → ___', answer: 'besser', placeholder: '...' },
+      { type: 'fill', question: 'Исключение превосх.: gut → am ___', answer: 'besten', placeholder: '...' },
+      { type: 'fill', question: 'Исключение: gern → ___', answer: 'lieber', placeholder: '...' },
+      { type: 'fill', question: 'Исключение: viel → ___', answer: 'mehr', placeholder: '...' },
+      { type: 'fill', question: 'als или wie? Anna ist größer ___ Max.', answer: 'als', placeholder: '...' },
+      { type: 'fill', question: 'so … ___: Max ist so groß ___ ich.', answer: 'wie', placeholder: '...' },
+      { type: 'translate', question: 'Вена меньше Берлина.', answer: 'Wien ist kleiner als Berlin.', hint: 'kleiner + als', placeholder: 'Wien ist...' },
+      { type: 'translate', question: 'Я старше тебя.', answer: 'Ich bin älter als du.', hint: 'alt → älter + als', placeholder: 'Ich bin...' },
+      { type: 'translate', question: 'Кофе мне нравится больше, чем чай.', answer: 'Ich trinke lieber Kaffee als Tee.|Kaffee mag ich lieber als Tee.', hint: 'gern → lieber … als', placeholder: 'Ich trinke...' },
+      { type: 'listen', answer: 'Der Sommer ist wärmer als der Winter.', hint: 'warm → wärmer + als' },
+      { type: 'write', question: 'Schreib 3 Vergleiche mit Komparativ (… ist …er als …) und 1× am …sten.', hint: 'A ist größer/schneller/besser als B. Am besten ist …', placeholder: '...', sample: 'Berlin ist größer als Wien. Der Zug ist schneller als der Bus. Mathe ist schwerer als Sport. Am liebsten lerne ich Deutsch.' }
     ],
   },
 
