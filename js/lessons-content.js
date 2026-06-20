@@ -995,115 +995,91 @@ const LESSONS_CONTENT = {
 
   'articles-def': {
     title: 'Определённый артикль и склонение существительного',
-    level: 'A1 · Урок 8',
-    intro: 'der / die / das — это не просто «the». Артикль показывает род, число И падеж существительного. Разберём все три рода, как угадывать род, и полную таблицу склонения по 4 падежам.',
+    intro: 'der / die / das — это не «the». Артикль несёт три категории сразу: род, число и падеж. Освоив таблицу артикля, ты автоматически склоняешь почти любое существительное. Разберём систему до конца — с подводными камнями.',
     theory: [
       {
-        heading: '🟦 Три рода и множественное число',
+        heading: '📘 Основа: три рода и таблица падежей',
         content: `
-          <p>У каждого существительного есть род. Его надо учить <b>вместе со словом</b>:</p>
+          <p>Род существительного — это часть слова, его учат вместе со словом. Во множественном числе род «исчезает»: артикль у всех — <b>die</b>.</p>
+          <p>Определённый артикль меняется по падежам. Это сердце всей грамматики, выучи наизусть:</p>
           <div class="table-wrap"><table>
-            <tr><th>Род</th><th>Артикль</th><th>Пример</th></tr>
-            <tr><td>мужской (m)</td><td><b>der</b></td><td>der Tisch (стол), der Mann</td></tr>
-            <tr><td>женский (f)</td><td><b>die</b></td><td>die Lampe (лампа), die Frau</td></tr>
-            <tr><td>средний (n)</td><td><b>das</b></td><td>das Buch (книга), das Kind</td></tr>
-            <tr><td>множ. (Pl)</td><td><b>die</b></td><td>die Tische, die Bücher</td></tr>
-          </table></div>
-          <p>Во множественном числе у всех родов артикль <b>die</b>.</p>
-        `
-      },
-      {
-        heading: '🔍 Как угадать род (подсказки по окончанию)',
-        content: `
-          <p>Род не всегда логичен (das Mädchen — «девочка» среднего рода!), но окончания часто подсказывают:</p>
-          <div class="table-wrap"><table>
-            <tr><th>Обычно der (m)</th><th>Обычно die (f)</th><th>Обычно das (n)</th></tr>
-            <tr><td>-er, -ling, -or, -ismus</td><td>-ung, -heit, -keit, -schaft, -ei, -tion, -e</td><td>-chen, -lein, -um, -ment</td></tr>
-            <tr><td>der Lehrer, der Motor</td><td>die Zeitung, die Freiheit, die Lampe</td><td>das Mädchen, das Zentrum</td></tr>
+            <tr><th>Падеж</th><th>m (der)</th><th>f (die)</th><th>n (das)</th><th>Pl (die)</th></tr>
+            <tr><td><b>Nominativ</b> кто/что</td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
+            <tr><td><b>Akkusativ</b> кого/что</td><td><b>den</b></td><td>die</td><td>das</td><td>die</td></tr>
+            <tr><td><b>Dativ</b> кому/чему</td><td><b>dem</b></td><td><b>der</b></td><td><b>dem</b></td><td><b>den</b> +n</td></tr>
+            <tr><td><b>Genitiv</b> чей</td><td><b>des</b> +(e)s</td><td><b>der</b></td><td><b>des</b> +(e)s</td><td>der</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">💡 -chen и -lein всегда das и делают слово уменьшительным: der Hund → das Hündchen (собачка).</div>
-            <div class="ru">Дни, месяцы, времена года — мужского рода: der Montag, der Mai, der Sommer.</div>
+            <div class="de">Der Termin (Nom) ist wichtig. Ich verschiebe den Termin (Akk). Ich sage dem Kollegen (Dat) Bescheid. Das ist die Folge des Termins (Gen).</div>
+            <div class="ru">Встреча важна. Я переношу встречу. Я сообщу коллеге. Это следствие встречи.</div>
           </div>
         `
       },
       {
-        heading: '📊 Полная таблица склонения (определённый артикль)',
+        heading: '🔍 Тонкость: как определить род по форме слова',
         content: `
-          <p>Падеж меняет артикль. Вот вся система — её стоит выучить наизусть:</p>
+          <p>Род не случаен — у многих слов он «зашит» в суффиксе или значении. Это не 100%-правило, но экономит силы:</p>
           <div class="table-wrap"><table>
-            <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
-            <tr><td><b>Nominativ</b> (кто? что?)</td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
-            <tr><td><b>Akkusativ</b> (кого? что?)</td><td><b>den</b></td><td>die</td><td>das</td><td>die</td></tr>
-            <tr><td><b>Dativ</b> (кому? чему?)</td><td><b>dem</b></td><td><b>der</b></td><td><b>dem</b></td><td><b>den</b> +n</td></tr>
-            <tr><td><b>Genitiv</b> (чей?)</td><td><b>des</b> +(e)s</td><td><b>der</b></td><td><b>des</b> +(e)s</td><td>der</td></tr>
+            <tr><th>Чаще der (m)</th><th>Чаще die (f)</th><th>Чаще das (n)</th></tr>
+            <tr><td>-er (деятель), -ling, -ig, -ismus; дни, месяцы, времена года, стороны света; погодные явления (der Regen)</td><td>-ung, -heit, -keit, -schaft, -ei, -ion, -tät, -ur, -ik; большинство на -e</td><td>-chen, -lein (уменьш.), -um, -ment, -tum; субстантивир. инфинитивы (das Essen), названия языков и цветов</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Главное наблюдение: в Akkusativ меняется <b>только мужской</b> род (der → den). Женский, средний и множественное в Nom = Akk.</div>
-            <div class="ru">Поэтому многие фразы в Akkusativ выглядят как в Nominativ — кроме мужского рода.</div>
+            <div class="de">die Erfahrung, die Möglichkeit, die Universität, die Reparatur · der Frühling, der Montag · das Abkommen, das Dokument, das Wachstum</div>
+            <div class="ru">Опыт, возможность, университет, ремонт · весна, понедельник · соглашение, документ, рост.</div>
           </div>
         `
       },
       {
-        heading: '⚙️ Особенности падежей',
+        heading: '⚙️ Тонкость: что происходит с самим существительным',
         content: `
+          <p>Меняется не только артикль — иногда и существительное получает окончание:</p>
           <ul>
-            <li><b>Dativ Plural:</b> к существительному добавляется -n → mit <b>den Kindern</b>, mit <b>den Freunden</b>.</li>
-            <li><b>Genitiv m/n:</b> существительное получает -(e)s → das Auto <b>des Mannes</b>, der Titel <b>des Buches</b>.</li>
-            <li><b>Где какой падеж:</b> Nominativ — подлежащее; Akkusativ — прямой объект (sehen, haben, kaufen); Dativ — кому/чему (geben, helfen, danken); Genitiv — принадлежность.</li>
+            <li><b>Genitiv m/n:</b> добавляется <b>-s</b> (после долгого слога) или <b>-es</b> (после короткого/шипящего): des Autos, des Mannes, des Glases.</li>
+            <li><b>Dativ Plural:</b> существительное получает <b>-n</b>, если его ещё нет: mit den Kindern, mit den Gästen, mit den Frauen.</li>
+            <li>Слабые существительные (N-Deklination) получают -(e)n во всех падежах кроме Nom Sg — это отдельная тема.</li>
           </ul>
           <div class="example-box">
-            <div class="de">Der Mann (Nom) gibt dem Kind (Dat) den Ball (Akk). — Das ist das Auto des Mannes (Gen).</div>
-            <div class="ru">Мужчина даёт ребёнку мяч. — Это машина (этого) мужчины.</div>
+            <div class="de">der Preis des Wagens · der Geschmack des Käses · ein Gespräch mit den Nachbarn</div>
+            <div class="ru">Цена машины · вкус сыра · разговор с соседями.</div>
           </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Главное наблюдение: в <b>Akkusativ меняется только мужской</b> род (der→den). Женский, средний, множественное в Akk = как в Nom. Не «переусердствуй» с женским: <i>Ich sehe <b>die</b> Frau</i>, а не «den Frau».</li>
+            <li>Не путай Dativ Plural <b>den</b> с Akkusativ Singular <b>den</b> (m). Den Kindern — это «детям» (Dat Pl, +n у слова), den Mann — «мужчину» (Akk Sg m).</li>
+            <li>Род русского слова ≠ род немецкого: <i>das Mädchen</i> (девочка) — средний, <i>die Person</i> — женский для всех, <i>der Tisch</i> — мужской.</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Род: ___ Zeitung (-ung → ?). Впиши артикль Nominativ.', answer: 'die', placeholder: 'd...' },
-      { type: 'fill', question: 'Род: ___ Mädchen (-chen → ?). Впиши артикль.', answer: 'das', placeholder: 'd...' },
-      { type: 'fill', question: 'Nominativ → Akkusativ: Ich sehe ___ Mann. (der Mann)', answer: 'den', placeholder: 'd...' },
-      { type: 'fill', question: 'Akkusativ: Ich kaufe ___ Lampe. (die Lampe — меняется?)', answer: 'die', placeholder: 'd...' },
-      { type: 'fill', question: 'Akkusativ: Ich lese ___ Buch. (das Buch)', answer: 'das', placeholder: 'd...' },
-      { type: 'fill', question: 'Dativ: Ich helfe ___ Frau. (die Frau)', answer: 'der', placeholder: 'd...' },
-      { type: 'fill', question: 'Dativ: Ich gebe ___ Kind den Ball. (das Kind)', answer: 'dem', placeholder: 'd...' },
-      { type: 'fill', question: 'Dativ Plural: Ich spiele mit ___ Kindern. (die Kinder)', answer: 'den', placeholder: 'd...' },
-      { type: 'fill', question: 'Genitiv: Das ist das Auto ___ Mannes. (der Mann)', answer: 'des', placeholder: 'd...' },
-      { type: 'translate', question: 'Мужчина читает книгу.', answer: 'Der Mann liest das Buch.', hint: 'Der Mann (Nom) + lesen + das Buch (Akk)', placeholder: 'Der Mann...' },
-      { type: 'translate', question: 'Я вижу собаку. (der Hund)', answer: 'Ich sehe den Hund.', hint: 'sehen → Akkusativ, мужской der→den', placeholder: 'Ich sehe...' },
-      { type: 'translate', question: 'Я помогаю женщине. (die Frau)', answer: 'Ich helfe der Frau.', hint: 'helfen → Dativ', placeholder: 'Ich helfe...' },
-      { type: 'listen', answer: 'Ich gebe dem Kind den Ball.', hint: 'Dativ + Akkusativ' },
-      { type: 'write', question: 'Schreib 3 Sätze: wer macht was? Nutze Nominativ + Akkusativ (z.B. Der Mann kauft einen Apfel).', hint: 'Подлежащее в Nominativ, прямой объект в Akkusativ. Глаголы: sehen, kaufen, lesen, haben.', placeholder: 'Die Frau...', sample: 'Die Frau liest das Buch. Der Mann kauft den Apfel. Das Kind sieht den Hund.' }
+      { type: 'choice', question: 'Какой падеж нужен после глагола helfen: «Ich helfe ___ Kollegen»?', options: ['dem (Dativ)', 'den (Akkusativ)', 'der (Genitiv)'], answer: 0, explain: 'helfen управляет дательным падежом (кому?).' },
+      { type: 'choice', question: 'Род слова «Erfahrung» (-ung)?', options: ['die', 'der', 'das'], answer: 0, explain: 'Суффикс -ung почти всегда женского рода.' },
+      { type: 'choice', question: 'Akkusativ: «Ich verschiebe ___ Termin» (der Termin)', options: ['den', 'dem', 'der', 'das'], answer: 0, explain: 'Akkusativ мужского рода: der → den.' },
+      { type: 'fill', question: 'Akkusativ f (не меняется!): Ich unterschreibe ___ Rechnung. (die Rechnung)', answer: 'die', placeholder: 'd...', explain: 'Женский род в Akkusativ совпадает с Nominativ.' },
+      { type: 'fill', question: 'Dativ Plural: Ich spreche mit ___ Nachbarn. (die Nachbarn)', answer: 'den', placeholder: 'd...', explain: 'Dativ Plural артикль den, существительное уже на -n.' },
+      { type: 'fill', question: 'Genitiv m: Der Preis ___ Wagens ist hoch. (der Wagen)', answer: 'des', placeholder: 'd...', explain: 'Genitiv m: артикль des, существительное +s (Wagens).' },
+      { type: 'fill', question: 'Dativ n: Ich gebe ___ Kind das Spielzeug. (das Kind)', answer: 'dem', placeholder: 'd...', explain: 'Dativ среднего рода — dem.' },
+      { type: 'fill', question: 'Genitiv f: Das ist der Titel ___ Zeitschrift. (die Zeitschrift)', answer: 'der', placeholder: 'd...', explain: 'Genitiv женского рода — der (существительное без -s).' },
+      { type: 'translate', question: 'Я переношу встречу. (der Termin, verschieben)', answer: 'Ich verschiebe den Termin.', hint: 'Akkusativ m: der → den', placeholder: 'Ich verschiebe...', explain: 'Прямой объект — Akkusativ, мужской род меняется.' },
+      { type: 'translate', question: 'Я отвечаю клиенту. (der Kunde, antworten + Dativ)', answer: 'Ich antworte dem Kunden.', hint: 'antworten → Dativ; der Kunde слабое → dem Kunden', placeholder: 'Ich antworte...', explain: 'antworten требует Dativ; Kunde — слабое существительное (+n).' },
+      { type: 'translate', question: 'Это сумка соседки. (die Nachbarin)', answer: 'Das ist die Tasche der Nachbarin.', hint: 'Genitiv f: der Nachbarin', placeholder: 'Das ist die Tasche...', explain: 'Принадлежность — Genitiv; женский род артикль der.' },
+      { type: 'listen', answer: 'Ich gebe dem Gast den Schlüssel.', hint: 'Dativ (кому) + Akkusativ (что)' },
+      { type: 'write', question: 'Schreib 3 Sätze mit verschiedenen Kasus: ein Akkusativ-Objekt, ein Dativ-Objekt und ein Genitiv (Besitz).', hint: 'Ich sehe den … / Ich helfe dem … / Das ist das Auto des …', placeholder: 'Ich...', sample: 'Ich brauche den Schlüssel. Ich danke dem Mitarbeiter. Das ist das Büro des Direktors.' }
     ],
   },
 
   'articles-indef': {
     title: 'Неопределённый артикль ein/eine и отрицание kein',
-    level: 'A1 · Урок 9',
-    intro: 'ein / eine — «один, какой-то» (когда говорим о предмете впервые). Разберём склонение ein по падежам и отрицание kein/keine. Сравним: когда der, а когда ein.',
+    intro: 'ein/eine вводит предмет впервые («какой-то»). kein отрицает существительное. Оба склоняются по одной схеме, и именно в их окончаниях прячется род — это пригодится для прилагательных.',
     theory: [
       {
-        heading: '🆕 ein / eine / ein — когда?',
+        heading: '📘 Основа: ein / eine и склонение',
         content: `
-          <p>Неопределённый артикль используют, когда предмет <b>новый, неизвестный, упоминается впервые</b> или «один из многих»:</p>
-          <div class="table-wrap"><table>
-            <tr><th>Род</th><th>Артикль (Nom)</th><th>Пример</th></tr>
-            <tr><td>m</td><td><b>ein</b></td><td>Das ist ein Tisch.</td></tr>
-            <tr><td>f</td><td><b>eine</b></td><td>Das ist eine Lampe.</td></tr>
-            <tr><td>n</td><td><b>ein</b></td><td>Das ist ein Buch.</td></tr>
-            <tr><td>Pl</td><td>— (нет!)</td><td>Das sind Bücher.</td></tr>
-          </table></div>
-          <p>⚠️ Во множественном числе неопределённого артикля <b>нет</b> — просто существительное: <i>Ich habe Freunde.</i></p>
-          <div class="example-box">
-            <div class="de">ein vs der: Da ist <b>ein</b> Hund. <b>Der</b> Hund ist groß. (сначала «какая-то» собака → потом уже «та самая»)</div>
-            <div class="ru">Первое упоминание — ein, повторное — der.</div>
-          </div>
-        `
-      },
-      {
-        heading: '📊 Склонение ein по падежам',
-        content: `
-          <p>ein меняется почти как der, но без окончания в Nom m/n:</p>
+          <p>Неопределённый артикль ставим, когда предмет <b>новый, неизвестный или «один из многих»</b>. Во множественном числе его нет — просто существительное.</p>
           <div class="table-wrap"><table>
             <tr><th>Падеж</th><th>m</th><th>f</th><th>n</th></tr>
             <tr><td>Nominativ</td><td>ein</td><td>eine</td><td>ein</td></tr>
@@ -1112,15 +1088,25 @@ const LESSONS_CONTENT = {
             <tr><td>Genitiv</td><td><b>eines</b> +(e)s</td><td><b>einer</b></td><td><b>eines</b> +(e)s</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich habe <b>einen</b> Bruder (Akk, m). Ich gebe <b>einem</b> Freund das Buch (Dat, m).</div>
-            <div class="ru">Как и у der: в Akkusativ меняется только мужской род (ein → einen).</div>
+            <div class="de">Ich suche einen Termin (Akk m). Ich komme mit einem Vorschlag (Dat m). Das ist die Idee einer Kollegin (Gen f).</div>
+            <div class="ru">Я ищу время для встречи. Я прихожу с предложением. Это идея коллеги.</div>
           </div>
         `
       },
       {
-        heading: '🚫 Отрицание: kein / keine',
+        heading: '🔍 Тонкость: где «ein» молчит — там важна форма',
         content: `
-          <p>Чтобы сказать «нет / никакой» про существительное, используют <b>kein</b>. Он склоняется <b>точно как ein</b>, но имеет множественное число (keine):</p>
+          <p>В Nom m и Nom/Akk n у «ein» нет окончания, и он не показывает род. Запомни это: позже именно прилагательное будет «договаривать» род (ein gut<b>er</b> Mann). Сравни:</p>
+          <div class="example-box">
+            <div class="de">ein Tisch (m) — ein Buch (n): по «ein» не отличить род. Но: einen Tisch (Akk m) ≠ ein Buch (Akk n).</div>
+            <div class="ru">В Nominative «ein» одинаков для m и n; в Akkusative мужской выдаёт себя окончанием -en.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🚫 Тонкость: отрицание kein/keine',
+        content: `
+          <p><b>kein</b> отрицает существительное, которое в утверждении шло бы с <b>ein</b> или <b>без артикля</b>. Склоняется как ein, но у него есть множественное число (keine):</p>
           <div class="table-wrap"><table>
             <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
             <tr><td>Nom</td><td>kein</td><td>keine</td><td>kein</td><td>keine</td></tr>
@@ -1128,26 +1114,35 @@ const LESSONS_CONTENT = {
             <tr><td>Dat</td><td>keinem</td><td>keiner</td><td>keinem</td><td>keinen</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich habe <b>einen</b> Hund. → Ich habe <b>keinen</b> Hund. · Das ist <b>kein</b> Problem.</div>
-            <div class="ru">kein отрицает существительное. (Глагол отрицают через nicht — это другая тема.)</div>
+            <div class="de">Ich habe einen Plan → Ich habe keinen Plan. Ich trinke Kaffee → Ich trinke keinen Kaffee. Das sind Argumente → Das sind keine Argumente.</div>
+            <div class="ru">kein = «никакой / нет». Глагол отрицают через nicht — это другое.</div>
           </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Во множественном числе <b>нет ein</b>: не «ein Freunde», а просто <i>Freunde</i> или <i>keine Freunde</i> при отрицании.</li>
+            <li>kein vs nicht: предмет с неопределённым/нулевым артиклем → <b>kein</b>; всё прочее (глагол, прилагательное, имя, предмет с der) → <b>nicht</b>. «Ich habe <b>kein</b> Auto», но «Ich kenne den Mann <b>nicht</b>».</li>
+            <li>В Akkusative мужского не забывай -en: «Ich habe <b>einen</b> Bruder», не «ein Bruder».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Nominativ: Das ist ___ Lampe. (die Lampe)', answer: 'eine', placeholder: 'ein...' },
-      { type: 'fill', question: 'Nominativ: Das ist ___ Buch. (das Buch)', answer: 'ein', placeholder: 'ein...' },
-      { type: 'fill', question: 'Akkusativ: Ich habe ___ Bruder. (der Bruder)', answer: 'einen', placeholder: 'ein...' },
-      { type: 'fill', question: 'Akkusativ: Ich kaufe ___ Tasche. (die Tasche)', answer: 'eine', placeholder: 'ein...' },
-      { type: 'fill', question: 'Dativ: Ich gebe ___ Freund das Buch. (der Freund)', answer: 'einem', placeholder: 'ein...' },
-      { type: 'fill', question: 'Множественное: Ich habe ___ Freunde. (артикль есть?)', answer: '-|—|нет|kein', placeholder: '- если нет' },
-      { type: 'fill', question: 'Отрицание: Ich habe ___ Auto. (kein, das Auto, Akk)', answer: 'kein', placeholder: 'kein...' },
-      { type: 'fill', question: 'Отрицание: Ich habe ___ Bruder. (kein, der Bruder, Akk)', answer: 'keinen', placeholder: 'kein...' },
-      { type: 'translate', question: 'У меня есть собака. (der Hund)', answer: 'Ich habe einen Hund.', hint: 'haben → Akkusativ, ein→einen', placeholder: 'Ich habe...' },
-      { type: 'translate', question: 'Это не проблема. (das Problem)', answer: 'Das ist kein Problem.', hint: 'kein + das Problem', placeholder: 'Das ist...' },
-      { type: 'translate', question: 'У меня нет времени. (die Zeit)', answer: 'Ich habe keine Zeit.', hint: 'kein + die Zeit (Akk)', placeholder: 'Ich habe...' },
-      { type: 'listen', answer: 'Ich habe einen Bruder und eine Schwester.', hint: 'два Akkusativ: m и f' },
-      { type: 'write', question: 'Schreib 3 Sätze: was hast du / was hast du nicht? Nutze ein-/kein- im Akkusativ.', hint: 'Ich habe einen/eine/ein … / Ich habe keinen/keine/kein …', placeholder: 'Ich habe...', sample: 'Ich habe einen Hund. Ich habe eine Schwester. Ich habe kein Auto.' }
+      { type: 'choice', question: 'Что правильно: «Ich habe ___ Geschwister» (братьев/сестёр, Pl)?', options: ['keine', 'kein', 'einen'], answer: 0, explain: 'Во мн.числе ein нет; отрицание — keine.' },
+      { type: 'choice', question: 'kein или nicht: «Ich kenne den Direktor ___»', options: ['nicht', 'kein', 'keinen'], answer: 0, explain: 'Существительное с определённым артиклем → отрицаем nicht.' },
+      { type: 'choice', question: 'Akkusativ m: «Ich brauche ___ Vorschlag» (der Vorschlag)', options: ['einen', 'ein', 'einem'], answer: 0, explain: 'Akkusativ мужского: ein → einen.' },
+      { type: 'fill', question: 'Dativ m: Ich komme mit ___ Vorschlag. (der Vorschlag)', answer: 'einem', placeholder: 'ein...', explain: 'mit → Dativ; ein → einem.' },
+      { type: 'fill', question: 'Отрицание Akk f: Ich habe ___ Geduld mehr. (die Geduld)', answer: 'keine', placeholder: 'kein...', explain: 'Geduld (без артикля) → kein-; женский Akk → keine.' },
+      { type: 'fill', question: 'Genitiv f: Das ist die Meinung ___ Expertin. (die Expertin)', answer: 'einer', placeholder: 'ein...', explain: 'Genitiv женского — einer.' },
+      { type: 'fill', question: 'Akk n: Das ist ___ ernstes Problem. (das Problem)', answer: 'ein', placeholder: 'ein...', explain: 'Средний род в Akk = Nom: ein.' },
+      { type: 'translate', question: 'У меня нет машины. (das Auto)', answer: 'Ich habe kein Auto.', hint: 'das Auto без артикля → kein', placeholder: 'Ich habe...', explain: 'Отрицание существительного → kein.' },
+      { type: 'translate', question: 'Я ищу опытного сотрудника. (der Mitarbeiter)', answer: 'Ich suche einen Mitarbeiter.', hint: 'suchen → Akkusativ m: einen', placeholder: 'Ich suche...', explain: 'Прямой объект мужского рода → einen.' },
+      { type: 'translate', question: 'У меня больше нет терпения. (die Geduld)', answer: 'Ich habe keine Geduld mehr.', hint: 'kein + Geduld (Akk f) → keine', placeholder: 'Ich habe...', explain: 'Geduld без артикля отрицается через kein-.' },
+      { type: 'listen', answer: 'Ich habe einen Termin bei einem Arzt.', hint: 'einen (Akk m) + einem (Dat m)' },
+      { type: 'write', question: 'Schreib 3 Sätze: was hast du / was hast du nicht? Nutze ein-/kein- im Akkusativ mit weniger banalem Wortschatz.', hint: 'Ich habe einen/eine/ein … / Ich habe keinen/keine/kein …', placeholder: 'Ich habe...', sample: 'Ich habe einen Termin am Montag. Ich habe eine gute Ausrede. Leider habe ich kein Talent für Mathe.' }
     ],
   },
 
@@ -1217,72 +1212,74 @@ const LESSONS_CONTENT = {
 
   'artikel-gebrauch': {
     title: 'Употребление артикля (der / ein / без артикля)',
-    level: 'A2 · Урок 11',
-    intro: 'Когда нужен определённый артикль, когда неопределённый, а когда вообще никакой? Это одна из самых частых ошибок русскоязычных — ведь в русском артиклей нет. Разберём правила по полочкам.',
+    intro: 'В русском артиклей нет, поэтому это слабое место. Определённый, неопределённый и нулевой артикль несут разный смысл. Тема большая (в справочниках ей посвящают десятки страниц) — соберём практичный минимум с тонкостями и ловушками.',
     theory: [
       {
-        heading: '✅ Определённый артикль (der/die/das) — «тот самый»',
+        heading: '📘 Основа: три выбора и их логика',
         content: `
-          <p>Ставим, когда предмет <b>известен, уникален или уже упоминался</b>:</p>
           <ul>
-            <li>Предмет уже знаком из контекста: <i>Da ist ein Hund. <b>Der</b> Hund ist groß.</i></li>
-            <li>Уникальные объекты: <i><b>die</b> Sonne, <b>der</b> Mond, <b>die</b> Erde</i></li>
-            <li>С превосходной степенью и порядковыми: <i><b>der</b> beste Tag, <b>die</b> erste Stunde</i></li>
-            <li>Реки, горы, моря: <i><b>die</b> Donau, <b>die</b> Alpen, <b>das</b> Mittelmeer</i></li>
+            <li><b>Определённый (der/die/das)</b> — предмет известен, единственный, уже упоминался, конкретизирован контекстом.</li>
+            <li><b>Неопределённый (ein/eine)</b> — предмет новый, вводится впервые, «один из класса».</li>
+            <li><b>Нулевой (без артикля)</b> — множественное «вообще», вещества/абстрактное в общем смысле, профессии после sein/werden, языки, большинство стран/городов, устойчивые выражения.</li>
           </ul>
           <div class="example-box">
-            <div class="de">Ich gehe in <b>die</b> Schule, die neben meinem Haus ist. (конкретная школа)</div>
-            <div class="ru">Определённый = собеседник понимает, о чём именно речь.</div>
+            <div class="de">Ich brauche <b>einen</b> Rat. (какой-то совет) → <b>Der</b> Rat war gut. (тот самый) → Ich gebe selten <b>Ratschläge</b>. (вообще, мн.ч.)</div>
+            <div class="ru">Сначала «какой-то», потом «тот самый», в общем смысле — без артикля.</div>
           </div>
         `
       },
       {
-        heading: '🆕 Неопределённый артикль (ein/eine) — «какой-то один»',
+        heading: '🔍 Когда определённый: единственное и конкретизированное',
         content: `
-          <p>Ставим, когда предмет <b>новый, упоминается впервые или «один из многих»</b>:</p>
+          <p>Определённый артикль почти обязателен, если предмет уникален или однозначно определён контекстом:</p>
           <ul>
-            <li>Первое упоминание: <i>Ich habe <b>ein</b> Auto.</i></li>
-            <li>«Один из класса предметов»: <i>Ein Hund ist ein Tier.</i> (любая собака — животное)</li>
-            <li>После es gibt: <i>Es gibt hier <b>einen</b> Park.</i></li>
+            <li>Единственные в своём роде: die Sonne, der Mond, die Zukunft, der Himmel.</li>
+            <li>Превосходная степень и порядковые: der beste Plan, die erste Frage.</li>
+            <li>Определён через Genitiv / придаточное / предлог: das Auto <b>des Chefs</b>, der Mann, <b>der dort steht</b>.</li>
+            <li>Реки, горы, моря: die Donau, die Alpen, das Mittelmeer.</li>
           </ul>
-          <div class="example-box">
-            <div class="de">Ich brauche <b>einen</b> Stift. (какой-нибудь) ↔ Wo ist <b>der</b> Stift? (тот самый)</div>
-            <div class="ru">Неопределённый = вводим предмет в разговор впервые.</div>
-          </div>
         `
       },
       {
-        heading: '🚫 Без артикля (Nullartikel)',
+        heading: '🚫 Тонкость: где артикля нет (Nullartikel)',
         content: `
-          <p>Артикль НЕ ставится в нескольких важных случаях:</p>
           <div class="table-wrap"><table>
             <tr><th>Случай</th><th>Пример</th></tr>
-            <tr><td>Множественное «вообще» (нет ein в Pl)</td><td>Ich kaufe <b>Äpfel</b>. Ich habe <b>Freunde</b>.</td></tr>
-            <tr><td>Профессия/национальность после sein/werden</td><td>Ich bin <b>Studentin</b>. Er wird <b>Arzt</b>.</td></tr>
-            <tr><td>Языки и большинство стран/городов</td><td>Ich lerne <b>Deutsch</b>. Ich wohne in <b>Wien</b>.</td></tr>
-            <tr><td>Вещества/абстрактное в общем смысле</td><td>Ich trinke <b>Wasser</b>. Sie hat <b>Geduld</b>.</td></tr>
-            <tr><td>Устойчивые выражения</td><td>zu <b>Hause</b>, nach <b>Hause</b>, mit <b>Freude</b>, zu <b>Fuß</b></td></tr>
+            <tr><td>Профессия/роль после sein, werden, bleiben, als</td><td>Sie ist Juristin. Er wird Ingenieur.</td></tr>
+            <tr><td>Языки и большинство стран/городов</td><td>Ich lerne Deutsch. Ich lebe in Wien.</td></tr>
+            <tr><td>Вещества/абстрактное «в общем»</td><td>Ich trinke Wasser. Das erfordert Geduld.</td></tr>
+            <tr><td>Множественное неопределённое</td><td>Ich kaufe Äpfel. Es gibt Probleme.</td></tr>
+            <tr><td>Устойчивые сочетания</td><td>zu Hause, nach Hause, zu Fuß, mit Freude, Auto fahren</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">⚠️ Страны среднего рода без артикля (Deutschland), НО есть исключения с артиклем: <b>die</b> Schweiz, <b>die</b> Türkei, <b>die</b> USA (Pl), <b>der</b> Iran.</div>
-            <div class="ru">Их нужно запомнить — с ними артикль обязателен: in <b>der</b> Schweiz.</div>
+            <div class="de">⚠️ Страны-исключения с артиклем: <b>die</b> Schweiz, <b>die</b> Türkei, <b>die</b> USA, <b>der</b> Iran, <b>die</b> Niederlande. → in <b>der</b> Schweiz.</div>
+            <div class="ru">Их запоминают отдельно: с ними артикль обязателен.</div>
           </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>«Я инженер» = Ich bin Ingenieur (без артикля!). Артикль появляется, только если есть прилагательное: Ich bin <b>ein guter</b> Ingenieur.</li>
+            <li>«Я еду в Швейцарию» = Ich fahre in <b>die</b> Schweiz (исключение, с артиклем), но «в Германию» = nach Deutschland (без).</li>
+            <li>Вещественное с конкретизацией снова берёт артикль: Wasser (вообще) → <b>das</b> Wasser <b>in diesem Glas</b> (это).</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Профессия после sein — какой артикль? Ich bin ___ Lehrerin. (если артикля нет — поставь -)', answer: '-|—|нет', placeholder: '-' },
-      { type: 'fill', question: 'Язык без артикля: Ich lerne ___ Deutsch. (артикль или -?)', answer: '-|—|нет', placeholder: '-' },
-      { type: 'fill', question: 'Уникальный объект: ___ Sonne scheint. (die/der/das)', answer: 'die', placeholder: 'd...' },
-      { type: 'fill', question: 'Первое упоминание: Ich habe ___ Idee. (eine/die, die Idee)', answer: 'eine', placeholder: 'ein...' },
-      { type: 'fill', question: 'Повторное упоминание: ... und ___ Idee ist super! (та самая)', answer: 'die', placeholder: 'd...' },
-      { type: 'fill', question: 'Страна-исключение: Ich wohne in ___ Schweiz. (die Schweiz, Dativ)', answer: 'der', placeholder: 'd...' },
-      { type: 'fill', question: 'Множественное «вообще»: Ich kaufe ___ Äpfel. (артикль есть?)', answer: '-|—|нет', placeholder: '-' },
-      { type: 'translate', question: 'Я студентка.', answer: 'Ich bin Studentin.', hint: 'профессия после sein → без артикля', placeholder: 'Ich bin...' },
-      { type: 'translate', question: 'Солнце светит.', answer: 'Die Sonne scheint.', hint: 'уникальный объект → определённый артикль', placeholder: 'Die Sonne...' },
-      { type: 'translate', question: 'У меня есть машина.', answer: 'Ich habe ein Auto.', hint: 'первое упоминание → неопределённый', placeholder: 'Ich habe...' },
-      { type: 'listen', answer: 'Ich lerne Deutsch und wohne in Wien.', hint: 'язык и город — без артикля' },
-      { type: 'write', question: 'Schreib 3 Sätze über dich: dein Beruf/Studium, deine Stadt, deine Sprachen. Achte auf den Artikel (oft KEIN Artikel!).', hint: 'Ich bin … (Beruf, без артикля). Ich wohne in … (город). Ich lerne … (язык).', placeholder: 'Ich bin...', sample: 'Ich bin Studentin. Ich wohne in Moskau. Ich lerne Deutsch und Englisch.' }
+      { type: 'choice', question: 'Профессия после sein: «Sie ist ___ Juristin». Что верно?', options: ['— (без артикля)', 'eine', 'die'], answer: 0, explain: 'После sein/werden профессия идёт без артикля (если нет прилагательного).' },
+      { type: 'choice', question: 'Страна-исключение: «Ich fahre in ___ Schweiz».', options: ['die', '—', 'eine'], answer: 0, explain: 'die Schweiz — страна с обязательным артиклем.' },
+      { type: 'choice', question: 'Первое упоминание: «Ich hatte ___ Idee, und ___ Idee war gut».', options: ['eine … die', 'die … eine', 'eine … eine'], answer: 0, explain: 'Сначала неопределённый (eine), при повторе — определённый (die).' },
+      { type: 'fill', question: 'Язык как предмет изучения (артикль?): Ich lerne ___ Französisch. (если нет — поставь -)', answer: '-|—|нет', placeholder: '-', explain: 'Языки как предмет идут без артикля.' },
+      { type: 'fill', question: 'Уникальный объект: ___ Zukunft ist offen. (die/eine)', answer: 'die', placeholder: 'd...', explain: 'Абстрактное-единственное «будущее» — с определённым артиклем.' },
+      { type: 'fill', question: 'Множественное «вообще»: Wir brauchen ___ Fachkräfte. (артикль или -)', answer: '-|—|нет', placeholder: '-', explain: 'Множественное неопределённое — без артикля.' },
+      { type: 'translate', question: 'Я инженер.', answer: 'Ich bin Ingenieur.|Ich bin Ingenieurin.', hint: 'профессия после sein → без артикля', placeholder: 'Ich bin...', explain: 'Профессия/роль без прилагательного — нулевой артикль.' },
+      { type: 'translate', question: 'Это требует терпения. (Geduld erfordern)', answer: 'Das erfordert Geduld.', hint: 'абстрактное «в общем» → без артикля', placeholder: 'Das erfordert...', explain: 'Абстрактное существительное в общем смысле — нулевой артикль.' },
+      { type: 'translate', question: 'Я живу в Швейцарии.', answer: 'Ich wohne in der Schweiz.|Ich lebe in der Schweiz.', hint: 'die Schweiz → in der Schweiz', placeholder: 'Ich wohne...', explain: 'Страна-исключение с артиклем, Dativ: in der Schweiz.' },
+      { type: 'listen', answer: 'Sie ist Ärztin und arbeitet in einem Krankenhaus.', hint: 'профессия без артикля + ein- (Dat)' },
+      { type: 'write', question: 'Schreib 3 Sätze über dich: Beruf/Studium (kein Artikel!), Stadt, Sprachen.', hint: 'Ich bin … (без артикля). Ich wohne in … Ich lerne …', placeholder: 'Ich bin...', sample: 'Ich bin Studentin. Ich wohne in Salzburg. Ich lerne Deutsch und ein bisschen Italienisch.' }
     ],
   },
 
@@ -1696,67 +1693,65 @@ const LESSONS_CONTENT = {
 
   nominativ: {
     title: 'Именительный падеж (Nominativ)',
-    level: 'A1 · Урок 17',
-    intro: 'Nominativ — «начальный» падеж, в нём слово стоит в словаре. Отвечает на «кто? что?» и обозначает подлежащее. А ещё именно Nominativ стоит после глаголов sein, werden, bleiben.',
+    intro: 'Nominativ — «отправная» форма (она в словаре). Это подлежащее, но не только: в этот же падеж ставится именная часть после sein, werden, bleiben. Разберём, как точно находить Nominativ даже в перевёрнутых предложениях.',
     theory: [
       {
-        heading: '👤 Что такое Nominativ',
+        heading: '📘 Основа: подлежащее (кто? что?)',
         content: `
-          <p>Nominativ — это <b>подлежащее</b>, тот, кто выполняет действие. Вопрос: <b>Wer?</b> (кто?) / <b>Was?</b> (что?).</p>
+          <p>Nominativ обозначает того, кто выполняет действие. Вопрос: <b>Wer?</b> (кто?) / <b>Was?</b> (что?).</p>
           <div class="table-wrap"><table>
             <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
             <tr><td>опред.</td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
             <tr><td>неопр.</td><td>ein</td><td>eine</td><td>ein</td><td>—</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de"><b>Der Mann</b> liest. <b>Die Frau</b> arbeitet. <b>Das Kind</b> spielt. (кто? — подлежащее)</div>
-            <div class="ru">Чтобы найти Nominativ, спроси к глаголу: «кто/что делает?».</div>
+            <div class="de"><b>Der Antrag</b> liegt vor. <b>Eine Lösung</b> existiert. <b>Die Unterlagen</b> fehlen.</div>
+            <div class="ru">Заявление подано. Решение существует. Документов не хватает.</div>
           </div>
         `
       },
       {
-        heading: '🟰 Nominativ после sein, werden, bleiben',
+        heading: '🔍 Тонкость: Nominativ после sein / werden / bleiben',
         content: `
-          <p>Эти три глагола — «глаголы-равенства»: после них тоже идёт <b>Nominativ</b>, а не Akkusativ:</p>
+          <p>Это «глаголы-равенства»: то, что стоит после них, обозначает то же лицо/предмет, поэтому остаётся в <b>Nominativ</b>, а не переходит в Akkusativ:</p>
           <div class="example-box">
-            <div class="de">Das ist <b>ein guter Lehrer</b>. Er wird <b>Arzt</b>. Sie bleibt <b>meine Freundin</b>.</div>
-            <div class="ru">«быть кем-то / стать кем-то / оставаться кем-то» — всё Nominativ.</div>
+            <div class="de">Er ist <b>ein erfahrener Anwalt</b>. Sie wird <b>die neue Leiterin</b>. Das bleibt <b>ein Rätsel</b>.</div>
+            <div class="ru">Он опытный адвокат. Она станет новой руководительницей. Это останется загадкой.</div>
           </div>
-          <p>⚠️ Частая ошибка: после «Das ist…» ставят Akkusativ. Правильно — Nominativ: <i>Das ist <b>der</b> Mann</i> (а не «den Mann»).</p>
+          <p>То же после <b>als</b> в значении «в качестве»: Er arbeitet als <b>Berater</b>.</p>
         `
       },
       {
-        heading: '🔎 Как отличить подлежащее',
+        heading: '⚠️ Частые ошибки',
         content: `
-          <p>В немецком порядок слов гибкий, подлежащее не всегда первое. Ищи по форме и вопросу «кто?»:</p>
-          <div class="example-box">
-            <div class="de">Den Apfel isst <b>der Junge</b>. → кто ест? der Junge (Nom). den Apfel — это объект (Akk).</div>
-            <div class="ru">Даже если объект стоит впереди, подлежащее остаётся в Nominativ.</div>
-          </div>
+          <ul>
+            <li>Порядок слов в немецком гибкий — подлежащее не всегда первое. Ищи по форме и вопросу «кто?»: <i>Den Vertrag unterschreibt <b>der Chef</b></i> — подлежащее «der Chef» (Nom), хотя стоит в конце.</li>
+            <li>После «Das ist…» — Nominativ: <i>Das ist <b>der</b> Verantwortliche</i>, не «den».</li>
+            <li>Не путай: в «Er ist <b>ein</b> Lehrer» — ein в Nom; а «Ich sehe <b>einen</b> Lehrer» — einen в Akk.</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Артикль Nom m: ___ Mann liest. (der/den)', answer: 'der', placeholder: 'd...' },
-      { type: 'fill', question: 'Артикль Nom n: ___ Kind spielt. (das Kind)', answer: 'das', placeholder: 'd...' },
-      { type: 'fill', question: 'После sein → Nominativ: Das ist ___ Lehrer. (der/den, опред.)', answer: 'der', placeholder: 'd...' },
-      { type: 'fill', question: 'Неопр. Nom f: Das ist ___ Idee. (die Idee)', answer: 'eine', placeholder: 'ein...' },
-      { type: 'fill', question: 'Найди подлежащее: «Den Ball wirft ___ Junge.» (der Junge)', answer: 'der', placeholder: 'd...' },
-      { type: 'translate', question: 'Мужчина читает.', answer: 'Der Mann liest.', hint: 'подлежащее в Nominativ', placeholder: 'Der Mann...' },
-      { type: 'translate', question: 'Это хороший учитель.', answer: 'Das ist ein guter Lehrer.', hint: 'после ist → Nominativ', placeholder: 'Das ist...' },
-      { type: 'translate', question: 'Она становится врачом.', answer: 'Sie wird Ärztin.|Sie wird Arzt.', hint: 'werden + Nominativ (профессия без артикля)', placeholder: 'Sie wird...' },
-      { type: 'listen', answer: 'Der Lehrer ist sehr nett.', hint: 'Nominativ: der Lehrer' },
-      { type: 'write', question: 'Schreib 3 Sätze: wer macht was? Подлежащее в Nominativ (Der/Die/Das … + Verb).', hint: 'Der Mann arbeitet. Die Frau liest. Das Kind spielt.', placeholder: 'Der...', sample: 'Der Mann kocht. Die Frau singt. Das Kind schläft.' }
+      { type: 'choice', question: 'После sein нужен падеж: «Das ist ___ erfahrene Anwalt» (der Anwalt)', options: ['der (Nominativ)', 'den (Akkusativ)', 'dem (Dativ)'], answer: 0, explain: 'После sein именная часть в Nominativ.' },
+      { type: 'choice', question: 'Найди подлежащее: «Den Vertrag prüft ___ Jurist».', options: ['der (Jurist — кто прверяет)', 'den', 'dem'], answer: 0, explain: 'Подлежащее «der Jurist» в Nominativ, даже стоя после глагола.' },
+      { type: 'fill', question: 'Nom n: ___ Ergebnis überrascht alle. (das Ergebnis)', answer: 'das', placeholder: 'd...', explain: 'Подлежащее среднего рода — das.' },
+      { type: 'fill', question: 'Неопр. Nom f: ___ Lösung wäre ideal. (die Lösung)', answer: 'eine', placeholder: 'ein...', explain: 'Неопределённое подлежащее женского рода — eine.' },
+      { type: 'fill', question: 'После werden → Nom: Sie wird ___ neue Chefin. (die Chefin)', answer: 'die', placeholder: 'd...', explain: 'werden — глагол-равенство, после него Nominativ.' },
+      { type: 'translate', question: 'Решение существует.', answer: 'Eine Lösung existiert.|Die Lösung existiert.', hint: 'подлежащее в Nominativ', placeholder: '...', explain: 'Подлежащее всегда в Nominativ.' },
+      { type: 'translate', question: 'Он опытный адвокат. (erfahren, der Anwalt)', answer: 'Er ist ein erfahrener Anwalt.', hint: 'после ist → Nominativ (ein erfahrener)', placeholder: 'Er ist...', explain: 'После sein — Nominativ; прилагательное после ein → -er (m).' },
+      { type: 'translate', question: 'Это останется загадкой. (das Rätsel, bleiben)', answer: 'Das bleibt ein Rätsel.', hint: 'bleiben + Nominativ', placeholder: 'Das bleibt...', explain: 'bleiben — глагол-равенство, именная часть в Nominativ.' },
+      { type: 'listen', answer: 'Der neue Mitarbeiter macht einen guten Eindruck.', hint: 'подлежащее der Mitarbeiter (Nom)' },
+      { type: 'write', question: 'Schreib 3 Sätze, in denen das Subjekt NICHT am Satzanfang steht (z.B. mit Heute/Den Bericht …). Markiere im Kopf das Subjekt.', hint: 'Heute prüft der Chef … / Den Bericht schreibt die Assistentin …', placeholder: '...', sample: 'Heute entscheidet der Vorstand. Den Antrag bearbeitet die Sekretärin. Morgen kommt ein neuer Kollege.' }
     ],
   },
 
   akkusativ: {
     title: 'Винительный падеж (Akkusativ)',
-    level: 'A1 · Урок 18',
-    intro: 'Akkusativ — прямой объект, вопрос «кого? что?». Главная фишка: из всех родов меняется ТОЛЬКО мужской (der→den, ein→einen). Плюс разберём Akkusativ-предлоги и выражения времени.',
+    intro: 'Akkusativ — прямой объект (кого? что?). Его ключевая черта: из всех родов меняется только мужской (der→den, ein→einen). Добавим Akkusativ-глаголы, предлоги и винительный времени.',
     theory: [
       {
-        heading: '🎯 Формы — меняется только мужской род!',
+        heading: '📘 Основа: меняется только мужской род',
         content: `
           <div class="table-wrap"><table>
             <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
@@ -1765,62 +1760,57 @@ const LESSONS_CONTENT = {
             <tr><td>отриц.</td><td><b>keinen</b></td><td>keine</td><td>kein</td><td>keine</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich sehe <b>den</b> Mann / <b>die</b> Frau / <b>das</b> Kind. Ich habe <b>einen</b> Bruder.</div>
-            <div class="ru">Женский, средний и множественное в Akkusativ = как в Nominativ. Меняется только der→den, ein→einen.</div>
+            <div class="de">Ich unterschreibe <b>den</b> Vertrag / <b>die</b> Vereinbarung / <b>das</b> Formular. Ich brauche <b>einen</b> Rat.</div>
+            <div class="ru">Женский, средний и множественное в Akk выглядят как в Nom — выдаёт себя только мужской.</div>
           </div>
         `
       },
       {
-        heading: '🔨 Когда Akkusativ: прямой объект',
+        heading: '🔍 Тонкость: глаголы и предлоги с Akkusativ',
         content: `
-          <p>Большинство глаголов с прямым дополнением требуют Akkusativ: <b>haben, sehen, kaufen, lesen, essen, trinken, brauchen, suchen, mögen, nehmen</b>.</p>
+          <p>Большинство переходных глаголов берут Akkusativ: haben, sehen, brauchen, suchen, kaufen, lesen, nehmen, kennen, treffen, unterstützen.</p>
+          <p>Эти предлоги <b>всегда</b> с Akkusativ:</p>
+          <p style="font-size:1.05rem"><b>durch, für, gegen, ohne, um</b> (+ bis, entlang)</p>
           <div class="example-box">
-            <div class="de">Ich kaufe <b>einen</b> Apfel. Sie liest <b>ein</b> Buch. Wir brauchen <b>den</b> Schlüssel.</div>
-            <div class="ru">Вопрос к объекту: «кого? что?» (Wen? Was?).</div>
+            <div class="de">Ich stimme <b>gegen</b> den Vorschlag. Das ist <b>für</b> meinen Kollegen. Wir gehen <b>durch</b> den Park.</div>
+            <div class="ru">Считалочка: «durch-für-gegen-ohne-um» — все Akkusativ.</div>
           </div>
         `
       },
       {
-        heading: '📍 Предлоги, которые ВСЕГДА с Akkusativ',
+        heading: '🕐 Тонкость: винительный времени',
         content: `
-          <p style="font-size:1.05rem"><b>durch, für, gegen, ohne, um</b> (+ entlang, bis)</p>
-          <div class="table-wrap"><table>
-            <tr><td>durch + Akk</td><td>через, сквозь</td><td>durch den Park</td></tr>
-            <tr><td>für + Akk</td><td>для</td><td>für meinen Freund</td></tr>
-            <tr><td>gegen + Akk</td><td>против</td><td>gegen den Plan</td></tr>
-            <tr><td>ohne + Akk</td><td>без</td><td>ohne einen Plan</td></tr>
-            <tr><td>um + Akk</td><td>вокруг; в (время)</td><td>um den Tisch; um acht Uhr</td></tr>
-          </table></div>
+          <p>Длительность и регулярность времени стоят в Akkusativ <b>без предлога</b>:</p>
           <div class="example-box">
-            <div class="de">Считалочка: «durch-für-gegen-ohne-um» — все Akkusativ.</div>
-            <div class="ru">ohne обычно без артикля: ohne Auto.</div>
+            <div class="de">Ich warte schon <b>einen Monat</b>. Sie kommt <b>jeden Tag</b>. <b>Letzten Freitag</b> war eine Sitzung.</div>
+            <div class="ru">einen Monat, jeden Tag, letzten Freitag — винительный без предлога.</div>
           </div>
         `
       },
       {
-        heading: '🕐 Akkusativ во времени',
+        heading: '⚠️ Частые ошибки',
         content: `
-          <p>Длительность и регулярность времени — тоже Akkusativ (без предлога):</p>
-          <div class="example-box">
-            <div class="de">Ich lerne <b>jeden Tag</b>. Wir bleiben <b>einen Monat</b>. <b>Letzten Sommer</b> war ich in Wien.</div>
-            <div class="ru">jeden Tag (каждый день), einen Monat (месяц), letzten Sommer — в Akkusativ.</div>
-          </div>
+          <ul>
+            <li>Не «переусердствуй»: женский и средний в Akk не меняются. «Ich lese <b>die</b> Zeitung», «Ich öffne <b>das</b> Fenster» — без -n.</li>
+            <li>Слабые существительные мужского рода в Akk берут -(e)n: «Ich treffe <b>den Kollegen</b>», «Ich frage <b>den Experten</b>».</li>
+            <li>«ohne» обычно без артикля: ohne Termin, ohne Auto.</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Опр. Akk m: Ich sehe ___ Mann. (der Mann)', answer: 'den', placeholder: 'd...' },
-      { type: 'fill', question: 'Опр. Akk f: Ich sehe ___ Frau. (die Frau — меняется?)', answer: 'die', placeholder: 'd...' },
-      { type: 'fill', question: 'Неопр. Akk m: Ich habe ___ Bruder. (der Bruder)', answer: 'einen', placeholder: 'ein...' },
-      { type: 'fill', question: 'Неопр. Akk n: Sie liest ___ Buch. (das Buch)', answer: 'ein', placeholder: 'ein...' },
-      { type: 'fill', question: 'Предлог für + Akk: Das ist für ___ Freund. (der Freund)', answer: 'den', placeholder: 'd...' },
-      { type: 'fill', question: 'Предлог durch + Akk: Wir gehen durch ___ Park. (der Park)', answer: 'den', placeholder: 'd...' },
-      { type: 'fill', question: 'Время в Akkusativ: Ich lerne ___ Tag. (jeder Tag → каждый день)', answer: 'jeden', placeholder: 'jed...' },
-      { type: 'translate', question: 'Я вижу мужчину.', answer: 'Ich sehe den Mann.', hint: 'sehen → Akk, der→den', placeholder: 'Ich sehe...' },
-      { type: 'translate', question: 'У меня есть брат.', answer: 'Ich habe einen Bruder.', hint: 'haben → Akk, ein→einen', placeholder: 'Ich habe...' },
-      { type: 'translate', question: 'Это подарок для тебя.', answer: 'Das ist ein Geschenk für dich.', hint: 'für + Akk (dich)', placeholder: 'Das ist...' },
-      { type: 'listen', answer: 'Ich kaufe einen Apfel und eine Banane.', hint: 'einen (m) + eine (f)' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Akkusativ: was siehst/hast/kaufst du? (Achte auf den maskulinen Artikel den/einen!)', hint: 'Ich sehe den … / Ich habe einen … / Ich kaufe ein …', placeholder: 'Ich...', sample: 'Ich habe einen Hund. Ich sehe den Bus. Ich kaufe ein Buch für meinen Bruder.' }
+      { type: 'choice', question: 'Предлог gegen требует: «Ich stimme gegen ___ Vorschlag» (der Vorschlag)', options: ['den', 'dem', 'der'], answer: 0, explain: 'gegen — предлог Akkusativ; der → den.' },
+      { type: 'choice', question: 'Меняется ли женский в Akkusativ: «Ich lese ___ Zeitung»?', options: ['die (не меняется)', 'den', 'der'], answer: 0, explain: 'В Akkusativ женский совпадает с Nominativ: die.' },
+      { type: 'choice', question: 'Слабое сущ. в Akk: «Ich frage ___ Experten» (der Experte)', options: ['den', 'dem', 'der'], answer: 0, explain: 'den Experten: Akk m + слабое существительное (+n).' },
+      { type: 'fill', question: 'Akk m: Ich unterschreibe ___ Vertrag. (der Vertrag)', answer: 'den', placeholder: 'd...', explain: 'Akkusativ мужского: der → den.' },
+      { type: 'fill', question: 'Akk n: Ich fülle ___ Formular aus. (das Formular)', answer: 'das', placeholder: 'd...', explain: 'Средний род в Akk = Nom: das.' },
+      { type: 'fill', question: 'Винительный времени: Ich warte schon ___ Monat. (ein Monat)', answer: 'einen', placeholder: 'ein...', explain: 'Длительность в Akkusativ: einen Monat.' },
+      { type: 'fill', question: 'für + Akk: Das Paket ist für ___ Nachbarn. (der Nachbar, слабое)', answer: 'den', placeholder: 'd...', explain: 'für → Akk; der Nachbar → den Nachbarn (слабое).' },
+      { type: 'translate', question: 'Я голосую против предложения. (gegen, der Vorschlag)', answer: 'Ich stimme gegen den Vorschlag.', hint: 'gegen + Akk m → den', placeholder: 'Ich stimme...', explain: 'gegen управляет Akkusativ.' },
+      { type: 'translate', question: 'Я каждый день проверяю почту. (jeden Tag, die E-Mails prüfen)', answer: 'Ich prüfe jeden Tag die E-Mails.|Jeden Tag prüfe ich die E-Mails.', hint: 'jeden Tag — Akkusativ времени', placeholder: '...', explain: 'Регулярность времени — Akkusativ без предлога.' },
+      { type: 'translate', question: 'Я встречаю коллегу. (der Kollege, слабое)', answer: 'Ich treffe den Kollegen.', hint: 'treffen → Akk; den Kollegen (+n)', placeholder: 'Ich treffe...', explain: 'Kollege — слабое существительное, в Akk +n.' },
+      { type: 'listen', answer: 'Ich brauche einen Termin und ein Formular.', hint: 'einen (m) + ein (n)' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Akkusativ: ein Verb-Objekt, eine Akkusativ-Präposition (für/gegen/durch) und eine Zeitangabe (jeden …).', hint: 'Ich brauche den … / Das ist für den … / Ich … jeden Tag.', placeholder: 'Ich...', sample: 'Ich unterschreibe den Vertrag. Das Geschenk ist für meinen Bruder. Ich lese jeden Abend einen Artikel.' }
     ],
   },
 
@@ -1967,87 +1957,76 @@ const LESSONS_CONTENT = {
 
   dativ: {
     title: 'Дательный падеж (Dativ)',
-    level: 'A2 · Урок 18',
-    intro: 'Dativ отвечает на вопрос «кому? чему?». Это косвенный объект, а ещё его требуют определённые глаголы и предлоги. Разберём формы артиклей, глаголы Dativ и предлоги, которые всегда с Dativ.',
+    intro: 'Dativ отвечает на «кому? чему?». Это адресат действия, но также падеж после определённых глаголов и целой группы предлогов. Освоив Dativ-глаголы и предлоги, ты перестанешь «угадывать» падеж.',
     theory: [
       {
-        heading: '🎁 Формы артиклей в Dativ',
+        heading: '📘 Основа: формы и косвенный объект',
         content: `
+          <p>Dativ — это «кому/чему». В нём меняются все роды, а во множественном к существительному добавляется -n.</p>
           <div class="table-wrap"><table>
             <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
             <tr><td>опред.</td><td>dem</td><td>der</td><td>dem</td><td>den (+n)</td></tr>
             <tr><td>неопр.</td><td>einem</td><td>einer</td><td>einem</td><td>— / keinen</td></tr>
-            <tr><td>притяж.</td><td>meinem</td><td>meiner</td><td>meinem</td><td>meinen</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich gebe <b>dem</b> Mann / <b>der</b> Frau / <b>dem</b> Kind das Buch. Mit <b>den</b> Kinder<b>n</b>.</div>
-            <div class="ru">В Plural к существительному добавляется -n: den Kindern, den Freunden.</div>
+            <div class="de">Ich schicke <b>dem Kunden</b> die Rechnung. Das gehört <b>der Firma</b>. Ich helfe <b>den Kollegen</b>.</div>
+            <div class="ru">В предложении «дать кому что» — кому = Dativ, что = Akkusativ.</div>
           </div>
         `
       },
       {
-        heading: '🤝 Глаголы, которые требуют Dativ',
+        heading: '🤝 Тонкость: глаголы, которые требуют Dativ',
         content: `
-          <p>Некоторые глаголы «по природе» идут с Dativ (хотя по-русски это может быть винительный):</p>
+          <p>Их надо знать «в лицо», потому что по-русски это часто винительный:</p>
           <div class="table-wrap"><table>
-            <tr><th>Глагол</th><th>Перевод</th><th>Пример</th></tr>
-            <tr><td><b>helfen</b></td><td>помогать</td><td>Ich helfe dem Freund.</td></tr>
-            <tr><td><b>danken</b></td><td>благодарить</td><td>Ich danke dir.</td></tr>
-            <tr><td><b>gefallen</b></td><td>нравиться</td><td>Das Buch gefällt mir.</td></tr>
-            <tr><td><b>gehören</b></td><td>принадлежать</td><td>Das Auto gehört ihm.</td></tr>
-            <tr><td><b>antworten</b></td><td>отвечать (кому)</td><td>Ich antworte der Lehrerin.</td></tr>
-            <tr><td><b>passen</b></td><td>подходить</td><td>Der Termin passt mir.</td></tr>
+            <tr><td><b>helfen</b> помогать</td><td><b>danken</b> благодарить</td><td><b>gefallen</b> нравиться</td></tr>
+            <tr><td><b>gehören</b> принадлежать</td><td><b>antworten</b> отвечать</td><td><b>passen</b> подходить</td></tr>
+            <tr><td><b>folgen</b> следовать</td><td><b>begegnen</b> встретить</td><td><b>vertrauen</b> доверять</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">⚠️ «Мне нравится X» = X gefällt mir (подлежащее — X, не «я»!).</div>
-            <div class="ru">Запомни эти глаголы как «Dativ-глаголы».</div>
+            <div class="de">⚠️ «Мне нравится фильм» = <b>Der Film</b> gefällt <b>mir</b> — подлежащее «фильм», не «я»!</div>
+            <div class="ru">У gefallen/passen/gehören логика «перевёрнута» относительно русского.</div>
           </div>
         `
       },
       {
-        heading: '📍 Предлоги, которые ВСЕГДА с Dativ',
+        heading: '📍 Тонкость: предлоги только с Dativ',
         content: `
-          <p>Эти предлоги не «плавают» — после них всегда Dativ:</p>
-          <p style="font-size:1.05rem"><b>mit, nach, aus, zu, von, bei, seit, gegenüber</b></p>
+          <p style="font-size:1.05rem"><b>aus, bei, mit, nach, seit, von, zu, gegenüber</b></p>
           <div class="table-wrap"><table>
-            <tr><td>mit + Dat</td><td>с</td><td>mit dem Bus</td></tr>
-            <tr><td>nach + Dat</td><td>после; в (города)</td><td>nach der Arbeit</td></tr>
-            <tr><td>aus + Dat</td><td>из</td><td>aus der Schweiz</td></tr>
-            <tr><td>zu + Dat</td><td>к</td><td>zu dem (zum) Arzt</td></tr>
-            <tr><td>bei + Dat</td><td>у, при</td><td>bei dem (beim) Freund</td></tr>
-            <tr><td>seit + Dat</td><td>с (времени)</td><td>seit einem Jahr</td></tr>
+            <tr><td>mit dem Zug</td><td>nach der Sitzung</td><td>aus der Schweiz</td></tr>
+            <tr><td>bei der Arbeit</td><td>seit einem Jahr</td><td>zu dem (zum) Arzt</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Слияния: zu dem → zum, zu der → zur, bei dem → beim, von dem → vom.</div>
-            <div class="ru">Их удобно выучить считалочкой: «mit-nach-aus-zu-von-bei-seit».</div>
+            <div class="de">Слияния: zu+dem→zum, zu+der→zur, bei+dem→beim, von+dem→vom, in+dem→im.</div>
+            <div class="ru">Считалочка: «aus-bei-mit-nach-seit-von-zu» — всегда Dativ.</div>
           </div>
         `
       },
       {
-        heading: '🧑 Личные местоимения в Dativ',
+        heading: '⚠️ Частые ошибки',
         content: `
-          <p>mir, dir, ihm, ihr, ihm, uns, euch, ihnen, Ihnen.</p>
-          <div class="example-box">
-            <div class="de">Gib <b>mir</b> das Buch. Ich helfe <b>dir</b>. Das gehört <b>ihnen</b>.</div>
-            <div class="ru">После Dativ-глаголов и Dativ-предлогов местоимение тоже в Dativ.</div>
-          </div>
+          <ul>
+            <li>Dativ Plural: не забывай -n у существительного: «mit den Kunde<b>n</b>», «mit den Kinder<b>n</b>».</li>
+            <li>gefallen/gehören: подлежащее — предмет, человек в Dativ: «Das Auto gehört <b>mir</b>», не «Ich gehöre das Auto».</li>
+            <li>seit + Dativ означает «уже … (и сейчас)»: «Ich lerne Deutsch <b>seit einem Jahr</b>» (и продолжаю).</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Артикль Dativ m: Ich gebe ___ Mann das Buch. (der Mann)', answer: 'dem', placeholder: 'd...' },
-      { type: 'fill', question: 'Артикль Dativ f: Ich helfe ___ Frau. (die Frau)', answer: 'der', placeholder: 'd...' },
-      { type: 'fill', question: 'Plural Dativ: Ich spiele mit ___ Kindern. (die Kinder)', answer: 'den', placeholder: 'd...' },
-      { type: 'fill', question: 'Dativ-глагол: Das Buch ___ mir. (gefallen → es)', answer: 'gefällt', placeholder: 'gef...' },
-      { type: 'fill', question: 'Предлог mit + Dativ: Ich fahre mit ___ Bus. (der Bus)', answer: 'dem', placeholder: 'd...' },
-      { type: 'fill', question: 'Слияние zu+dem: Ich gehe ___ Arzt.', answer: 'zum', placeholder: 'z...' },
-      { type: 'fill', question: 'Местоимение Dativ: Gib ___ das Buch. (мне)', answer: 'mir', placeholder: 'm...' },
-      { type: 'fill', question: 'seit + Dativ: Ich lerne Deutsch seit ___ Jahr. (ein Jahr)', answer: 'einem', placeholder: 'ein...' },
-      { type: 'translate', question: 'Я помогаю своему другу.', answer: 'Ich helfe meinem Freund.', hint: 'helfen → Dativ, mein → meinem (m)', placeholder: 'Ich helfe...' },
-      { type: 'translate', question: 'Эта книга мне нравится.', answer: 'Das Buch gefällt mir.|Dieses Buch gefällt mir.', hint: 'gefallen → подлежащее «книга», «мне» = mir', placeholder: 'Das Buch...' },
-      { type: 'translate', question: 'Я еду на автобусе.', answer: 'Ich fahre mit dem Bus.', hint: 'mit + Dativ (der Bus → dem Bus)', placeholder: 'Ich fahre...' },
-      { type: 'listen', answer: 'Ich danke dir für deine Hilfe.', hint: 'danken + Dativ (dir)' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Dativ: nutze ein Dativ-Verb (helfen, gefallen, danken) oder eine Dativ-Präposition (mit, bei, zu).', hint: 'Ich helfe dem/der … · Das gefällt mir · Ich fahre mit dem …', placeholder: 'Ich...', sample: 'Ich helfe meiner Mutter. Das Wetter gefällt mir nicht. Ich fahre mit dem Zug nach Wien.' }
+      { type: 'choice', question: 'Глагол gefallen: «Der Vorschlag gefällt ___» (мне)', options: ['mir (Dativ)', 'mich (Akkusativ)', 'meiner'], answer: 0, explain: 'gefallen управляет Dativ: gefällt mir.' },
+      { type: 'choice', question: 'Предлог: «Ich komme gerade ___ der Sitzung» (после)', options: ['nach', 'für', 'durch'], answer: 0, explain: 'nach + Dativ (после). für/durch — Akkusativ.' },
+      { type: 'choice', question: 'Слияние zu+dem: «Ich gehe ___ Zahnarzt».', options: ['zum', 'zur', 'zu'], answer: 0, explain: 'zu + dem = zum (мужской/средний).' },
+      { type: 'fill', question: 'Dativ Plural (+n!): Ich arbeite mit ___ Kunden. (die Kunden)', answer: 'den', placeholder: 'd...', explain: 'Артикль den; существительное уже на -n.' },
+      { type: 'fill', question: 'Dativ f: Das gehört ___ Firma. (die Firma)', answer: 'der', placeholder: 'd...', explain: 'gehören + Dativ; женский — der.' },
+      { type: 'fill', question: 'seit + Dativ: Ich wohne hier seit ___ Jahr. (ein Jahr)', answer: 'einem', placeholder: 'ein...', explain: 'seit → Dativ; ein → einem.' },
+      { type: 'fill', question: 'Местоимение Dativ: Kannst du ___ helfen? (мне)', answer: 'mir', placeholder: 'm...', explain: 'helfen + Dativ; «мне» = mir.' },
+      { type: 'translate', question: 'Я доверяю коллеге. (vertrauen + Dativ, der Kollege)', answer: 'Ich vertraue dem Kollegen.', hint: 'vertrauen → Dativ; der Kollege слабое → dem Kollegen', placeholder: 'Ich vertraue...', explain: 'vertrauen требует Dativ; Kollege +n (слабое).' },
+      { type: 'translate', question: 'Мне нравится это предложение. (der Vorschlag, gefallen)', answer: 'Der Vorschlag gefällt mir.', hint: 'подлежащее — der Vorschlag, «мне» = mir', placeholder: 'Der Vorschlag...', explain: 'gefallen: предмет — подлежащее, человек в Dativ.' },
+      { type: 'translate', question: 'Я еду на поезде. (mit, der Zug)', answer: 'Ich fahre mit dem Zug.', hint: 'mit + Dativ (der Zug → dem Zug)', placeholder: 'Ich fahre...', explain: 'mit управляет Dativ.' },
+      { type: 'listen', answer: 'Ich danke dir für deine Unterstützung.', hint: 'danken + Dativ (dir)' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Dativ: ein Dativ-Verb (helfen/gehören/gefallen) und eine Dativ-Präposition (mit/bei/zu).', hint: 'Ich helfe dem/der … · Das gehört … · Ich fahre mit dem …', placeholder: 'Ich...', sample: 'Ich helfe meiner Nachbarin. Das Buch gehört dem Lehrer. Ich fahre mit dem Bus zur Arbeit.' }
     ],
   },
 
@@ -2602,74 +2581,72 @@ const LESSONS_CONTENT = {
 
   genitiv: {
     title: 'Родительный падеж (Genitiv)',
-    level: 'A2 · Урок 19',
-    intro: 'Genitiv отвечает на «чей? чего?» и показывает принадлежность (das Auto des Mannes). В разговоре его часто заменяют на «von + Dativ», но в письме и с предлогами он обязателен. Разберём формы, имена и Genitiv-предлоги.',
+    intro: 'Genitiv отвечает на «чей? чего?» и выражает принадлежность. В разговоре его часто заменяют на von+Dativ, но в письме, в официальном стиле и после ряда предлогов он обязателен — а это как раз нужно для вуза.',
     theory: [
       {
-        heading: '👑 Принадлежность: чей?',
+        heading: '📘 Основа: принадлежность (чей?)',
         content: `
-          <p>Genitiv показывает, кому/чему что-то принадлежит. Вопрос: <b>Wessen?</b> (чей?). Существительное-«владелец» стоит обычно <b>после</b> предмета:</p>
+          <p>Существительное-владелец стоит в Genitiv, обычно <b>после</b> предмета. Вопрос: <b>Wessen?</b></p>
           <div class="table-wrap"><table>
             <tr><th></th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
             <tr><td>опред.</td><td>des …(e)s</td><td>der</td><td>des …(e)s</td><td>der</td></tr>
             <tr><td>неопр.</td><td>eines …(e)s</td><td>einer</td><td>eines …(e)s</td><td>—</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">das Auto <b>des</b> Mann<b>es</b> · die Tasche <b>der</b> Frau · das Spielzeug <b>des</b> Kind<b>es</b></div>
-            <div class="ru">Главная фишка: у мужского и среднего рода САМО существительное получает -(e)s.</div>
+            <div class="de">die Entscheidung <b>des Vorstands</b> · das Ergebnis <b>der Prüfung</b> · der Titel <b>des Projekts</b></div>
+            <div class="ru">У мужского и среднего рода САМО существительное получает -(e)s.</div>
           </div>
         `
       },
       {
-        heading: '✍️ Имена собственные: +s',
+        heading: '✍️ Тонкость: имена собственные',
         content: `
-          <p>С именами Genitiv проще — добавляем <b>-s</b> (без апострофа!) и ставим имя <b>впереди</b>:</p>
+          <p>С именами Genitiv проще — добавляем <b>-s</b> (без апострофа) и ставим имя <b>впереди</b>:</p>
           <div class="example-box">
-            <div class="de"><b>Annas</b> Buch (книга Анны) · <b>Maxes</b> Auto · <b>Deutschlands</b> Hauptstadt</div>
-            <div class="ru">Если имя оканчивается на -s/-z/-x, ставят апостроф: Hans' Auto.</div>
+            <div class="de"><b>Annas</b> Vorschlag · <b>Müllers</b> Büro · <b>Österreichs</b> Hauptstadt</div>
+            <div class="ru">Если имя оканчивается на -s/-z/-x, ставят апостроф: Hans' Auto, Max' Idee.</div>
           </div>
         `
       },
       {
-        heading: '📍 Предлоги с Genitiv',
+        heading: '📍 Тонкость: предлоги с Genitiv',
         content: `
-          <p>Эти предлоги требуют Genitiv (в письменном и формальном языке):</p>
           <div class="table-wrap"><table>
-            <tr><td><b>wegen</b></td><td>из-за</td><td>wegen des Wetters</td></tr>
-            <tr><td><b>trotz</b></td><td>несмотря на</td><td>trotz der Kälte</td></tr>
-            <tr><td><b>während</b></td><td>во время</td><td>während der Pause</td></tr>
-            <tr><td><b>(an)statt</b></td><td>вместо</td><td>statt des Kaffees</td></tr>
+            <tr><td><b>wegen</b> из-за</td><td>wegen des Wetters</td></tr>
+            <tr><td><b>trotz</b> несмотря на</td><td>trotz der Verspätung</td></tr>
+            <tr><td><b>während</b> во время</td><td>während der Sitzung</td></tr>
+            <tr><td><b>(an)statt</b> вместо</td><td>statt eines Berichts</td></tr>
+            <tr><td><b>aufgrund / infolge</b> вследствие</td><td>aufgrund des Streiks</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">В разговоре часто слышно «wegen dem Wetter» (Dativ), но правильно — wegen des Wetters.</div>
-            <div class="ru">Запомни четвёрку: wegen, trotz, während, statt.</div>
+            <div class="de">В разговоре часто слышно «wegen dem …» (Dativ), но в письме правильно — <b>wegen des …</b> (Genitiv).</div>
+            <div class="ru">Для официального стиля держись Genitiv.</div>
           </div>
         `
       },
       {
-        heading: '🗣️ Разговорная замена: von + Dativ',
+        heading: '🗣️ Тонкость и ошибки: разговорная замена von+Dativ',
         content: `
-          <p>В устной речи Genitiv принадлежности часто заменяют на <b>von + Dativ</b>:</p>
-          <div class="example-box">
-            <div class="de">das Auto <b>des</b> Mannes = das Auto <b>von dem (vom)</b> Mann · die Mutter <b>von</b> Anna</div>
-            <div class="ru">Для имён без артикля von удобнее: «die Freundin von Max».</div>
-          </div>
+          <ul>
+            <li>В устной речи принадлежность часто = <b>von + Dativ</b>: das Auto <b>vom</b> Chef, die Freundin <b>von</b> Max.</li>
+            <li>С именами без артикля von удобнее: «die Mutter <b>von</b> Anna».</li>
+            <li>Ошибка: забыть -(e)s у мужского/среднего: «das Dach des Haus<b>es</b>», не «des Haus».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Genitiv m, артикль: das Auto ___ Mannes. (der Mann)', answer: 'des', placeholder: 'd...' },
-      { type: 'fill', question: 'Genitiv m, окончание сущ.: das Auto des ___. (der Mann → +es)', answer: 'Mannes', placeholder: 'Mann...' },
-      { type: 'fill', question: 'Genitiv f: die Tasche ___ Frau. (die Frau)', answer: 'der', placeholder: 'd...' },
-      { type: 'fill', question: 'Имя: Это книга Анны → ___ Buch.', answer: 'Annas', placeholder: 'Anna...' },
-      { type: 'fill', question: 'Предлог wegen + Genitiv: ___ des Wetters bleibe ich zu Hause.', answer: 'Wegen', placeholder: 'W...' },
-      { type: 'fill', question: 'während + Genitiv f: Ich schlafe während ___ Pause. (die Pause)', answer: 'der', placeholder: 'd...' },
-      { type: 'translate', question: 'Это машина (этого) мужчины.', answer: 'Das ist das Auto des Mannes.', hint: 'Genitiv m: des Mannes (+es)', placeholder: 'Das ist...' },
-      { type: 'translate', question: 'Это книга Анны.', answer: 'Das ist Annas Buch.', hint: 'имя + s, впереди', placeholder: 'Das ist...' },
-      { type: 'translate', question: 'Из-за погоды я остаюсь дома.', answer: 'Wegen des Wetters bleibe ich zu Hause.', hint: 'wegen + Genitiv (das Wetter → des Wetters); инверсия!', placeholder: 'Wegen...' },
-      { type: 'translate', question: 'Подруга Макса (через von).', answer: 'die Freundin von Max', hint: 'разговорно: von + имя', placeholder: 'die Freundin...' },
-      { type: 'listen', answer: 'Das ist das Haus meiner Eltern.', hint: 'Genitiv Pl: meiner Eltern' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Genitiv: Besitz (des/der …) oder mit wegen/während/trotz.', hint: 'das … des Mannes / der Frau · Annas … · wegen des …', placeholder: 'Das ist...', sample: 'Das ist das Auto meines Vaters. Annas Schwester wohnt in Berlin. Wegen der Arbeit habe ich keine Zeit.' }
+      { type: 'choice', question: 'Предлог Genitiv: «___ des schlechten Wetters bleiben wir zu Hause».', options: ['Wegen', 'Für', 'Mit'], answer: 0, explain: 'wegen + Genitiv (из-за). für — Akk, mit — Dativ.' },
+      { type: 'choice', question: 'Genitiv мужского: «das Büro ___ Direktors» (der Direktor)', options: ['des', 'der', 'dem'], answer: 0, explain: 'Genitiv m — des (+ существительное на -s).' },
+      { type: 'choice', question: 'Как корректно «идея Анны»?', options: ['Annas Idee', "Anna's Idee", 'die Idee von Annas'], answer: 0, explain: 'Имя + s без апострофа, впереди: Annas Idee.' },
+      { type: 'fill', question: 'Genitiv m, окончание сущ.: das Dach des ___. (das Haus → +es)', answer: 'Hauses', placeholder: 'Haus...', explain: 'Среднее/мужское в Genitiv получает -(e)s: Hauses.' },
+      { type: 'fill', question: 'während + Genitiv f: Ich schweige während ___ Sitzung. (die Sitzung)', answer: 'der', placeholder: 'd...', explain: 'während → Genitiv; женский — der.' },
+      { type: 'fill', question: 'Genitiv n: Das ist das Ziel ___ Projekts. (das Projekt)', answer: 'des', placeholder: 'd...', explain: 'Genitiv среднего — des (Projekts +s).' },
+      { type: 'translate', question: 'Это решение правления. (der Vorstand)', answer: 'Das ist die Entscheidung des Vorstands.', hint: 'Genitiv m: des Vorstands (+s)', placeholder: 'Das ist die Entscheidung...', explain: 'Принадлежность → Genitiv, мужской +s.' },
+      { type: 'translate', question: 'Из-за забастовки поезд опаздывает. (der Streik)', answer: 'Wegen des Streiks hat der Zug Verspätung.', hint: 'wegen + Genitiv (der Streik → des Streiks); инверсия', placeholder: 'Wegen des Streiks...', explain: 'wegen управляет Genitiv; после обстоятельства — инверсия.' },
+      { type: 'translate', question: 'Подруга Макса (разговорно, через von).', answer: 'die Freundin von Max', hint: 'von + имя (разговорный Genitiv)', placeholder: 'die Freundin...', explain: 'С именами без артикля в речи используют von+Dativ.' },
+      { type: 'listen', answer: 'Das ist das Ergebnis der Prüfung.', hint: 'Genitiv f: der Prüfung' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Genitiv: Besitz (des/der …), ein Name (…s) und mit wegen/während/trotz.', hint: 'das … des … · Annas … · wegen des …', placeholder: '...', sample: 'Das ist das Auto meines Vaters. Lisas Vortrag war super. Während der Pause trinke ich Kaffee.' }
     ],
   },
 
