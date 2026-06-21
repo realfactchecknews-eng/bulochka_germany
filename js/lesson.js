@@ -16,6 +16,18 @@ function speak(text) {
 window.speak = speak;
 // экранирование для значения HTML-атрибута
 function escAttr(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+// Нормализация ответа: ответы принимаются независимо от регистра, пунктуации
+// и от того, печатает ли ученик умлауты или их ASCII-замену (ä=ae, ö=oe, ü=ue, ß=ss).
+// Так «für»=«fuer», «GROSS.»=«groß», «Ich gehe nach Hause»=«ich gehe nach hause».
+function normalizeAnswer(s) {
+  return String(s == null ? '' : s)
+    .toLowerCase()
+    .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+    .replace(/[.,!?;:()«»"'`’“”\-–—…\/]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 function speakBtn(text) { return `<button type="button" class="speak-btn" title="Озвучить" onclick="speak(this.getAttribute('data-t'))" data-t="${escAttr(text)}">🔊</button>`; }
 
 // Find lesson meta from MODULES
@@ -351,8 +363,10 @@ function checkFill(exIdx) {
   document.getElementById(`check-${exIdx}`).disabled = true;
   const dp = window.depersonalize || (t => t);
 
-  const correctOptions = correct.split('|').map(s => s.trim().toLowerCase());
-  const isCorrect = correctOptions.some(opt => val.toLowerCase() === opt);
+  const variants = correct.split('|');
+  const display = variants[0].trim();                       // красивый показ ответа
+  const correctNorm = variants.map(normalizeAnswer);        // нормализованные варианты
+  const isCorrect = correctNorm.some(opt => normalizeAnswer(val) === opt);
   if (isCorrect) {
     input.classList.add('correct-input');
     exEl.classList.add('correct');
@@ -361,7 +375,7 @@ function checkFill(exIdx) {
   } else {
     input.classList.add('wrong-input');
     exEl.classList.add('wrong');
-    fb.innerHTML = `✗ Почти! Правильный ответ: <b>${correctOptions[0]}</b>` + (ex.explain ? `<br><span class="fb-explain">${dp(ex.explain)}</span>` : '');
+    fb.innerHTML = `✗ Почти! Правильный ответ: <b>${display}</b>` + (ex.explain ? `<br><span class="fb-explain">${dp(ex.explain)}</span>` : '');
     fb.className = 'feedback bad';
   }
   afterAnswer();
@@ -405,11 +419,13 @@ function checkReadFill(i, k) {
   const fb = document.getElementById(`rfb-${i}-${k}`);
   input.disabled = true;
   document.getElementById(`rcheck-${i}-${k}`).disabled = true;
-  const opts = String(q.answer).split('|').map(s => s.trim().toLowerCase());
-  if (opts.some(o => input.value.trim().toLowerCase() === o)) {
+  const variants = String(q.answer).split('|');
+  const display = variants[0].trim();
+  const opts = variants.map(normalizeAnswer);
+  if (opts.some(o => normalizeAnswer(input.value) === o)) {
     input.classList.add('correct-input'); fb.textContent = '✓ Правильно!'; fb.className = 'feedback ok';
   } else {
-    input.classList.add('wrong-input'); fb.textContent = `✗ Правильный ответ: ${opts[0]}`; fb.className = 'feedback bad';
+    input.classList.add('wrong-input'); fb.textContent = `✗ Правильный ответ: ${display}`; fb.className = 'feedback bad';
   }
   afterAnswer();
 }
