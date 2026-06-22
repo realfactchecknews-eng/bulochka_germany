@@ -1131,7 +1131,13 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Я отвечаю клиенту. (der Kunde, antworten + Dativ)', answer: 'Ich antworte dem Kunden.', hint: 'antworten → Dativ; der Kunde слабое → dem Kunden', placeholder: 'Ich antworte...', explain: 'antworten требует Dativ; Kunde — слабое существительное (+n).' },
       { type: 'translate', question: 'Это сумка соседки. (die Nachbarin)', answer: 'Das ist die Tasche der Nachbarin.', hint: 'Genitiv f: der Nachbarin', placeholder: 'Das ist die Tasche...', explain: 'Принадлежность — Genitiv; женский род артикль der.' },
       { type: 'listen', answer: 'Ich gebe dem Gast den Schlüssel.', hint: 'Dativ (кому) + Akkusativ (что)' },
-      { type: 'write', question: 'Schreib 3 Sätze mit verschiedenen Kasus: ein Akkusativ-Objekt, ein Dativ-Objekt und ein Genitiv (Besitz).', hint: 'Ich sehe den … / Ich helfe dem … / Das ist das Auto des …', placeholder: 'Ich...', sample: 'Ich brauche den Schlüssel. Ich danke dem Mitarbeiter. Das ist das Büro des Direktors.' }
+      { type: 'write', question: 'Schreib 3 Sätze mit verschiedenen Kasus: ein Akkusativ-Objekt, ein Dativ-Objekt und ein Genitiv (Besitz).', hint: 'Ich sehe den … / Ich helfe dem … / Das ist das Auto des …', placeholder: 'Ich...', sample: 'Ich brauche den Schlüssel. Ich danke dem Mitarbeiter. Das ist das Büro des Direktors.' },
+      { type: 'fill', question: 'Ergänzen Sie den Artikel (Nom): ___ Lösung überzeugt alle. (die Lösung)', answer: 'die', explain: 'Nom f → die.' },
+      { type: 'fill', question: 'Setzen Sie in den Akkusativ: Ich unterstütze ___ Vorschlag. (der Vorschlag)', answer: 'den', explain: 'Akk m → den.' },
+      { type: 'fill', question: 'Setzen Sie in den Dativ: Ich vertraue ___ Arzt. (der Arzt)', answer: 'dem', explain: 'Dativ m → dem.' },
+      { type: 'fill', question: 'Genitiv: Das ist der Schlüssel ___ Wohnung. (die Wohnung)', answer: 'der', explain: 'Genitiv f → der.' },
+      { type: 'translate', question: 'Исправь ошибку: «Ich danke der Mann.»', answer: 'Ich danke dem Mann.', hint: 'danken + Dativ; der → dem', placeholder: 'Ich danke...', explain: 'danken требует Dativ.' },
+      { type: 'fill', question: 'Dativ Plural: Ich helfe ___ Studenten. (die Studenten)', answer: 'den', explain: 'Dativ Pl артикль den.' },
     ],
   },
 
@@ -1205,7 +1211,13 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Я ищу опытного сотрудника. (der Mitarbeiter)', answer: 'Ich suche einen Mitarbeiter.', hint: 'suchen → Akkusativ m: einen', placeholder: 'Ich suche...', explain: 'Прямой объект мужского рода → einen.' },
       { type: 'translate', question: 'У меня больше нет терпения. (die Geduld)', answer: 'Ich habe keine Geduld mehr.', hint: 'kein + Geduld (Akk f) → keine', placeholder: 'Ich habe...', explain: 'Geduld без артикля отрицается через kein-.' },
       { type: 'listen', answer: 'Ich habe einen Termin bei einem Arzt.', hint: 'einen (Akk m) + einem (Dat m)' },
-      { type: 'write', question: 'Schreib 3 Sätze: was hast du / was hast du nicht? Nutze ein-/kein- im Akkusativ mit weniger banalem Wortschatz.', hint: 'Ich habe einen/eine/ein … / Ich habe keinen/keine/kein …', placeholder: 'Ich habe...', sample: 'Ich habe einen Termin am Montag. Ich habe eine gute Ausrede. Leider habe ich kein Talent für Mathe.' }
+      { type: 'write', question: 'Schreib 3 Sätze: was hast du / was hast du nicht? Nutze ein-/kein- im Akkusativ mit weniger banalem Wortschatz.', hint: 'Ich habe einen/eine/ein … / Ich habe keinen/keine/kein …', placeholder: 'Ich habe...', sample: 'Ich habe einen Termin am Montag. Ich habe eine gute Ausrede. Leider habe ich kein Talent für Mathe.' },
+      { type: 'fill', question: 'Ergänzen Sie: Das ist ___ interessante Frage. (впервые)', answer: 'eine', explain: 'Первое упоминание → eine.' },
+      { type: 'fill', question: 'Setzen Sie in den Akkusativ: Ich brauche ___ Termin. (der Termin)', answer: 'einen', explain: 'Akk m → einen.' },
+      { type: 'fill', question: 'Verneinen Sie: Ich habe ___ Auto. (das Auto)', answer: 'kein', explain: 'das Auto с ein → kein.' },
+      { type: 'fill', question: 'Setzen Sie in den Dativ: Ich komme mit ___ Kollegen. (ein Kollege)', answer: 'einem', explain: 'mit → Dativ; ein → einem.' },
+      { type: 'translate', question: 'Исправь ошибку: «Ich habe ein Bruder.»', answer: 'Ich habe einen Bruder.', hint: 'Akk m: ein → einen', placeholder: 'Ich habe...', explain: 'Akkusativ мужского рода.' },
+      { type: 'fill', question: 'Plural: Ich habe ___ Geschwister. (нет)', answer: 'keine', explain: 'Pl отрицание → keine.' },
     ],
   },
 
@@ -1490,7 +1502,12 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Он много работает. (arbeiten)', answer: 'Er arbeitet viel.', hint: 'arbeiten → er arbeitet (+e)', placeholder: 'Er arbeitet...', explain: 'Основа на -t требует -e- в форме er.' },
       { type: 'translate', question: 'Как тебя зовут? (heißen)', answer: 'Wie heißt du?', hint: 'heißen → du heißt', placeholder: 'Wie...', explain: 'Основа на -ß → du heißt.' },
       { type: 'listen', answer: 'Wir planen das Projekt zusammen.', hint: 'wir → -en' },
-      { type: 'write', question: 'Schreib 3 Sätze über deinen Tag mit regelmäßigen Verben (arbeiten, planen, organisieren, warten).', hint: 'Спрягай: ich -e, du -st, er -t (+ -e- у arbeiten/warten).', placeholder: 'Ich...', sample: 'Ich plane meinen Tag am Morgen. Mein Kollege arbeitet im Homeoffice. Wir warten auf eine Antwort.' }
+      { type: 'write', question: 'Schreib 3 Sätze über deinen Tag mit regelmäßigen Verben (arbeiten, planen, organisieren, warten).', hint: 'Спрягай: ich -e, du -st, er -t (+ -e- у arbeiten/warten).', placeholder: 'Ich...', sample: 'Ich plane meinen Tag am Morgen. Mein Kollege arbeitet im Homeoffice. Wir warten auf eine Antwort.' },
+      { type: 'fill', question: 'Раскрой скобки: Er (arbeiten) ___ im Büro.', answer: 'arbeitet', explain: 'Основа на -t → arbeitet.' },
+      { type: 'fill', question: 'Konjugieren Sie: du (planen) ___', answer: 'planst', explain: 'du → -st: planst.' },
+      { type: 'fill', question: 'Раскрой скобки: ihr (warten) ___ zu lange.', answer: 'wartet', explain: 'Основа на -t → wartet.' },
+      { type: 'translate', question: 'Исправь ошибку: «Du heißst Anna.»', answer: 'Du heißt Anna.', hint: 'основа на -ß → du heißt', placeholder: 'Du heißt...', explain: 'После -ß в форме du одно t.' },
+      { type: 'fill', question: 'Konjugieren Sie: wir (organisieren) ___', answer: 'organisieren', explain: 'wir → -en.' },
     ],
   },
 
@@ -1565,7 +1582,12 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Ты водишь машину? (fahren, das Auto)', answer: 'Fährst du Auto?', hint: 'fahren → du fährst (a→ä)', placeholder: 'Fährst...', explain: 'a→ä в форме du.' },
       { type: 'translate', question: 'Она берёт такси. (nehmen, das Taxi)', answer: 'Sie nimmt ein Taxi.', hint: 'nehmen → sie nimmt', placeholder: 'Sie nimmt...', explain: 'nehmen → nimmt (особая форма).' },
       { type: 'listen', answer: 'Er liest die Zeitung und trinkt Kaffee.', hint: 'lesen → er liest' },
-      { type: 'write', question: 'Schreib 3 Sätze über er/sie oder du mit Vokalwechsel-Verben (sprechen, fahren, lesen, nehmen, empfehlen).', hint: 'Только du/er меняют гласную: ich spreche, но er spricht.', placeholder: 'Er...', sample: 'Er spricht fließend Englisch. Sie nimmt jeden Morgen den Bus. Du liest sehr viel.' }
+      { type: 'write', question: 'Schreib 3 Sätze über er/sie oder du mit Vokalwechsel-Verben (sprechen, fahren, lesen, nehmen, empfehlen).', hint: 'Только du/er меняют гласную: ich spreche, но er spricht.', placeholder: 'Er...', sample: 'Er spricht fließend Englisch. Sie nimmt jeden Morgen den Bus. Du liest sehr viel.' },
+      { type: 'fill', question: 'Раскрой скобки: Er (lesen) ___ ein Buch.', answer: 'liest', explain: 'e→ie: liest.' },
+      { type: 'fill', question: 'Раскрой скобки: du (fahren) ___ zu schnell.', answer: 'fährst', explain: 'a→ä: fährst.' },
+      { type: 'fill', question: 'Раскрой скобки: Sie (nehmen) ___ den Bus.', answer: 'nimmt', explain: 'nehmen → nimmt.' },
+      { type: 'translate', question: 'Исправь ошибку: «Er spreche Deutsch.»', answer: 'Er spricht Deutsch.', hint: 'sprechen → er spricht (e→i)', placeholder: 'Er spricht...', explain: 'В форме er чередование e→i.' },
+      { type: 'fill', question: 'Раскрой скобки: Er (empfehlen) ___ das Buch.', answer: 'empfiehlt', explain: 'empfehlen → empfiehlt (e→ie).' },
     ],
   },
 
@@ -1770,7 +1792,12 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Можешь мне коротко помочь? (können, helfen)', answer: 'Kannst du mir kurz helfen?', hint: 'вопрос: модальный на 1-м месте', placeholder: 'Kannst...', explain: 'В вопросе модальный выходит вперёд.' },
       { type: 'translate', question: 'Мы хотели бы заказать. (möchten, bestellen)', answer: 'Wir möchten bestellen.', hint: 'möchten + Infinitiv', placeholder: 'Wir möchten...', explain: 'möchten — вежливое «хотели бы».' },
       { type: 'listen', answer: 'Ich kann heute leider nicht kommen.', hint: 'können + nicht + Infinitiv' },
-      { type: 'write', question: 'Schreib 3 Sätze: was kannst/musst/willst du? (Modalverb + Infinitiv am Ende)', hint: 'Ich kann/muss/will/möchte … + Infinitiv (в конце).', placeholder: 'Ich...', sample: 'Ich muss heute eine Präsentation vorbereiten. Ich kann ziemlich gut organisieren. Am Wochenende will ich mich ausruhen.' }
+      { type: 'write', question: 'Schreib 3 Sätze: was kannst/musst/willst du? (Modalverb + Infinitiv am Ende)', hint: 'Ich kann/muss/will/möchte … + Infinitiv (в конце).', placeholder: 'Ich...', sample: 'Ich muss heute eine Präsentation vorbereiten. Ich kann ziemlich gut organisieren. Am Wochenende will ich mich ausruhen.' },
+      { type: 'fill', question: 'Раскрой скобки: Ich (müssen) ___ heute lernen.', answer: 'muss', explain: 'ich muss.' },
+      { type: 'fill', question: 'Раскрой скобки: ___ du mir helfen? (können)', answer: 'Kannst', explain: 'du kannst → вопрос Kannst du.' },
+      { type: 'translate', question: 'Поставь глагол в конец: Я хочу поехать в Берлин. (wollen, fahren)', answer: 'Ich will nach Berlin fahren.', hint: 'will на 2-м, fahren в конец', placeholder: 'Ich will...', explain: 'Рамка: инфинитив в конце.' },
+      { type: 'translate', question: 'Исправь ошибку: «Ich kann schwimme.»', answer: 'Ich kann schwimmen.', hint: 'после модального — инфинитив', placeholder: 'Ich kann...', explain: 'Смысловой глагол в инфинитиве.' },
+      { type: 'fill', question: 'Раскрой скобки: Er (dürfen) ___ hier nicht parken.', answer: 'darf', explain: 'er darf.' },
     ],
   },
 
@@ -1897,7 +1924,13 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Я каждый день проверяю почту. (jeden Tag, die E-Mails prüfen)', answer: 'Ich prüfe jeden Tag die E-Mails.|Jeden Tag prüfe ich die E-Mails.', hint: 'jeden Tag — Akkusativ времени', placeholder: '...', explain: 'Регулярность времени — Akkusativ без предлога.' },
       { type: 'translate', question: 'Я встречаю коллегу. (der Kollege, слабое)', answer: 'Ich treffe den Kollegen.', hint: 'treffen → Akk; den Kollegen (+n)', placeholder: 'Ich treffe...', explain: 'Kollege — слабое существительное, в Akk +n.' },
       { type: 'listen', answer: 'Ich brauche einen Termin und ein Formular.', hint: 'einen (m) + ein (n)' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Akkusativ: ein Verb-Objekt, eine Akkusativ-Präposition (für/gegen/durch) und eine Zeitangabe (jeden …).', hint: 'Ich brauche den … / Das ist für den … / Ich … jeden Tag.', placeholder: 'Ich...', sample: 'Ich unterschreibe den Vertrag. Das Geschenk ist für meinen Bruder. Ich lese jeden Abend einen Artikel.' }
+      { type: 'write', question: 'Schreib 3 Sätze mit Akkusativ: ein Verb-Objekt, eine Akkusativ-Präposition (für/gegen/durch) und eine Zeitangabe (jeden …).', hint: 'Ich brauche den … / Das ist für den … / Ich … jeden Tag.', placeholder: 'Ich...', sample: 'Ich unterschreibe den Vertrag. Das Geschenk ist für meinen Bruder. Ich lese jeden Abend einen Artikel.' },
+      { type: 'fill', question: 'Setzen Sie in den Akkusativ: Wir suchen ___ Wohnung. (die Wohnung)', answer: 'die', explain: 'Женский в Akk = Nom: die.' },
+      { type: 'fill', question: 'Ergänzen Sie: Ich lese ___ Buch. (das Buch)', answer: 'das', explain: 'Средний в Akk = Nom: das.' },
+      { type: 'fill', question: 'Präposition + Akk: Wir gehen durch ___ Park. (der Park)', answer: 'den', explain: 'durch → Akk: den.' },
+      { type: 'translate', question: 'Исправь ошибку: «Das Geschenk ist für mein Bruder.»', answer: 'Das Geschenk ist für meinen Bruder.', hint: 'für + Akk: meinen Bruder', placeholder: 'Das Geschenk ist für...', explain: 'für управляет Akkusativ.' },
+      { type: 'fill', question: 'Akkusativ времени: Ich bleibe ___ Woche. (eine Woche)', answer: 'eine', explain: 'Длительность в Akk.' },
+      { type: 'translate', question: 'Поставь в Akkusativ: Я приглашаю учителя. (der Lehrer, einladen)', answer: 'Ich lade den Lehrer ein.', hint: 'einladen → Akk; der → den', placeholder: 'Ich lade...', explain: 'Прямой объект → Akkusativ.' },
     ],
   },
 
@@ -2118,7 +2151,13 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Мне нравится это предложение. (der Vorschlag, gefallen)', answer: 'Der Vorschlag gefällt mir.', hint: 'подлежащее — der Vorschlag, «мне» = mir', placeholder: 'Der Vorschlag...', explain: 'gefallen: предмет — подлежащее, человек в Dativ.' },
       { type: 'translate', question: 'Я еду на поезде. (mit, der Zug)', answer: 'Ich fahre mit dem Zug.', hint: 'mit + Dativ (der Zug → dem Zug)', placeholder: 'Ich fahre...', explain: 'mit управляет Dativ.' },
       { type: 'listen', answer: 'Ich danke dir für deine Unterstützung.', hint: 'danken + Dativ (dir)' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Dativ: ein Dativ-Verb (helfen/gehören/gefallen) und eine Dativ-Präposition (mit/bei/zu).', hint: 'Ich helfe dem/der … · Das gehört … · Ich fahre mit dem …', placeholder: 'Ich...', sample: 'Ich helfe meiner Nachbarin. Das Buch gehört dem Lehrer. Ich fahre mit dem Bus zur Arbeit.' }
+      { type: 'write', question: 'Schreib 3 Sätze mit Dativ: ein Dativ-Verb (helfen/gehören/gefallen) und eine Dativ-Präposition (mit/bei/zu).', hint: 'Ich helfe dem/der … · Das gehört … · Ich fahre mit dem …', placeholder: 'Ich...', sample: 'Ich helfe meiner Nachbarin. Das Buch gehört dem Lehrer. Ich fahre mit dem Bus zur Arbeit.' },
+      { type: 'fill', question: 'Setzen Sie in den Dativ: Ich gebe ___ Kind ein Buch. (das Kind)', answer: 'dem', explain: 'Dativ n → dem.' },
+      { type: 'fill', question: 'Dativ-Verb: Das Auto gehört ___ Nachbarin. (die Nachbarin)', answer: 'der', explain: 'gehören + Dativ; f → der.' },
+      { type: 'fill', question: 'Präposition + Dativ: Ich wohne bei ___ Eltern. (die Eltern)', answer: 'den', explain: 'bei → Dativ Pl: den.' },
+      { type: 'fill', question: 'Слияние: Ich gehe ___ Bäckerei. (zu + der)', answer: 'zur', explain: 'zu + der = zur.' },
+      { type: 'translate', question: 'Исправь ошибку: «Ich helfe meinen Freund.»', answer: 'Ich helfe meinem Freund.', hint: 'helfen + Dativ: meinem Freund', placeholder: 'Ich helfe...', explain: 'helfen требует Dativ.' },
+      { type: 'translate', question: 'Поставь в Dativ: Я благодарю учительницу. (danken, die Lehrerin)', answer: 'Ich danke der Lehrerin.', hint: 'danken → Dativ; die → der', placeholder: 'Ich danke...', explain: 'danken управляет Dativ.' },
     ],
   },
 
@@ -2428,7 +2467,12 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Мы приехали в Вену. (fahren)', answer: 'Wir sind nach Wien gefahren.', hint: 'движение → sein + gefahren', placeholder: 'Wir sind...', explain: 'fahren с sein.' },
       { type: 'translate', question: 'Я изучала медицину. (studieren, Medizin)', answer: 'Ich habe Medizin studiert.', hint: '-ieren → без ge-: studiert', placeholder: 'Ich habe...', explain: 'studieren → studiert (без ge-), с haben.' },
       { type: 'listen', answer: 'Ich bin früh aufgestanden und habe gefrühstückt.', hint: 'sein (aufstehen) + haben (frühstücken)' },
-      { type: 'write', question: 'Schreib 3 Sätze über gestern im Perfekt — 1× sein (Bewegung) und 2× haben.', hint: 'Ich bin … gefahren/gegangen. Ich habe … gemacht/geschrieben.', placeholder: 'Gestern...', sample: 'Gestern habe ich den ganzen Tag gearbeitet. Am Abend bin ich ins Theater gegangen. Danach habe ich Freunde getroffen.' }
+      { type: 'write', question: 'Schreib 3 Sätze über gestern im Perfekt — 1× sein (Bewegung) und 2× haben.', hint: 'Ich bin … gefahren/gegangen. Ich habe … gemacht/geschrieben.', placeholder: 'Gestern...', sample: 'Gestern habe ich den ganzen Tag gearbeitet. Am Abend bin ich ins Theater gegangen. Danach habe ich Freunde getroffen.' },
+      { type: 'fill', question: 'Partizip II: schreiben → ___', answer: 'geschrieben', explain: 'Сильный: geschrieben.' },
+      { type: 'fill', question: 'Partizip II (без ge): verkaufen → ___', answer: 'verkauft', explain: 'ver- → без ge-: verkauft.' },
+      { type: 'translate', question: 'Bilden Sie Perfekt: Я написал письмо. (schreiben, der Brief)', answer: 'Ich habe einen Brief geschrieben.', hint: 'haben + geschrieben', placeholder: 'Ich habe...', explain: 'Переходный → haben + Partizip II в конец.' },
+      { type: 'translate', question: 'Bilden Sie Perfekt: Она осталась дома. (bleiben)', answer: 'Sie ist zu Hause geblieben.', hint: 'bleiben → sein + geblieben', placeholder: 'Sie ist...', explain: 'bleiben идёт с sein.' },
+      { type: 'translate', question: 'Исправь ошибку: «Ich habe nach Wien gefahren.»', answer: 'Ich bin nach Wien gefahren.', hint: 'fahren (движение) → sein', placeholder: 'Ich bin...', explain: 'Глаголы движения с sein.' },
     ],
   },
 
@@ -2784,7 +2828,13 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Из-за забастовки поезд опаздывает. (der Streik)', answer: 'Wegen des Streiks hat der Zug Verspätung.', hint: 'wegen + Genitiv (der Streik → des Streiks); инверсия', placeholder: 'Wegen des Streiks...', explain: 'wegen управляет Genitiv; после обстоятельства — инверсия.' },
       { type: 'translate', question: 'Подруга Макса (разговорно, через von).', answer: 'die Freundin von Max', hint: 'von + имя (разговорный Genitiv)', placeholder: 'die Freundin...', explain: 'С именами без артикля в речи используют von+Dativ.' },
       { type: 'listen', answer: 'Das ist das Ergebnis der Prüfung.', hint: 'Genitiv f: der Prüfung' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Genitiv: Besitz (des/der …), ein Name (…s) und mit wegen/während/trotz.', hint: 'das … des … · Annas … · wegen des …', placeholder: '...', sample: 'Das ist das Auto meines Vaters. Lisas Vortrag war super. Während der Pause trinke ich Kaffee.' }
+      { type: 'write', question: 'Schreib 3 Sätze mit Genitiv: Besitz (des/der …), ein Name (…s) und mit wegen/während/trotz.', hint: 'das … des … · Annas … · wegen des …', placeholder: '...', sample: 'Das ist das Auto meines Vaters. Lisas Vortrag war super. Während der Pause trinke ich Kaffee.' },
+      { type: 'fill', question: 'Genitiv m: Das ist das Büro ___ Chefs. (der Chef)', answer: 'des', explain: 'Genitiv m → des.' },
+      { type: 'fill', question: 'Genitiv f: die Farbe ___ Tür (die Tür)', answer: 'der', explain: 'Genitiv f → der.' },
+      { type: 'fill', question: 'Präposition + Genitiv: Wir bleiben trotz ___ Regens drinnen. (der Regen)', answer: 'des', explain: 'trotz → Genitiv: des Regens.' },
+      { type: 'translate', question: 'Имя в Genitiv: машина Лизы → ___ Auto', answer: 'Lisas Auto', hint: 'имя + s, впереди', placeholder: 'Lisas...', explain: 'Имя + s без апострофа.' },
+      { type: 'translate', question: 'Исправь ошибку: «wegen dem Stau» (письменно)', answer: 'wegen des Staus', hint: 'wegen + Genitiv: des Staus', placeholder: 'wegen des...', explain: 'В письменном стиле wegen + Genitiv.' },
+      { type: 'fill', question: 'Genitiv n: das Ende ___ Films (der Film)', answer: 'des', explain: 'Genitiv m/n → des.' },
     ],
   },
 
@@ -2852,7 +2902,12 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'Я поддерживаю этот важный проект. (wichtig, das Projekt)', answer: 'Ich unterstütze dieses wichtige Projekt.', hint: 'dieses + Akk n → -e', placeholder: 'Ich unterstütze...', explain: 'После dieses — слабое, Akk n → -e.' },
       { type: 'translate', question: 'Я говорю с новым шефом. (neu, der Chef)', answer: 'Ich spreche mit dem neuen Chef.', hint: 'Dativ m → -en', placeholder: 'Ich spreche...', explain: 'Dativ → -en.' },
       { type: 'listen', answer: 'Der neue Mitarbeiter macht einen guten Eindruck.', hint: 'der neue (Nom) + einen guten (Akk)' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Adjektiv nach der/die/das — Nominativ UND Akkusativ, mit weniger banalem Wortschatz.', hint: 'Nom: der/die/das + …e. Akk m: den + …en.', placeholder: 'Der...', sample: 'Die aktuelle Lage ist schwierig. Ich lese den ausführlichen Bericht. Das interessante Angebot gilt nur heute.' }
+      { type: 'write', question: 'Schreib 3 Sätze mit Adjektiv nach der/die/das — Nominativ UND Akkusativ, mit weniger banalem Wortschatz.', hint: 'Nom: der/die/das + …e. Akk m: den + …en.', placeholder: 'Der...', sample: 'Die aktuelle Lage ist schwierig. Ich lese den ausführlichen Bericht. Das interessante Angebot gilt nur heute.' },
+      { type: 'fill', question: 'Ergänzen Sie die Endung: der alt___ Mann (Nom m)', answer: 'alte', explain: 'Слабое, Nom m → -e.' },
+      { type: 'fill', question: 'Ergänzen Sie die Endung: Ich kenne den neu___ Kollegen. (Akk m)', answer: 'neuen', explain: 'Akk m → -en.' },
+      { type: 'fill', question: 'Ergänzen Sie die Endung: mit dem klein___ Kind (Dat n)', answer: 'kleinen', explain: 'Dativ → -en.' },
+      { type: 'fill', question: 'Ergänzen Sie die Endung: die wichtig___ Frage (Nom f)', answer: 'wichtige', explain: 'Nom f → -e.' },
+      { type: 'translate', question: 'Исправь ошибку: «Ich sehe den alte Mann.»', answer: 'Ich sehe den alten Mann.', hint: 'Akk m → -en', placeholder: 'Ich sehe...', explain: 'Akkusativ мужского: прилагательное на -en.' },
     ],
   },
 
@@ -2918,7 +2973,12 @@ const LESSONS_CONTENT = {
       { type: 'translate', question: 'У меня новый коллега. (neu, der Kollege)', answer: 'Ich habe einen neuen Kollegen.', hint: 'Akk m → einen neuen', placeholder: 'Ich habe...', explain: 'Akk m → -en; Kollege слабое (+n).' },
       { type: 'translate', question: 'Мой новый проект важен. (neu, das Projekt)', answer: 'Mein neues Projekt ist wichtig.', hint: 'mein + Nom n → neues', placeholder: 'Mein neues...', explain: 'mein как ein, Nom n → -es.' },
       { type: 'listen', answer: 'Ich habe einen guten Vorschlag.', hint: 'Akk m → einen guten' },
-      { type: 'write', question: 'Schreib 3 Sätze mit Adjektiv nach ein/mein/kein — Nominativ und Akkusativ.', hint: 'Nom m → …er, Nom/Akk n → …es, Akk m → …en.', placeholder: 'Ich habe...', sample: 'Ich habe einen wichtigen Termin. Mein neues Büro ist hell. Das ist keine schlechte Idee.' }
+      { type: 'write', question: 'Schreib 3 Sätze mit Adjektiv nach ein/mein/kein — Nominativ und Akkusativ.', hint: 'Nom m → …er, Nom/Akk n → …es, Akk m → …en.', placeholder: 'Ich habe...', sample: 'Ich habe einen wichtigen Termin. Mein neues Büro ist hell. Das ist keine schlechte Idee.' },
+      { type: 'fill', question: 'Ergänzen Sie: ein gut___ Plan (Nom m)', answer: 'guter', explain: 'ein молчит про род m → -er.' },
+      { type: 'fill', question: 'Ergänzen Sie: ein klein___ Problem (Nom n)', answer: 'kleines', explain: 'Nom n → -es.' },
+      { type: 'fill', question: 'Ergänzen Sie: Ich habe einen alt___ Freund. (Akk m)', answer: 'alten', explain: 'Akk m → -en.' },
+      { type: 'fill', question: 'Ergänzen Sie: mein neu___ Auto (Nom n)', answer: 'neues', explain: 'mein как ein, Nom n → -es.' },
+      { type: 'translate', question: 'Исправь ошибку: «Das ist ein gutes Mann.»', answer: 'Das ist ein guter Mann.', hint: 'Mann мужской → ein guter Mann', placeholder: 'Das ist ein...', explain: 'Nom m → -er (не -es).' },
     ],
   },
 
