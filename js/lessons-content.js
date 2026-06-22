@@ -571,170 +571,218 @@ const LESSONS_CONTENT = {
   // ══════════════════════════════════════════════════════════
 
   alphabet: {
-    title: 'Алфавит и произношение',
-    level: 'A1 · Урок 1',
-    intro: 'Немецкий алфавит — 26 букв + 4 особых: ä, ö, ü, ß. Многие буквы читаются иначе, чем в русском.',
+    title: 'Алфавит и правила чтения',
+    intro: 'Немецкий алфавит — 26 букв плюс умлауты ä/ö/ü и ß. Многие буквы и сочетания читаются не как в английском. Разберём звуки, дифтонги, сочетания согласных и как диктовать слова по буквам.',
     theory: [
       {
-        heading: '📖 Особые буквы немецкого — умлауты',
+        heading: '📘 Основа: умлауты и ß',
         content: `
-          <p>Умлауты — это буквы с точками над ними. Они меняют звук гласной:</p>
           <div class="table-wrap"><table>
-            <tr><th>Буква</th><th>Звук</th><th>Пример</th><th>Перевод</th></tr>
-            <tr><td><b>ä</b></td><td>как «э» в «это»</td><td>spät, schön<b>ä</b>hnlich</td><td>поздно</td></tr>
-            <tr><td><b>ö</b></td><td>«ё» с вытянутыми губами вперёд</td><td>sch<b>ö</b>n, h<b>ö</b>ren</td><td>красивый, слышать</td></tr>
-            <tr><td><b>ü</b></td><td>«ю» с вытянутыми губами вперёд</td><td>f<b>ü</b>nf, <b>ü</b>ben</td><td>пять, тренироваться</td></tr>
-            <tr><td><b>ß</b> (Eszett)</td><td>двойное «сс»</td><td>hei<b>ß</b>en, Stra<b>ß</b>e</td><td>называться, улица</td></tr>
+            <tr><th>Буква</th><th>Звук</th><th>Пример</th></tr>
+            <tr><td><b>ä</b></td><td>как «э»</td><td>spät (поздно), Mädchen</td></tr>
+            <tr><td><b>ö</b></td><td>«ё» с округлёнными губами</td><td>schön, hören</td></tr>
+            <tr><td><b>ü</b></td><td>«ю» с округлёнными губами</td><td>für, müde, üben</td></tr>
+            <tr><td><b>ß</b> (Eszett)</td><td>глухое «сс»</td><td>heißen, Straße</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">💡 Лайфхак от Егора: умлауты — это просто модифицированные гласные. ä = ae, ö = oe, ü = ue. Если нет умлаута на клавиатуре — пиши так!</div>
-            <div class="ru">Schön = Schoen · Müller = Mueller · Straße = Strasse</div>
+            <div class="de">Без немецкой клавиатуры пиши: ä=ae, ö=oe, ü=ue, ß=ss → schön=schoen, Straße=Strasse.</div>
+            <div class="ru">На сайте такие ASCII-замены в ответах засчитываются как правильные.</div>
           </div>
         `
       },
       {
-        heading: '🔊 Главные правила произношения',
+        heading: '🔊 Тонкость: дифтонги (двойные гласные)',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Буква/сочетание</th><th>Читается как</th><th>Пример</th></tr>
-            <tr><td><b>w</b></td><td>«в»</td><td><b>w</b>ie (как), <b>W</b>asser (вода)</td></tr>
-            <tr><td><b>v</b></td><td>«ф»</td><td><b>v</b>ier (четыре), <b>V</b>ater (отец)</td></tr>
-            <tr><td><b>z</b></td><td>«тс»</td><td><b>z</b>wei (два), <b>Z</b>eit (время)</td></tr>
-            <tr><td><b>ei</b></td><td>«ай»</td><td>m<b>ei</b>n (мой), <b>ei</b>n (один)</td></tr>
-            <tr><td><b>ie</b></td><td>долгое «и»</td><td>v<b>ie</b>l (много), l<b>ie</b>be (любовь)</td></tr>
-            <tr><td><b>eu / äu</b></td><td>«ой»</td><td>h<b>eu</b>te (сегодня), H<b>äu</b>ser (дома)</td></tr>
-            <tr><td><b>sp</b> (в начале)</td><td>«шп»</td><td><b>sp</b>rechen (говорить)</td></tr>
-            <tr><td><b>st</b> (в начале)</td><td>«шт»</td><td><b>St</b>adt (город), <b>St</b>udent</td></tr>
-            <tr><td><b>ch</b></td><td>«х» после a/o/u, мягкое «хь» после e/i</td><td>a<b>ch</b>, i<b>ch</b></td></tr>
-            <tr><td><b>sch</b></td><td>«ш»</td><td><b>sch</b>ön, <b>Sch</b>ule (школа)</td></tr>
+            <tr><td><b>ei</b> → «ай»</td><td>mein, eins, Zeit</td></tr>
+            <tr><td><b>ie</b> → долгое «и»</td><td>viel, Liebe, sie</td></tr>
+            <tr><td><b>eu / äu</b> → «ой»</td><td>heute, Deutsch, Häuser</td></tr>
+            <tr><td><b>au</b> → «ау»</td><td>Haus, auch, blau</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich spreche Deutsch. Wie viel kostet das?</div>
-            <div class="ru">Я говорю по-немецки. Сколько это стоит?</div>
+            <div class="de">⚠️ ei ≠ ie: m<b>ei</b>n («майн»), но v<b>ie</b>l («филь»). Это частая путаница.</div>
+            <div class="ru">Запомни: «ei» = ай, «ie» = долгое и.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🔡 Тонкость: согласные и сочетания',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><td><b>w</b> → «в»</td><td>wie, Wasser, Wein</td></tr>
+            <tr><td><b>v</b> → «ф»</td><td>vier, Vater, viel</td></tr>
+            <tr><td><b>z</b> → «ц»</td><td>zwei, Zeit, Zucker</td></tr>
+            <tr><td><b>s</b> перед гласной → «з»</td><td>Sonne, sagen, lesen</td></tr>
+            <tr><td><b>sch</b> → «ш»</td><td>schön, Schule</td></tr>
+            <tr><td><b>sp/st</b> в начале → «шп/шт»</td><td>sprechen, Stadt, Stunde</td></tr>
+            <tr><td><b>ch</b> → «х/хь»</td><td>ach, ich, Buch</td></tr>
+            <tr><td><b>j</b> → «й»; <b>r</b> → картавое</td><td>ja, Jahr; rot, Reise</td></tr>
+          </table></div>
+        `
+      },
+      {
+        heading: '✍️ Тонкость: диктовка по буквам (buchstabieren)',
+        content: `
+          <p>Часто просят продиктовать имя: <b>Wie schreibt man das?</b> Буквы называются так: a, be, ce, de, e, ef, ge, ha, i, jot, ka, el, em, en, o, pe, ku, er, es, te, u, vau, we, iks, ypsilon, zet. Умлауты: a-Umlaut (ä) и т.д.</p>
+          <div class="example-box">
+            <div class="de">— Wie heißen Sie? — Müller. — Wie schreibt man das? — em-u-Umlaut-el-el-e-er.</div>
+            <div class="ru">«ß» называют „eszett“ или „scharfes s“.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Как читается буква <b>w</b> в немецком?', options: ['как «в»', 'как «у»', 'как «вв»', 'как «б»'], answer: 0 },
-      { type: 'choice', question: 'Слово <b>mein</b> — как читается «ei»?', options: ['«ай»', '«ей»', '«и»', '«ой»'], answer: 0 },
-      { type: 'choice', question: '<b>sprechen</b> — как читается «sp» в начале слова?', options: ['«шп»', '«сп»', '«зп»', '«цп»'], answer: 0 },
-      { type: 'fill', question: 'Напиши «Straße» заглавными без ß:', answer: 'STRASSE', placeholder: 'STRA...' },
-      { type: 'choice', question: 'Как читается <b>z</b> в немецком?', options: ['«тс»', '«з»', '«с»', '«дз»'], answer: 0 },
-      { type: 'choice', question: '<b>viel</b> (много) — как читается «v»?', options: ['«ф»', '«в»', '«у»', '«б»'], answer: 0 },
+      { type: 'choice', question: 'Как читается «ei» в слове mein?', options: ['«ай»', '«ей»', '«и»'], answer: 0, explain: 'ei → «ай».' },
+      { type: 'choice', question: 'Как читается «v» в Vater?', options: ['«ф»', '«в»', '«у»'], answer: 0, explain: 'v → «ф».' },
+      { type: 'choice', question: 'Как читается «ie» в viel?', options: ['долгое «и»', '«ай»', '«ие»'], answer: 0, explain: 'ie → долгое «и».' },
+      { type: 'fill', question: 'Напиши «schön» без умлаута (ASCII-замена):', answer: 'schoen', placeholder: 'sch...', explain: 'ö = oe → schoen.' },
+      { type: 'fill', question: 'Напиши «Straße» без ß:', answer: 'strasse', placeholder: 'stra...', explain: 'ß = ss → Strasse.' },
+      { type: 'choice', question: 'Как читается «z» в zwei?', options: ['«ц»', '«з»', '«с»'], answer: 0, explain: 'z → «ц».' },
+      { type: 'choice', question: 'Сочетание «sch» читается как:', options: ['«ш»', '«сх»', '«ск»'], answer: 0, explain: 'sch → «ш».' },
+      { type: 'translate', question: 'Запиши цифрой звук: как пишется «ё с округлёнными губами»? (одна буква)', answer: 'ö|oe', placeholder: 'ö', explain: 'Это буква ö (или oe).' },
+      { type: 'listen', answer: 'Ich heiße Schmidt.', hint: 'sch → ш' },
+      { type: 'write', question: 'Schreib 3 deutsche Wörter mit Umlaut oder ß und je ein Beispiel mit ei/ie/eu.', hint: 'Напр.: schön, Straße, heute / mein / viel.', placeholder: '...', sample: 'schön, Straße, müde. Mein Haus ist neu. Ich lese viel. Heute ist Montag.' }
     ],
   },
 
   greetings: {
-    title: 'Приветствия и прощания',
-    level: 'A1 · Урок 2',
-    intro: 'Первое, что нужно знать — как поздороваться. В Австрии и Германии свои особенности!',
+    title: 'Приветствия, прощания и вежливость',
+    intro: 'С чего начинается любой разговор. Разберём приветствия по времени суток, формальное и неформальное обращение (du/Sie), австрийские варианты и базовые вежливые фразы.',
     theory: [
       {
-        heading: '👋 Приветствия по времени суток',
+        heading: '📘 Основа: приветствия и прощания',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Немецкий</th><th>Русский</th><th>Когда / где</th></tr>
-            <tr><td><b>Hallo!</b></td><td>Привет!</td><td>всегда, неформально</td></tr>
-            <tr><td><b>Guten Morgen!</b></td><td>Доброе утро!</td><td>до ~10:00</td></tr>
-            <tr><td><b>Guten Tag!</b></td><td>Добрый день!</td><td>10:00–18:00</td></tr>
-            <tr><td><b>Guten Abend!</b></td><td>Добрый вечер!</td><td>после 18:00</td></tr>
-            <tr><td><b>Gute Nacht!</b></td><td>Спокойной ночи!</td><td>перед сном</td></tr>
-            <tr><td><b>Grüß Gott!</b></td><td>Здравствуйте!</td><td>🇦🇹 Австрия, Бавария</td></tr>
-            <tr><td><b>Servus!</b></td><td>Привет / Пока!</td><td>🇦🇹 Австрия, неформально</td></tr>
+            <tr><th>Приветствие</th><th>Когда</th></tr>
+            <tr><td><b>Hallo</b></td><td>универсально, неформально</td></tr>
+            <tr><td><b>Guten Morgen</b></td><td>до ~11 утра</td></tr>
+            <tr><td><b>Guten Tag</b></td><td>днём, нейтрально/вежливо</td></tr>
+            <tr><td><b>Guten Abend</b></td><td>вечером</td></tr>
           </table></div>
-          <div class="example-box">
-            <div class="de">🇦🇹 Важно для Австрии: «Grüß Gott» — буквально «Приветствую Бога», это стандартное формальное приветствие. Скажи это в университете или магазине — и тебя сразу поймут как своего!</div>
-            <div class="ru">А «Servus» — универсальное австрийское «привет» и «пока» одновременно.</div>
-          </div>
-        `
-      },
-      {
-        heading: '🚪 Прощания',
-        content: `
           <div class="table-wrap"><table>
-            <tr><th>Немецкий</th><th>Русский</th><th>Формальность</th></tr>
-            <tr><td><b>Auf Wiedersehen!</b></td><td>До свидания!</td><td>Формально</td></tr>
-            <tr><td><b>Tschüss!</b></td><td>Пока!</td><td>Неформально</td></tr>
-            <tr><td><b>Bis bald!</b></td><td>До скорого!</td><td>Неформально</td></tr>
-            <tr><td><b>Bis morgen!</b></td><td>До завтра!</td><td>Любое</td></tr>
-            <tr><td><b>Bis später!</b></td><td>До позже!</td><td>Неформально</td></tr>
+            <tr><th>Прощание</th><th>Когда</th></tr>
+            <tr><td><b>Tschüss</b></td><td>неформально «пока»</td></tr>
+            <tr><td><b>Auf Wiedersehen</b></td><td>вежливо «до свидания»</td></tr>
+            <tr><td><b>Bis bald / bis morgen</b></td><td>до скорого / до завтра</td></tr>
+            <tr><td><b>Gute Nacht</b></td><td>перед сном</td></tr>
           </table></div>
         `
       },
       {
-        heading: '💬 Диалог: как дела?',
+        heading: '🇦🇹 Тонкость: австрийские варианты',
         content: `
+          <p>В Австрии (и на юге Германии) звучат свои формы — их полезно узнавать:</p>
           <div class="example-box">
-            <div class="de">— Hallo! Wie geht es dir? / Wie geht's?</div>
-            <div class="ru">— Привет! Как дела? / Как ты?</div>
+            <div class="de"><b>Grüß Gott</b> (вежливое «здравствуйте») · <b>Servus</b> (привет/пока, неформально) · <b>Pfiat di</b> (пока) · <b>Mahlzeit</b> (приятного, в обед)</div>
+            <div class="ru">«Grüß Gott» — типичное австрийское приветствие, особенно с незнакомыми и старшими.</div>
           </div>
+        `
+      },
+      {
+        heading: '🤝 Тонкость: du или Sie + «как дела»',
+        content: `
+          <ul>
+            <li><b>du</b> — друзья, ровесники, дети: Wie geht es <b>dir</b>? / Wie geht's?</li>
+            <li><b>Sie</b> — незнакомые, старшие, официально: Wie geht es <b>Ihnen</b>?</li>
+            <li>Ответ: Danke, gut. Und dir/Ihnen? · Es geht. · Nicht so gut.</li>
+          </ul>
           <div class="example-box">
-            <div class="de">— Danke, (sehr) gut! Und dir?</div>
-            <div class="ru">— Спасибо, (очень) хорошо! А тебе?</div>
+            <div class="de">Вежливые слова: bitte (пожалуйста), danke (спасибо), Entschuldigung (извините), Verzeihung.</div>
+            <div class="ru">На «danke» отвечают «bitte» или «gern(e)».</div>
           </div>
-          <div class="example-box">
-            <div class="de">— Es geht. / Nicht so gut. / Super!</div>
-            <div class="ru">— Нормально. / Не очень. / Отлично!</div>
-          </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Не путай du/Sie-вопрос: с незнакомыми — «Wie geht es <b>Ihnen</b>?», не «dir».</li>
+            <li>«Guten Morgen/Tag/Abend» — Akkusativ-форма (от «Ich wünsche einen guten…»), поэтому -en.</li>
+            <li>Tschüss — неформально; в офиц. ситуации лучше «Auf Wiedersehen».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Как будет «Добрый вечер» по-немецки?', options: ['Guten Abend', 'Guten Morgen', 'Guten Tag', 'Gute Nacht'], answer: 0 },
-      { type: 'choice', question: 'Ты в Вене заходишь в магазин. Что говоришь?', options: ['Grüß Gott!', 'Bonjour!', 'Guten Tag!', 'Hey!'], answer: 0 },
-      { type: 'fill', question: 'Заполни: «Auf ___________!» (До свидания)', answer: 'Wiedersehen', placeholder: 'Wieder...' },
-      { type: 'choice', question: '«Servus» в Австрии означает...', options: ['и «привет» и «пока»', 'только «привет»', 'только «пока»', '«спасибо»'], answer: 0 },
-      { type: 'choice', question: '«Wie geht\'s?» — это...', options: ['Как дела?', 'Как тебя зовут?', 'Сколько лет?', 'Откуда ты?'], answer: 0 },
-      { type: 'fill', question: 'Ответь: «Danke, gut! Und ___?» (А тебе?)', answer: 'dir', placeholder: 'd...' },
+      { type: 'choice', question: 'Вежливое австрийское приветствие:', options: ['Grüß Gott', 'Tschüss', 'Gute Nacht'], answer: 0, explain: 'Grüß Gott — вежливое приветствие в Австрии.' },
+      { type: 'choice', question: 'Как спросить «как дела» у начальника?', options: ['Wie geht es Ihnen?', 'Wie geht es dir?', "Wie geht's?"], answer: 0, explain: 'С Sie → Ihnen.' },
+      { type: 'choice', question: 'Что сказать вечером?', options: ['Guten Abend', 'Guten Morgen', 'Mahlzeit'], answer: 0, explain: 'Вечером — Guten Abend.' },
+      { type: 'fill', question: 'Утром говорят: Guten ___', answer: 'Morgen', placeholder: 'M...', explain: 'Guten Morgen.' },
+      { type: 'fill', question: 'Спасибо по-немецки:', answer: 'danke', placeholder: 'd...', explain: 'danke.' },
+      { type: 'fill', question: 'Извините:', answer: 'Entschuldigung|Verzeihung', placeholder: 'E...', explain: 'Entschuldigung.' },
+      { type: 'translate', question: 'Здравствуйте! Как Ваши дела? (вежливо)', answer: 'Guten Tag! Wie geht es Ihnen?', hint: 'Sie → Ihnen', placeholder: 'Guten Tag! Wie...', explain: 'Вежливое приветствие + Ihnen.' },
+      { type: 'translate', question: 'Спасибо, хорошо. А у тебя?', answer: 'Danke, gut. Und dir?', hint: 'неформально → dir', placeholder: 'Danke, gut...', explain: 'Ответ на «как дела» (du).' },
+      { type: 'translate', question: 'До завтра!', answer: 'Bis morgen!', hint: 'bis + morgen', placeholder: 'Bis...', explain: 'Прощание «до завтра».' },
+      { type: 'listen', answer: 'Guten Tag, wie geht es Ihnen?', hint: 'вежливое приветствие' },
+      { type: 'write', question: 'Schreib einen kurzen Dialog (3 Zeilen): Begrüßung, Frage nach dem Befinden, Verabschiedung.', hint: 'Hallo! Wie geht es dir? — Danke, gut. — Tschüss!', placeholder: '...', sample: 'Hallo! Wie geht es dir? — Danke, gut, und dir? — Auch gut. Bis bald!' }
     ],
   },
 
   numbers: {
-    title: 'Числа 1–100',
-    level: 'A1 · Урок 3',
-    intro: 'Числа нужны везде: цены, адреса, телефоны, возраст. Выучи логику — и сможешь сказать любое число.',
+    title: 'Числа (Zahlen)',
+    intro: 'Числа нужны для возраста, цен, времени и телефонов. Главная особенность немецкого — в двузначных числах сначала называют единицы, потом десятки (einundzwanzig = «один-и-двадцать»). Разберём систему и порядковые числа.',
     theory: [
       {
-        heading: '🔢 Числа 1–20',
+        heading: '📘 Основа: 0–20',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
-            <tr><td><b>eins</b></td><td><b>zwei</b></td><td><b>drei</b></td><td><b>vier</b></td><td><b>fünf</b></td></tr>
-            <tr><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
-            <tr><td><b>sechs</b></td><td><b>sieben</b></td><td><b>acht</b></td><td><b>neun</b></td><td><b>zehn</b></td></tr>
+            <tr><td>0 null</td><td>1 eins</td><td>2 zwei</td><td>3 drei</td></tr>
+            <tr><td>4 vier</td><td>5 fünf</td><td>6 sechs</td><td>7 sieben</td></tr>
+            <tr><td>8 acht</td><td>9 neun</td><td>10 zehn</td><td>11 elf</td></tr>
+            <tr><td>12 zwölf</td><td>13 dreizehn</td><td>14 vierzehn</td><td>15 fünfzehn</td></tr>
+            <tr><td>16 sech<b>zehn</b></td><td>17 sieb<b>zehn</b></td><td>18 achtzehn</td><td>19 neunzehn</td></tr>
+            <tr><td>20 zwanzig</td><td colspan="3">⚠️ 16 sechzehn (без -s), 17 siebzehn (без -en)</td></tr>
           </table></div>
-          <div class="table-wrap"><table>
-            <tr><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th></tr>
-            <tr><td><b>elf</b></td><td><b>zwölf</b></td><td><b>dreizehn</b></td><td><b>vierzehn</b></td><td><b>fünfzehn</b></td></tr>
-            <tr><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th></tr>
-            <tr><td><b>sechzehn</b></td><td><b>siebzehn</b></td><td><b>achtzehn</b></td><td><b>neunzehn</b></td><td><b>zwanzig</b></td></tr>
-          </table></div>
-          <p>❗ Запомни исключения: <b>16 = sechzehn</b> (не sechszehn!), <b>17 = siebzehn</b> (не siebenzehn!)</p>
         `
       },
       {
-        heading: '🔟 Десятки и числа 21–100',
+        heading: '🔄 Тонкость: 21–99 — единицы ПЕРЕД десятками',
         content: `
-          <div class="table-wrap"><table>
-            <tr><th>20</th><th>30</th><th>40</th><th>50</th><th>60</th><th>70</th><th>80</th><th>90</th><th>100</th></tr>
-            <tr><td><b>zwanzig</b></td><td><b>dreißig</b></td><td><b>vierzig</b></td><td><b>fünfzig</b></td><td><b>sechzig</b></td><td><b>siebzig</b></td><td><b>achtzig</b></td><td><b>neunzig</b></td><td><b>hundert</b></td></tr>
-          </table></div>
-          <p>📐 Правило для 21–99: <b>единицы + und + десятки</b> (всё слитно!)</p>
+          <p>Двузначные читаются «задом наперёд» относительно русского, через <b>und</b>, и пишутся слитно:</p>
           <div class="example-box">
-            <div class="de">21 = ein<b>und</b>zwanzig · 35 = fünf<b>und</b>dreißig · 47 = sieben<b>und</b>vierzig · 99 = neun<b>und</b>neunzig</div>
-            <div class="ru">Буквально: «один-и-двадцать», «пять-и-тридцать» — как в старом русском!</div>
+            <div class="de">21 = <b>einundzwanzig</b> (1 и 20) · 35 = fünfunddreißig · 99 = neunundneunzig</div>
+            <div class="ru">«один-и-двадцать». Десятки: 30 dreißig (особое!), 40 vierzig, 50 fünfzig, 60 sechzig, 70 siebzig, 80 achtzig, 90 neunzig.</div>
+          </div>
+          <p>В составе «1» — это <b>ein</b> (без -s): einundzwanzig, но отдельно «один» = eins.</p>
+        `
+      },
+      {
+        heading: '💯 Тонкость: сотни, тысячи, цены',
+        content: `
+          <ul>
+            <li>100 = (ein)hundert, 200 = zweihundert, 1000 = (ein)tausend.</li>
+            <li>234 = zweihundert<b>vier</b>und<b>dreißig</b> (сотни + единицы-и-десятки), слитно.</li>
+            <li>Цены: 3,50 € = „drei Euro fünfzig“. Запятая = десятичный разделитель.</li>
+          </ul>
+          <div class="example-box">
+            <div class="de">Das kostet 19,99 € — „neunzehn Euro neunundneunzig“.</div>
+            <div class="ru">В числах немцы пишут запятую вместо точки: 1.000,50.</div>
+          </div>
+        `
+      },
+      {
+        heading: '🥇 Тонкость и ошибки: порядковые числа',
+        content: `
+          <p>Порядковые: 1–19 → <b>-te</b>, от 20 → <b>-ste</b>. Особые: erste (1.), dritte (3.), siebte (7.), achte (8.):</p>
+          <div class="example-box">
+            <div class="de">der <b>erste</b> Tag, der <b>dritte</b> Platz, am <b>zwanzigsten</b> Mai. Дата: am 3. Oktober = „am dritten Oktober“.</div>
+            <div class="ru">⚠️ 30 = dreißig (а не «dreizig»); порядковые склоняются как прилагательные.</div>
           </div>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Как будет число <b>7</b>?', options: ['sieben', 'sechs', 'acht', 'neun'], answer: 0 },
-      { type: 'choice', question: 'Что значит <b>zwölf</b>?', options: ['12', '20', '2', '22'], answer: 0 },
-      { type: 'fill', question: 'Напиши число 5 по-немецки:', answer: 'fünf', placeholder: 'f...' },
-      { type: 'choice', question: 'Как строится <b>25</b>?', options: ['fünfundzwanzig', 'zwanzigfünf', 'fünfzwanzig', 'zwanzigundfünf'], answer: 0 },
-      { type: 'choice', question: '<b>dreißig</b> — это...', options: ['30', '13', '33', '3'], answer: 0 },
-      { type: 'fill', question: 'Как сказать 47?', answer: 'siebenundvierzig', placeholder: 'sieben...' },
+      { type: 'choice', question: 'Как будет 21?', options: ['einundzwanzig', 'zwanzigundein', 'zwanzigeins'], answer: 0, explain: 'Единицы перед десятками: einundzwanzig.' },
+      { type: 'choice', question: 'Какое число особое по написанию?', options: ['30 dreißig', '40 vierzig', '50 fünfzig'], answer: 0, explain: '30 = dreißig (через ß), а не «dreizig».' },
+      { type: 'fill', question: 'Напиши словом: 35', answer: 'fünfunddreißig|fuenfunddreissig', placeholder: '...', explain: '5 и 30 → fünfunddreißig.' },
+      { type: 'fill', question: 'Напиши словом: 42', answer: 'zweiundvierzig', placeholder: '...', explain: '2 и 40 → zweiundvierzig.' },
+      { type: 'fill', question: 'Напиши словом: 16', answer: 'sechzehn', placeholder: 'sech...', explain: '16 = sechzehn (без s).' },
+      { type: 'fill', question: 'Напиши словом: 100', answer: 'hundert|einhundert', placeholder: '...', explain: '100 = (ein)hundert.' },
+      { type: 'choice', question: 'Порядковое «первый»:', options: ['erste', 'einte', 'einste'], answer: 0, explain: 'Особое: erste.' },
+      { type: 'translate', question: 'Мне 21 год.', answer: 'Ich bin einundzwanzig Jahre alt.|Ich bin 21 Jahre alt.', hint: 'возраст → sein; 21 = einundzwanzig', placeholder: 'Ich bin...', explain: 'Возраст через sein + число.' },
+      { type: 'translate', question: 'Это стоит 12 евро. (kosten)', answer: 'Das kostet zwölf Euro.|Das kostet 12 Euro.', hint: '12 = zwölf', placeholder: 'Das kostet...', explain: 'kosten + сумма.' },
+      { type: 'listen', answer: 'Ich bin dreiunddreißig Jahre alt.', hint: '33 = dreiunddreißig' },
+      { type: 'write', question: 'Schreib 3 Sätze mit Zahlen (Alter, Preis, Datum) — Zahlen als Wörter.', hint: 'Ich bin … Jahre alt. Das kostet … Euro. Am … (порядковое).', placeholder: '...', sample: 'Ich bin vierundzwanzig Jahre alt. Das Buch kostet fünfzehn Euro. Mein Geburtstag ist am siebten März.' }
     ],
   },
 
@@ -877,98 +925,130 @@ const LESSONS_CONTENT = {
   },
 
   'verb-heissen': {
-    title: 'Меня зовут — heißen',
-    level: 'A1 · Урок 6',
-    intro: 'Глагол heißen — «называться, зваться». Первое что ты скажешь при знакомстве!',
+    title: 'Глагол heißen (зваться) и знакомство',
+    intro: 'heißen — «зваться, называться». Главный глагол для знакомства: Wie heißt du? — Ich heiße… Разберём спряжение, формулы представления и употребление es heißt («это значит»).',
     theory: [
       {
-        heading: '📋 Спряжение heißen',
+        heading: '📘 Основа: спряжение heißen',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Местоимение</th><th>Форма</th></tr>
-            <tr><td>ich</td><td><b>heiße</b></td></tr>
-            <tr><td>du</td><td><b>heißt</b></td></tr>
-            <tr><td>er / sie / es</td><td><b>heißt</b></td></tr>
-            <tr><td>wir</td><td><b>heißen</b></td></tr>
-            <tr><td>ihr</td><td><b>heißt</b></td></tr>
-            <tr><td>sie / Sie</td><td><b>heißen</b></td></tr>
+            <tr><td>ich <b>heiße</b></td><td>wir <b>heißen</b></td></tr>
+            <tr><td>du <b>heißt</b></td><td>ihr <b>heißt</b></td></tr>
+            <tr><td>er/sie/es <b>heißt</b></td><td>sie/Sie <b>heißen</b></td></tr>
           </table></div>
+          <div class="example-box">
+            <div class="de">Основа на -ß, поэтому в форме du НЕ удваивается s: «du <b>heißt</b>», не «heißst».</div>
+            <div class="ru">Ich heiße Anna. Wie heißt du? Wie heißen Sie?</div>
+          </div>
         `
       },
       {
-        heading: '💬 Диалог знакомства',
+        heading: '🤝 Тонкость: формулы знакомства',
         content: `
+          <ul>
+            <li>Неформально: <b>Wie heißt du?</b> — Ich heiße… / Ich bin…</li>
+            <li>Вежливо: <b>Wie heißen Sie?</b> — Mein Name ist… (более официально)</li>
+            <li>О третьем лице: <b>Wie heißt er/sie?</b> — Er heißt Max.</li>
+          </ul>
           <div class="example-box">
-            <div class="de">— Wie heißt du? / Wie heißen Sie?</div>
-            <div class="ru">— Как тебя зовут? / Как вас зовут?</div>
+            <div class="de">Wie ist dein Name? = Wie heißt du? · Darf ich vorstellen: Das ist Frau Müller.</div>
+            <div class="ru">«Ich heiße…» и «Mein Name ist…» — взаимозаменяемы, второе чуть официальнее.</div>
           </div>
-          <div class="example-box">
-            <div class="de">— Ich heiße Margo. Und du?</div>
-            <div class="ru">— Меня зовут Марго. А тебя?</div>
-          </div>
-          <div class="example-box">
-            <div class="de">— Ich heiße Matvei. Woher kommst du?</div>
-            <div class="ru">— Меня зовут Матвей. Откуда ты?</div>
-          </div>
-          <div class="example-box">
-            <div class="de">— Ich komme aus Russland. Ich bin Studentin.</div>
-            <div class="ru">— Я из России. Я студентка.</div>
-          </div>
+        `
+      },
+      {
+        heading: '💡 Тонкость и ошибки: es heißt',
+        content: `
+          <ul>
+            <li><b>es heißt</b> = «это значит / так говорится / называется»: Wie heißt das auf Deutsch? — Das heißt „Apfel“.</li>
+            <li>Не путай heißen и nennen: heißen — «я зовусь», nennen — «я называю (кого-то)»: Ich heiße Max, aber alle nennen mich Maxi.</li>
+            <li>du heißt — без второго s (основа на -ß).</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'fill', question: 'Ich ___ Margo. (heißen)', answer: 'heiße', placeholder: 'heiß...' },
-      { type: 'choice', question: 'Wie ___ du?', options: ['heißt', 'heiße', 'heißen', 'heißt ihr'], answer: 0 },
-      { type: 'choice', question: 'Как спросить имя вежливо (Sie)?', options: ['Wie heißen Sie?', 'Wie heißt du?', 'Wie heiße ich?', 'Wie heißt er?'], answer: 0 },
-      { type: 'fill', question: 'Er ___ Peter. (heißen)', answer: 'heißt', placeholder: 'heiß...' },
-      { type: 'choice', question: 'Wir ___ Freunde von Margo.', options: ['heißen', 'heiße', 'heißt', 'heißen wir'], answer: 0 },
+      { type: 'choice', question: 'Форма du от heißen:', options: ['heißt', 'heißst', 'heißest'], answer: 0, explain: 'Основа на -ß → du heißt (без второго s).' },
+      { type: 'choice', question: 'Вежливый вопрос об имени:', options: ['Wie heißen Sie?', 'Wie heißt du?', 'Wie heißt er?'], answer: 0, explain: 'Вежливо → Sie: Wie heißen Sie?' },
+      { type: 'fill', question: 'ich ___ Anna', answer: 'heiße', placeholder: 'heiß...', explain: 'ich heiße.' },
+      { type: 'fill', question: 'er ___ Max', answer: 'heißt', placeholder: 'heiß...', explain: 'er heißt.' },
+      { type: 'fill', question: '«Как это по-немецки?» Wie ___ das auf Deutsch? (heißen, es)', answer: 'heißt', placeholder: 'heiß...', explain: 'es heißt — «как это называется».' },
+      { type: 'translate', question: 'Как тебя зовут?', answer: 'Wie heißt du?', hint: 'Wie + heißt + du', placeholder: 'Wie...', explain: 'Неформальный вопрос об имени.' },
+      { type: 'translate', question: 'Меня зовут Марго.', answer: 'Ich heiße Margo.|Mein Name ist Margo.', hint: 'Ich heiße … / Mein Name ist …', placeholder: 'Ich heiße...', explain: 'Две стандартные формулы.' },
+      { type: 'translate', question: 'Как Вас зовут? (вежливо)', answer: 'Wie heißen Sie?', hint: 'Sie → heißen', placeholder: 'Wie heißen...', explain: 'Вежливая форма.' },
+      { type: 'listen', answer: 'Ich heiße Anna, und wie heißt du?', hint: 'heiße / heißt' },
+      { type: 'write', question: 'Schreib 3 Sätze zur Vorstellung: dein Name, eine Frage an jemanden, eine dritte Person.', hint: 'Ich heiße … Wie heißt du? Er/Sie heißt …', placeholder: 'Ich heiße...', sample: 'Ich heiße Margo. Wie heißt du? Mein Freund heißt Matvej.' }
     ],
   },
 
   countries: {
-    title: 'Страны и языки',
-    level: 'A1 · Урок 7',
-    intro: 'Немецкий нужен тебе для Австрии! Узнаем как называются страны, откуда ты и на каком языке говоришь.',
+    title: 'Страны, национальности и языки',
+    intro: 'Как сказать, откуда ты, где живёшь и на каких языках говоришь. Разберём названия стран (с артиклем и без), предлоги aus/in/nach и образование национальностей.',
     theory: [
       {
-        heading: '🌍 Важные страны и их жители',
+        heading: '📘 Основа: Woher? Wo? Wohin?',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Страна</th><th>Житель (м/ж)</th><th>Язык</th></tr>
-            <tr><td>🇩🇪 Deutschland</td><td>der Deutsche / die Deutsche</td><td>Deutsch</td></tr>
-            <tr><td>🇦🇹 Österreich</td><td>der Österreicher / die Österreicherin</td><td>Deutsch</td></tr>
-            <tr><td>🇷🇺 Russland</td><td>der Russe / die Russin</td><td>Russisch</td></tr>
-            <tr><td>🇺🇦 die Ukraine</td><td>der Ukrainer / die Ukrainerin</td><td>Ukrainisch</td></tr>
-            <tr><td>🇬🇧 England</td><td>der Engländer / die Engländerin</td><td>Englisch</td></tr>
+            <tr><th>Вопрос</th><th>Предлог</th><th>Пример</th></tr>
+            <tr><td>Woher? (откуда)</td><td><b>aus</b> + Dativ</td><td>Ich komme <b>aus</b> Russland.</td></tr>
+            <tr><td>Wo? (где живёшь)</td><td><b>in</b> + Dativ</td><td>Ich wohne <b>in</b> Österreich.</td></tr>
+            <tr><td>Wohin? (куда едешь)</td><td><b>nach</b> (страны без артикля)</td><td>Ich fahre <b>nach</b> Deutschland.</td></tr>
           </table></div>
-          <p>⚠️ Большинство стран без артикля: <b>in Deutschland, aus Österreich</b>. Но: <b>in der Ukraine</b> (со статьёй!).</p>
+          <div class="example-box">
+            <div class="de">Большинство стран — без артикля: Deutschland, Österreich, Russland, Italien.</div>
+            <div class="ru">Woher → aus, Wo → in, Wohin → nach (для стран без артикля).</div>
+          </div>
         `
       },
       {
-        heading: '💬 Говорим о себе',
+        heading: '🌍 Тонкость: страны с артиклем',
         content: `
+          <p>Некоторые страны всегда с артиклем — с ними меняются предлоги (in die / in der, aus der):</p>
           <div class="example-box">
-            <div class="de">Ich komme aus Russland. Ich bin Russin.</div>
-            <div class="ru">Я из России. Я россиянка.</div>
+            <div class="de"><b>die</b> Schweiz, <b>die</b> Türkei, <b>die</b> USA (Pl), <b>der</b> Iran, <b>die</b> Niederlande, <b>die</b> Ukraine.<br>Ich fahre in <b>die</b> Schweiz. Ich wohne in <b>der</b> Schweiz. Ich komme aus <b>der</b> Türkei.</div>
+            <div class="ru">С такими странами «nach» НЕ используют — только in + артикль.</div>
           </div>
+        `
+      },
+      {
+        heading: '🗣️ Тонкость: национальности и языки',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><th>Страна</th><th>Он / Она</th><th>Язык</th></tr>
+            <tr><td>Deutschland</td><td>Deutscher / Deutsche</td><td>Deutsch</td></tr>
+            <tr><td>Österreich</td><td>Österreicher / Österreicherin</td><td>Deutsch</td></tr>
+            <tr><td>Russland</td><td>Russe / Russin</td><td>Russisch</td></tr>
+            <tr><td>Italien</td><td>Italiener / Italienerin</td><td>Italienisch</td></tr>
+          </table></div>
           <div class="example-box">
-            <div class="de">Ich lerne Deutsch, weil ich in Österreich studieren möchte.</div>
-            <div class="ru">Я учу немецкий, потому что хочу учиться в Австрии.</div>
+            <div class="de">Женский часто на -in: Österreicher → Österreicher<b>in</b>. Язык = без артикля: Ich spreche Deutsch.</div>
+            <div class="ru">Профессии/национальности после sein — без артикля: Ich bin Russin.</div>
           </div>
-          <div class="example-box">
-            <div class="de">Ich spreche Russisch und lerne Deutsch.</div>
-            <div class="ru">Я говорю по-русски и учу немецкий.</div>
-          </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>«в Швейцарию» = nach? Нет: <b>in die Schweiz</b> (страна с артиклем).</li>
+            <li>«Я из России» = Ich komme <b>aus</b> Russland (aus + Dativ).</li>
+            <li>Язык без артикля: «Ich lerne Deutsch», не «das Deutsch» (когда это предмет изучения).</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Как по-немецки «Австрия»?', options: ['Österreich', 'Australien', 'Österhand', 'Öland'], answer: 0 },
-      { type: 'fill', question: 'Ich komme aus ________. (Россия)', answer: 'Russland', placeholder: 'Russ...' },
-      { type: 'choice', question: 'В Австрии говорят на:', options: ['Deutsch', 'Österreichisch', 'Austrianisch', 'Wienerisch'], answer: 0 },
-      { type: 'choice', question: 'Ich ___ Deutsch. (учить)', options: ['lerne', 'bin', 'heiße', 'komme'], answer: 0 },
-      { type: 'fill', question: 'Ich ___ aus Russland. (приходить — kommen)', answer: 'komme', placeholder: 'komm...' },
+      { type: 'choice', question: 'Откуда ты? — предлог:', options: ['aus + Dativ', 'in + Akkusativ', 'nach'], answer: 0, explain: 'Woher → aus + Dativ.' },
+      { type: 'choice', question: '«Я еду в Швейцарию»:', options: ['Ich fahre in die Schweiz', 'Ich fahre nach Schweiz', 'Ich fahre in Schweiz'], answer: 0, explain: 'die Schweiz — страна с артиклем → in die.' },
+      { type: 'choice', question: '«Я еду в Германию»:', options: ['nach Deutschland', 'in die Deutschland', 'aus Deutschland'], answer: 0, explain: 'Страна без артикля → nach.' },
+      { type: 'fill', question: 'Ich komme ___ Russland. (откуда)', answer: 'aus', placeholder: '...', explain: 'aus + Dativ.' },
+      { type: 'fill', question: 'Ich wohne ___ Österreich. (где)', answer: 'in', placeholder: '...', explain: 'Wo → in.' },
+      { type: 'fill', question: 'Женская национальность: Sie ist ___ (Österreich)', answer: 'Österreicherin|Oesterreicherin', placeholder: 'Österreicher...', explain: 'Женский на -in: Österreicherin.' },
+      { type: 'translate', question: 'Я из России. (kommen aus)', answer: 'Ich komme aus Russland.', hint: 'aus + страна', placeholder: 'Ich komme...', explain: 'Woher → aus.' },
+      { type: 'translate', question: 'Я живу в Австрии. (wohnen in)', answer: 'Ich wohne in Österreich.', hint: 'Wo → in', placeholder: 'Ich wohne...', explain: 'Wo → in + страна без артикля.' },
+      { type: 'translate', question: 'Я говорю по-немецки и по-русски.', answer: 'Ich spreche Deutsch und Russisch.', hint: 'языки без артикля', placeholder: 'Ich spreche...', explain: 'Языки без артикля.' },
+      { type: 'listen', answer: 'Ich komme aus der Schweiz.', hint: 'aus der Schweiz (с артиклем)' },
+      { type: 'write', question: 'Schreib 3 Sätze über dich: Woher kommst du, wo wohnst du, welche Sprachen sprichst du?', hint: 'Ich komme aus … Ich wohne in … Ich spreche …', placeholder: 'Ich komme aus...', sample: 'Ich komme aus Russland. Ich wohne in Moskau. Ich spreche Russisch, Englisch und ein bisschen Deutsch.' }
     ],
   },
 
@@ -1267,35 +1347,71 @@ const LESSONS_CONTENT = {
   },
 
   plural: {
-    title: 'Множественное число',
-    level: 'A1 · Урок 10',
-    intro: 'Множественное число в немецком — особая тема. Нет одного правила! Но есть 5 основных типов, и суффикс лучше учить со словом.',
+    title: 'Множественное число существительных',
+    intro: 'Артикль во множественном у всех — die, но окончание самого слова бывает пяти типов (-e, -er, -(e)n, -s, без окончания), часто с умлаутом. Чёткого правила нет, но есть сильные закономерности по роду — они здорово сокращают зубрёжку.',
     theory: [
       {
-        heading: '📋 5 типов множественного числа',
+        heading: '📘 Основа: пять типов окончаний',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Тип</th><th>Суффикс</th><th>Пример ед.ч.</th><th>Мн.ч.</th></tr>
-            <tr><td>1</td><td><b>—</b> (без изменений)</td><td>der Lehrer</td><td>die Lehrer</td></tr>
-            <tr><td>2</td><td><b>-e</b></td><td>der Tag</td><td>die Tage</td></tr>
-            <tr><td>3</td><td><b>-er</b> (+ умлаут)</td><td>das Kind</td><td>die Kinder</td></tr>
-            <tr><td>4</td><td><b>-en / -n</b></td><td>die Frau</td><td>die Frauen</td></tr>
-            <tr><td>5</td><td><b>-s</b> (иностр. слова)</td><td>das Auto</td><td>die Autos</td></tr>
+            <tr><th>Тип</th><th>Пример</th></tr>
+            <tr><td><b>-e</b> (часто + умлаут)</td><td>der Tisch → die Tisch<b>e</b>; der Stuhl → die St<b>ü</b>hl<b>e</b></td></tr>
+            <tr><td><b>-er</b> (почти всегда + умлаут)</td><td>das Kind → die Kind<b>er</b>; das Buch → die B<b>ü</b>ch<b>er</b></td></tr>
+            <tr><td><b>-(e)n</b> (без умлаута)</td><td>die Frau → die Frau<b>en</b>; die Lampe → die Lampe<b>n</b></td></tr>
+            <tr><td><b>-s</b> (заимствования, сокращения)</td><td>das Auto → die Auto<b>s</b>; das Handy → die Handy<b>s</b></td></tr>
+            <tr><td><b>без окончания</b> (иногда + умлаут)</td><td>der Lehrer → die Lehrer; der Vater → die V<b>ä</b>ter</td></tr>
           </table></div>
-          <p>💡 Хорошая новость: во множественном числе <b>всегда «die»</b> — der/die/das исчезают.</p>
           <div class="example-box">
-            <div class="de">das Buch → die Bücher · der Mann → die Männer · die Stadt → die Städte</div>
-            <div class="ru">Умлауты могут добавляться — это третий тип.</div>
+            <div class="de">Артикль всегда die: die Tische, die Kinder, die Frauen, die Autos.</div>
+            <div class="ru">Форму множественного учат вместе со словом (как и род).</div>
           </div>
+        `
+      },
+      {
+        heading: '🔍 Тонкость: закономерности по роду',
+        content: `
+          <ul>
+            <li><b>Женский (die):</b> почти всегда <b>-(e)n</b> — die Frage→Fragen, die Zeitung→Zeitungen. Слова на -in удваивают n: die Lehrerin→Lehrerin<b>nen</b>.</li>
+            <li><b>Мужской (der):</b> чаще <b>-e</b> (часто +умлаут) — der Tag→Tage, der Sohn→Söhne.</li>
+            <li><b>Средний (das):</b> часто <b>-er</b> (+умлаут) — das Land→Länder; или -e — das Jahr→Jahre.</li>
+            <li><b>На -er/-en/-el (m/n):</b> часто <b>без окончания</b> — der Wagen→Wagen, der Schlüssel→Schlüssel.</li>
+          </ul>
+        `
+      },
+      {
+        heading: '➕ Тонкость: Dativ Plural получает -n',
+        content: `
+          <p>В дательном множественного к существительному добавляется <b>-n</b> (если его нет), а артикль становится <b>den</b>:</p>
+          <div class="example-box">
+            <div class="de">die Kinder → mit <b>den Kindern</b> · die Tische → auf <b>den Tischen</b> · die Freunde → mit <b>den Freunden</b></div>
+            <div class="ru">Исключение: множественное на -s не добавляет -n: mit den Autos.</div>
+          </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Не переноси русское: «один — много» в немецком непредсказуемо, форму надо запоминать.</li>
+            <li>Слова на -in → -innen (две n): die Studentin → die Studentin<b>nen</b>.</li>
+            <li>Dativ Plural: «mit den Kinder<b>n</b>», не «mit den Kinder».</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'die Frau → множественное число:', options: ['die Frauen', 'die Fraue', 'die Fraus', 'die Fraüen'], answer: 0 },
-      { type: 'choice', question: 'das Auto → множественное число:', options: ['die Autos', 'die Auten', 'die Auto', 'die Autoe'], answer: 0 },
-      { type: 'fill', question: 'der Tag → die ___ (добавь -e)', answer: 'Tage', placeholder: 'Tag...' },
-      { type: 'choice', question: 'Во множественном числе артикль всегда:', options: ['die', 'der', 'das', 'зависит от рода'], answer: 0 },
-      { type: 'choice', question: 'das Kind → множественное число:', options: ['die Kinder', 'die Kinds', 'die Kinde', 'die Kindere'], answer: 0 },
+      { type: 'choice', question: 'Множественное от «die Zeitung» (женский, -ung):', options: ['die Zeitungen', 'die Zeitunge', 'die Zeitungs'], answer: 0, explain: 'Женский род → -(e)n: Zeitungen.' },
+      { type: 'choice', question: 'Множественное от «das Buch»:', options: ['die Bücher', 'die Buchen', 'die Buchs'], answer: 0, explain: 'Часто -er + умлаут: Bücher.' },
+      { type: 'choice', question: 'Dativ Plural: «mit ___ Kindern»?', options: ['den', 'die', 'dem'], answer: 0, explain: 'Dativ Plural артикль den, слово +n.' },
+      { type: 'fill', question: 'Множественное: der Tisch → die ___', answer: 'Tische', placeholder: 'Tisch...', explain: 'Мужской → -e: Tische.' },
+      { type: 'fill', question: 'Множественное: die Frau → die ___', answer: 'Frauen', placeholder: 'Frau...', explain: 'Женский → -en: Frauen.' },
+      { type: 'fill', question: 'Множественное: die Studentin → die ___', answer: 'Studentinnen', placeholder: 'Studentin...', explain: '-in → -innen (две n).' },
+      { type: 'fill', question: 'Множественное: das Auto → die ___', answer: 'Autos', placeholder: 'Auto...', explain: 'Заимствование → -s: Autos.' },
+      { type: 'fill', question: 'Dativ Plural (+n): Ich spiele mit den ___. (die Kinder)', answer: 'Kindern', placeholder: 'Kinder...', explain: 'Dativ Plural +n: Kindern.' },
+      { type: 'translate', question: 'У меня много друзей. (der Freund → Freunde)', answer: 'Ich habe viele Freunde.', hint: 'Freund → Freunde', placeholder: 'Ich habe viele...', explain: 'Множественное -e.' },
+      { type: 'translate', question: 'Книги лежат на столах. (das Buch → Bücher, der Tisch → Tische)', answer: 'Die Bücher liegen auf den Tischen.', hint: 'Dativ Plural: auf den Tischen', placeholder: 'Die Bücher liegen...', explain: 'Bücher (Nom) + auf den Tischen (Dativ Pl +n).' },
+      { type: 'listen', answer: 'Die Kinder spielen mit den Hunden.', hint: 'Plural + Dativ Plural (Hunden)' },
+      { type: 'write', question: 'Schreib 3 Sätze im Plural mit verschiedenen Endungen (z.B. Tische, Frauen, Autos) — nutze auch einmal Dativ Plural.', hint: 'die … (Nom) / mit den …n (Dat).', placeholder: '...', sample: 'Die Zimmer sind sauber. Ich kaufe zwei Bücher. Ich fahre mit den Kollegen zur Messe.' }
     ],
   },
 
@@ -2381,82 +2497,158 @@ const LESSONS_CONTENT = {
   },
 
   'konjunktiv-2': {
-    title: 'Konjunktiv II: вежливость и мечты',
-    level: 'B1 · Урок 23',
-    intro: 'Konjunktiv II используют для вежливых просьб, нереальных желаний и гипотез. «Я бы хотела...», «Могли бы вы...»',
+    title: 'Konjunktiv II (вежливость, желания, условия)',
+    intro: 'Konjunktiv II — форма «бы»: вежливые просьбы (Könnten Sie…?), нереальные условия (Wenn ich Zeit hätte…), желания (Ich hätte gern…). В разговоре чаще всего используют würde + инфинитив, но wäre/hätte/könnte нужно знать наизусть.',
     theory: [
       {
-        heading: '📋 Основные формы Konjunktiv II',
+        heading: '📘 Основа: würde + инфинитив',
         content: `
+          <p>Самый частый и универсальный способ — <b>würde</b> (спрягается) + инфинитив в конце:</p>
           <div class="table-wrap"><table>
-            <tr><th>Инфинитив</th><th>ich</th><th>du</th><th>er/sie</th><th>wir</th></tr>
-            <tr><td>werden (würde-форма)</td><td><b>würde</b></td><td>würdest</td><td>würde</td><td>würden</td></tr>
-            <tr><td>sein</td><td><b>wäre</b></td><td>wärst</td><td>wäre</td><td>wären</td></tr>
-            <tr><td>haben</td><td><b>hätte</b></td><td>hättest</td><td>hätte</td><td>hätten</td></tr>
-            <tr><td>können</td><td><b>könnte</b></td><td>könntest</td><td>könnte</td><td>könnten</td></tr>
-            <tr><td>möchten</td><td><b>möchte</b></td><td>möchtest</td><td>möchte</td><td>möchten</td></tr>
+            <tr><td>ich würde</td><td>wir würden</td></tr>
+            <tr><td>du würdest</td><td>ihr würdet</td></tr>
+            <tr><td>er/sie/es würde</td><td>sie/Sie würden</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich möchte in Wien studieren. (Я бы хотела учиться в Вене.)</div>
-            <div class="ru">möchten — самая мягкая и вежливая форма «хотеть»</div>
+            <div class="de">Ich <b>würde</b> gern mehr reisen. An deiner Stelle <b>würde</b> ich warten.</div>
+            <div class="ru">«würde + Infinitiv» работает почти со всеми глаголами — это безопасный выбор.</div>
           </div>
+        `
+      },
+      {
+        heading: '⭐ Тонкость: wäre, hätte и модальные (без würde)',
+        content: `
+          <p>У sein, haben и модальных есть собственные короткие формы — их используют вместо «würde sein/haben»:</p>
+          <div class="table-wrap"><table>
+            <tr><th>Глагол</th><th>Konjunktiv II (ich/er)</th></tr>
+            <tr><td>sein</td><td><b>wäre</b> (wärst, wären)</td></tr>
+            <tr><td>haben</td><td><b>hätte</b> (hättest, hätten)</td></tr>
+            <tr><td>können</td><td><b>könnte</b></td></tr>
+            <tr><td>müssen</td><td><b>müsste</b></td></tr>
+            <tr><td>dürfen</td><td><b>dürfte</b></td></tr>
+            <tr><td>sollen</td><td><b>sollte</b></td></tr>
+          </table></div>
           <div class="example-box">
-            <div class="de">Könnten Sie mir helfen? (Не могли бы вы мне помочь?)</div>
-            <div class="ru">Идеально для общения в университете Вены!</div>
+            <div class="de">Das <b>wäre</b> super. Ich <b>hätte</b> eine Frage. <b>Könntest</b> du mir helfen? Du <b>solltest</b> mehr schlafen.</div>
+            <div class="ru">wäre/hätte/könnte — выучи в первую очередь, они звучат на каждом шагу.</div>
           </div>
-          <div class="example-box">
-            <div class="de">Ich würde gern nach Österreich fahren. (Я бы с удовольствием поехала в Австрию.)</div>
-            <div class="ru">würde + инфинитив = универсальная вежливая форма</div>
-          </div>
+        `
+      },
+      {
+        heading: '🙏 Тонкость: где используем',
+        content: `
+          <ul>
+            <li><b>Вежливая просьба:</b> Könnten Sie das wiederholen? Würden Sie bitte warten?</li>
+            <li><b>Вежливое желание:</b> Ich hätte gern einen Kaffee. Ich würde gern bezahlen.</li>
+            <li><b>Совет:</b> An deiner Stelle würde ich… / Du solltest…</li>
+            <li><b>Нереальное условие:</b> Wenn ich Zeit <b>hätte</b>, <b>würde</b> ich kommen. (но времени нет)</li>
+          </ul>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>Не путай <b>könnte</b> (мог бы, Konjunktiv) и <b>konnte</b> (мог, Präteritum). Умлаут меняет смысл!</li>
+            <li>В условии «если бы» — Konjunktiv в обеих частях: «Wenn ich reich <b>wäre</b>, <b>würde</b> ich…».</li>
+            <li>Не говори «würde sein/haben» — используй wäre/hätte.</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Ich ___ gern Deutsch sprechen. (вежливое «хотела бы»)', options: ['möchte', 'will', 'muss', 'kann'], answer: 0 },
-      { type: 'choice', question: '___ Sie mir helfen? (Не могли бы вы...)', options: ['Könnten', 'Können', 'Konnte', 'Könnte'], answer: 0 },
-      { type: 'fill', question: 'Ich ___ gern nach Wien fahren. (würde)', answer: 'würde', placeholder: 'wür...' },
-      { type: 'choice', question: 'Konjunktiv II используется для:', options: ['вежливых просьб и нереальных желаний', 'прошедшего времени', 'будущего времени', 'отрицания'], answer: 0 },
+      { type: 'choice', question: 'Вежливая просьба: «___ Sie mir helfen?»', options: ['Könnten', 'Konnten', 'Können'], answer: 0, explain: 'Konjunktiv II könnten — вежливее, чем können; konnten — это прошедшее.' },
+      { type: 'choice', question: 'Вместо «würde sein» говорят:', options: ['wäre', 'würde sein', 'war'], answer: 0, explain: 'sein имеет свою форму wäre.' },
+      { type: 'choice', question: 'könnte или konnte: «Раньше я мог играть на пианино» (факт прошлого)', options: ['konnte', 'könnte'], answer: 0, explain: 'Реальный факт прошлого → konnte (Präteritum).' },
+      { type: 'fill', question: 'haben → Konjunktiv II: Ich ___ gern einen Tee. (я хотел бы)', answer: 'hätte', placeholder: 'h...', explain: 'haben → hätte.' },
+      { type: 'fill', question: 'sein → Konjunktiv II: Das ___ toll! (было бы)', answer: 'wäre', placeholder: 'w...', explain: 'sein → wäre.' },
+      { type: 'fill', question: 'Совет: Du ___ mehr schlafen. (sollen → следует)', answer: 'solltest', placeholder: 'soll...', explain: 'sollen → solltest (совет).' },
+      { type: 'fill', question: 'Универсально: Ich ___ gern mehr reisen. (würde)', answer: 'würde', placeholder: 'w...', explain: 'würde + Infinitiv.' },
+      { type: 'translate', question: 'Не могли бы Вы повторить? (wiederholen)', answer: 'Könnten Sie das wiederholen?|Könnten Sie bitte wiederholen?', hint: 'Könnten Sie + Infinitiv', placeholder: 'Könnten Sie...', explain: 'Вежливая просьба через könnten.' },
+      { type: 'translate', question: 'Я хотел бы кофе. (вежливо, der Kaffee)', answer: 'Ich hätte gern einen Kaffee.', hint: 'Ich hätte gern + Akk', placeholder: 'Ich hätte gern...', explain: 'Стандартная вежливая формула с hätte.' },
+      { type: 'translate', question: 'Если бы у меня было время, я бы пришёл. (Zeit, kommen)', answer: 'Wenn ich Zeit hätte, würde ich kommen.', hint: 'Wenn … hätte, würde ich …', placeholder: 'Wenn ich Zeit hätte,...', explain: 'Нереальное условие: hätte + würde.' },
+      { type: 'listen', answer: 'Ich hätte gern einen Termin am Montag.', hint: 'hätte gern + Akk' },
+      { type: 'write', question: 'Schreib 3 höfliche Sätze im Konjunktiv II (eine Bitte, ein Wunsch, ein Rat).', hint: 'Könnten Sie …? Ich hätte gern … Du solltest …', placeholder: '...', sample: 'Könnten Sie mir bitte helfen? Ich hätte gern mehr Informationen. An deiner Stelle würde ich früher anfangen.' }
     ],
   },
 
   'b1-vocab': {
-    title: 'Лексика B1: учёба и поступление',
-    level: 'B1 · Урок 24',
-    intro: 'Специально для тебя — слова и фразы про учёбу в Австрии. Именно это ты будешь говорить в университете Вены!',
+    title: 'Лексика: учёба и поступление в Австрии',
+    intro: 'Тематическая лексика для главной цели — поступления в австрийский вуз. Слова про заявление, экзамены и учёбу, плюс полезные фразы для формальных писем и собеседований.',
     theory: [
       {
-        heading: '🎓 Учёба и университет',
+        heading: '📘 Основа: поступление и документы',
         content: `
           <div class="table-wrap"><table>
-            <tr><th>Немецкий</th><th>Русский</th></tr>
-            <tr><td>die Universität / die Uni</td><td>университет</td></tr>
-            <tr><td>das Studium</td><td>учёба (в вузе)</td></tr>
-            <tr><td>sich bewerben (um + Akk.)</td><td>подавать заявку на</td></tr>
+            <tr><th>Слово</th><th>Перевод</th></tr>
+            <tr><td>die Bewerbung</td><td>заявление/заявка (на поступление)</td></tr>
+            <tr><td>sich bewerben (um/für)</td><td>подавать заявку</td></tr>
             <tr><td>die Zulassung</td><td>допуск, зачисление</td></tr>
-            <tr><td>die Bewerbung</td><td>заявка, заявление</td></tr>
-            <tr><td>das Zeugnis</td><td>аттестат, свидетельство</td></tr>
-            <tr><td>der Sprachnachweis</td><td>языковой сертификат</td></tr>
-            <tr><td>das Semester</td><td>семестр</td></tr>
-            <tr><td>der Stundenplan</td><td>расписание</td></tr>
-            <tr><td>die Prüfung / das Examen</td><td>экзамен</td></tr>
-            <tr><td>bestehen / nicht bestehen</td><td>сдать / не сдать</td></tr>
+            <tr><td>die Aufnahmeprüfung</td><td>вступительный экзамен</td></tr>
+            <tr><td>die Immatrikulation</td><td>зачисление в вуз</td></tr>
+            <tr><td>die Unterlagen (Pl)</td><td>документы</td></tr>
+            <tr><td>der Nachweis</td><td>подтверждение, справка</td></tr>
           </table></div>
           <div class="example-box">
-            <div class="de">Ich möchte mich an der Universität Wien für Medizin bewerben.</div>
-            <div class="ru">Я хочу подать заявку в Венский университет на медицину.</div>
+            <div class="de">Ich bewerbe mich um einen Studienplatz. Ich brauche einen Sprachnachweis (B1/B2).</div>
+            <div class="ru">«bewerben» — возвратный: ich bewerbe mich.</div>
           </div>
+        `
+      },
+      {
+        heading: '🎓 Тонкость: учёба',
+        content: `
+          <div class="table-wrap"><table>
+            <tr><td>der Studiengang</td><td>специальность/программа</td></tr>
+            <tr><td>die Vorlesung / das Seminar</td><td>лекция / семинар</td></tr>
+            <tr><td>die Prüfung bestehen</td><td>сдать экзамен</td></tr>
+            <tr><td>durchfallen</td><td>провалить экзамен</td></tr>
+            <tr><td>der Schein / die Note</td><td>зачёт / оценка</td></tr>
+            <tr><td>das Semester / die Frist</td><td>семестр / срок (дедлайн)</td></tr>
+          </table></div>
           <div class="example-box">
-            <div class="de">Für das Studium in Österreich brauche ich einen Sprachnachweis auf dem Niveau B2.</div>
-            <div class="ru">Для учёбы в Австрии мне нужен языковой сертификат уровня B2.</div>
+            <div class="de">Die Frist für die Bewerbung endet am 1. September. Ich habe die Prüfung bestanden.</div>
+            <div class="ru">«bestehen» (сдать) ↔ «durchfallen» (провалить).</div>
           </div>
+        `
+      },
+      {
+        heading: '✉️ Тонкость: формальные фразы',
+        content: `
+          <ul>
+            <li>Начало письма: <b>Sehr geehrte Damen und Herren,</b></li>
+            <li>Просьба: Ich möchte mich um … bewerben. / Könnten Sie mir mitteilen, …?</li>
+            <li>Конец: <b>Mit freundlichen Grüßen</b> + имя.</li>
+          </ul>
+          <div class="example-box">
+            <div class="de">Ich interessiere mich für den Studiengang Germanistik und würde mich gern bewerben.</div>
+            <div class="ru">Конъюнктив (würde, könnten) делает письмо вежливым.</div>
+          </div>
+        `
+      },
+      {
+        heading: '⚠️ Частые ошибки',
+        content: `
+          <ul>
+            <li>sich bewerben <b>um</b> (место) / <b>bei</b> (организация): sich um einen Studienplatz bewerben, sich bei der Uni bewerben.</li>
+            <li>«сдать экзамен» = die Prüfung <b>bestehen</b> (не «geben»! «eine Prüfung machen/ablegen» — сдавать).</li>
+            <li>die Unterlagen — только множественное.</li>
+          </ul>
         `
       }
     ],
     exercises: [
-      { type: 'choice', question: 'Как по-немецки «экзамен»?', options: ['die Prüfung', 'die Frage', 'die Aufgabe', 'das Spiel'], answer: 0 },
-      { type: 'choice', question: '«Sich bewerben» означает:', options: ['подавать заявку', 'учиться', 'сдавать экзамен', 'получать оценку'], answer: 0 },
-      { type: 'fill', question: 'Für das Studium brauche ich einen Sprach_______. (сертификат)', answer: 'nachweis', placeholder: 'nach...' },
-      { type: 'choice', question: '«Bestehen» в контексте экзамена — это:', options: ['сдать', 'провалить', 'пропустить', 'записаться'], answer: 0 },
+      { type: 'choice', question: '«Сдать экзамен» (успешно):', options: ['die Prüfung bestehen', 'die Prüfung geben', 'die Prüfung durchfallen'], answer: 0, explain: 'bestehen = сдать успешно.' },
+      { type: 'choice', question: 'Начало формального письма:', options: ['Sehr geehrte Damen und Herren', 'Hallo', 'Tschüss'], answer: 0, explain: 'Официальное обращение.' },
+      { type: 'choice', question: 'sich bewerben + предлог для места:', options: ['um', 'für die Note', 'auf'], answer: 0, explain: 'sich um einen Studienplatz bewerben.' },
+      { type: 'fill', question: 'Вступительный экзамен: die ___', answer: 'Aufnahmeprüfung', placeholder: 'Aufnahme...', explain: 'die Aufnahmeprüfung.' },
+      { type: 'fill', question: 'Документы (Pl): die ___', answer: 'Unterlagen', placeholder: 'Unter...', explain: 'die Unterlagen.' },
+      { type: 'fill', question: 'Конец письма: Mit freundlichen ___', answer: 'Grüßen|Gruessen', placeholder: 'Grü...', explain: 'Mit freundlichen Grüßen.' },
+      { type: 'translate', question: 'Я подаю заявку на учебное место. (sich bewerben um, der Studienplatz)', answer: 'Ich bewerbe mich um einen Studienplatz.', hint: 'sich bewerben um + Akk', placeholder: 'Ich bewerbe mich...', explain: 'Возвратный глагол + um.' },
+      { type: 'translate', question: 'Я сдала экзамен. (bestehen, die Prüfung)', answer: 'Ich habe die Prüfung bestanden.', hint: 'bestehen → bestanden (Perfekt)', placeholder: 'Ich habe...', explain: 'bestehen → bestanden.' },
+      { type: 'translate', question: 'Мне нужно подтверждение языка. (der Sprachnachweis)', answer: 'Ich brauche einen Sprachnachweis.', hint: 'brauchen → Akk m: einen', placeholder: 'Ich brauche...', explain: 'Akkusativ мужского.' },
+      { type: 'listen', answer: 'Die Frist für die Bewerbung endet bald.', hint: 'Frist, Bewerbung' },
+      { type: 'write', question: 'Schreib 3 Sätze über deine Bewerbung/dein Studium (bewerben, Prüfung, Studiengang).', hint: 'Ich bewerbe mich um … Ich studiere … Ich muss die Prüfung bestehen.', placeholder: 'Ich...', sample: 'Ich bewerbe mich um einen Studienplatz in Wien. Mein Studiengang ist Psychologie. Zuerst muss ich die Aufnahmeprüfung bestehen.' }
     ],
   },
 
