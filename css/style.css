@@ -979,3 +979,8 @@ tr:nth-child(even) td { background: var(--milk-2); }
 .step-btn:hover { transform: translateY(-1px); opacity: .95; }
 
 .fb-explain { font-size: 0.84rem; color: var(--text-muted, #9a7388); font-weight: 500; }
+
+/* ── Бренд KlarDeutsch в шапке (тема generic) ────────────────────────────── */
+.kd-logo-mark { width: 30px; height: 30px; border-radius: 8px; vertical-align: middle; margin-right: 4px; }
+.kd-logo-name { font-family: 'Nunito', sans-serif; font-weight: 900; color: #1f2750; letter-spacing: -0.4px; vertical-align: middle; }
+.kd-logo-name em { color: #d7141a; font-style: normal; }

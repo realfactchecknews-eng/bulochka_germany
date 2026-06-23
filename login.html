@@ -3,39 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Вход — Булочка учит Deutsch</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>KlarDeutsch — немецкий по темам, A1–B1</title>
+  <meta name="description" content="KlarDeutsch — платформа для изучения немецкой грамматики по темам: подробная теория, тренажёр, карточки, чтение и ИИ-проверка." />
+  <link rel="icon" type="image/svg+xml" href="favicon-klar.svg" />
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { background: linear-gradient(160deg, #f4f6fc 0%, #eef0f8 100%); }
+    /* ── Шапка-меню ── */
+    .kd-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1080px; margin: 0 auto; padding: 16px 22px;
+    }
+    .kd-brand { display: flex; align-items: center; gap: 11px; }
+    .kd-brand img { width: 40px; height: 40px; border-radius: 11px; box-shadow: 0 4px 14px rgba(31,39,80,0.18); }
+    .kd-brand .kd-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.35rem; color: #1f2750; letter-spacing: -0.5px; }
+    .kd-brand .kd-name em { color: #d7141a; font-style: normal; }
+    .kd-nav-tag { font-size: 0.85rem; color: #6b7290; font-weight: 600; }
+    @media(max-width:620px){ .kd-nav-tag { display: none; } }
+
+    /* ── Лендинг ── */
+    .kd-hero {
+      max-width: 1080px; margin: 10px auto 0; padding: 22px;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;
+    }
+    @media(max-width:860px){ .kd-hero { grid-template-columns: 1fr; gap: 26px; } }
+
+    .kd-intro h1 {
+      font-family: 'Playfair Display', serif; font-size: 2.5rem; line-height: 1.15;
+      color: #1f2750; margin-bottom: 14px;
+    }
+    @media(max-width:860px){ .kd-intro h1 { font-size: 2rem; } }
+    .kd-intro .lead { font-size: 1.05rem; color: #475068; line-height: 1.65; margin-bottom: 22px; max-width: 540px; }
+    .kd-feats { list-style: none; display: grid; gap: 12px; }
+    .kd-feat { display: flex; gap: 12px; align-items: flex-start; font-size: 0.96rem; color: #2c3450; }
+    .kd-feat .ic {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+      background: #e9edfb; border: 1px solid #dbe1f7;
+    }
+    .kd-feat b { color: #1f2750; }
+
+    /* ── Карточка входа ── */
+    .kd-auth {
+      background: #fff; border: 1px solid #e3e7f4; border-radius: 22px;
+      box-shadow: 0 20px 60px rgba(31,39,80,0.12); padding: 32px 30px;
+    }
+    .kd-auth h2 { font-family: 'Nunito', sans-serif; font-size: 1.4rem; color: #1f2750; margin-bottom: 4px; }
+    .kd-auth .sub { font-size: 0.86rem; color: #6b7290; margin-bottom: 22px; }
+    .kd-field { margin-bottom: 15px; position: relative; }
+    .kd-field label { display: block; font-size: 0.78rem; font-weight: 700; color: #6b7290; margin-bottom: 7px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .kd-field input {
+      width: 100%; padding: 13px 16px; border: 1.5px solid #e3e7f4; border-radius: 13px;
+      font-size: 0.97rem; font-family: 'Inter', sans-serif; color: #1f2750; background: #f8f9fd;
+      outline: none; transition: border-color .18s, box-shadow .18s; box-sizing: border-box;
+    }
+    .kd-field input:focus { border-color: #3a4ea8; box-shadow: 0 0 0 3px rgba(58,78,168,0.15); }
+    .kd-eye { position: absolute; right: 13px; bottom: 11px; background: none; border: none; cursor: pointer; font-size: 1rem; opacity: .5; }
+    .kd-eye:hover { opacity: 1; }
+    .kd-err { color: #d7141a; font-size: 0.84rem; font-weight: 600; min-height: 20px; margin-bottom: 4px; }
+    .kd-btn {
+      width: 100%; padding: 14px; border: none; border-radius: 13px; cursor: pointer;
+      background: linear-gradient(135deg, #3a4ea8, #2a3a86); color: #fff;
+      font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800;
+      box-shadow: 0 8px 22px rgba(42,58,134,0.28); transition: transform .18s, box-shadow .18s; margin-top: 6px;
+    }
+    .kd-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(42,58,134,0.36); }
+    .kd-btn:disabled { opacity: .6; cursor: default; transform: none; }
+    .kd-toggle { text-align: center; margin-top: 14px; font-size: 0.85rem; color: #6b7290; }
+    .kd-toggle a { color: #3a4ea8; font-weight: 700; text-decoration: none; }
+    .kd-toggle a:hover { text-decoration: underline; }
+
+    .kd-foot { text-align: center; color: #9aa1bd; font-size: 0.8rem; padding: 30px 20px 24px; }
+  </style>
 </head>
 <body>
 
-  <div class="floating-hearts" id="floating-hearts"></div>
-
-  <div class="login-wrap">
-    <div class="login-card">
-      <div class="login-hearts">❤️</div>
-      <h1 class="login-title">Булочка учит<br><em>Deutsch</em></h1>
-      <p class="login-sub">Войди чтобы прогресс сохранялся на всех устройствах</p>
-
-      <div class="login-form">
-        <div class="field-wrap">
-          <label class="field-label">Логин</label>
-          <input class="field-input" id="login-input" type="text" placeholder="Bulochka" autocomplete="username" />
-        </div>
-        <div class="field-wrap">
-          <label class="field-label">Пароль</label>
-          <input class="field-input" id="pass-input" type="password" placeholder="••••••••" autocomplete="current-password" />
-          <button class="eye-btn" id="eye-btn" onclick="togglePass()" type="button">👁</button>
-        </div>
-        <div class="login-error" id="login-error"></div>
-        <button class="login-btn" id="login-btn" onclick="doLogin()">Войти ❤️</button>
-        <p class="login-toggle" id="login-toggle" style="text-align:center;margin-top:14px;font-size:0.85rem;color:var(--text-muted);">
-          Нет аккаунта? <a href="#" id="toggle-mode" onclick="toggleMode(event)" style="color:var(--pink-500);font-weight:600;">Создать</a>
-        </p>
-      </div>
+  <!-- МЕНЮ / ШАПКА -->
+  <header class="kd-nav">
+    <div class="kd-brand">
+      <img src="favicon-klar.svg" alt="KlarDeutsch" />
+      <span class="kd-name">Klar<em>Deutsch</em></span>
     </div>
-  </div>
+    <span class="kd-nav-tag">Немецкий ясно и по шагам · A1 → B1</span>
+  </header>
+
+  <!-- ЛЕНДИНГ -->
+  <main class="kd-hero">
+    <section class="kd-intro">
+      <h1>Учи немецкую грамматику — <span style="color:#3a4ea8">ясно</span> и по темам</h1>
+      <p class="lead">
+        KlarDeutsch — платформа для тех, кто уже не с нуля и хочет навести порядок
+        в грамматике: от артиклей и падежей до сложных предложений. Подробная теория
+        с разбором тонкостей и частых ошибок + тренажёр, как в рабочей тетради.
+      </p>
+      <ul class="kd-feats">
+        <li class="kd-feat"><span class="ic">📚</span><span><b>Грамматика по темам.</b> 38 тем в пошаговом формате: сначала основа, потом нюансы.</span></li>
+        <li class="kd-feat"><span class="ic">✍️</span><span><b>Тренажёр и ИИ-проверка.</b> Выбор, вписать, перевод, чтение, аудио и письмо с проверкой ИИ.</span></li>
+        <li class="kd-feat"><span class="ic">🃏</span><span><b>Карточки.</b> Свои слова + интервальные повторения, прогресс в облаке.</span></li>
+        <li class="kd-feat"><span class="ic">📖</span><span><b>Чтение и аудио.</b> Перевод по клику и озвучка прямо в браузере.</span></li>
+      </ul>
+    </section>
+
+    <!-- ВХОД / РЕГИСТРАЦИЯ -->
+    <section class="kd-auth">
+      <h2 id="auth-title">Вход</h2>
+      <p class="sub" id="auth-sub">Войди, чтобы прогресс сохранялся на всех устройствах.</p>
+      <div class="kd-field">
+        <label>Логин</label>
+        <input id="login-input" type="text" placeholder="dein_login" autocomplete="username" />
+      </div>
+      <div class="kd-field">
+        <label>Пароль</label>
+        <input id="pass-input" type="password" placeholder="••••••••" autocomplete="current-password" />
+        <button class="kd-eye" id="eye-btn" onclick="togglePass()" type="button">👁</button>
+      </div>
+      <div class="kd-err" id="login-error"></div>
+      <button class="kd-btn" id="login-btn" onclick="doLogin()">Войти</button>
+      <p class="kd-toggle" id="login-toggle">
+        Нет аккаунта? <a href="#" onclick="toggleMode(event)">Создать</a>
+      </p>
+    </section>
+  </main>
+
+  <div class="kd-foot">© KlarDeutsch · klardeutsch.ru</div>
 
   <!-- Сначала грузим конфиг, потом Firebase -->
   <script src="js/firebase-config.js"></script>
@@ -48,7 +139,7 @@
     const app  = initializeApp(FIREBASE_CONFIG);
     const auth = getAuth(app);
 
-    // Уже залогинена — сразу на главную
+    // Уже залогинен — сразу на главную
     onAuthStateChanged(auth, user => {
       if (user) window.location.href = 'index.html';
     });
@@ -65,13 +156,19 @@
       registerMode = !registerMode;
       const btn = document.getElementById('login-btn');
       const toggle = document.getElementById('login-toggle');
+      const title = document.getElementById('auth-title');
+      const sub = document.getElementById('auth-sub');
       document.getElementById('login-error').textContent = '';
       if (registerMode) {
+        title.textContent = 'Создать аккаунт';
+        sub.textContent = 'Придумай логин и пароль (мин. 6 символов).';
         btn.textContent = 'Создать аккаунт';
-        toggle.innerHTML = 'Уже есть аккаунт? <a href="#" onclick="toggleMode(event)" style="color:var(--pink-500);font-weight:600;">Войти</a>';
+        toggle.innerHTML = 'Уже есть аккаунт? <a href="#" onclick="toggleMode(event)">Войти</a>';
       } else {
-        btn.textContent = 'Войти ❤️';
-        toggle.innerHTML = 'Нет аккаунта? <a href="#" onclick="toggleMode(event)" style="color:var(--pink-500);font-weight:600;">Создать</a>';
+        title.textContent = 'Вход';
+        sub.textContent = 'Войди, чтобы прогресс сохранялся на всех устройствах.';
+        btn.textContent = 'Войти';
+        toggle.innerHTML = 'Нет аккаунта? <a href="#" onclick="toggleMode(event)">Создать</a>';
       }
     };
 
@@ -88,11 +185,11 @@
         return;
       }
       if (!/^[a-z0-9_]+$/.test(loginVal)) {
-        errEl.textContent = 'Логин: только латиница, цифры и _ 🙏';
+        errEl.textContent = 'Логин: только латиница, цифры и _';
         return;
       }
       if (registerMode && passVal.length < 6) {
-        errEl.textContent = 'Пароль минимум 6 символов 🙈';
+        errEl.textContent = 'Пароль минимум 6 символов';
         return;
       }
 
@@ -111,14 +208,14 @@
       } catch (e) {
         console.error(e);
         const map = {
-          'auth/wrong-password':       'Неверный пароль 🙈',
-          'auth/invalid-credential':   'Неверный логин или пароль 🙈',
-          'auth/user-not-found':       'Такого аккаунта нет — создай новый 🙂',
-          'auth/email-already-in-use': 'Такой логин уже занят 🤔',
-          'auth/weak-password':        'Пароль слишком простой (мин. 6) 🙈',
+          'auth/wrong-password':       'Неверный пароль',
+          'auth/invalid-credential':   'Неверный логин или пароль',
+          'auth/user-not-found':       'Такого аккаунта нет — создай новый',
+          'auth/email-already-in-use': 'Такой логин уже занят',
+          'auth/weak-password':        'Пароль слишком простой (мин. 6)',
         };
         errEl.textContent = map[e.code] || ('Ошибка: ' + e.message);
-        btn.textContent = registerMode ? 'Создать аккаунт' : 'Войти ❤️';
+        btn.textContent = registerMode ? 'Создать аккаунт' : 'Войти';
         btn.disabled = false;
       }
     };
@@ -130,14 +227,6 @@
   </script>
 
   <script>
-    const fh = document.getElementById('floating-hearts');
-    ['❤️','🩷','💕','💗','💓','🌸'].forEach((ch) => {
-      const el = document.createElement('div');
-      el.className = 'fh';
-      el.textContent = ch;
-      el.style.cssText = `left:${Math.random()*100}%;bottom:-10%;font-size:${0.9+Math.random()*1.2}rem;animation-delay:${Math.random()*18}s;animation-duration:${18+Math.random()*12}s;`;
-      fh.appendChild(el);
-    });
     document.addEventListener('keydown', e => { if (e.key === 'Enter') window.doLogin && window.doLogin(); });
   </script>
 </body>

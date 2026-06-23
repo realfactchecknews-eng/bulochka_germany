@@ -33,25 +33,39 @@
 
   if (isPersonal) return; // тема Марго — больше ничего не меняем
 
-  const SITE = 'Deutsch lernen';
+  const SITE = 'KlarDeutsch';
 
   function apply() {
-    // <title>: "… — Булочка учит Deutsch" → "… — Deutsch lernen"
+    // <title>: "… — Булочка учит Deutsch" → "… — KlarDeutsch"
     document.title = document.title.replace(/Булочка учит Deutsch/g, SITE);
+
+    // Фавикон → нейтральный бренд KlarDeutsch
+    let fav = document.querySelector('link[rel="icon"]');
+    if (fav) fav.setAttribute('href', 'favicon-klar.svg');
+
+    // Логотип в шапке → KlarDeutsch (иконка + название)
+    const logo = document.querySelector('.logo');
+    if (logo) {
+      logo.innerHTML = '<img src="favicon-klar.svg" class="kd-logo-mark" alt="KlarDeutsch"> <span class="kd-logo-name">Klar<em>Deutsch</em></span>';
+    }
 
     // Главная: приветствие и подзаголовок (статичная разметка, не перетирается)
     const heroName = document.getElementById('hero-name');
     if (heroName) {
       const h1 = heroName.closest('h1');
       const name = cap(localStorage.getItem('bulochka-login') || '');
-      if (h1) h1.textContent = name ? `Willkommen, ${name}! 🇩🇪` : 'Willkommen! 🇩🇪';
+      if (h1) h1.innerHTML = name ? `Willkommen, ${name}! 🇩🇪` : 'Willkommen bei <em>KlarDeutsch</em>! 🇩🇪';
       const p = h1 && h1.parentElement && h1.parentElement.querySelector('p');
-      if (p) p.textContent = 'Курс немецкого от A1 до B1. Учись в своём темпе.';
+      if (p) p.textContent = 'Немецкая грамматика по темам — от основ до B1. Учись в своём темпе, шаг за шагом.';
     }
+
+    // Карточка «Курс» на главной (если есть)
+    const heroBig = document.querySelector('.level-big');
+    if (heroBig) heroBig.textContent = 'A1–B1';
 
     // Футер «от Матвея для Марго» → нейтрально
     const sig = document.querySelector('.footer-sig');
-    if (sig) sig.textContent = SITE;
+    if (sig) sig.textContent = 'KlarDeutsch · klardeutsch.ru';
 
     // Сплеш-экран сердца — на всякий случай удалить (CSS уже прячет)
     const splash = document.getElementById('heart-splash');
