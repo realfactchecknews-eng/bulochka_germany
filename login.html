@@ -73,6 +73,9 @@
     .kd-toggle { text-align: center; margin-top: 14px; font-size: 0.85rem; color: #6b7290; }
     .kd-toggle a { color: #3a4ea8; font-weight: 700; text-decoration: none; }
     .kd-toggle a:hover { text-decoration: underline; }
+    .kd-agree { display: flex; gap: 9px; align-items: flex-start; font-size: 0.82rem; color: #6b7290; line-height: 1.45; margin: 4px 0 12px; cursor: pointer; }
+    .kd-agree input { margin-top: 2px; width: 16px; height: 16px; accent-color: #3a4ea8; flex-shrink: 0; cursor: pointer; }
+    .kd-agree a { color: #3a4ea8; font-weight: 600; }
 
     .kd-foot { text-align: center; color: #9aa1bd; font-size: 0.8rem; padding: 30px 20px 24px; }
   </style>
@@ -118,6 +121,10 @@
         <input id="pass-input" type="password" placeholder="••••••••" autocomplete="current-password" />
         <button class="kd-eye" id="eye-btn" onclick="togglePass()" type="button">👁</button>
       </div>
+      <label class="kd-agree" id="agree-row" style="display:none;">
+        <input type="checkbox" id="agree-box" />
+        <span>Я принимаю <a href="terms.html" target="_blank">Пользовательское соглашение</a> и согласие на обработку персональных данных.</span>
+      </label>
       <div class="kd-err" id="login-error"></div>
       <button class="kd-btn" id="login-btn" onclick="doLogin()">Войти</button>
       <p class="kd-toggle" id="login-toggle">
@@ -159,6 +166,7 @@
       const title = document.getElementById('auth-title');
       const sub = document.getElementById('auth-sub');
       document.getElementById('login-error').textContent = '';
+      document.getElementById('agree-row').style.display = registerMode ? 'flex' : 'none';
       if (registerMode) {
         title.textContent = 'Создать аккаунт';
         sub.textContent = 'Придумай логин и пароль (мин. 6 символов).';
@@ -190,6 +198,10 @@
       }
       if (registerMode && passVal.length < 6) {
         errEl.textContent = 'Пароль минимум 6 символов';
+        return;
+      }
+      if (registerMode && !document.getElementById('agree-box').checked) {
+        errEl.textContent = 'Нужно принять Пользовательское соглашение';
         return;
       }
 
