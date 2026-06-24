@@ -9,107 +9,206 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
   <style>
-    body { background: linear-gradient(160deg, #f4f6fc 0%, #eef0f8 100%); }
-    /* ── Шапка-меню ── */
-    .kd-nav {
-      display: flex; align-items: center; justify-content: space-between;
-      max-width: 1080px; margin: 0 auto; padding: 16px 22px;
+    :root{ --accent:#3a4ea8; --accent2:#2a3a86; --ink:#1f2750; --ink2:#475068; --muted:#6b7290; --line:#e3e7f4; }
+    *{ box-sizing:border-box; }
+    body {
+      margin:0; min-height:100vh; overflow-x:hidden;
+      background: linear-gradient(160deg, #f4f6fc 0%, #eef0f8 100%);
+      font-family:'Inter',system-ui,sans-serif;
     }
-    .kd-brand { display: flex; align-items: center; gap: 11px; }
-    .kd-brand img { width: 40px; height: 40px; border-radius: 11px; box-shadow: 0 4px 14px rgba(31,39,80,0.18); }
-    .kd-brand .kd-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.35rem; color: #1f2750; letter-spacing: -0.5px; }
-    .kd-brand .kd-name em { color: #d7141a; font-style: normal; }
-    .kd-nav-tag { font-size: 0.85rem; color: #6b7290; font-weight: 600; }
-    @media(max-width:620px){ .kd-nav-tag { display: none; } }
+
+    /* ════ ПРЕЛОАДЕР (анимация загрузки сайта) ════ */
+    #kd-preloader{
+      position:fixed; inset:0; z-index:9999;
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px;
+      background: linear-gradient(160deg,#1f2750 0%,#2a3a86 100%);
+      transition: opacity .55s ease, visibility .55s ease;
+    }
+    #kd-preloader.hide{ opacity:0; visibility:hidden; }
+    .pl-logo{
+      width:84px; height:84px; border-radius:22px;
+      box-shadow:0 12px 40px rgba(0,0,0,.35);
+      animation: plPop .7s cubic-bezier(.2,.9,.3,1.4) both, plFloat 2.4s ease-in-out 0.7s infinite;
+    }
+    .pl-name{
+      font-family:'Nunito',sans-serif; font-weight:900; font-size:1.5rem; letter-spacing:-.5px;
+      color:#fff; opacity:0; animation: plFade .6s ease .25s both;
+    }
+    .pl-name em{ color:#ffce00; font-style:normal; }
+    .pl-bar{ width:180px; height:5px; border-radius:5px; background:rgba(255,255,255,.18); overflow:hidden; }
+    .pl-bar i{ display:block; height:100%; width:40%; border-radius:5px;
+      background:linear-gradient(90deg,#d7141a,#ffce00); animation: plSlide 1.1s ease-in-out infinite; }
+    @keyframes plPop{ 0%{transform:scale(.4);opacity:0;} 100%{transform:scale(1);opacity:1;} }
+    @keyframes plFloat{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+    @keyframes plFade{ to{opacity:1;} }
+    @keyframes plSlide{ 0%{transform:translateX(-110%);} 100%{transform:translateX(360%);} }
+
+    /* ════ ДЕКОР ФОНА ════ */
+    .kd-blob{ position:fixed; border-radius:50%; filter:blur(70px); opacity:.5; z-index:0; pointer-events:none; }
+    .kd-blob.b1{ width:420px; height:420px; top:-120px; right:-80px; background:#cdd7f7; animation: blob 16s ease-in-out infinite; }
+    .kd-blob.b2{ width:360px; height:360px; bottom:-140px; left:-100px; background:#e7d6e6; animation: blob 19s ease-in-out infinite reverse; }
+    @keyframes blob{ 0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(30px,-26px) scale(1.08);} }
+
+    /* всё контентное — над фоном */
+    .kd-nav, .kd-hero, .kd-foot{ position:relative; z-index:1; }
+
+    /* плавное появление блоков */
+    .reveal{ opacity:0; transform:translateY(18px); animation: rise .7s cubic-bezier(.2,.8,.2,1) forwards; }
+    .d1{ animation-delay:.05s; } .d2{ animation-delay:.15s; } .d3{ animation-delay:.25s; }
+    .d4{ animation-delay:.32s; } .d5{ animation-delay:.39s; } .d6{ animation-delay:.46s; } .d7{ animation-delay:.53s; }
+    @keyframes rise{ to{opacity:1; transform:none;} }
+
+    /* ── Шапка-меню ── */
+    .kd-nav{ display:flex; align-items:center; justify-content:space-between; max-width:1080px; margin:0 auto; padding:18px 22px; }
+    .kd-brand{ display:flex; align-items:center; gap:11px; }
+    .kd-brand img{ width:40px; height:40px; border-radius:11px; box-shadow:0 4px 14px rgba(31,39,80,.18); transition:transform .3s; }
+    .kd-brand:hover img{ transform:rotate(-6deg) scale(1.06); }
+    .kd-brand .kd-name{ font-family:'Nunito',sans-serif; font-weight:900; font-size:1.35rem; color:var(--ink); letter-spacing:-.5px; }
+    .kd-brand .kd-name em{ color:#d7141a; font-style:normal; }
+    .kd-nav-links{ display:flex; align-items:center; gap:22px; }
+    .kd-nav-links a{ font-size:.9rem; font-weight:600; color:var(--ink2); text-decoration:none; transition:color .2s; }
+    .kd-nav-links a:hover{ color:var(--accent); }
+    .kd-nav-tag{ font-size:.85rem; color:var(--muted); font-weight:600; }
+    @media(max-width:720px){ .kd-nav-links a:not(.kd-nav-cta){ display:none; } }
+    .kd-nav-cta{ padding:8px 16px; border-radius:10px; background:var(--ink); color:#fff !important; }
+    .kd-nav-cta:hover{ background:var(--accent); }
 
     /* ── Лендинг ── */
-    .kd-hero {
-      max-width: 1080px; margin: 10px auto 0; padding: 22px;
-      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;
-    }
-    @media(max-width:860px){ .kd-hero { grid-template-columns: 1fr; gap: 26px; } }
+    .kd-hero{ max-width:1080px; margin:18px auto 0; padding:22px; display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
+    @media(max-width:860px){ .kd-hero{ grid-template-columns:1fr; gap:26px; } }
 
-    .kd-intro h1 {
-      font-family: 'Playfair Display', serif; font-size: 2.5rem; line-height: 1.15;
-      color: #1f2750; margin-bottom: 14px;
-    }
-    @media(max-width:860px){ .kd-intro h1 { font-size: 2rem; } }
-    .kd-intro .lead { font-size: 1.05rem; color: #475068; line-height: 1.65; margin-bottom: 22px; max-width: 540px; }
-    .kd-feats { list-style: none; display: grid; gap: 12px; }
-    .kd-feat { display: flex; gap: 12px; align-items: flex-start; font-size: 0.96rem; color: #2c3450; }
-    .kd-feat .ic {
-      flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
-      background: #e9edfb; border: 1px solid #dbe1f7;
-    }
-    .kd-feat b { color: #1f2750; }
+    .kd-badge{ display:inline-flex; align-items:center; gap:7px; font-size:.78rem; font-weight:700; color:var(--accent);
+      background:#e9edfb; border:1px solid #dbe1f7; padding:6px 13px; border-radius:30px; margin-bottom:16px; }
+    .kd-badge .dot{ width:7px; height:7px; border-radius:50%; background:#34c759; box-shadow:0 0 0 0 rgba(52,199,89,.5); animation:pulse 2s infinite; }
+    @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(52,199,89,.5);} 70%{box-shadow:0 0 0 8px rgba(52,199,89,0);} 100%{box-shadow:0 0 0 0 rgba(52,199,89,0);} }
+
+    .kd-intro h1{ font-family:'Playfair Display',serif; font-size:2.6rem; line-height:1.14; color:var(--ink); margin:0 0 14px; }
+    @media(max-width:860px){ .kd-intro h1{ font-size:2.05rem; } }
+    .kd-intro .lead{ font-size:1.05rem; color:var(--ink2); line-height:1.65; margin-bottom:22px; max-width:540px; }
+    .kd-feats{ list-style:none; display:grid; gap:11px; padding:0; margin:0 0 22px; }
+    .kd-feat{ display:flex; gap:12px; align-items:flex-start; font-size:.95rem; color:#2c3450;
+      background:rgba(255,255,255,.55); border:1px solid rgba(219,225,247,.7); border-radius:14px; padding:11px 14px;
+      transition:transform .2s, box-shadow .2s, background .2s; }
+    .kd-feat:hover{ transform:translateY(-3px); background:#fff; box-shadow:0 10px 26px rgba(31,39,80,.09); }
+    .kd-feat .ic{ flex-shrink:0; width:38px; height:38px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:1.15rem;
+      background:linear-gradient(135deg,#eef1fc,#e3e8fb); border:1px solid #dbe1f7; }
+    .kd-feat b{ color:var(--ink); }
+
+    .kd-stats{ display:flex; gap:26px; }
+    .kd-stat .n{ font-family:'Nunito',sans-serif; font-weight:900; font-size:1.5rem; color:var(--accent); line-height:1; }
+    .kd-stat .l{ font-size:.78rem; color:var(--muted); margin-top:3px; }
 
     /* ── Карточка входа ── */
-    .kd-auth {
-      background: #fff; border: 1px solid #e3e7f4; border-radius: 22px;
-      box-shadow: 0 20px 60px rgba(31,39,80,0.12); padding: 32px 30px;
-    }
-    .kd-auth h2 { font-family: 'Nunito', sans-serif; font-size: 1.4rem; color: #1f2750; margin-bottom: 4px; }
-    .kd-auth .sub { font-size: 0.86rem; color: #6b7290; margin-bottom: 22px; }
-    .kd-field { margin-bottom: 15px; position: relative; }
-    .kd-field label { display: block; font-size: 0.78rem; font-weight: 700; color: #6b7290; margin-bottom: 7px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .kd-field input {
-      width: 100%; padding: 13px 16px; border: 1.5px solid #e3e7f4; border-radius: 13px;
-      font-size: 0.97rem; font-family: 'Inter', sans-serif; color: #1f2750; background: #f8f9fd;
-      outline: none; transition: border-color .18s, box-shadow .18s; box-sizing: border-box;
-    }
-    .kd-field input:focus { border-color: #3a4ea8; box-shadow: 0 0 0 3px rgba(58,78,168,0.15); }
-    .kd-eye { position: absolute; right: 13px; bottom: 11px; background: none; border: none; cursor: pointer; font-size: 1rem; opacity: .5; }
-    .kd-eye:hover { opacity: 1; }
-    .kd-err { color: #d7141a; font-size: 0.84rem; font-weight: 600; min-height: 20px; margin-bottom: 4px; }
-    .kd-btn {
-      width: 100%; padding: 14px; border: none; border-radius: 13px; cursor: pointer;
-      background: linear-gradient(135deg, #3a4ea8, #2a3a86); color: #fff;
-      font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800;
-      box-shadow: 0 8px 22px rgba(42,58,134,0.28); transition: transform .18s, box-shadow .18s; margin-top: 6px;
-    }
-    .kd-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(42,58,134,0.36); }
-    .kd-btn:disabled { opacity: .6; cursor: default; transform: none; }
-    .kd-toggle { text-align: center; margin-top: 14px; font-size: 0.85rem; color: #6b7290; }
-    .kd-toggle a { color: #3a4ea8; font-weight: 700; text-decoration: none; }
-    .kd-toggle a:hover { text-decoration: underline; }
-    .kd-agree { display: flex; gap: 9px; align-items: flex-start; font-size: 0.82rem; color: #6b7290; line-height: 1.45; margin: 4px 0 12px; cursor: pointer; }
-    .kd-agree input { margin-top: 2px; width: 16px; height: 16px; accent-color: #3a4ea8; flex-shrink: 0; cursor: pointer; }
-    .kd-agree a { color: #3a4ea8; font-weight: 600; }
+    .kd-auth{ background:#fff; border:1px solid var(--line); border-radius:24px; box-shadow:0 24px 70px rgba(31,39,80,.14);
+      padding:34px 32px; position:relative; overflow:hidden; }
+    .kd-auth::before{ content:""; position:absolute; top:0; left:0; right:0; height:4px;
+      background:linear-gradient(90deg,#111 0 33%,#d7141a 33% 66%,#ffce00 66% 100%); }
+    .kd-auth h2{ font-family:'Nunito',sans-serif; font-size:1.45rem; color:var(--ink); margin:6px 0 4px; }
+    .kd-auth .sub{ font-size:.86rem; color:var(--muted); margin-bottom:22px; }
+    .kd-field{ margin-bottom:15px; position:relative; }
+    .kd-field label{ display:block; font-size:.78rem; font-weight:700; color:var(--muted); margin-bottom:7px; text-transform:uppercase; letter-spacing:.05em; }
+    .kd-field input{ width:100%; padding:13px 16px; border:1.5px solid var(--line); border-radius:13px; font-size:.97rem;
+      font-family:'Inter',sans-serif; color:var(--ink); background:#f8f9fd; outline:none; transition:border-color .18s, box-shadow .18s; }
+    .kd-field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(58,78,168,.15); background:#fff; }
+    .kd-eye{ position:absolute; right:13px; bottom:11px; background:none; border:none; cursor:pointer; font-size:1rem; opacity:.5; }
+    .kd-eye:hover{ opacity:1; }
+    .kd-err{ color:#d7141a; font-size:.84rem; font-weight:600; min-height:20px; margin-bottom:4px; }
+    .kd-btn{ width:100%; padding:14px; border:none; border-radius:13px; cursor:pointer;
+      background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:800;
+      box-shadow:0 8px 22px rgba(42,58,134,.28); transition:transform .18s, box-shadow .18s; margin-top:6px;
+      display:flex; align-items:center; justify-content:center; gap:9px; }
+    .kd-btn:hover:not(:disabled){ transform:translateY(-2px); box-shadow:0 12px 28px rgba(42,58,134,.36); }
+    .kd-btn:disabled{ opacity:.75; cursor:default; transform:none; }
+    .kd-btn .spin{ width:16px; height:16px; border:2px solid rgba(255,255,255,.4); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; display:none; }
+    .kd-btn.loading .spin{ display:inline-block; }
+    @keyframes spin{ to{ transform:rotate(360deg); } }
+    .kd-toggle{ text-align:center; margin-top:14px; font-size:.85rem; color:var(--muted); }
+    .kd-toggle a{ color:var(--accent); font-weight:700; text-decoration:none; }
+    .kd-toggle a:hover{ text-decoration:underline; }
+    .kd-agree{ display:flex; gap:9px; align-items:flex-start; font-size:.82rem; color:var(--muted); line-height:1.45; margin:4px 0 12px; cursor:pointer; }
+    .kd-agree input{ margin-top:2px; width:16px; height:16px; accent-color:var(--accent); flex-shrink:0; cursor:pointer; }
+    .kd-agree a{ color:var(--accent); font-weight:600; }
 
-    .kd-foot { text-align: center; color: #9aa1bd; font-size: 0.8rem; padding: 30px 20px 24px; }
+    .kd-foot{ text-align:center; color:#9aa1bd; font-size:.8rem; padding:34px 20px 26px; }
+    .kd-foot a{ color:#9aa1bd; }
+
+    /* ════ ПЕРЕХОД ПОСЛЕ ЛОГИНА ════ */
+    #kd-transition{
+      position:fixed; inset:0; z-index:10000; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px;
+      background:linear-gradient(160deg,#1f2750 0%,#2a3a86 100%);
+      opacity:0; visibility:hidden; transition:opacity .45s ease, visibility .45s ease;
+    }
+    #kd-transition.show{ opacity:1; visibility:visible; }
+    #kd-transition img{ width:76px; height:76px; border-radius:20px; box-shadow:0 12px 40px rgba(0,0,0,.4);
+      animation: tPop .5s cubic-bezier(.2,.9,.3,1.5) both; }
+    #kd-transition .tmsg{ color:#fff; font-family:'Nunito',sans-serif; font-weight:800; font-size:1.15rem; opacity:0; animation:plFade .4s ease .2s both; }
+    #kd-transition .tmsg em{ color:#ffce00; font-style:normal; }
+    .tcheck{ width:54px; height:54px; }
+    .tcheck circle{ stroke:#34c759; stroke-width:4; fill:none; stroke-dasharray:151; stroke-dashoffset:151; animation:draw .5s ease .1s forwards; }
+    .tcheck path{ stroke:#34c759; stroke-width:5; fill:none; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:40; stroke-dashoffset:40; animation:draw .35s ease .5s forwards; }
+    @keyframes draw{ to{ stroke-dashoffset:0; } }
+    @keyframes tPop{ 0%{transform:scale(.4);opacity:0;} 100%{transform:scale(1);opacity:1;} }
+
+    @media(prefers-reduced-motion:reduce){ *{ animation:none !important; transition:none !important; } .reveal{ opacity:1; transform:none; } }
   </style>
 </head>
 <body>
 
+  <!-- ПРЕЛОАДЕР -->
+  <div id="kd-preloader">
+    <img class="pl-logo" src="favicon-klar.svg" alt="KlarDeutsch" />
+    <div class="pl-name">Klar<em>Deutsch</em></div>
+    <div class="pl-bar"><i></i></div>
+  </div>
+
+  <!-- ПЕРЕХОД ПОСЛЕ ЛОГИНА -->
+  <div id="kd-transition">
+    <svg class="tcheck" viewBox="0 0 60 60"><circle cx="30" cy="30" r="24"/><path d="M19 31 l8 8 l15 -17"/></svg>
+    <div class="tmsg" id="tmsg">Willkommen bei <em>KlarDeutsch</em>!</div>
+  </div>
+
+  <!-- Декор фона -->
+  <div class="kd-blob b1"></div>
+  <div class="kd-blob b2"></div>
+
   <!-- МЕНЮ / ШАПКА -->
-  <header class="kd-nav">
+  <header class="kd-nav reveal d1">
     <div class="kd-brand">
       <img src="favicon-klar.svg" alt="KlarDeutsch" />
       <span class="kd-name">Klar<em>Deutsch</em></span>
     </div>
-    <span class="kd-nav-tag">Немецкий ясно и по шагам · A1 → B1</span>
+    <nav class="kd-nav-links">
+      <a href="#features">Возможности</a>
+      <a href="terms.html">Соглашение</a>
+      <a href="#" class="kd-nav-cta" onclick="document.getElementById('login-input').focus();return false;">Войти</a>
+    </nav>
   </header>
 
   <!-- ЛЕНДИНГ -->
   <main class="kd-hero">
     <section class="kd-intro">
-      <h1>Учи немецкую грамматику — <span style="color:#3a4ea8">ясно</span> и по темам</h1>
-      <p class="lead">
+      <span class="kd-badge reveal d2"><span class="dot"></span> Платформа открыта · A1 → B1</span>
+      <h1 class="reveal d2">Учи немецкую грамматику — <span style="color:var(--accent)">ясно</span> и по темам</h1>
+      <p class="lead reveal d3">
         KlarDeutsch — платформа для тех, кто уже не с нуля и хочет навести порядок
         в грамматике: от артиклей и падежей до сложных предложений. Подробная теория
         с разбором тонкостей и частых ошибок + тренажёр, как в рабочей тетради.
       </p>
-      <ul class="kd-feats">
-        <li class="kd-feat"><span class="ic">📚</span><span><b>Грамматика по темам.</b> 38 тем в пошаговом формате: сначала основа, потом нюансы.</span></li>
-        <li class="kd-feat"><span class="ic">✍️</span><span><b>Тренажёр и ИИ-проверка.</b> Выбор, вписать, перевод, чтение, аудио и письмо с проверкой ИИ.</span></li>
-        <li class="kd-feat"><span class="ic">🃏</span><span><b>Карточки.</b> Свои слова + интервальные повторения, прогресс в облаке.</span></li>
-        <li class="kd-feat"><span class="ic">📖</span><span><b>Чтение и аудио.</b> Перевод по клику и озвучка прямо в браузере.</span></li>
+      <ul class="kd-feats" id="features">
+        <li class="kd-feat reveal d4"><span class="ic">📚</span><span><b>Грамматика по темам.</b> 38 тем в пошаговом формате: сначала основа, потом нюансы.</span></li>
+        <li class="kd-feat reveal d5"><span class="ic">✍️</span><span><b>Тренажёр и ИИ-проверка.</b> Выбор, вписать, перевод, чтение, аудио и письмо с проверкой ИИ.</span></li>
+        <li class="kd-feat reveal d6"><span class="ic">🃏</span><span><b>Карточки.</b> Свои слова + интервальные повторения, прогресс в облаке.</span></li>
+        <li class="kd-feat reveal d7"><span class="ic">📖</span><span><b>Чтение и аудио.</b> Перевод по клику и озвучка прямо в браузере.</span></li>
       </ul>
+      <div class="kd-stats reveal d7">
+        <div class="kd-stat"><div class="n">38</div><div class="l">тем грамматики</div></div>
+        <div class="kd-stat"><div class="n">2000+</div><div class="l">слов в карточках</div></div>
+        <div class="kd-stat"><div class="n">A1–B1</div><div class="l">уровни</div></div>
+      </div>
     </section>
 
     <!-- ВХОД / РЕГИСТРАЦИЯ -->
-    <section class="kd-auth">
+    <section class="kd-auth reveal d3">
       <h2 id="auth-title">Вход</h2>
       <p class="sub" id="auth-sub">Войди, чтобы прогресс сохранялся на всех устройствах.</p>
       <div class="kd-field">
@@ -126,14 +225,21 @@
         <span>Я принимаю <a href="terms.html" target="_blank">Пользовательское соглашение</a> и согласие на обработку персональных данных.</span>
       </label>
       <div class="kd-err" id="login-error"></div>
-      <button class="kd-btn" id="login-btn" onclick="doLogin()">Войти</button>
+      <button class="kd-btn" id="login-btn" onclick="doLogin()"><span class="spin"></span><span id="btn-label">Войти</span></button>
       <p class="kd-toggle" id="login-toggle">
         Нет аккаунта? <a href="#" onclick="toggleMode(event)">Создать</a>
       </p>
     </section>
   </main>
 
-  <div class="kd-foot">© KlarDeutsch · klardeutsch.ru · <a href="terms.html" style="color:#6b7290;text-decoration:underline;">Пользовательское соглашение</a></div>
+  <div class="kd-foot reveal d7">© KlarDeutsch · klardeutsch.ru · <a href="terms.html" style="text-decoration:underline;">Пользовательское соглашение</a></div>
+
+  <!-- Прелоадер скрываем после полной загрузки -->
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('kd-preloader').classList.add('hide'), 450);
+    });
+  </script>
 
   <!-- Сначала грузим конфиг, потом Firebase -->
   <script src="js/firebase-config.js"></script>
@@ -153,6 +259,17 @@
 
     let registerMode = false;
 
+    function setBtnLabel(text){ document.getElementById('btn-label').textContent = text; }
+
+    // Красивый переход + редирект
+    function goToApp(){
+      const name = (localStorage.getItem('bulochka-login') || '').replace(/^./, c => c.toUpperCase());
+      document.getElementById('tmsg').innerHTML = name
+        ? `Willkommen, ${name}!` : 'Willkommen bei <em>KlarDeutsch</em>!';
+      document.getElementById('kd-transition').classList.add('show');
+      setTimeout(() => { window.location.href = 'index.html'; }, 1100);
+    }
+
     // email выводится из логина: известные — через USER_MAP, новые — login@домен
     function emailFor(login) {
       return USER_MAP[login] || `${login}@bulochka-deutsch.de`;
@@ -161,7 +278,6 @@
     window.toggleMode = function(e) {
       if (e) e.preventDefault();
       registerMode = !registerMode;
-      const btn = document.getElementById('login-btn');
       const toggle = document.getElementById('login-toggle');
       const title = document.getElementById('auth-title');
       const sub = document.getElementById('auth-sub');
@@ -170,12 +286,12 @@
       if (registerMode) {
         title.textContent = 'Создать аккаунт';
         sub.textContent = 'Придумай логин и пароль (мин. 6 символов).';
-        btn.textContent = 'Создать аккаунт';
+        setBtnLabel('Создать аккаунт');
         toggle.innerHTML = 'Уже есть аккаунт? <a href="#" onclick="toggleMode(event)">Войти</a>';
       } else {
         title.textContent = 'Вход';
         sub.textContent = 'Войди, чтобы прогресс сохранялся на всех устройствах.';
-        btn.textContent = 'Войти';
+        setBtnLabel('Войти');
         toggle.innerHTML = 'Нет аккаунта? <a href="#" onclick="toggleMode(event)">Создать</a>';
       }
     };
@@ -206,7 +322,8 @@
       }
 
       const email = emailFor(loginVal);
-      btn.textContent = registerMode ? 'Создаём...' : 'Входим...';
+      setBtnLabel(registerMode ? 'Создаём…' : 'Входим…');
+      btn.classList.add('loading');
       btn.disabled = true;
 
       try {
@@ -216,7 +333,7 @@
           await signInWithEmailAndPassword(auth, email, passVal);
         }
         localStorage.setItem('bulochka-login', loginVal);
-        window.location.href = 'index.html';
+        goToApp();
       } catch (e) {
         console.error(e);
         const map = {
@@ -227,7 +344,8 @@
           'auth/weak-password':        'Пароль слишком простой (мин. 6)',
         };
         errEl.textContent = map[e.code] || ('Ошибка: ' + e.message);
-        btn.textContent = registerMode ? 'Создать аккаунт' : 'Войти';
+        setBtnLabel(registerMode ? 'Создать аккаунт' : 'Войти');
+        btn.classList.remove('loading');
         btn.disabled = false;
       }
     };
