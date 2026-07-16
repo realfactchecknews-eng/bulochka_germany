@@ -1,0 +1,50 @@
+rules_version = '2';
+
+// ════════════════════════════════════════════════════════════════════
+// Правила безопасности Firestore для KlarDeutsch (bulochka-deutsch).
+// Заменяют временные правила тестового режима (они истекают и после
+// этого блокируют ВСЕ запросы).
+//
+// Модель данных:
+//   users/{uid}                  — профиль (xp, streak, прогресс)
+//   users/{uid}/data/{docId}     — srs, custom_words и т.п.
+//   config/{docId}               — ключи OpenRouter (openrouter, openrouter_guest)
+//   feedback/{docId}             — обратная связь от пользователей
+// ════════════════════════════════════════════════════════════════════
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Данные пользователя: только свои, только авторизованным ──
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+
+      match /data/{docId} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+
+    // ── Ключи ИИ: читать может только авторизованный, писать — никто ──
+    // (менять значения только вручную через консоль Firebase)
+    match /config/{docId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // ── Обратная связь: создать можно только от своего имени,
+    //    читать — только свои сообщения. Правка/удаление запрещены ──
+    match /feedback/{docId} {
+      allow create: if request.auth != null
+                    && request.resource.data.uid == request.auth.uid
+                    && request.resource.data.text is string
+                    && request.resource.data.text.size() > 0
+                    && request.resource.data.text.size() <= 5000;
+      allow read: if request.auth != null && resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    // ── Всё остальное запрещено ──
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
